@@ -1,0 +1,232 @@
+body{
+   background:#FFFFFF url(http://www.yaploud.com/imgs/page-back.gif) repeat-x scroll 0%;
+   color:#393733;
+   font: 12px Helvetica, Arial, sans-serif;
+}
+
+.yap_title{
+   font: 26px Helvetica, Arial, sans-serif;color:#006699;
+   font-weight:bold;
+}
+
+.column{
+   float:left;
+   width:100px;
+   text-align:right;
+}
+
+label{
+   font: 12px Helvetica, Arial, sans-serif;
+   text-align:right;
+   width:5em;
+}
+
+input{
+   font: 12px Helvetica, Arial, sans-serif;
+   color:orange;
+}
+
+
+/* By default, no time */ 
+.msg_time{
+   display:none;
+}
+
+.room_user{
+   font: 12px Helvetica, Arial, sans-serif;
+   color:orange;
+}
+
+.util_box{
+   width:130px;
+   height:90px;
+   padding:3px 3px 3px 3px;
+   background-color:white;
+   border:1px solid gray;
+}
+
+#msg_content_container {
+   width:530px;
+   height:100px;
+}
+
+
+#msg_input {
+   height:60px;
+   width:400px;
+}
+
+.yui-editor-editable-container {
+   height:50px;
+}
+
+a:hover {
+   color:#3B5998;
+   outline-color:invert;
+   outline-style:none;
+   outline-width:medium;
+   text-decoration:underline;
+}
+
+a{
+   color:#206BA4;
+   outline-color:invert;
+   outline-style:none;
+   outline-width:medium;
+   text-decoration:none;
+}
+
+/*on_row and off_row define background to alternate row colors */
+/*for the row class below.  used with multiple classes in a row */
+.on_row{
+   background-color:#E3E4FA;
+}
+.off_row{
+   background-color:white;
+}
+
+.row{
+   color:gray;
+   padding:3px 3px 3px 3px;
+   margin:4px 4px 4px 4px;
+   font-size:12px;
+   /* provides divider between msgs*/
+   border-top: 2px solid gray;
+}
+
+.home_row{
+   padding:2px;
+   margin: 2px;
+   font-size:12px;
+   border-top: 2px solid gray; 
+   clear:both;
+}
+
+.msg{
+   margin-left: 5px;
+   font-size:12px;
+}
+
+.resizepanel .resizehandle { position:absolute; width:25px; height:4px; right:0; bottom:0; margin:0; padding:0; z-index:1; background:#666;  cursor:se-resize; font-size:2px; }
+
+.msgs_div{
+	 border:1px solid gray;
+	 height:250px;
+	 width:430px;
+	 overflow:auto;
+	 background:#99CCCC;
+	 background:white;
+	 margin:3px 3px 3px 3px;
+	 padding:3px 3px 3px 3px;
+	 float:left;
+}
+
+.members{
+   background-color:white;
+   float:left;
+   width:90px;
+   height:250px;
+   overflow:auto;
+   border:1px solid gray;
+   text-align:left;
+	 margin:3px 3px 3px 3px;
+	 padding:3px 3px 3px 3px;
+}
+
+/* a member entry in the member list */
+.mem{
+   font: 11px Helvetica, Arial, sans-serif;
+   color: gray;
+}
+
+.chars_left{
+   font: 75% Helvetica, Arial, sans-serif;
+   color:black; margin-left:5px; float:left;
+}
+.top_imge {
+	background-image: url(http://www.yaploud.com/images/home_03.gif);
+	background-position: right;
+}
+.menu_1 {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #666666;
+}
+.Text2_b {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #666666;
+}
+.login_bg {
+	background-image: url(http://www.yaploud.com/images/login_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.new_us_BG {
+	background-image: url(http://www.yaploud.com/images/new_us_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.main_text {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+}
+.button_br {
+	background-attachment: fixed;
+	background-color: #acacac;
+	background-repeat: repeat-y;
+	background-image: url(http://www.yaploud.com/images/1px_button.gif);
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.member_login_bg {
+
+	background-image: url(http://www.yaploud.com/images/Member_login_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+/* Resize Panel CSS */
+
+.yui-panel-container .yui-resizepanel .bd {
+   overflow: auto;
+   background-color: #fff;
+}
+
+/*
+   PLEASE NOTE: It is necessary to toggle the "overflow" property 
+   of the body element between "hidden" and "auto" in order to 
+   prevent the scrollbars from remaining visible after the the 
+   ResizePanel is hidden.  For more information on this issue, 
+   read the comments in the "container-core.css" file.
+*/
+
+.yui-panel-container.hide-scrollbars .yui-resizepanel .bd {
+   overflow: hidden;
+}
+
+.yui-panel-container.show-scrollbars .yui-resizepanel .bd {
+   overflow: auto;
+}		
+
+.yui-panel-container.show-scrollbars .underlay {
+   overflow: visible;
+}
+.yui-resizepanel .resizehandle { 
+position: absolute; width: 10px; height: 10px; right: 0; bottom: 0; margin: 0; padding: 0; z-index: 1; background: url(http://developer.yahoo.com/yui/examples/container/assets/img/corner_resize.gif) left bottom no-repeat; cursor: se-resize; 
+}
