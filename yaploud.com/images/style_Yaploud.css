@@ -1,0 +1,57 @@
+.top_imge {
+	background-image: url(home_03.gif);
+	background-position: right;
+}
+.menu_1 {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #666666;
+}
+.Text2_b {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	color: #666666;
+}
+.login_bg {
+	background-image: url(login_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.new_us_BG {
+	background-image: url(new_us_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.main_text {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+}
+.button_br {
+	background-attachment: fixed;
+	background-color: #acacac;
+	background-repeat: repeat-y;
+	background-image: url(1px_button.gif);
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.member_login_bg {
+
+	background-image: url(Member_login_bg.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
