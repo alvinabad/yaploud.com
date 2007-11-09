@@ -30,7 +30,7 @@
 		<form method=get action=search.php>
 		   <span class=menu_1 style="margin-top:5px; margin-left: 0px;">Search:</span>
 		   <input name="q" id=search_box type="text" class="Text2_b" size="16"></input>
-		   <img src="images/go_image.gif" width="29" height="21" border="1"></img>
+		   <img src="images/go_image.gif" width="29" height="21" border="0"></img>
 		</form>
 	</div>
 </div>
@@ -46,6 +46,6 @@
         <td>&nbsp;</td>
       </tr>
   <tr>
-</table> <br><br>
+</table> <br>
 
 <!-- End Top Nav -->

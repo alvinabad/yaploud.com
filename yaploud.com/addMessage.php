@@ -1,7 +1,5 @@
 <?PHP
 
-
-
   include("db.php");
 
   // This page will add a message to the DB
