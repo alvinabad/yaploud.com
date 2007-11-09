@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.yaploud.com/TR/html4/loose.dtd">
+<html>
+<head>
+
+<title>www.yaploud.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="css/chat.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+
+
+<link href="images/style_Yaploud.css" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+
+function focus()
+
+	{
+		document.forms[0].userid.focus();
+
+	}
+function validateForm() //check for required fields
+{
+	if (document.forms[0].userid.value == "")
+	{
+		alert("You did not enter your User Id. Please provide it.");
+		document.forms[0].userid.focus();
+		return(false)
+	}
+    if (document.forms[0].firstName.value == "")
+    {
+    	alert("You did not enter your first name. Please provide it.");
+		document.forms[0].firstName.focus();
+		return(false)
+
+    }
+    if (document.forms[0].lastName.value == "")
+    {
+    alert("You did not enter your last name. Please provide it.");
+	document.forms[0].lastName.focus();
+	return(false)
+    }
+    if (document.forms[0].email.value == "")
+    {
+    	alert("You did not enter your email. Please provide it.");
+		document.forms[0].email.focus();
+		return(false)
+
+    }
+    if (document.forms[0].password.value == "")
+    {
+    alert("You did not enter your password. Please provide it.");
+	document.forms[0].password.focus();
+	return(false)
+    }
+    if (document.forms[0].password2.value != document.forms[0].password.value)
+    {
+    alert("You did not retype your password correctly. Please provide it.");
+	document.forms[0].password2.focus();
+	return(false)
+    }
+
+}
+
+function processLogin() {
+
+	alert("Function called.");
+	return false;
+
+}
+
+
+</script>
+
+</head>
+
+<body onLoad="focus()">
+
+
+<table width="777"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="777" align="left" valign="top" scope="col"><table width="99%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="163" height="90" align="left" valign="top" scope="row"><img src="images/logo.gif" width="163" height="90"></th>
+        <td width="43" align="left" valign="top"><img src="images/home_02.gif" width="43" height="90"></td>
+        <td width="328" align="left" valign="middle" class="top_imge">&nbsp;</td>
+        <td width="239" align="left" valign="top" class="top_imge"><table width="112%"  border="0" cellspacing="0" cellpadding="2">
+          <tr>
+            <th class="menu_1" scope="col"><div align="center"><a href="#"class="menu_1" scope="col"><strong>Sign Up</strong></a></a> | <a href="#"class="menu_1" scope="col">My Account</a> | <a href="#"class="menu_1" scope="col">Help</a> | <a href=login_page.php class="menu_1" scope="col">Log In</a></div></th>
+            </tr>
+          <tr>
+            <td>&nbsp;</td>
+            </tr>
+          <tr>
+            <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <!-- <tr>
+                <th width="31%" class="Text2_b" scope="col">SEARCH :</th>
+                <th width="44%" align="left" valign="top" scope="col"><input name="textfield3" type="text" class="Text2_b" size="16"></th>
+                <th width="25%" align="left" valign="top" scope="col"><div align="left"><a href="#"><img src="images/go_image.gif" width="29" height="21" border="0"></a></div></th>
+              </tr> -->
+            </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <th align="left" valign="top" scope="row"><img src="images/home_06.gif" width="163" height="22"></th>
+        <td align="left" valign="top"><img src="images/home_07.gif" width="43" height="22"></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+</table>
+
+<div style="float:left;width:500px;">
+	<div class=yap_title>Register at YapLoud</div>
+	<p>
+	<form id="registrationForm" method="POST" action="/register.php" onsubmit="return validateForm();">
+	   <label for=userid>Desired Username:</label><br/>
+	   <input type=text name=userid id=userid /><br/>
+	   <label for=firstName>First Name:</label><br/>
+	   <input type=text name=firstName id=firstName /><br/>
+	   <label for=lastName>Last Name:</label><br/>
+	   <input type=text name=lastName /><br/>
+	   <label for=email>Email:</label><br/>
+	   <input type=text name=email /><br/>
+      <label for=password>Password:</label><br/>
+      <input type=password name=password /><br/>
+      <label for=password2>Retype Password:</label><br/>
+      <input type=password name=password2 />
+      <p>
+      <input type=submit value="Join Now" />
+      </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* YapLoud.com 
+
+	This CSS document will define the look and feel of the YapLoud pages.
+	
+*/
+
+.formFields {
+
+    font-weight: normal; 
+    font-size: 10px;
+    color: #000000;    
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+#loginFormDiv {
+  font-size: 10pt;
+  font-weight: normal;
+}
+
+#yaploud_chatWindow {
+  background: transparent none repeat scroll 0%;
+  position: fixed;
+  z-index: 999999;
+  top: 5px;
+  right:5px;
+  text-align:left;
+  opacity=0.95;
+  font-family:arial;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  font-size:8pt;
+  width:580px;
+  height:450px;
+  margin-bottom:15px;
+}
+
+#yaploud_chatTitle {
+  border: 0pt none;
+  background: transparent url('/images/topbar.png') repeat scroll 0%;
+  color: white;
+  font-size: 12pt;
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+}
+
+#close-image {
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+#minimize-image {
+  float: right;
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+
+#yaploud_body {
+  display: block;
+  background: transparent;
+  width: 100%;
+  height: 410px;
+  color: black;
+}
+
+.sidebar {
+  background: transparent url('/images/sidebar.png');
+  width: 5px;
+  height: 390px;
+}
+
+#left-sidebar {
+  float: left;
+}
+
+#right-sidebar {
+  float: right;
+}
+
+#bottom-image {
+  background: transparent url('/images/bottombar.png');
+  float: left;
+  height: 13px;
+  width: 100%;
+}
+
+#yaploud_chatdiv {
+  border: 1px solid black;
+  overflow: auto;
+  width: 450px;
+  height: 65%;
+  background-color: white;
+  float: left;
+  margin-top: 0px;
+}
+
+#yaploud_messagesTable {
+  width: 99%;
+}
+
+#yapper_div {
+  border: 1px solid black;
+  width: 20%;
+  height: 65%;
+  background-color: white;
+  margin-top: 0px;
+  float: right;
+}
+
+#yapper_title {
+  height: 6%;
+  width: 100%;
+}
+
+#yapper_body {
+  border: 0px none;
+  margin: 5px;
+  overflow: auto;
+  width: 90%;
+  height: 92%;
+  color: black;
+  background-color: white;
+}
+
+#yapper_table {
+  margin: 3%;
+  width: 94%;
+}
+
+#yapper_tbody {
+
+}
+
+#yaploud_logindiv {
+  border: 1px solid black;
+  display: block;
+  width: 568px;
+  height: 120px;
+  background-color: white;
+  float: left;
+  margin-top: 0px;
+}
+
+.title-text {
+  background: transparent url("/images/textbg.png");
+  color: black;
+  text-align: center;
+}
+
+#login_title {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#login_form {
+  width: 220px;
+  background-color: white;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#login_button {
+
+}
+
+#yaploud_commentDiv {
+  border: 1px solid black;
+  display: none;
+  width: 568px;
+  height: 120px;
+  background-color: white;
+  float: left;
+  margin-top: 0px;
+}
+
+#yaploud_newCommentText {
+
+}
+
+#bottom_image {
+
+}
+
+
+
+
+
