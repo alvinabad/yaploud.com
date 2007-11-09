@@ -64,7 +64,7 @@ Yaploud Chat
 ?>
 <div id=panel1>
    <div id=normalized_url style="display:none;"><?php print normalizeURL($url); ?></div>
-   <div class=hd><img src=images/logo.gif width=41 height=22 valign=absmiddle></img>&nbsp;Chatting about: <span id=url><?php print "$url"; ?></span><a style="margin-left:10px;" href="<?php print "$url"; ?>" >(go)</a></div>   <div class=bd>
+   <div class=hd><img src=images/logo.gif width=41 height=22 valign=absmiddle></img>&nbsp;Chatting about: <span id=url><?php print "$url"; ?></span><a style="margin-left:10px;" href="<?php print "http://$url"; ?>" >(go)</a></div>   <div class=bd>
         <!-- begin msgs -->
 	<div id=msgs_div class=msgs_div>
 	</div> <!-- msgs_div -->
