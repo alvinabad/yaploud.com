@@ -2,7 +2,7 @@
 
   include("db.php");
 
-  // This page will add a message to the DB
+  // *This page will add a message to the DB
 
   $url = $_REQUEST['url'];
   $lastMsg = $_REQUEST['lastMsg'];
