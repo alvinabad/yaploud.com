@@ -27,6 +27,7 @@ input{
 <body>
 
 <?php include("common/header.php");  ?>
+
 <!--<table width="777"  border="0" cellspacing="0" cellpadding="0">
   <tr>
     <th width="777" align="left" valign="top" scope="col"><table width="99%"  border="0" cellspacing="0" cellpadding="0">
@@ -39,9 +40,13 @@ input{
       </tr>
   <tr>
 </table>-->
+ <?php  if (isset($_SESSION['logged']) || $_SESSION['logged'] == true)
+
+               header("Location: http://www.yaploud.com/home.php");
+?>
 <div style="width:450px;float:left;">
 <p>
-<div style="font: 26px Helvetica, Arial, sans-serif;color:#006699;font-weight:bold;">What is YapLoud?</div>
+<div style="font: 26px Helvetica, Arial, sans-serif;color:#006699;font-weight:bold;">*What is YapLoud?</div>
 <div style="font: 20px Helvetica, Arial, sans-serif;color:#006600;font-weight:bold;">YapLoud is the home for yapping about everything:</div>
 <ul style="color:grey;font:18px Helvetica, Arial, sans-serif;">
 <li>Chat about any topic of your interestyappe
