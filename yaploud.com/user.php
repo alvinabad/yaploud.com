@@ -37,7 +37,6 @@ class User {
 	if(mysql_num_rows($result) != 1){
 		// Login failed
 		$this->failed = true;
-		$this->_logout();
 		return false;
 	}
 	$res_obj = mysql_fetch_object($result);

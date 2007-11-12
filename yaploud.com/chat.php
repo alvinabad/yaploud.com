@@ -6,6 +6,9 @@
    header("Cache-Control: no-store, no-cache, must-revalidate");
    header("Cache-Control: post-check=0, pre-check=0", false);
    header("Pragma: no-cache");
+   // store this URI in session. This will be used so that the next page 
+   // can access the previous one if it needs to like going to login
+   $_SESSION['PREVIOUS_URI'] = $_SERVER['REQUEST_URI'];
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">

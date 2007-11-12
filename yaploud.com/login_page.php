@@ -54,7 +54,6 @@ input{
 
 <div style="float:left;margin-left:30px;">
    <?php
-
    if(isset($_POST['action']) && $_POST['action'] == 'login') {
         // Login form was submiteted
 	//print "validating user.<br/>\n";t
@@ -65,8 +64,16 @@ input{
 		   echo ("<div style=\"font:17px Helvetica, Arial, sans-serif; color:#FF0000;\">Please try again<p></div>");
 		}
 		else {
-		   header("Location: http://www.yaploud.com/home.php");
-	        }
+		    //header("Location: http://www.yaploud.com/home.php");
+            if (isset($_SESSION['PREVIOUS_URI'])) {
+    			$redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SESSION['PREVIOUS_URI'];
+    			unset($_SESSION['PREVIOUS_URI']);
+			}
+			else {
+             	$redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/home.php';
+			}
+	  	    header("Location: $redirect");
+	    }
 	}
    }
 
