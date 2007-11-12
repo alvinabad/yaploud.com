@@ -5,7 +5,9 @@
    function get(){
 	var el = document.createElement('script');
 	// el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=tim.com&last_msg_id=' + last_msg_id);
-	el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=http://www.cnn.com/2007/WORLD/asiapcf/11/04/pakistan/index.html&last_msg_id=' + last_msg_id);
+	//el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=http://www.cnn.com/2007/WORLD/asiapcf/11/04/pakistan/index.html&last_msg_id=' + last_msg_id);
+	var enc = escape||encodeURIComponent;
+	el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=' + enc(yapurl) + '&last_msg_id=' + last_msg_id);
 	el.setAttribute('type', 'text/javascript');
 	el.setAttribute('id', 'dynamic_script');
 	var old = document.getElementById('dynamic_script');
