@@ -12,9 +12,10 @@
 <script type=text/javascript>
    function make_widget(){
    	document.getElementById('ta').value = '';
-   	var w = "<script src=http:\/\/www.yaploud.com/widget.js><\/script><script>";
    	var url = document.getElementById('url').value;
-	w += 'yapurl=\"' + url + "\"";
+	var w = '<script>var yapurl=\"' + url + "\";<\/script>";
+   	w += "<script src=http:\/\/www.yaploud.com/widget.js><\/script><script>";
+
 	w += '<\/script>';
 	w += "<style>.row{ color:#gray; padding:3px 3px 3px 3px; margin:4px 4px 4px 4px; font-size:12px; border-top: 2px solid gray; } .on_row{ background-color:#E3E4FA; } .off_row{ background-color:white; } #msgs{font: 18px Helvetica, Arial, sans-serif;} <\/style> <div style=\"margin-top:1px;padding-top:1px;overflow:auto;border:1px solid gray;height:300px;width:400px;background:white;\" id=_yaploudmsgs><\/div>";
 	document.getElementById('ta').value = w;
