@@ -15,16 +15,16 @@ class User {
 	$this->db = new DB();
 	$this->date = date("Y-m-d");
 
-
-	if (!isset($_SESSION['userid']) ) {
+	if (isset($_SESSION['logged']) && $_SESSION['logged']) {
+	    $this->_checkSession();
+	}
+	elseif ( isset($_COOKIE['yaploud']) ) {
+	    $this->_checkRemembered($_COOKIE['yaploud']);
+	}
+	else {
 		$this->_session_defaults();
 	}
-	if ($_SESSION['logged']) {
-	  $this->_checkSession();
-	} elseif ( isset($_COOKIE['yaploud']) ) {
-	  $this->_checkRemembered($_COOKIE['yaploud']);
-	}
-
+	
   }
 
 
@@ -39,9 +39,21 @@ class User {
 		$this->failed = true;
 		return false;
 	}
+	
 	$res_obj = mysql_fetch_object($result);
 	// Login successful
-	$this->_setSession($res_obj, $remember);
+	
+	// set session
+	$this->_setSession($res_obj, $remember, true);
+	
+	// set remember-me cookie
+	if ($remember) {
+		$this->updateCookie($values->cookie, true);
+	}
+	else {
+        setcookie("yaploud", "", time()-60000);
+	}
+	
 	mysql_free_result($result);
 	return true;
   }
@@ -82,27 +94,34 @@ class User {
 
   function _setSession(&$values, $remember, $init = true) {
 	$this->userid = $values->username;
+	
+	// set session using data retrieved from database
 	$_SESSION['username'] = htmlspecialchars($values->username);
 	$_SESSION['cookie'] = $values->cookie;
 	$_SESSION['logged'] = true;
-	if ($remember) {
-		$this->updateCookie($values->cookie, true);
-	}
-	$cookie = addslashes($_SESSION['cookie']);
+	$_SESSION['userid'] = $_SESSION['username'];
+	
 	if ($init) {
 		$session = session_id();
+    	$cookie = $session;
+    	$_SESSION['cookie'] = $cookie;
 		$ip = $_SERVER['REMOTE_ADDR'];
 
 		$sql = "UPDATE dev.user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
 		"userId = \"$this->userid\";";
 		$this->db->mysql_query($sql) or die("Couldn't execute query $sql");
+		
+		// update cookie with new value
+		$this->updateCookie($values->cookie, true);
 	}
   }
 
 
   function updateCookie($cookie, $save) {
 	if ($save) {
-		$cookie = serialize(array($_SESSION['userid'], $cookie) );
+		
+		$sessionid = session_id();
+		$cookie = serialize(array($_SESSION['userid'], $sessionid) );
 		setcookie('yaploud', $cookie, time() + 31104000);
 	}
   }
@@ -110,30 +129,36 @@ class User {
 
   function _checkRemembered($cookie) {
 
+    // retrieve user info from cookie
 	list($username, $cookie) = @unserialize($cookie);
+	
 	if (!$username or !$cookie) return;
-	$cookie = addslashes($cookie);
+	
 	$sql = "SELECT * FROM dev.user WHERE " .
 		"(userid = \"$username\") AND (cookie = \"$cookie\");";
 	$result = $this->db->mysql_query($sql);
 	$result = mysql_fetch_object($result);
+	
+	// if remember-me user is found in the database, set session for the user
 	if (is_object($result) ) {
-		$this->_setSession($result, false);
+		$this->_setSession($result, false, true);
 	}
-
   }
 
   function _checkSession() {
 	$username = $_SESSION['username'];
-	$cookie = addslashes($_SESSION['cookie']);
+	$cookie = $_SESSION['cookie'];
 	$session = session_id();
 	$ip = $_SERVER['REMOTE_ADDR'];
+	
 	$sql = "SELECT * FROM dev.user WHERE " .
 		"(userId = \"$username\") AND (cookie = \"$cookie\") AND " .
 		"(session = \"$session\") AND (ip = \"$ip\");";
+		
 	$result = $this->db->mysql_query($sql) or die("Couldn't query the db with sql $sql");
 	$result_obj = mysql_fetch_object($result);
 	mysql_free_result($result);
+	
 	if (is_object($result_obj) ) {
 		$this->_setSession($result_obj, false, false);
 	} else {
