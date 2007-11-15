@@ -168,6 +168,7 @@ class User {
 
   function _logout() {
     setcookie("yaploud", "", time()-60000);
+    session_start();  // to prevent session_destroy from raising an exception in case there was no session
     session_unset();
     session_destroy();
 
