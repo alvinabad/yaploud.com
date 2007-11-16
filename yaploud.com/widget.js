@@ -37,6 +37,10 @@
 	}
 	m.innerHTML = m.innerHTML + tmp_html;
 	m.scrollTop = m.scrollHeight;
+	if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        m.scrollTop = m.scrollHeight; // IE7 requires running this twice!
+    }
+   
    }
 
    setInterval(get, 1000);
