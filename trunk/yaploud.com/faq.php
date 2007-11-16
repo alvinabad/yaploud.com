@@ -24,7 +24,7 @@
 	<p> 4. <a href="#faq4"> Can I Yap (chat) without downloading the client plugin ?<br></a></p>
 	<p> 5. <a href="#faq5"> How do I install the plugin on Firefox browser?<br></a></p>
 	<p> 6. <a href="#faq6"> What about a plugin for other browsers (IE, Safari etc) ?<br></a></p>
-	<p> 7. <a href="#faq7"> How do we control SPAM messages in the chats ?<br></a></p>
+	<!-- <p> 7. <a href="#faq7"> How do we control SPAM messages in the chats ?<br></a></p> -->
 	<p> 8. <a href="#faq8"> How do I contact you ?<br></a></p>
 	<p> 9. <a href="#faq9"> How do I find something I want to chat about ?<br></a></p>
 
@@ -37,13 +37,13 @@
 Yup<br><br><br><br>
 
 <a name="faq2">2.</a> How do I participate in the Yap (chat) ?<br><br>
-There are multiple ways to start/participate a Yap (chat). Please refer to QUICK START video<br><br><br><br>
+There are multiple ways to start/participate a Yap (chat). You can use our firefox plugin, or go to Yaploud.com/login_page.php, search for your topic, and start yapping.<br><br><br><br>
 
 <a name="faq3">3.</a> Can I really Yap (chat) about any link (URL) on the web ?<br><br>
 Yes, you can Yap (chat) about any URL on the web <br><br><br><br>
 
 <a name="faq4">4.</a> Can I Yap without downloading the client plugin ?<br><br>
-Yes, you can start Yappling about the topic of your interest from yaploud.com. <br><br><br><br>
+Yes, you can start Yappling about the topic of your interest from yaploud.com/login_page.php. <br><br><br><br>
 
 <a name="faq5">5.</a> How do I install the plugin on Firefox browser ?<br><br>
 Download the plugin from <a href="#">HERE</a> to any location on your computer. Open firefox browser, Go to File -- > Open File. Select the file "NAME" and Install the plugin. Restart Firefox browser and start Yapping.<br><br><br><br>
@@ -51,11 +51,11 @@ Download the plugin from <a href="#">HERE</a> to any location on your computer. 
 <a name="faq6">6.</a> What about a plugin for other browsers (IE, Safari etc) ?<br><br>
 We are currently working on those plugins and will release them soon<br><br><br><br>
 
-<a name="faq7">7.</a> How do we control SPAM messages in the chats ?<br><br>
-TO BE ANSWERED<br><br><br><br>
+<<!-- a name="faq7">7.</a> How do we control SPAM messages in the chats ?<br><br>
+TO BE ANSWERED<br><br><br><br> -->
 
 <a name="faq8">8.</a> How do I contact you ?<br><br>
-We will love to hear from you. Please leave your comments at <a href="help.php">Help</a><br><br><br><br>
+We will love to hear from you. Please leave your comments at <a href="help.php">Feedback</a><br><br><br><br>
 
 
 <div style="font: 20px Helvetica, Arial, sans-serif;color:#006600;">My Account: </div>
