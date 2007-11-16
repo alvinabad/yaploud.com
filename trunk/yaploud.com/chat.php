@@ -6,7 +6,7 @@
    header("Cache-Control: no-store, no-cache, must-revalidate");
    header("Cache-Control: post-check=0, pre-check=0", false);
    header("Pragma: no-cache");
-   // store this URI in session. This will be used so that the next page 
+   // store this URI in session. This will be used so that the next page
    // can access the previous one if it needs to like going to login
    $_SESSION['PREVIOUS_URI'] = $_SERVER['REQUEST_URI'];
 
@@ -67,7 +67,8 @@ Yaploud Chat
 ?>
 <div id=panel1>
    <div id=normalized_url style="display:none;"><?php print normalizeURL($url); ?></div>
-   <div class=hd><img src=images/logo.gif width=41 height=22 valign=absmiddle></img>&nbsp;Chatting about: <span id=url><?php print "$url"; ?></span><a style="margin-left:10px;" href="<?php print "http://$url"; ?>" target="_blank">(go)</a></div>   <div class=bd>
+   <div class=hd><img src=images/logo.gif width=41 height=22 valign=absmiddle></img>&nbsp;Chatting about: <span id=url><?php print "$url"; ?></span><a style="margin-left:10px;" href="<?php print "http://$url"; ?>" target="_blank">(go)</a></div>
+   <div class=bd>
         <!-- begin msgs -->
 	<div id=msgs_div class=msgs_div>
 	</div> <!-- msgs_div -->
@@ -78,12 +79,13 @@ Yaploud Chat
 
 	   <div style="margin-top:5px;float:left;">
 	      <?php
-	      if($_SESSION['logged']){
-	      	print "<input type=hidden name=username id=username value=\"" . $_SESSION['username'] . "\" />\n";
+	      if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
+	      	print "<div style=\"float:left;\"><label for=username>Username:</label></div> \n";
+	         print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
+
 	      }
 	      else{
-	         print "<div style=\"float:left;\"><label for=username>Username:</label></div> \n";
-	         print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
+	         print "<input type=hidden name=username id=username value=\"" . $_SESSION['username'] . "\" />\n";
 	      }
 	      ?>
 	   </div>
@@ -92,14 +94,15 @@ Yaploud Chat
 
 	   <div style="margin-top:4px;margin-left:3px;float:left;">
 	      <textarea name=msg_content id=msg_content rows=3 cols=40></textarea>
+	      <input onclick="return sendMsg();" type="submit" value=send></input>
 	   </div>
 
 	   <div class=util_box style="margin-left:5px;margin-top:4px;float:left;" class=chars_left>
 	   	<span id=chars_left>250</span> <span class=menu_1>chars left</span>
-	   	<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:more_messages(<? print "'" . urlencode($url) . "'";?> );">Get more messages</a>
+	   	<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:more_messages(<? print "'" . urlencode($url) . "'";?> );">Get more messages</a></p>
+        <p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:show_msg_times();">Show the times</a></p>
 
-		<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:show_msg_times();">Show times</a>
-		<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:invite_friend();">Invite a friend</a>
+		<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:invite_friend();">Invite your friend</a></p>
 	   </div>
 
 	   <div style="clear:both;"></div>
