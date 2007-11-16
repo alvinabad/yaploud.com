@@ -112,6 +112,9 @@
 		msgs_div.innerHTML += tmp_html; 
 	}
         msgs_div.scrollTop = msgs_div.scrollHeight;
+    	if ( navigator.appName == "Microsoft Internet Explorer" ) {
+            m.scrollTop = m.scrollHeight; // IE7 requires running this twice!
+        }
    }
 
    function getNextColor(last_color){
