@@ -10,4 +10,5 @@ echo "Thanks for your comments.";
 } else {
 echo "There was a problem sending the mail. Please check that you filled in the form correctly.";
 }
+echo("<br><br><a scope=\"col\" class=\"menu_1\" href=\"http://www.yaploud.com/home.php\"><strong>Home</strong></a>");
 ?>
