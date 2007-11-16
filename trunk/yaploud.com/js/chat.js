@@ -113,7 +113,7 @@
 	}
         msgs_div.scrollTop = msgs_div.scrollHeight;
     	if ( navigator.appName == "Microsoft Internet Explorer" ) {
-            m.scrollTop = m.scrollHeight; // IE7 requires running this twice!
+            msgs_div.scrollTop = msgs_div.scrollHeight; // IE7 requires running this twice!
         }
    }
 
