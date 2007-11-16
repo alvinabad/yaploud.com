@@ -49,9 +49,9 @@ function checkme()
 <?php include("common/header.php");  ?>
 <script type=text/javascript src=js/chat.js></script>
 <div style="float:left;width:500px;"><p>
-	<div class=yap_title>Welcome to Help </div>
+	<div class=yap_title>Welcome to Feedback </div>
 	<p>
-	<strong> <a href="newinfo.php"> >> New User Information</a></strong><br/><br>
+	<!-- <strong> <a href="newinfo.php"> >> New User Information</a></strong><br/><br> -->
 	<strong> <a href="faq.php""> >> F.A.Q</a></strong><br/><br/>
 	</p>
 	<p>
