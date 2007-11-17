@@ -191,7 +191,28 @@ class User {
 
   }
 
-
+	function changePassword($new_password) {
+	    $username = addslashes($_SESSION['username']);
+	    $sql = "SELECT * FROM dev.user WHERE username ='$username';";
+	    $result = $this->db->mysql_query($sql);
+	
+	    if(mysql_num_rows($result) != 1) {
+    		// user does not exist
+    		$this->failed = true;
+    		return false;
+    	}
+	
+	    $res_obj = mysql_fetch_object($result);
+    	$pass = $res_obj->password; //Get your password
+	    $username = $res_obj->username; // Get your username
+	
+	    $new_password = md5($new_password);
+	    $sql1 = "UPDATE dev.user SET password = \"$new_password\" WHERE " .
+	        	"username = \"$username\";";
+		        $this->db->mysql_query($sql1) or die("Couldn't execute query $sql1");
+     	mysql_free_result($result);
+     	return $username . $new_password;
+	}
 
 } // End class User
 
