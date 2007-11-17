@@ -178,8 +178,6 @@ class User {
   }
 
   function _session_defaults() {
-  	$guestId = rand(50,9999);
-
 	$_SESSION['logged'] = false;
 	$_SESSION['userid'] = 0;
 	$_SESSION['username'] = '';
@@ -187,6 +185,7 @@ class User {
 	$_SESSION['remember'] = false;
 	
 	if ( !isset($_SESSION['guest']) ) {
+    	$guestId = rand(50,9999);
 	    $_SESSION['guest'] = "guest" . $guestId;
 	}
 
