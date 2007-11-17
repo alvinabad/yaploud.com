@@ -100,7 +100,10 @@ EOB;
 
 	   <div style="margin-top:4px;margin-left:3px;float:left;">
 	      <textarea name=msg_content id=msg_content rows=3 cols=40></textarea>
-	      <input onclick="return sendMsg();" type="submit" value=send></input>
+	      <!-- <input onclick="return sendMsg();" type="submit" value=send></input> -->
+
+	      <input type="image" src="images/go_image.gif" value="send" onclick="sendMsg();">
+
 	   </div>
 
 	   <div class=util_box style="margin-left:5px;margin-top:4px;float:left;" class=chars_left>
