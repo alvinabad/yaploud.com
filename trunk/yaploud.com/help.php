@@ -26,8 +26,7 @@ function focus()   {
   	e_name.focus();
 }
 
-function checkme(myform)
-{
+function checkme() {
   	var e_name = document.getElementById('name');
   	var e_comments = document.getElementById('comments');
   	var e_email = document.getElementById('email');
@@ -48,6 +47,7 @@ function checkme(myform)
         return false;
     }
     
+    return true;
 }
 </script>
 </head>
@@ -94,7 +94,7 @@ elseif ($feedback_sent) {
 	</p>
 	<p>
 	<label for=Comment> Comments</label><br/>
-	<form action="help.php" method="post" onSubmit="return checkme(this)">
+	<form action="help.php" method="post" onSubmit="return checkme()">
 	<label for=yourName>Your Name: </label>
 
 <?
