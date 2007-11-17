@@ -79,9 +79,15 @@ Yaploud Chat
 
 	   <div style="margin-top:5px;float:left;">
 	      <?php
-	      if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false){
-	      	print "<div style=\"float:left;\"><label for=username>Username:</label></div> \n";
-	         print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
+	      if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
+	      	$guest = $_SESSION['guest'];
+	      	print "<div style=\"float:left;\"><label for=username>" . 
+	      	          $_SESSION['guest'] . "</label></div> \n";
+	         //print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
+	         echo <<<EOB
+	         <input name=username type=hidden id=username value="$guest" />
+	          <a class=menu_1  href=register.html>Join Now!</a>
+EOB;
 
 	      }
 	      else{
