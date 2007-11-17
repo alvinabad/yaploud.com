@@ -143,6 +143,9 @@ class User {
 	if (is_object($result) ) {
 		$this->_setSession($result, false, true);
 	}
+	else {
+		$this->_logout();
+	}
   }
 
   function _checkSession() {
@@ -175,12 +178,17 @@ class User {
   }
 
   function _session_defaults() {
+  	$guestId = rand(50,9999);
 
 	$_SESSION['logged'] = false;
 	$_SESSION['userid'] = 0;
 	$_SESSION['username'] = '';
 	$_SESSION['cookie'] = 0;
 	$_SESSION['remember'] = false;
+	
+	if ( !isset($_SESSION['guest']) ) {
+	    $_SESSION['guest'] = "guest" . $guestId;
+	}
 
   }
 
