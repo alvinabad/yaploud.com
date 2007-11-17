@@ -1,9 +1,10 @@
 
 <div id="footer">
-<hr>
 <?php
     if (isset($error)) {
-        print $error;
+        print "<hr>";
+        //print $error;
     }
 ?>
 </div>
+
