@@ -80,6 +80,9 @@ if (!isset ($_POST['action'])) {
 }
 elseif ($feedback_sent) {
 	echo "<div class=yap_title>Thanks for your comments. </div>";
+	echo "<p>";
+	echo"<strong><a href=\"/home.php\">Home</a></strong>";
+	
 	include ("common/footer.php");
 	exit;
 } else {
