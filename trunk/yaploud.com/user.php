@@ -111,12 +111,12 @@ class User {
 	
     	$emailfrom = "info@yaploud.com";
 	    $message = "Hi $username, \n\n" . "You recently requested password assistance from Yaploud.com. \n" .
-	               "Please follow the link below to access your account and change your password. \n\n" .
+	               "Please follow the link below to access your account and change your password. \n" .
 	               "If you did not make this request. Please delete and ignore this email. \n\n" .
-	               "http://" . $_SERVER['HTTP_HOST'] . "/user/myaccount?token=" . $token . "\n\n" .
-	               "Note: This token is valid only for 24 hours.\n\n" . 
+	               "http://" . $_SERVER['HTTP_HOST'] . "/user/myaccount.php?token=" . $token . "\n\n" .
+	               "Note: This token is valid for 24 hours.\n\n" . 
 	               "Please contact info@yaploud.com with any questions.\n\n" .
-	               "Thanks, \n\n" .
+	               "Thanks, \n" .
  				   "The Yaploud Team";
 
 	    mysql_free_result($result);
