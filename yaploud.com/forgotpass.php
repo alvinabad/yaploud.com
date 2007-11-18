@@ -73,7 +73,7 @@ HTML;
 
 	<input type="text" name="email" id=email maxlength="50" size ="30" tabindex=1 alt="Your Email" />
 	<br/>
-	<input type=\"submit\" name=submit value=\"Submit\" /> <br/><br/>
+	<input type="submit" name=submit value="Submit" /> <br/><br/>
 	<script type=text/javascript>
 	    document.getElementById('email').focus();
 	</script>
