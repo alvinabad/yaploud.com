@@ -50,9 +50,8 @@ input{
 		 		// Send the password to the email address
 		 		$display = false;
 		 		echo <<<HTML
-	<div style="font:23px Helvetica, Arial, sans-serif; color:#FF0000;font-weight:bold;">
-	Please check your email. We have provided you with instructions on how to reset your password.
-	$result;
+	<div style="font:18px Helvetica, Arial, sans-serif; color:#FF0000;font-weight:bold;">
+	We've sent you an email with instructions on how to reset your password. $result
 	</div>
 HTML;
 	     	  }
