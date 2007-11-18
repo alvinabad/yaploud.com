@@ -76,10 +76,7 @@ $text = "yaploud";
 $cypher = $token->encrypt($text);
 $text2 = $token->decrypt($cypher);
 
-print $text;
-print "<br>";
 print "Cypher: $cypher <br>";
-print "Decrypt: $text2 <br>";
 if ( $text == $text2) print "Testing...Ok <br>";
 else print "Failed <br>";
 
