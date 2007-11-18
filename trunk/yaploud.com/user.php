@@ -74,7 +74,7 @@ class User {
 	$this->userid = $res_obj->username;
 	
 	// set session using data retrieved from database
-	$_SESSION['username'] = htmlspecialchars($values->username);
+	$_SESSION['username'] = htmlspecialchars($res_obj->username);
 	$_SESSION['logged'] = true;
 	$_SESSION['userid'] = $_SESSION['username'];
 	
@@ -88,7 +88,7 @@ class User {
 	$this->db->mysql_query($sql) or die("Couldn't execute query $sql");
 		
 	// update cookie with new value
-	$this->updateCookie($values->cookie, true);
+	$this->updateCookie($res_obj->cookie, true);
 	
 	mysql_free_result($result);
 	return true;
