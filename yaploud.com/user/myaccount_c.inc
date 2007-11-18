@@ -28,8 +28,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
     
     $username = $_SESSION['username'];
     $logged = $_SESSION['logged'];
-    print "SESSION USERNAME: $username <br>";
-    print "SESSION LOGGED: $logged <br>";
 }
 
 //--- Verify if user is logged in
