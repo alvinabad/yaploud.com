@@ -121,7 +121,7 @@ class User {
 
 	    mysql_free_result($result);
 	    if(mail($email,"Your Yaploud password",$message,"From: $emailfrom\n")) {
-	        return true;
+	        return $token;
     	} 
     	else {
 		    return false;
