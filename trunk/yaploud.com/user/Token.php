@@ -70,22 +70,5 @@ class Token {
  
 }
 
-//--- Unit test
-$token = new Token();
-$text = "yaploud";
-$cypher = $token->encrypt($text);
-$text2 = $token->decrypt($cypher);
-
-print "Cypher: $cypher <br>";
-if ( $text == $text2) print "Testing...Ok <br>";
-else print "Failed <br>";
-
-
-$t = $token->create($text);
-sleep(2);
-$v = $token->validate($t);
-print "Token: $t <br>";
-if ($v) print "Testing...Ok <br>";
-else print "Failed <br>";
 
 ?>
