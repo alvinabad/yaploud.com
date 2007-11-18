@@ -14,7 +14,7 @@ set_include_path( get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT'
 session_start();
 ob_start();
 
-//include("user.php");
+require("user.php");
 include("user/Token.php");
 
 //--- Process request with password token
