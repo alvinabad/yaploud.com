@@ -59,6 +59,42 @@ class User {
 	return true;
   }
 
+  function setSessionInDb($username) {
+	$username = addslashes($username);
+	$sql = "SELECT * FROM dev.user WHERE userid = '$username';";
+	$result = $this->db->mysql_query($sql);
+	if(mysql_num_rows($result) != 1){
+		// user not found
+		$this->failed = true;
+		return false;
+	}
+	
+	$res_obj = mysql_fetch_object($result);
+
+	$this->userid = $res_obj->username;
+	
+	// set session using data retrieved from database
+	$_SESSION['username'] = htmlspecialchars($values->username);
+	$_SESSION['logged'] = true;
+	$_SESSION['userid'] = $_SESSION['username'];
+	
+    $session = session_id();
+   	$cookie = $session;
+    $_SESSION['cookie'] = $cookie;
+	$ip = $_SERVER['REMOTE_ADDR'];
+
+	$sql = "UPDATE dev.user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
+	       "userId = \"$this->userid\";";
+	$this->db->mysql_query($sql) or die("Couldn't execute query $sql");
+		
+	// update cookie with new value
+	$this->updateCookie($values->cookie, true);
+	
+	mysql_free_result($result);
+	return true;
+  }
+
+
 	function _forgotPassword($email) {
 	$email = addslashes($email);
 	$sql = "SELECT * FROM dev.user WHERE email ='$email';";
@@ -112,9 +148,9 @@ class User {
     	$emailfrom = "info@yaploud.com";
 	    $message = "Hi $username, \n\n" . "You recently requested password assistance from Yaploud.com. \n" .
 	               "Please follow the link below to access your account and change your password. \n" .
-	               "If you did not make this request. Please delete and ignore this email. \n\n" .
+	               "If you did not make this request, please delete and ignore this email. \n\n" .
 	               "http://" . $_SERVER['HTTP_HOST'] . "/user/myaccount.php?token=" . $token . "\n\n" .
-	               "Note: This token is valid for 24 hours.\n\n" . 
+	               "Note: This link is valid for 24 hours.\n\n" . 
 	               "Please contact info@yaploud.com with any questions.\n\n" .
 	               "Thanks, \n" .
  				   "The Yaploud Team";
