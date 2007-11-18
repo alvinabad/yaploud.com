@@ -23,6 +23,8 @@ include("./myaccount_c.inc");
 <link href="/style.css" rel="stylesheet" type="text/css">
 <link href="/images/style_Yaploud.css" rel="stylesheet" type="text/css">
 
+<script type="text/javascript" src="/user/ChangePassword.js" ></script>
+
 </head>
 
 <body onLoad="ChangePassword.focus('password')">
