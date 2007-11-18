@@ -150,7 +150,7 @@ class User {
 	               "Please follow the link below to access your account and change your password. \n" .
 	               "If you did not make this request, please delete and ignore this email. \n\n" .
 	               "http://" . $_SERVER['HTTP_HOST'] . "/user/myaccount.php?token=" . $token . "\n\n" .
-	               "Note: This link is valid for 24 hours.\n\n" . 
+	               "Note: This link is only valid for 24 hours.\n\n" . 
 	               "Please contact info@yaploud.com with any questions.\n\n" .
 	               "Thanks, \n" .
  				   "The Yaploud Team";
