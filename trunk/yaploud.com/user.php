@@ -1,6 +1,7 @@
 <?PHP
 
 require_once 'db.inc';
+include("user/Token.php");
 
 class User {
 
