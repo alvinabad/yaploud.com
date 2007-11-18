@@ -34,7 +34,7 @@ include("./myaccount_c.inc");
 <p>
 
 <div id="myaccount_change_password">
-    <form action="<?php print $_SERVER['REQUEST_URI']; ?>" method="post" onSubmit="return ChangePassword.validate();">
+    <form action="/user/myaccount.php" method="post" onSubmit="return ChangePassword.validate();">
     <strong>Change Password</strong>
     <p>
     <div style="color: red;" id="error_message">
