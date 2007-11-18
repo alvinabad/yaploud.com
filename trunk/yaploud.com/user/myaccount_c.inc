@@ -15,7 +15,7 @@ session_start();
 ob_start();
 
 //include("user.php");
-//include("user/Token.php");
+include("user/Token.php");
 
 
 //--- Verify if user is logged in
@@ -23,6 +23,7 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
     //--- Process request with password token
     if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
         $token = $_GET['token'];
+        print $token;
         
         $t = new Token();
         $username = $t->validate($token);
