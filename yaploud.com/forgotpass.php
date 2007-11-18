@@ -51,7 +51,7 @@ input{
 		 		$display = false;
 		 		echo <<<HTML
 	<div style="font:18px Helvetica, Arial, sans-serif; color:#FF0000;font-weight:bold;">
-	We've sent you an email with instructions on how to reset your password. $result
+	Thank you for your request. We've sent you an email with instructions on how to reset your password.
 	</div>
 HTML;
 	     	  }
