@@ -87,7 +87,7 @@ else print "Failed <br>";
 $t = $token->create($text);
 sleep(2);
 $v = $token->validate($t);
-print "Token: $v <br>";
+print "Token: $t <br>";
 if ($v) print "Testing...Ok <br>";
 else print "Failed <br>";
 
