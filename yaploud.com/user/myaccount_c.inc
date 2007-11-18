@@ -23,15 +23,13 @@ if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
     //--- Process request with password token
     if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
         $token = $_GET['token'];
-        print $token;
+        print "TOKEN: $token <br>";
         
         $t = new Token();
         $username = $t->validate($token);
-        print $username;
+        print "USETNAME: $username <br>";
         $error = $token;
         //$user = new User();
-        
-        print $error;
         exit;
     }
     else {
