@@ -91,6 +91,43 @@ class User {
 		}
 	}
 
+	function _forgotPassword2($email) {
+    	$email = addslashes($email);
+	    $sql = "SELECT * FROM dev.user WHERE email ='$email';";
+	
+	    $result = $this->db->mysql_query($sql);
+	    if(mysql_num_rows($result) != 1){
+		    // Email does not exist
+		    $this->failed = true;
+		    return false;
+	    }
+	
+	    $res_obj = mysql_fetch_object($result);
+	    $username = $res_obj->username; // Get your username
+	    
+	    $t = new Token();
+        $token = $t->create($username);
+	
+    	$emailfrom = "info@yaploud.com";
+	    $message = "Hi $username, \n\n" . "You recently requested password assistance from Yaploud.com. \n" .
+	               "Please follow the link below to access your account and change your password. \n\n" .
+	               "If you did not make this request. Please delete and ignore this email. \n\n" .
+	               "http://" . $_SERVER['HTTP_HOST'] . "/user/myaccount?token=" . $token . "\n\n" .
+	               "Note: This token is valid only for 24 hours.\n\n" . 
+	               "Please contact info@yaploud.com with any questions.\n\n" .
+	               "Thanks, \n\n" .
+ 				   "The Yaploud Team";
+
+	    mysql_free_result($result);
+	    if(mail($email,"Your Yaploud password",$message,"From: $emailfrom\n")) {
+	        return true;
+    	} 
+    	else {
+		    return false;
+		}
+	}
+	
+
 
   function _setSession(&$values, $remember, $init = true) {
 	$this->userid = $values->username;
