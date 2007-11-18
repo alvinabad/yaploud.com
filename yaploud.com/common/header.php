@@ -18,7 +18,7 @@
 	<div style="float:left; padding-right:10px; height:90px; background-image: url(images/home_03.gif);">
 	<?
 	        if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
-			echo("<a scope=\"col\" class=\"menu_1\" href=\"http://www.yaploud.com/register.php\"><strong>Sign Up</strong></a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Feedback</a> | <a scope=\"col\" class=\"menu_1\" href=login_page.php>Log In</a>");
+			echo("<a scope=\"col\" class=\"menu_1\" href=\"http://www.yaploud.com/register.php\"><strong>Sign Up</strong></a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Feedback</a> | <a scope=\"col\" class=\"menu_1\" href=\"/login_page.php\">Log In</a>");
 		}
 		else {
 		    $current_user = $_SESSION['username'];
