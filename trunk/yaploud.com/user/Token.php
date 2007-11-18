@@ -83,4 +83,12 @@ print "Decrypt: $text2 <br>";
 if ( $text == $text2) print "Testing...Ok <br>";
 else print "Failed <br>";
 
+
+$t = $token->create($text);
+sleep(2);
+$v = $token->validate($t);
+print "Token: $v <br>";
+if ($v) print "Testing...Ok <br>";
+else print "Failed <br>";
+
 ?>
