@@ -14,8 +14,8 @@ set_include_path( get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT'
 session_start();
 ob_start();
 
-include("user.php");
-include("user/Token.php");
+//include("user.php");
+//include("user/Token.php");
 
 
 //--- Verify if user is logged in
