@@ -1,21 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.yaploud.com/TR/html4/loose.dtd">
-<html>
-
 <?php 
+include("./myaccount_c.inc");
+
 /*
- * PHP view of My Account page
+ * This is the view (MVC pattern) of My Account page.
+ * The controller is located at myaccount_c.inc
+ * 
+ * PHP code in this view is only used for rendering logic and is kept 
+ * to the minimum. Please put all logic in the controller.
  * 
  * Created on Nov 17, 2007
  * Author: alvinabad@alumni.cmu.edu
  * Revised:
  */
  
-//--- load controller for this php view
-include("./myaccount_c.inc");
-
 ?>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.yaploud.com/TR/html4/loose.dtd">
+
+<html>
 <head>
 <title>Yaploud - My Account</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -32,21 +35,24 @@ include("./myaccount_c.inc");
 <?php include("common/header2.php"); ?>
 
 <div style="float:left;width:500px;">
-<div class=yap_title>My Account</div>
-<p>
+  <div class=yap_title>My Account</div>
+  <p>
 
-<div id="myaccount_change_password">
-    <form action="/user/myaccount.php" method="post" onSubmit="return ChangePassword.validate();">
+  <div id="myaccount_change_password">
+    <form action="/user/myaccount.php" method="post" 
+          onSubmit="return ChangePassword.validate();">
     <strong>Change Password</strong>
     <p>
     <div style="color: red;" id="error_message">
        <?php
-           if ( isset($change_password_processed) && $change_password_processed ) {
+           if ( isset($change_password_processed) && 
+                   $change_password_processed ) {
                if ( $reset_password ) {
                    print "Success! Your password has been changed. <br>";
                }
                else {
-                   print "Server error! Your password cannot be changed at this time. Please try again later. <br>";
+                   print "Server error! Your password cannot be changed at " .
+                         "this time. Please try again later. <br>";
                }
            }
        ?>
@@ -61,9 +67,9 @@ include("./myaccount_c.inc");
     <input type="password" id="password2" name="password2" />
     <br>
     <input type="submit" value="Submit" />
-</div>
+  </div>
 
-<?php include("common/footer2.php");?>
+  <?php include("common/footer2.php");?>
 </div>
 
 </body>
