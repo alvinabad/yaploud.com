@@ -1,6 +1,8 @@
 /**
  * Javascript for Change Password Module
- *
+ * 
+ * Created on Nov 17, 2007
+ * Author: alvinabad@alumni.cmu.edu
  */
 
 
