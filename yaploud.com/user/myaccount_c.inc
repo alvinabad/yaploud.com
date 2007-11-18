@@ -15,7 +15,7 @@ session_start();
 ob_start();
 
 require("user.php");
-include("user/Token.php");
+//require("user/Token.php");
 
 //--- Process request with password token
 if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
