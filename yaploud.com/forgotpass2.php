@@ -64,7 +64,7 @@ HTML;
    	// Display the login form
 	echo " <div style=\"font: 18px Helvetica, Arial, sans-serif;color:#006600;font-weight:bold;\">Enter the email address of your Yaploud account below.
 			We will send you an email with instructions on how to reset your password.</div>
-			<form name=passwordAssistance id=passwordAssitance method=POST action=forgotpass.php>
+			<form name=passwordAssistance id=passwordAssitance method=POST action=forgotpass2.php>
 			<input type=hidden name=pass value=passsword /><br/>
 			<div style=\"font:18px Helvetica, Arial, sans-serif; color:#006699;\">Email:</div>
 			<input type=\"text\" name=\"email\" id=email maxlength=\"50\" size = \"30\" tabindex=1 alt=\"Your Email\" /><br/><br/>
