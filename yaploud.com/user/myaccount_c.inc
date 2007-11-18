@@ -20,13 +20,14 @@ require("user.php");
 //--- Process request with password token
 if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
     $token = $_GET['token'];
-    print "TOKEN: $token <br>";
         
     $t = new Token();
     $username = $t->validate($token);
-    print "USERNAME: $username <br>";
     $user = new User();
     $user->setSessionInDb($username);
+    
+    $username = $_SESSION['username'];
+    print "SESSION USERNAME: $username <br>";
 }
 
 //--- Verify if user is logged in
