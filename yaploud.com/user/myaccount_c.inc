@@ -1,7 +1,8 @@
 <?php
 
 /*
- * This is the controller for the My Account view - myaccount.php
+ * This is the controller (MVC pattern) for the My Account view - myaccount.php
+ * There shouldn't be HTML in here. Please put them in the view page.
  * 
  * Created on Nov 17, 2007
  * Author: alvinabad@alumni.cmu.edu
