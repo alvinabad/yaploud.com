@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/user/ChangePassword.js" />
-
 <?php
 
 /*
