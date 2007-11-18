@@ -65,10 +65,9 @@ class Token {
 	    	return $username;  // return the username in the token
 	    }
 	    
-	    return false;
+	    return "FAILED";
     } 
  
 }
-
 
 ?>
