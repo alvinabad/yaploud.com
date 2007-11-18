@@ -17,26 +17,23 @@ ob_start();
 //include("user.php");
 include("user/Token.php");
 
+//--- Process request with password token
+if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
+    $token = $_GET['token'];
+    print "TOKEN: $token <br>";
+        
+    $t = new Token();
+    $username = $t->validate($token);
+    print "USERNAME: $username <br>";
+    $user = new User();
+    $user->setSessionInDb($username);
+}
 
 //--- Verify if user is logged in
 if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
-    //--- Process request with password token
-    if ( $_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['token']) ) {
-        $token = $_GET['token'];
-        print "TOKEN: $token <br>";
-        
-        $t = new Token();
-        $username = $t->validate($token);
-        print "USETNAME: $username <br>";
-        $error = $token;
-        //$user = new User();
-        exit;
-    }
-    else {
-        $redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/home.php';
-        header("Location: $redirect");
-    	exit;
-    }
+    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/home.php';
+    header("Location: $redirect");
+	exit;
 }
 
 //--- Process request for change of password
