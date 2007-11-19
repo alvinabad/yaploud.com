@@ -89,7 +89,7 @@ Yaploud Chat
 	      }
 	      else{
 	         print "<div style=\"float:left;\"><label for=username>Username:</label></div> \n";
-	         print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
+	         print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=/user/register.php>Join Now!</a>\n";
 	      }
 	      ?>
 	   </div>
