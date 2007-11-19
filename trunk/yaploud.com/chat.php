@@ -83,10 +83,9 @@ Yaploud Chat
 	      	$guest = $_SESSION['guest'];
 	      	print "<div style=\"float:left;\"><label for=username>" . 
 	      	          $_SESSION['guest'] . "</label></div> \n";
-	         //print "<input style=\"color:black;\" name=username type=text id=username /> <a class=menu_1  href=register.htm>Join Now!</a>\n";
 	         echo <<<EOB
 	         <input name=username type=hidden id=username value="$guest" />
-	          <a class=menu_1  href=register.htm>Join Now!</a>
+	          <a class=menu_1  href="/user/register.php">Join Now!</a>
 EOB;
 
 	      }

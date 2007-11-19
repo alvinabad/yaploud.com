@@ -24,7 +24,7 @@
 <?php
     if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
         echo <<<HTML
-    <a scope="col" class="menu_1" href="/register.php"><strong>Sign Up</strong></a> | 
+    <a scope="col" class="menu_1" href="/user/register.php"><strong>Sign Up</strong></a> | 
     <a scope="col" class="menu_1" href="/user/myaccount.php">My Account</a> | 
 	<a scope="col" class="menu_1" href="/help.php">Feedback</a> | 
 	<a scope="col" class="menu_1" href=login_page.php>Log In</a>
