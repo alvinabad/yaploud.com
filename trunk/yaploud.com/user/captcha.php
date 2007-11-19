@@ -1,5 +1,6 @@
 <?php
 
+
 /*
  * Captcha Module
  * 
@@ -9,36 +10,50 @@
 
 session_start();
 
-// Generate random string
-$md5 = md5(microtime() * mktime());
-$captcha_string = substr($md5, 0, 4);
+class Captcha {
+	    var $captcha_string;
 
-$captcha_image = imagecreatefrompng("./captcha.png");
+    function Captcha() {
+        // Generate random string
+        $md5 = md5(microtime() * mktime());
+        $this->captcha_string = substr($md5, 0, 4);
+        
+        // encrypt the captcha string and store in SESSION
+        $_SESSION['captcha'] = md5($this->captcha_string);
+    }
 
-// set colors to image
-$black = imagecolorallocate($captcha_image, 255, 255, 0);
-$line = imagecolorallocate($captcha_image, 200, 200, 200);
+    function generateImage() {
+        $captcha_string = $this->captcha_string;
+        	
+        $captcha_image = imagecreatefrompng("./captcha.png");
 
-// add lines to image
-imageline($captcha_image, 0, 20, 30, 0, $line);
-imageline($captcha_image, 0, 30, 50, 0, $line);
-imageline($captcha_image, 20, 30, 70, 0, $line);
-imageline($captcha_image, 40, 30, 70, 10, $line);
+        // set colors to image
+        $black = imagecolorallocate($captcha_image, 255, 255, 0);
+        $line = imagecolorallocate($captcha_image, 200, 200, 200);
 
-// write the captcha string to the image
-imagestring($captcha_image, 5, 20, 10, $captcha_string, $black);
+        // add lines to image
+        imageline($captcha_image, 0, 20, 30, 0, $line);
+        imageline($captcha_image, 0, 30, 50, 0, $line);
+        imageline($captcha_image, 20, 30, 70, 0, $line);
+        imageline($captcha_image, 40, 30, 70, 10, $line);
 
-// encrypt the captcha string and store in SESSION
-$_SESSION['captcha'] = md5($captcha_string);
+        // write the captcha string to the image
+        imagestring($captcha_image, 5, 20, 10, $captcha_string, $black);
 
-// set header
-header("Content-type: image/png");
-imagepng($captcha_image);
+        // set header
+        header("Content-type: image/png");
+        imagepng($captcha_image);
 
-// Prevent image from getting cached
-header("Cache-Control: no-cache, must-revalidate");
-header("Pragma: no-cache");
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+        // Prevent image from getting cached
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Pragma: no-cache");
+        header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    }
+
+}
+
+$c = new Captcha();
+$c->generateImage();
 
 ?>
 
