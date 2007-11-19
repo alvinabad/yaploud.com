@@ -44,7 +44,7 @@ input{
 		if (!$result) {
 			echo ("<div style=\"font:23px Helvetica, Arial, sans-serif; color:#FF0000;font-weight:bold;\">Invalid Email.</div>");
 		  	echo ("<div style=\"font:17px Helvetica, Arial, sans-serif; color:#FF0000;font-weight:bold;\"></div>");
-		   	echo ("<div style=\"font:17px Helvetica, Arial, sans-serif; color:#FF0000;\">The email address you entered has not been registered. Try again or <a href=register.htm> Sign up now</a><p></div>");
+		   	echo ("<div style=\"font:17px Helvetica, Arial, sans-serif; color:#FF0000;\">The email address you entered has not been registered. Try again or <a href=/user/register.php> Sign up now</a><p></div>");
 		}
 		else {
 		 		// Send the password to the email address
