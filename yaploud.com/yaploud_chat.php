@@ -40,7 +40,7 @@
               <br/>
               Password :
               <input type="password" id="yaploud_password"/>
-              <a href="http://www.yaploud.com/register.htm" target="_blank">
+              <a href="/user/register.php" target="_blank">
                 Create an account
               </a>
               <br/>
