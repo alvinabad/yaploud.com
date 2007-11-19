@@ -38,7 +38,7 @@ class Captcha {
         imageline($captcha_image, 40, 30, 70, 10, $line);
 
         // write the captcha string to the image
-        imagestring($captcha_image, 5, 20, 10, $captcha_string, $black);
+        imagestring($captcha_image, 20, 15, 10, $captcha_string, $black);
 
         // set header
         header("Content-type: image/png");
