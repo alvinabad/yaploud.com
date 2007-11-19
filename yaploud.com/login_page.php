@@ -49,7 +49,7 @@ input{
 <li>Connect with other yappers
 </ul>
 </p>
-<div style="font: 20px Helvetica, Arial, sans-serif;color:#336600;font-weight:bold;"><a href=register.php>Sign up now</a> to join the YapLoud Community<br/><br/><a href="#">Download</a> the YapLoud toolbar</div>
+<div style="font: 20px Helvetica, Arial, sans-serif;color:#336600;font-weight:bold;"><a href="/user/register.php">Sign up now</a> to join the YapLoud Community<br/><br/><a href="#">Download</a> the YapLoud toolbar</div>
 </div>
 
 <div style="float:left;margin-left:30px;">
