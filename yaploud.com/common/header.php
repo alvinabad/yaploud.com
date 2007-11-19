@@ -22,9 +22,9 @@
 		}
 		else {
 		    $current_user = $_SESSION['username'];
-		    echo("<a scope=\"col\" class=\"menu_1\" ><strong> Hi $current_user</strong></a> | <a scope=\"col\" class=\"menu_1\" href=\"/user/myaccount.php\">My Account</a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Feedback</a> | <a scope=\"col\" class=\"menu_1\" href=login_page.php?logout=true>Log Out</a>");
+		    echo("<a scope=\"col\" class=\"menu_1\" ><strong> Hi $current_user</strong></a> | <a scope=\"col\" class=\"menu_1\" href=\"/user/myaccount.php\">My Account</a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Feedback</a> | <a scope=\"col\" class=\"menu_1\" href=/login_page.php?logout=true>Log Out</a>");
 
-		    //echo("<span class=\"menu_1\"> <strong>Welcome, $current_user</strong></span> | <a scope=\"col\" class=\"menu_1\" href=\"myaccount.php\">My Account</a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Help</a> | <a scope=\"col\" class=\"menu_1\" href=\"http://www.yaploud.com/login_page.php?logout=true\">Log out</a>\n");
+		    //echo("<span class=\"menu_1\"> <strong>Welcome, $current_user</strong></span> | <a scope=\"col\" class=\"menu_1\" href=\"myaccount.php\">My Account</a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Help</a> | <a scope=\"col\" class=\"menu_1\" href=\"/login_page.php?logout=true\">Log out</a>\n");
 	        }
 	?>
 		<form method=get action=search.php>
