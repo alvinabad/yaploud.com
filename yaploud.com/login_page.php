@@ -87,7 +87,7 @@ input{
 			<input type=\"password\" name=\"password\" id=password tabindex=2 /><br/>
 			<input type=\"checkbox\" name=\"remember\" id=password />Remember me</input><br/>
 			<input type=\"submit\" name=submit value=\"Submit\" /> <br/><br/>
-			<div style=\"font:14px Helvetica, Arial, sans-serif; color:#006699;\"><a href=\"forgotuname.php\">Forgot Username</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=\"/user/forgotpassword.php\">Forgot Password</a></div>
+			<div style=\"font:14px Helvetica, Arial, sans-serif; color:#006699;\"><a href=\"/user/forgotusername.php\">Forgot Username</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=\"/user/forgotpassword.php\">Forgot Password</a></div>
 			<script type=text/javascript>
 			    document.getElementById('username').focus();
 			</script>
