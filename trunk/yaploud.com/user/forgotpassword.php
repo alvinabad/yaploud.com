@@ -85,7 +85,8 @@ input{
     ?>
   </div>
 	
-	  <div style="padding: 20px 30px 20px 20px; background-color:#BDEDFF;" 
+	  <div style="padding: 20px 30px 20px 20px; background-color:#BDEDFF;
+	              font-weight: normal;" 
 	       id="forgotpassword_div">
 		    <form name="forgotpassword_form" id="forgotpassword_form" 
 		          method=POST action="/user/forgotpassword.php" 
