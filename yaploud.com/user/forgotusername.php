@@ -99,7 +99,6 @@ input{
     		<input type="text" id="captcha" name="captcha" />
     		<br><br>
     		<input type="submit" value="Email username" />
-    		<a href="<? print $_REQUEST['URI']; ?>">Reset</a>
     		<script type=text/javascript>
 			      document.getElementById('email').focus();
 			    </script>
