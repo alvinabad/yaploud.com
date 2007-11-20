@@ -184,7 +184,7 @@ class User {
         "The Yaploud Team";
 
         mysql_free_result($result);
-        if (mail($email, "Your Yaploud password", $message, 
+        if (mail($email, "Your Yaploud username", $message, 
                          "From: $emailfrom\n")) {
             return true;
         } else {
