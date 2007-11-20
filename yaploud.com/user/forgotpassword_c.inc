@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($status) {
     	    $email = $_POST['email'];
+    	    $user = new User();
         $valid_email = $user->_forgotPassword2($email);
     }
 }

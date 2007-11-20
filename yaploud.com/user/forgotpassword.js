@@ -29,7 +29,7 @@ ForgotPassword.validate = function() {
         return false;
     }
     else if (captcha.value == "") {
-        error_message.innerHTML = "Invalid captcha. Please try again.";
+        error_message.innerHTML = "Invalid code. Please try again.";
         captcha.focus();
         return false;
     }
