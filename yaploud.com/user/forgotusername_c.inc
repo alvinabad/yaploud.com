@@ -37,8 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($status) {
     	    $email = $_POST['email'];
     	    $user = new User();
-        //$valid_email = $user->_forgotUsername($email);
-        $valid_email = false;
+        $valid_email = $user->_forgotUsername($email);
     }
 }
 ?>
