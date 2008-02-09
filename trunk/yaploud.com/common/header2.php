@@ -69,7 +69,7 @@ HTML;
             <span class=menu_1 style="margin-top:5px; margin-left: 0px;">
             Enter URL to yap:</span>
             <input name="url" id="yapurl_box" type="text" class="Text2_b" 
-                   value="http://" size="48"></input>
+                   value="http://" size="45"></input>
             <input type="submit" value="Go" class="Text2_b"/>
             </form>
         </td>
