@@ -1,9 +1,6 @@
 <?php
-    //include("user.php");
     $user = new User();
-?>
 
-<?php
     // If the user pressed the logout link, end the session
     if (isset($_REQUEST['logout'])) {
         $user->_logout();
@@ -49,19 +46,39 @@ HTML;
     </div>
 </div>
 
+<script type="text/javascript">
+    function strip_http() {
+        var url = document.getElementById("yapurl_box");
+        url.value = url.value.replace('http://', '');
+    }
+</script>
+
 <div style="clear:both;"></div>
 <table width="777"  border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <th width="777" align="left" valign="top" scope="col"><table width="99%"  border="0" cellspacing="0" cellpadding="0">
-
+    <th width="777" align="left" valign="top" scope="col">
+    <table width="99%"  
+        border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th align="left" valign="top" scope="row" width="163"><img alt="home_06" 
             src="/images/home_06.gif" width="163" height="22"></th>
-        <td align="left" valign="top"><img alt="home_07" src="/images/home_07.gif" width="43" height="22">
-        <td>&nbsp;</td>
+        <td align="left" valign="top"><img alt="home_07" 
+            src="/images/home_07.gif" width="43" height="22">
+        <td>
+          <form method=get action="/chat.php" onsubmit="strip_http(); ">
+            <span class=menu_1 style="margin-top:5px; margin-left: 0px;">
+            Enter URL to yap:</span>
+            <input name="url" id="yapurl_box" type="text" class="Text2_b" 
+                   value="http://" size="48"></input>
+            <input type="submit" value="Go" class="Text2_b"/>
+            </form>
+        </td>
         <td>&nbsp;</td>
       </tr>
+    </table>
   <tr>
-</table> <br>
+</table>
+
+<br>
 
 <!-- End Top Nav -->
