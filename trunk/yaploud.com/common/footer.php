@@ -12,7 +12,7 @@ urchinTracker();
 <hr align="left" width="600px">
 <table width="600px">
 <tr>
-  <td>Copyright(c) 2008 Yaploud.com</td>
+  <td>Copyright(c) 2008 YapLoud.com</td>
   <td align="right"><a href="#">Terms of use</a> | 
     <a href="#">Privacy Statement</a> | <a href="#">Contact us</a>
   </td>
