@@ -4,8 +4,7 @@
 <html>
 
 <?php
-   session_start();
-   ob_start();
+   require("./user_session_init_c.inc");
 ?>
 
 
@@ -26,7 +25,7 @@ input{
 </head>
 <body>
 
-<?php include("common/header.php");  ?>
+<?php include("common/header2.php");  ?>
 
 <div style="width:450px;float:left;">
 <p/>
