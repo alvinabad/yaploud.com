@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset ($_GET['token'])) {
 
 //--- Verify if user is logged in
 if (!isset ($_SESSION['logged']) || $_SESSION['logged'] == false) {
-    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/home.php';
+	$_SESSION['PREVIOUS_URI'] = '/user/myaccount.php';
+    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/login_page.php';
     header("Location: $redirect");
     exit;
 }
