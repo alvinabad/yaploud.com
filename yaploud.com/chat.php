@@ -35,8 +35,8 @@ Yaploud Chat
 
 <body class="yui-skin-sam">
 <?
-   include("./user_session_init_c.inc");
-   include("common/header2.php");
+   //require("./user_session_init_c.inc");
+   include("common/header.php");
    include("util.inc");
 ?>
 
