@@ -27,6 +27,7 @@ include("./myaccount_c.inc");
 <link href="/images/style_Yaploud.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="/user/ChangePassword.js" ></script>
+<script type="text/javascript" src="/user/UpdateUserInfo.js" ></script>
 
 </head>
 
@@ -34,11 +35,11 @@ include("./myaccount_c.inc");
 
 <?php include("common/header2.php"); ?>
 
-<div style="float:left;width:500px;">
+<div style="float:left;width:700px;">
   <div class=yap_title>My Account</div>
   <p>
 
-  <div id="myaccount_change_password">
+  <div id="myaccount_change_password" style="float:left;width:350px;">
     <form action="/user/myaccount.php" method="post" 
           onSubmit="return ChangePassword.validate();">
     <strong>Change Password</strong>
@@ -66,11 +67,57 @@ include("./myaccount_c.inc");
     <br>
     <input type="password" id="password2" name="password2" />
     <br>
-    <input type="submit" value="Submit" />
+    <input type="submit" name="submit_change_password" value="Change password" />
+    </form>
   </div>
 
-  <?php include("common/footer2.php");?>
+<div id="myaccount_updateUserInfo" style="float:left;width:350px;">
+    <form action="/user/myaccount.php" method="post" 
+          onSubmit="return UpdateUserInfo.validate();">
+    <strong>Update User Profile</strong>
+    <p>
+    <div style="color: red;" id="error_message_update_userinfo">
+       <?php
+           if ( isset($update_userinfo_processed) && 
+                   $update_userinfo_processed ) {
+               if ( $update_userinfo ) {
+                   print "Success! Your user information has been updated. <br>";
+               }
+               else {
+                   print "Server error! Your user information cannot be updated at " .
+                         "this time. Please try again later. <br>";
+               }
+           }
+       ?>
+    </div>
+    
+    <label for=yourName>Username: </label>
+    <strong><?php print $username; ?></strong>
+    <br>
+    <br>
+    <label>First Name: </label>
+    <br>
+    <input type="first_name" id="first_name" name="first_name" 
+           value="<?php print $first_name; ?>" />
+    <br>
+    <label>Last Name: </label>
+    <br>
+    <input type="last_name" id="last_name" name="last_name"
+           value="<?php print $last_name; ?>" />
+    <br>
+    <label>Email: </label>
+    <br>
+    <input type="email" id="email" name="email"
+           value="<?php print $email; ?>" />
+    <br>
+    <input type="submit" name="submit_update_userinfo" value="Update" />
+    </form>
+  </div>
 </div>
+
+<p>
+<div style="clear:both;"></div>
+<?php include("common/footer.php");?>
 
 </body>
 </html>
