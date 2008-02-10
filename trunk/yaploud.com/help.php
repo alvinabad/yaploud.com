@@ -2,8 +2,9 @@
 "http://www.yaploud.com/TR/html4/loose.dtd">
 <html>
 <?php
-session_start();
-ob_start();
+   require("./user_session_init_c.inc");
+   //session_start();
+   //ob_start();
 ?>
 <head>
 <title>Yaploud - Help</title>
@@ -53,7 +54,7 @@ function checkme() {
 </head>
 
 <body onLoad="focus()">
-<?php include("common/header.php");  ?>
+<?php include("common/header2.php");  ?>
 <script type=text/javascript src=js/chat.js></script>
 
 <?php
