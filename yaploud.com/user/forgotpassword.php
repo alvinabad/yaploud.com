@@ -67,7 +67,6 @@ input{
   <li>We'll email your password to you
   </ul>
 
-  </p>
   <div style="font: 20px Helvetica, Arial, sans-serif;
      color:#336600; font-weight:bold;">
      <a href="/user/register.php">Sign up now</a>
