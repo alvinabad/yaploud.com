@@ -315,5 +315,46 @@ class User {
         return $username . $new_password;
     }
 
+    function getUserInfo($username) {
+        $username = addslashes($username);
+        $sql = "SELECT * FROM dev.user WHERE username ='$username';";
+        $result = $this->db->mysql_query($sql);
+
+        if (mysql_num_rows($result) != 1) {
+            // user does not exist
+            $this->failed = true;
+            return false;
+        }
+
+        $res_obj = mysql_fetch_object($result);
+        
+        // user info is retrieved by
+        // $res_obj->first_name;
+        // $res_obj->last_name;
+        // $res_obj->email;
+        
+        return $res_obj;
+    }
+    
+    function updateUserInfo($username, $first_name, $last_name, $email) {
+    	if ( $username == "" || $last_name == "" || 
+    	     $first_name == "" || $email == "" ) {
+    		return false;
+    	}
+    	
+        $username = addslashes($username);
+        $last_name = addslashes($last_name);
+        $first_name = addslashes($first_name);
+        $email = addslashes($email);
+
+        $sql = "UPDATE dev.user SET first_name = \"$first_name\", " .
+               "last_name = \"$last_name\", " .
+               "email = \"$email\" " .
+               "WHERE username = \"$username\"; ";
+        
+        $this->db->mysql_query($sql) or die("Couldn't execute query $sql");
+    	return true;
+    }
+    
 } // End class User
 ?>
