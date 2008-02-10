@@ -99,7 +99,7 @@ HTML;
 
 <div style="clear:both;"></div>
 
-<div align="left" class="main_text">Free.No spyware or adware.</div>
+<div align="left" class="main_text">Free. No spyware or adware.</div>
 
 <?PHP include("common/footer.php"); ?>
 
