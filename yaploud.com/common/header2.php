@@ -7,6 +7,13 @@
     }
 ?>
 
+<script type="text/javascript">
+    function strip_http() {
+        var url = document.getElementById("yapurl_box");
+        url.value = url.value.replace('http://', '');
+    }
+</script>
+
 <!-- Top nav -->
 <div style="margin-bottom:5px;margin-top:10px; width:700px;">
 	<a href="/"><img style="float:left;" alt="yaploud logo" width="163" 
@@ -46,30 +53,23 @@ HTML;
     </div>
 </div>
 
-<script type="text/javascript">
-    function strip_http() {
-        var url = document.getElementById("yapurl_box");
-        url.value = url.value.replace('http://', '');
-    }
-</script>
-
 <div style="clear:both;"></div>
 <table width="777"  border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <th width="777" align="left" valign="top" scope="col">
+    <th width="100%" align="left" valign="top" scope="col">
     <table width="99%"  
         border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th align="left" valign="top" scope="row" width="163"><img alt="home_06" 
             src="/images/home_06.gif" width="163" height="22"></th>
         <td align="left" valign="top"><img alt="home_07" 
-            src="/images/home_07.gif" width="43" height="22">
+            src="/images/home_07.gif" width="43" height="22"></td>
         <td>
           <form method=get action="/chat.php" onsubmit="strip_http(); ">
             <span class=menu_1 style="margin-top:5px; margin-left: 0px;">
             Enter URL to yap:</span>
             <input name="url" id="yapurl_box" type="text" class="Text2_b" 
-                   value="http://" size="45"></input>
+                   value="http://" size="40"></input>
             <input type="submit" value="Go" class="Text2_b"/>
             </form>
         </td>

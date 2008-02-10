@@ -72,10 +72,10 @@ input{
    if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
    	// Display the login form
        echo <<<HTML
-	<div style="padding: 20px 30px 20px 20px; background-color:#BDEDFF;" 
+	<div style="padding: 10px 10px 5px 10px; background-color:#BDEDFF;" 
 	     id="loginFormDiv"><span style="font-weight:bold;\">Please log in:</span>
 	     <br/><br/>
-	     <form name=loginForm id=loginForm method=POST action=login_page.php>
+	     <form name="loginForm" id="loginForm" method="POST" action="login_page.php">
 			<input type=hidden name=action value=login />
 			<label for=username>Username:</label>
 			<input type="text" name="username" id=username tabindex=1 alt="Your Username" /><br/>
@@ -84,7 +84,7 @@ input{
 			<input type="checkbox" name="remember" id=password />Remember me</input><br/>
 			<input type="submit" name=submit value="Submit" /> <br/><br/>
 			<div style="font:14px Helvetica, Arial, sans-serif; color:#006699;">
-			  <a href="/user/forgotusername.php">Forgot Username</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			  <a href="/user/forgotusername.php">Forgot Username</a> |
 			  <a href="/user/forgotpassword.php">Forgot Password</a></div>
 			<script type=text/javascript>
 			    document.getElementById('username').focus();
