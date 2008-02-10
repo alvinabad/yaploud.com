@@ -15,7 +15,7 @@ class DB{
               return $link;
       }
 
-    function DB($host = "west.yaploud.com", $user = "dev", $password = "cmuwest"){
+    function DB($host = "localhost", $user = "yaploud", $password = "yaploud"){
       $this->connection = $this->connect($host, $user, $password);
     }
 
