@@ -95,7 +95,7 @@ HTML;
     <input type="submit" value="Submit" />
   </div>
 
-  <?php include("common/footer2.php");?>
+  <?php include("common/footer.php");?>
 </div>
 
 </body>

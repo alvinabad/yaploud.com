@@ -7,3 +7,15 @@ _uacct = "UA-2224520-1";
 urchinTracker();
 </script>
 --> 
+
+<div style="font-size: 0.70em; font-style: italic">
+<hr align="left" width="600px">
+<table width="600px">
+<tr>
+  <td>Copyright(c) 2008 Yaploud.com</td>
+  <td align="right"><a href="#">Terms of use</a> | 
+    <a href="#">Privacy Statement</a> | <a href="#">Contact us</a>
+  </td>
+</tr>
+</table>
+</div>

@@ -1,5 +1,6 @@
 
 <div id="footer">
+
 <?php
     if (isset($error)) {
         print "<hr>";
