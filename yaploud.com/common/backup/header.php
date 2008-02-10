@@ -21,7 +21,6 @@
 	<tr>
         <td width="163" valign="top" height="90" align="left" scope="row">
 			<img width="163" height="90" src="images/logo.gif"/>
-		</th>
         <td width="43" valign="top" align="left">
 			<img width="43" height="90" src="images/home_02.gif"/>
 		</td>
