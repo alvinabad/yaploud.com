@@ -84,8 +84,8 @@ input{
 			<input type="checkbox" name="remember" id=password />Remember me</input><br/>
 			<input type="submit" name=submit value="Submit" /> <br/><br/>
 			<div style="font:14px Helvetica, Arial, sans-serif; color:#006699;">
-			  <a href="/user/forgotusername.php">Forgot Username</a> |
-			  <a href="/user/forgotpassword.php">Forgot Password</a></div>
+			  <a href="/user/forgotusername.php">Forgot Username?</a> |
+			  <a href="/user/forgotpassword.php">Forgot Password?</a></div>
 			<script type=text/javascript>
 			    document.getElementById('username').focus();
 			</script>
