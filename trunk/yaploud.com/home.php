@@ -1,8 +1,10 @@
 <?php
-   require_once 'db.inc';
-   ob_start();
-   session_start();
-   include 'common/header.php';
+   //require_once 'db.inc';
+   //ob_start();
+   //session_start();
+   require("./user_session_init_c.inc");
+   //include 'common/header.php';
+   include 'common/header2.php';
 ?>
 
 <html>
@@ -38,7 +40,7 @@
    $result = $db->mysql_query($query);
    if($result){
       while($row = mysql_fetch_assoc($result)){
-         print "<div class=home_row><span class=column>" . $row['c'] . "&nbsp;msgs</span>&nbsp;<span class=column>" .  $row['uniqs'] . "&nbsp;users</span>&nbsp;<a style=\"font-size:14px;width:450px;float:left;text-align:right;\" href=chat.php?url=" . urlencode($row['url']) . ">" . $row['url'] . "</a></div>\n";
+         print "<div class=home_row><span class=column>" . $row['c'] . "&nbsp;msgs</span>&nbsp;<span class=column>" .  $row['uniqs'] . "&nbsp;users</span>&nbsp;<a style=\"font-size:14px;width:450px;float:left;text-align:right;\" href=chat_frames.php?url=http://" . urlencode($row['url']) . ">" . $row['url'] . "</a></div>\n";
       }
       mysql_free_result($result);
    }
