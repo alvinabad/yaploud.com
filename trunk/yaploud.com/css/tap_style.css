@@ -1,0 +1,93 @@
+.top_ber {
+	background-image: url(../images/1pxl_top_br.gif);
+	background-position: left;
+}
+.gr_text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #666666;
+}
+.top_ber2 {
+
+	background-image: url(../images/1pxl_top_br2.gif);
+	background-position: left;
+}
+.bg_2 {
+	background-attachment: fixed;
+	background-image: url(../images/sl_image.gif);
+	background-repeat: no-repeat;
+}
+.bg_3 {
+
+	background-attachment: fixed;
+	background-image: url(../images/sl_image2.gif);
+	background-repeat: no-repeat;
+}
+.grry_line {
+	background-image: url(../images/line.gif);
+}
+.arial_16 {
+	font-family: Arial;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #c30505;
+	text-decoration: none;
+}
+.mail_text {
+	font-family: Arial;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #007195;
+	text-decoration: none;
+}
+.users {
+	font-family: arial;
+	font-size: 16px;
+	color: #993300;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: none;
+}
+.view_details_text {
+	font-family: Arial;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+	text-decoration: none;
+}
+.grry_line2 {
+
+	background-image: url(../images/line2.gif);
+}
+.no_col {
+	font-family: arial;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #990000;
+	text-decoration: none;
+	background-image: url(../images/no_page.gif);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
