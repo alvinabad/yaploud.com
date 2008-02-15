@@ -64,8 +64,8 @@ input {
 
 <table width="97%" >
 	<tr align="left" valign="middle" height="23px" class="grry_line">
-		<td><span class="arial_16">Popular</span></td>
-		<td>&nbsp;</td>
+		<td><span class="arial_16">Yappers</span></td>
+		<td align="center"><span class="arial_16">Popular Yaps</span></td>
 		<td>&nbsp;</td>
 	</tr>
 
