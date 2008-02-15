@@ -103,7 +103,7 @@ HTML;
               '">' . 'http://' . $row['url'] . '</a>';
 
 			echo <<<HTML
-        <img src="images/icon2.gif" width="10" height="10"> </span><span class="view_details_text">view details <img src="images/icon_new.gif" width="31" height="11"></span></td>
+        <img src="images/icon2.gif" width="10" height="10"> </span><span class="view_details_text">view details</span></td>
                     <td><div align="right"><img src="images/icon1.gif" width="14" height="14"></div></td>
                     <td><div align="center"><span class="view_details_text style3">
 HTML;
