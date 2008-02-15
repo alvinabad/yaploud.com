@@ -64,15 +64,7 @@ HTML;
             src="/images/home_06.gif" width="163" height="22"></th>
         <td align="left" valign="top"><img alt="home_07" 
             src="/images/home_07.gif" width="43" height="22"></td>
-        <td>
-          <form method=get action="/chat.php" onsubmit="strip_http(); ">
-            <span class=menu_1 style="margin-top:5px; margin-left: 0px;">
-            Enter URL to yap:</span>
-            <input name="url" id="yapurl_box" type="text" class="Text2_b" 
-                   value="http://" size="40"></input>
-            <input type="submit" value="Go" class="Text2_b"/>
-            </form>
-        </td>
+        <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
     </table>
