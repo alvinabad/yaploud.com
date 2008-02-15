@@ -110,7 +110,7 @@ HTML;
 			print $row['c'];
 			echo <<<HTML
         </span></div></td>
-                    <td valign="middle"><div align="right"><img src="images/vote.gif" width="43" height="18"></div></td>
+                    <td valign="middle"><div align="right"></div></td>
                 </tr>
 HTML;
 		}
