@@ -96,7 +96,7 @@ input {
 HTML;
 			print $row['uniqs'];
 			echo <<<HTML
-        </span><span class="gr_text">yappers</span></td>
+        </span></td>
                     <td align="right"><span class="mail_text">
 HTML;
 			print '<a href="chat_frames.php?url=http://' . $row['url'] .
