@@ -62,26 +62,11 @@ input {
 
 <div id=popular_chat>
 
-<table>
+<table width="97%" >
 	<tr align="left" valign="middle" height="23px" class="grry_line">
 		<td><span class="arial_16">Popular</span></td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>
-		<table width="0" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td class="gr_text"></td>
-				<td>
-				<div align="right" class="view_details_text">
-				<div align="center"><a href="#">Today</a> | <a href="#">This Week</a>
-				| <a href="#">Ever</a>
-				</div>
-				</div>
-				</td>
-			</tr>
-		</table>
-		</td>
 	</tr>
 
 	<?
@@ -104,13 +89,11 @@ HTML;
 
 			echo <<<HTML
         <img src="images/icon2.gif" width="10" height="10"> </span><span class="view_details_text">view details</span></td>
-                    <td><div align="right"><img src="images/icon1.gif" width="14" height="14"></div></td>
                     <td><div align="center"><span class="view_details_text style3">
 HTML;
 			print $row['c'];
 			echo <<<HTML
         </span></div></td>
-                    <td valign="middle"><div align="right"></div></td>
                 </tr>
 HTML;
 		}
