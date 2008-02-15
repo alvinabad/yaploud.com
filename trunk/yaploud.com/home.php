@@ -82,13 +82,13 @@ HTML;
 			print $row['uniqs'];
 			echo <<<HTML
         </span></td>
-                    <td align="right"><span class="mail_text">
+                    <td align="left"><span class="mail_text">
 HTML;
 			print '<a href="chat_frames.php?url=http://' . $row['url'] .
               '">' . 'http://' . $row['url'] . '</a>';
 
 			echo <<<HTML
-        <img src="images/icon2.gif" width="10" height="10"> </span><span class="view_details_text">view details</span></td>
+         </td>
                     <td><div align="center"><span class="view_details_text style3">
 HTML;
 			print $row['c'];
