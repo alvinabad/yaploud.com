@@ -31,9 +31,9 @@
 }
 .arial_16 {
 	font-family: Arial;
-	font-size: 16px;
+	font-size: 18px;
 	font-style: normal;
-	font-weight: normal;
+	font-weight: bold;
 	font-variant: normal;
 	text-transform: none;
 	color: #c30505;
@@ -41,7 +41,7 @@
 }
 .mail_text {
 	font-family: Arial;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	line-height: normal;
 	font-weight: normal;
@@ -52,7 +52,7 @@
 }
 .users {
 	font-family: arial;
-	font-size: 14px;
+	font-size: 16px;
 	color: #993300;
 	font-style: normal;
 	line-height: normal;
@@ -63,7 +63,7 @@
 }
 .view_details_text {
 	font-family: Arial;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	line-height: normal;
 	font-weight: normal;
