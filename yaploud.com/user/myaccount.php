@@ -31,7 +31,7 @@ include("./myaccount_c.inc");
 
 </head>
 
-<body onLoad="ChangePassword.focus('password')">
+<body onLoad="ChangePassword.focus('password'); ChangePassword.clear();">
 
 <?php include("common/header2.php"); ?>
 
