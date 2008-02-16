@@ -41,7 +41,7 @@ input {
 		<table width="99%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-				<form method=get action="/chat.php" onsubmit="strip_http(); "><span
+				<form method=get action="/chat_frames.php"><span
 					style="font: 20px Helvetica, Arial, sans-serif; color: #336600; font-weight: bold;">Enter
 				URL to Yap:</span> <input name="url" id="yapurl_box" type="text"
 					class="Text2_b" value="http://" size="40"></input> <input
