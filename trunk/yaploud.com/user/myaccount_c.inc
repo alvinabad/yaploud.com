@@ -47,6 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          isset ($_REQUEST['password2'])) {
         $reset_password = $user->changePassword($_REQUEST['password']);
         $change_password_processed = true;
+        $redirect = '/home.php';
+        header("Location: $redirect");
     }
     else if ( isset ($_REQUEST['submit_update_userinfo']) &&
               isset ($_REQUEST['first_name']) && 
