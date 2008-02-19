@@ -84,7 +84,7 @@ HTML;
         </span></td>
                     <td align="left"><span class="mail_text">
 HTML;
-			print '<a href="chat_frames.php?url=http://' . $row['url'] .
+			print '<a href="chat_iframe.php?url=http://' . $row['url'] .
               '">' . 'http://' . $row['url'] . '</a>';
 
 			echo <<<HTML
