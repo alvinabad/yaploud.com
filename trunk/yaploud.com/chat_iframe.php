@@ -5,6 +5,7 @@
 
 	<?php
 	   require("./user_session_init_c.inc");
+       $url = $_GET['url'];
 	?>
 
 
@@ -54,7 +55,7 @@
 		<p/><p/>
 		<hr align="left" style="clear:both" width="100%">
         <div style="clear:both;" >
-            <iframe id="yaploudFrame" src="http://www.yaploud.com/chat_frames.php?url=http://www.cnn.com" frameborder="0" scrolling="no" allowtransparency="true" style="position:absolute;width:100%;height:100%;background:transparent;" />
+            <iframe id="yaploudFrame" src="http://www.yaploud.com/chat_frames.php?url=<?php print($url); ?>" frameborder="0" scrolling="no" allowtransparency="true" style="position:absolute;width:100%;height:100%;background:transparent;" />
         </div>
 		<!--
 		<div style="width:200px;padding: 10px 10px 5px 10px;">
