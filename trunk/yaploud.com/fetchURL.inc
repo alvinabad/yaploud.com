@@ -16,7 +16,7 @@ function getUrlTitle($url) {
     
     $c = curl_init($url);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($c, CURLOPT_TIMEOUT, 3);
+    curl_setopt($c, CURLOPT_TIMEOUT, 2);
     $html = curl_exec($c);
     curl_close($c);
     
