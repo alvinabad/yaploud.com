@@ -5,6 +5,7 @@
 
 <?php
 require("./user_session_init_c.inc");
+require('fetchURL.inc');
 ?>
 
 
@@ -90,7 +91,7 @@ input {
 
 			$url = 'http://' . $row['url'];
 			$title = getUrlTitle($url);
-			if ($title == '') {
+			if (!$title) {
 				$title = $url;
 			}
 			
