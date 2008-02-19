@@ -75,27 +75,33 @@ input {
 	$result = $db->mysql_query($query);
 	if($result){
 		while($row = mysql_fetch_assoc($result)){
-			echo<<<HTML
-                <tr height="30px" class="grry_line2">
-                    <td width="20px"><span class="users">
-HTML;
+			$title = '';
+			
+            print '<tr height="30px" class="grry_line2">' .
+                  '  <td width="20px"><span class="users">';
+                  
 			print $row['uniqs'];
-			echo <<<HTML
-        </span></td>
-                    <td align="left"><span class="mail_text">
-HTML;
-			print '<a href="chat_iframe.php?url=http://' . $row['url'] .
-              '">' . 'http://' . $row['url'] . '</a>';
+			
+            print '</span></td>' .
+                  '  <td align="left"><span class="mail_text">';
+                  
+			print '<a href="chat_frames.php?url=http://' . $row['url'] .
+              '">';
 
-			echo <<<HTML
-         </td>
-                    <td><div align="center"><span class="view_details_text style3">
-HTML;
+			$url = 'http://' . $row['url'];
+			$title = getUrlTitle($url);
+			if ($title == '') {
+				$title = $url;
+			}
+			
+			print $title;
+			print '</a>';
+
+			print '</td>' .
+                  '  <td><div align="center"><span class="view_details_text style3">';
 			print $row['c'];
-			echo <<<HTML
-        </span></div></td>
-                </tr>
-HTML;
+			print '</span></div></td>' .
+                  ' </tr>';
 		}
 		mysql_free_result($result);
 	}
