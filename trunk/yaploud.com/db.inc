@@ -15,8 +15,8 @@ class DB{
 		return $link;
 	}
 
-	//function DB($host = "localhost", $user = "yaploud", $password = "yaploud"){
 	function DB($host = "west.yaploud.com", $user = "dev", $password = "cmuwest"){
+	//function DB($host = "localhost", $user = "yaploud", $password = "yaploud"){
 		$this->connection = $this->connect($host, $user, $password);
 	}
 
@@ -45,6 +45,8 @@ class DB{
 
 function getUrlTitle($url) {
 	$html = '';
+	$title = false;
+	
 	$fh = fopen($url, 'r');
 	if ( $fh ) {
 		while( !feof($fh) ) {
@@ -54,7 +56,13 @@ function getUrlTitle($url) {
 	fclose($fh);
 
 	preg_match('#<title>(.+?)</title>#is', $html, $matches);
-	return $matches[1];
+	
+	$title = $matches[1];
+	if ( $title == '' ) {
+		return false;
+	}
+	
+	return $title;
 }
 
 ?>
