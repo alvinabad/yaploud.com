@@ -45,7 +45,7 @@ input {
 				<form method=get action="/chat_iframe.php"><span
 					style="font: 20px Helvetica, Arial, sans-serif; color: #336600; font-weight: bold;">Enter
 				URL to Yap:</span> <input name="url" id="yapurl_box" type="text"
-				    value="http://" size="35"></input> <input
+				    value="http://" size="50"></input> <input
 					type="submit" value="Go" /></form>
 				</td>
 				<td>&nbsp;</td>
