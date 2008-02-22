@@ -57,13 +57,15 @@ input {
 	<tr>
 
 </table>
+</div>
+<div style="clear: both;"></div>
 <p />
 <p />
 
 
-<div id=popular_chat>
-
-<table width="97%" >
+<div style="width: 900px;">
+<div style="width: 720px; float: left;" id=popular_chat>
+<table width="98%" >
 	<tr align="left" valign="middle" height="23px" class="grry_line">
 		<td><span class="arial_16">Yappers</span></td>
 		<td align="center"><span class="arial_16">Popular Yaps</span></td>
@@ -110,12 +112,8 @@ input {
 
 </table>
 </div>
-</div>
 
-<p />
-<p />
-
-<div style="width: 200px; padding: 10px 10px 5px 10px;">
+<div style="float:left; width: 150px; padding: 10px 10px 5px 10px;">
 <table>
 	<tr>
 		<td>
@@ -135,6 +133,8 @@ input {
 		</td>
 	</tr>
 </table>
+</div>
+
 </div>
 
 <div style="clear: both;"></div>
