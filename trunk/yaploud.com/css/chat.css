@@ -1,7 +1,8 @@
 body{
    background:#FFFFFF url(http://www.yaploud.com/imgs/page-back.gif) repeat-x scroll 0%;
    color:#393733;
-   margin: 0 auto;
+   //margin: 0 auto;
+   margin-left:10px;
    width:900px;
    border: 0px solid;
    font: 18px Helvetica, Arial, sans-serif;
