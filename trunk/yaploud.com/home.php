@@ -81,7 +81,7 @@ input {
 			$title = '';
 			
             print '<tr height="30px" class="grry_line2">' .
-                  '  <td width="20px"><span class="users">';
+                  '  <td align="center" width="20px"><span class="users">';
                   
 			print $row['uniqs'];
 			
