@@ -46,10 +46,15 @@
          		$url = $row['url'];
          		$yappers = $row['uniqs'];
          		$comments = $row['c'];
+         		$title = 'Title of the website';
+         		$description = 'meta description goes here if there is any';
          		print <<<HTML
                 <div class="yap_url">
-                    <strong><a href="http://{$url}">http://{$url}</a></strong><br/>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+                    <b><a href="chat_iframe.php?url=http://{$url}">{$title}</a></b>
+                    <br/>
+                    <strong><a href="http://{$url}">(http://{$url})</a></strong>
+                    <br>
+                    {$description}
                     <div class="yap_links">
                         <a href="/"><img src="images/comment.gif" />{$yappers} yappers</a> |
                         <a href="/"><img src="images/comments.gif" />{$comments} comments</a> |
