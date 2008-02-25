@@ -1,5 +1,5 @@
 CREATE TABLE chat_url (
-   id int NOT NULL AUTO_INCREMENT,
+   id bigint NOT NULL AUTO_INCREMENT,
    url varchar(2096) NOT NULL UNIQUE,
    title varchar(4096),
    description TEXT,

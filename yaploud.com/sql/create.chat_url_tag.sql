@@ -1,5 +1,5 @@
 CREATE TABLE chat_url_tag (
-   id int NOT NULL AUTO_INCREMENT,
+   id bigint NOT NULL AUTO_INCREMENT,
    chat_url_id integer not null,
    tag varchar(1024) NOT NULL,
    FULLTEXT(tag),
