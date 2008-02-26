@@ -22,7 +22,7 @@ function getChatUrlInfo($url) {
 	$result = $db->mysql_query($sql);
 
 	$title = $url;
-	$description = ' ';
+	$description = '<br>';
 	if (mysql_num_rows($result) != 1) {
 		$res_obj = false;
 	}
