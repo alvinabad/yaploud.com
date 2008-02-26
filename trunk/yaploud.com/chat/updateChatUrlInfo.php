@@ -100,7 +100,7 @@ require("./updateChatUrlInfo_c.inc");
   <tr>
     <td></td>
     <td>
-      <input name="reset" type="button" value="RESET" onclick="window.location=window.location.pathname;">
+      <input name="clear" type="button" value="Clear" onclick="window.location=window.location.pathname;">
     </td>
   </tr>
   </table>
