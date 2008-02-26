@@ -11,12 +11,12 @@ class DB{
 	var $connection;
 
 	function connect($host, $user, $password){
-		$link = mysql_pconnect($host, $user, $password) or die ('can not connect : ' . mysql_error()) ;
+		$link = mysql_pconnect($host, $user, $password); // or die ('cannot connect : ' . mysql_error()) ;
 		return $link;
 	}
 
-	function DB($host = "west.yaploud.com", $user = "dev", $password = "cmuwest"){
 	//function DB($host = "localhost", $user = "yaploud", $password = "yaploud"){
+	function DB($host = "west.yaploud.com", $user = "dev", $password = "cmuwest"){
 		$this->connection = $this->connect($host, $user, $password);
 	}
 
@@ -36,8 +36,9 @@ class DB{
 	function mysql_query($query){
 		$result = @mysql_query($query, $this->connection);
 		if(!$result){
-			$this->showerror();
-			return null;
+    		$error_msg = "Error " . mysql_errno() . ": " . mysql_error();
+			error_log($error_msg . ', SQL: ' . $query); 
+			// this will log error message to apache's error_log and not to the user!
 		}
 		return $result;
 	}
