@@ -69,7 +69,7 @@ require("./updateChatUrlInfo_c.inc");
       <label>URL: </label>
     </td>
     <td>
-      <input id="url" name="url" type="text" size="100" value="">
+      <input id="url" name="url" type="text" size="100" value="<?php print $url; ?>">
     </td>
   </tr>
   <tr>
@@ -77,7 +77,7 @@ require("./updateChatUrlInfo_c.inc");
       <label>Title: </label>
     </td>
     <td>
-      <input id="title" name="title" type="text" size="50" value=""> 
+      <input id="title" name="title" type="text" size="50" value="<?php print $title; ?>"> 
     </td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ require("./updateChatUrlInfo_c.inc");
       <label>Description: </label>
     </td>
     <td>
-      <textarea id="description" name="description" cols="40" rows="3"></textarea>
+      <textarea id="description" name="description" cols="40" rows="3"><?php print $description; ?></textarea>
     </td>
   </tr>
   <tr>
@@ -94,6 +94,7 @@ require("./updateChatUrlInfo_c.inc");
     <td>
       <input name="update" type="submit" value="Add">
       <input name="update" type="submit" value="Update">
+      <input name="update" type="submit" value="View">
     </td>
   </tr>
   <tr>

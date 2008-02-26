@@ -41,13 +41,16 @@
             <div id="content">
 
         <?php
-        if ($chatUrlInfo_result) {
-         	while($row = mysql_fetch_assoc($chatUrlInfo_result)) { 
+        if ($topicUrlInfo_result) {
+         	while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
          		$url = $row['url'];
          		$yappers = $row['uniqs'];
          		$comments = $row['c'];
-         		$title = 'Title of the website';
-         		$description = 'meta description goes here if there is any';
+         		
+         		$info = getChatUrlInfo($url);
+         		$title = $info['title'];
+         		$description = $info['description'];
+         		
          		print <<<HTML
                 <div class="yap_url">
                     <b><a href="chat_iframe.php?url=http://{$url}">{$title}</a></b>
