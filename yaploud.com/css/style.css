@@ -4,7 +4,7 @@ body {
 	font-family: georgia, times, "times new roman", serif;
 	color: #000;
 	background:#FFFFFF url(../images/page-back.gif) repeat-x scroll 0%;
-	font-size: 16px;
+	font-size: 18px;
 }
 #container {
 	width: 90%;
@@ -91,10 +91,10 @@ img {
     background:#E6E6E6;
 	color:#000;
 	background:#FFFFFF url(../images/sidebar.png) repeat-x scroll 0%;
-	font-size: 12px;
+	font-size: 18px;
 }
 #content .yap_url .yap_links {
-	font-size: 16px;
+	font-size: 18px;
 }
 /********** CSS for Footer *************/
 #footer {
