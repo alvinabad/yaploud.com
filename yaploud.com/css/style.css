@@ -93,15 +93,14 @@ img {
 	background:#FFFFFF url(../images/sidebar.png) repeat-x scroll 0%;
 	font-size: 18px;
 }
-#content .yap_url .yap_links {
-	font-size: 18px;
-}
-
 #content .odd {
     background:#FFFFFF url(../images/sidebar.png) repeat-x scroll 0%;
 }
 #content .even {
     background:#FFFFFF url(../images/page-back.gif) repeat-x scroll 0%;
+}
+#content .yap_url .yap_links {
+	font-size: 18px;
 }
 
 /********** CSS for Footer *************/
