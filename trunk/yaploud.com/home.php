@@ -71,6 +71,7 @@
                         <a href="/"><img src="images/page.gif" />Share Yaplet</a> |
                         <a href="/"><img src="images/vote.gif" /></a>
                     </div>
+                    Tags: <a href="#">tag1</a> <a href="#">tag2</a> <a href="#">tag3</a>
                 </div>
                 <br/>
 HTML;
