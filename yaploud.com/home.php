@@ -42,6 +42,7 @@
 
         <?php
         if ($topicUrlInfo_result) {
+        	$i = 0;
          	while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
          		$url = $row['url'];
          		$yappers = $row['uniqs'];
@@ -51,8 +52,14 @@
          		$title = $info['title'];
          		$description = $info['description'];
          		
+         		if ($i % 2 == 0) {
+                    print '<div class="yap_url even">';
+         		}
+                else {
+                    print '<div class="yap_url odd">';
+                }
+                $i++;
          		print <<<HTML
-                <div class="yap_url">
                     <b><a href="chat_iframe.php?url=http://{$url}">{$title}</a></b>
                     <br/>
                     <strong><a href="http://{$url}">(http://{$url})</a></strong>
