@@ -70,8 +70,9 @@
                         <a href="chat.php?url={$url}"><img src="images/comments.gif" />{$comments} comments</a> |
                         <a href="/"><img src="images/page.gif" />Share Yaplet</a> |
                         <a href="/"><img src="images/vote.gif" /></a>
+                        <br>
+                        Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                     </div>
-                    Tags: <a href="#">tag1</a> <a href="#">tag2</a> <a href="#">tag3</a>
                 </div>
                 <br/>
 HTML;
