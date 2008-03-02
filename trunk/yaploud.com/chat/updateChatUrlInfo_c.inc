@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 
 	$url = $_GET['url'];
 	$url = trim($url);
+	$url = preg_replace('/([a-zA-Z0-9_-])\/$/', '$1', $url);
 	if ($url == '') {
 		return;
 	}
