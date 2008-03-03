@@ -69,7 +69,7 @@
                         <a href="chat.php?url={$url}"><img src="images/comment.gif" />{$yappers} yappers</a> |
                         <a href="chat.php?url={$url}"><img src="images/comments.gif" />{$comments} comments</a> |
                         <a href="/"><img src="images/page.gif" />Share Yaplet</a> |
-                        <a href="/"><img src="images/vote.gif" /></a>
+                        <a href="/"><img src="images/ratings/stars-4-5.gif" /></a> {$yappers} ratings
                         <br>
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                     </div>
