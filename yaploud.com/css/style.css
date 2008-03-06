@@ -94,10 +94,10 @@ img {
 	font-size: 18px;
 }
 #content .odd {
-    background:#FFFFFF url(../images/page-back.gif) repeat-x scroll 0%;
+    background:#FFFFFF url(../images/gradient_yellow.gif);
 }
 #content .even {
-    background:#FFFFFF url(../images/sidebar.png) repeat-x scroll 0%;
+    background:#FFFFFF url(../images/gradient_blue.gif) repeat-x scroll 0%;
 }
 #content .yap_url .yap_links {
 	font-size: 18px;
