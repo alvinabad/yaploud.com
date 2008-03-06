@@ -7,7 +7,9 @@ CREATE TABLE chat_url (
    votes int,
    average_rating float,
    creation_date datetime NOT NULL,
+   tags TEXT,
    FULLTEXT(title, description),
+   FULLTEXT(tags),
    PRIMARY KEY (id)
 ) type = MyISAM;
 
