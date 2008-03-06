@@ -5,11 +5,11 @@
     <div class="header-top">
         <div class="header-left">
         <a href="home.php">
-            <img src="images/logo.gif" /><img src="images/home_06.gif" />
+            <img src="/images/logo.gif" /><img src="images/home_06.gif" />
         </a>
         </div>
         <div class="header-center">
-            <img src="images/home_02.gif" /><img src="images/home_07.gif" />
+            <img src="/images/home_02.gif" /><img src="images/home_07.gif" />
         </div>
 
         <div class="header-right">
