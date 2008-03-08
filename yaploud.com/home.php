@@ -60,7 +60,7 @@
                 }
                 $i++;
          		print <<<HTML
-                    <b><a href="chat_iframe.php?url=http://{$url}">{$title}</a></b>
+                    <b><a href="chat_frames.php?url=http://{$url}">{$title}</a></b>
                     <br/>
                     <strong><a href="http://{$url}">(http://{$url})</a></strong>
                     <br>
