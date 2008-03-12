@@ -36,7 +36,7 @@ Yaploud Chat
 <body class="yui-skin-sam">
 <?
    //require("./user_session_init_c.inc");
-   include("common/header.php");
+   //include("common/header.php");
    include("util.inc");
 ?>
 
@@ -64,22 +64,42 @@ Yaploud Chat
 	ob_end_flush();
 	return;
    }
-
 ?>
+
+<div style="position: absolute; width: 100%; height: 100%; z-index: 1;">
+  <iframe id="mainDocumentFrame" src="http://<?php print $url ?>" 
+              height="100%" width="100%" frameborder="0" marginwidth="0" 
+              marginheight="0" vspace="0" hspace="0">
+  </iframe>
+</div>
+<!-- 
+ -->
+ 
 <div id=panel1>
    <div id=normalized_url style="display:none;"><?php print normalizeURL($url); ?></div>
-   <div class=hd><img src=images/logo.gif width=41 height=22 valign=absmiddle></img>&nbsp;Chatting about: <span id=url><?php print "$url"; ?></span><a style="margin-left:10px;" href="<?php print "http://$url"; ?>" target="_blank">(go)</a></div>
+   
+   <div class=hd>
+      <a href="/home.php">
+      <img src=images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
+      &nbsp;Chatting about: <span id=url><?php print "$url"; ?></span>
+      <a style="margin-left:10px;" href="<?php print "http://$url"; ?>" target="_blank">(go)</a></div>
+
    <div class=bd>
         <!-- begin msgs -->
 	<div id=msgs_div class=msgs_div>
 	</div> <!-- msgs_div -->
-	<div class=members id=members><div style="font-size:1.12em;">Yappers:</div><br/></div>
+	
+	<div class=members id=members>
+	<div style="font-size:1.12em;">Yappers:</div>
+	<br/>
+	</div>
+	
 	<div style="clear:both;"></div>
 	<form enctype="text/plain" name="msgform">
 
 
-	   <div style="margin-top:5px;float:left;">
-	      <?php
+	  <div style="margin-top:5px;float:left;">
+	    <?php
 	      if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
 	      	$guest = $_SESSION['guest'];
 	      	print "<div style=\"float:left;\"><label for=username>" . 
@@ -94,29 +114,29 @@ EOB;
 	         print "<input type=hidden name=username id=username value=\"" . $_SESSION['username'] . "\" />\n";
 	      }
 	      ?>
-	   </div>
+	  </div>
 
-	   <div style="clear:both;"></div>
+	  <div style="clear:both;"></div>
 
-	   <div style="margin-top:4px;margin-left:3px;float:left;">
+	  <div style="margin-top:4px;margin-left:3px;float:left;">
 	      <textarea name=msg_content id=msg_content rows=3 cols=40></textarea>
 	      <!-- <input onclick="return sendMsg();" type="submit" value=send></input> -->
 
 	      <input type="image" src="images/go_image.gif" value="send" onclick="sendMsg();">
 
-	   </div>
+	  </div>
 
-	   <div class=util_box style="margin-left:5px;margin-top:4px;float:left;" class=chars_left>
+	  <div class=util_box style="margin-left:5px;margin-top:4px;float:left;" class=chars_left>
 	   	<span id=chars_left>250</span> <span class=menu_1>chars left</span>
 	   	<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:more_messages(<? print "'" . urlencode($url) . "'";?> );">Get more messages</a></p>
         <p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:show_msg_times();">Show the times</a></p>
 
 		<p><a style="float:left; margin-top:10px;" class=menu_1 href="javascript:invite_friend();">Invite your friend</a></p>
-	   </div>
+	  </div>
 
-	   <div style="clear:both;"></div>
+	  <div style="clear:both;"></div>
+	
 	</form>
-	</div>
    </div> <!-- bd -->
 </div> <!-- panel -->
 
@@ -129,7 +149,14 @@ EOB;
 
 
    var buildPanel = function(){
-	var p = new YAHOO.widget.ResizePanel('panel1', {width:'600px', visible:true, draggable:true, close:true, zIndex:1});
+	var p = new YAHOO.widget.ResizePanel('panel1', {
+	    width:'600px', 
+	    visible:true, 
+	    draggable:true, 
+	    close:true, 
+   		fixedcenter:true, 
+        constraintoviewport: true,
+	    zIndex:1});
 	win_manager.register(p);
 	p.hideEvent.subscribe(hide_handler);
 	p.render();
@@ -149,6 +176,7 @@ EOB;
    addEvent(window, 'load', startMsgPull);
 
 </script>
+
 <div id=debug></div>
 <div id=invite_dialog>
    <div class=hd>Enter Email to Invite (alpha)</div>
@@ -158,11 +186,12 @@ EOB;
 	</form>
    </div>
 </div>
+
 </body>
 </html>
 
 
 <?php
-include("common/footer.php");
+//include("common/footer.php");
 ob_end_flush();
 ?>
