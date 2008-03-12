@@ -150,10 +150,10 @@ EOB;
 
    var buildPanel = function(){
 	var p = new YAHOO.widget.ResizePanel('panel1', {
-	    width:'600px', 
+	    width:'580px', 
 	    visible:true, 
 	    draggable:true, 
-	    close:true, 
+	    close:false, 
    		fixedcenter:true, 
         constraintoviewport: true,
 	    zIndex:1});
