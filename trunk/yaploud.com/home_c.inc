@@ -95,7 +95,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
          
         $next = $offset + $limit;
     }
-    
+    else {
+    	$next = $offset;
+    	$previous = $offset - $limit;
+    }
 }
 else {
     $topicUrlInfo_result = getTopicUrlInfo($offset, $limit);
