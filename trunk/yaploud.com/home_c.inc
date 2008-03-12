@@ -38,8 +38,20 @@ function getChatUrlInfo($url) {
 	return $info;
 }
 
-function getTopicUrlInfo() {
-	$query = "select topic_url as url, count(*) as c, (select count(username) from dev.room_users where topic_url = url) as uniqs  from dev.chat group by topic_url order by 2 desc limit 15";
+function getTopicUrlInfo($offset, $limit) {
+	if (!$offset) {
+		$offset = 0;
+	}
+	
+	if (!$limit) {
+		$limit = 3;
+	}
+	
+	$query = "select topic_url as url, count(*) as c, " .
+	            "(select count(username) from dev.room_users where topic_url = url) " .
+	            "as uniqs  from dev.chat group by topic_url order by 2 desc limit " .
+	            $offset . ", " . $limit;
+	
 	$db = new DB();
 	$chatUrlInfo_result = $db->mysql_query($query);
 
@@ -51,7 +63,43 @@ function getTopicUrlInfo() {
 	}
 }
 
-$topicUrlInfo_result = getTopicUrlInfo();
+
+// default values
+$offset = 0;
+$limit = 4;
+
+$previous = $offset;
+$next = $offset + $limit;
+
+if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
+     isset($_REQUEST['offset']) && isset($_REQUEST['limit']) ) {
+    
+    $offset = $_REQUEST['offset'];
+    $limit = $_REQUEST['limit'];
+    if ( $offset < 0 ) {
+    	$offset = 0;
+    }
+    
+    $topicUrlInfo_result = getTopicUrlInfo($offset, $limit);
+    
+    $look_ahead = getTopicUrlInfo($offset+$limit, $limit);
+    $i = 0;
+    while($row = mysql_fetch_assoc($look_ahead)) {
+    	$i++;
+    }
+    if ($i != 0) {
+        $previous = $offset - $limit;
+        if ($previous < 0) {
+            $previous = 0;
+        }
+         
+        $next = $offset + $limit;
+    }
+    
+}
+else {
+    $topicUrlInfo_result = getTopicUrlInfo($offset, $limit);
+}
 
 ?>
 
