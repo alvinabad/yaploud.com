@@ -39,8 +39,16 @@
 			?>
 
             <div id="content">
-
         <?php
+        
+        $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
+        $next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
+        
+        print <<<HTML
+        <div style="text-align: right;">
+          <a href="{$previous_url}">Previous &lt</a> <a href="{$next_url}">&gt; Next</a>
+        </div>
+HTML;
         if ($topicUrlInfo_result) {
         	$i = 0;
          	while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
