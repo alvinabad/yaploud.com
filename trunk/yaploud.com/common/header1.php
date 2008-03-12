@@ -1,4 +1,11 @@
 
+<script type="text/javascript">
+    function strip_http() {
+        var url = document.getElementById("yapurl_box");
+        url.value = url.value.replace('http://', '');
+    }
+</script>
+
 <!-- HEADER SECTION -->
 <div id="header">
 
