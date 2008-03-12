@@ -50,7 +50,17 @@
 
    function showLoading(){
    	sl = null;
-   	sl = new YAHOO.widget.Panel("p", {iframe:true,zIndex:100000,width:"240px",fixedcenter:true, close:false,draggable:false,modal:true,visible:false,effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.5}});
+   	sl = new YAHOO.widget.Panel("p", {
+   		    iframe:true,
+   		    zIndex:100000,
+   		    width:"240px",
+   		    fixedcenter:true, 
+   		    close:false,
+   		    draggable:true,
+            constraintoviewport: true,
+   		    modal:true,
+   		    visible:false,
+   		    effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.5}});
 	sl.setHeader("Loading, please wait...");
 	sl.setBody('<img src="http://us.i1.yimg.com/us.yimg.com/i/us/per/gr/gp/rel_interstitial_loading.gif" />');
 	sl.render(document.body);
