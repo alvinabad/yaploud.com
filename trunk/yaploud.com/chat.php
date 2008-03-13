@@ -81,7 +81,7 @@ Yaploud Chat
    <div class=hd>
       <a href="/home.php">
       <img src=images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
-      &nbsp;Chatting about: <span id=url><?php print "$url"; ?></span>
+      &nbsp;Yapping about: <span id=url><?php print "$url"; ?></span>
       <a style="margin-left:10px;" href="<?php print "http://$url"; ?>" target="_blank">(go)</a></div>
 
    <div class=bd>
