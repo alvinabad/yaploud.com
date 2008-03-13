@@ -45,7 +45,7 @@
         $next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
         
         print <<<HTML
-        <div style="text-align: right;">
+        <div style="text-align: center;">
           <a href="{$previous_url}">Previous &lt</a> <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
@@ -85,6 +85,11 @@ HTML;
                 <br/>
 HTML;
          	}
+        print <<<HTML
+        <div style="text-align: center;">
+          <a href="{$previous_url}">Previous &lt</a> <a href="{$next_url}">&gt; Next</a>
+        </div>
+HTML;
         }
         ?>
             </div>
