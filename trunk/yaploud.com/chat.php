@@ -153,7 +153,7 @@ EOB;
 	    width:'580px', 
 	    visible:true, 
 	    draggable:true, 
-	    close:false, 
+	    close:true, 
    		fixedcenter:true, 
         constraintoviewport: true,
 	    zIndex:1});
