@@ -44,16 +44,15 @@
         $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
         $next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
         
-        print <<<HTML
-        <div style="text-align: center;">
-          <a href="{$previous_url}">Previous &lt</a> 
-HTML;
-        //$total_url = 13;
         $c = (int)(($total_url-$offset)/$num_pagelinks);
         if (($total_url-$offset) == $num_pagelinks)
             $c = 0;
             
-        //error_log($c);
+        //--- Start pagination
+        print <<<HTML
+        <div style="text-align: center;">
+          <a href="{$previous_url}">Previous &lt</a> 
+HTML;
         for($x=0; $x<10; $x++) {
         	$jump = $x + $offset;
             $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
@@ -70,6 +69,8 @@ HTML;
          <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
+       //--- End pagination
+       
         if ($topicUrlInfo_result) {
         	$i = 0;
          	while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
@@ -106,11 +107,29 @@ HTML;
                 <br/>
 HTML;
          	}
+        //--- Start pagination
         print <<<HTML
         <div style="text-align: center;">
-          <a href="{$previous_url}">Previous &lt</a> <a href="{$next_url}">&gt; Next</a>
+          <a href="{$previous_url}">Previous &lt</a> 
+HTML;
+        for($x=0; $x<10; $x++) {
+            $jump = $x + $offset;
+            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
+            
+            $jump++;
+            print <<<HTML
+              <a href="{$jump_url}">{$jump} </a>
+HTML;
+            if ($x>=$c)
+                break;
+        }
+        
+        print <<<HTML
+         <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
+       //--- End pagination
+
         }
         ?>
             </div>
