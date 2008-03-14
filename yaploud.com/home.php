@@ -54,9 +54,11 @@ HTML;
             $c = 0;
             
         //error_log($c);
-        for($x=0; $x<=$c; $x++) {
+        for($x=0; $x<10; $x++) {
           	print $x+$offset+1;
           	print " ";
+          	if ($x>=$c)
+          	    break;
         }
         
         print <<<HTML
