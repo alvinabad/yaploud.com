@@ -54,6 +54,7 @@ HTML;
             $c = 0;
             
         //error_log($c);
+        	print $c . ": ";
         for($x=0; $x<=$c; $x++) {
           	print $x+$offset+1;
           	print " ";
