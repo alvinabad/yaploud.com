@@ -55,8 +55,13 @@ HTML;
             
         //error_log($c);
         for($x=0; $x<10; $x++) {
-          	print $x+$offset+1;
-          	print " ";
+        	$jump = $x + $offset;
+            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
+        	
+            $jump++;
+            print <<<HTML
+        	  <a href="{$jump_url}">{$jump} </a>
+HTML;
           	if ($x>=$c)
           	    break;
         }
