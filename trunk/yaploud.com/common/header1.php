@@ -7,6 +7,8 @@
 </script>
 
 <!-- HEADER SECTION -->
+
+
 <div id="header">
 
     <div class="header-top">
@@ -23,35 +25,36 @@
         <?php
             if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
                 print <<<HTML
-            <a href="/user/register.php"><strong>Sign Up</strong></a> | 
-            <a href="/help.php">Feedback</a> | 
+            <a href="/user/register.php"><strong>Sign Up</strong></a> |
+            <a href="/help.php">Feedback</a> |
             <a href="/login_page.php">Log In</a>
 HTML;
             }
             else {
                 print <<<HTML
-            <a href="/user/myaccount.php">Hi {$_SESSION['username']}</a> | 
-            <a href="/user/myaccount.php">My Account</a> | 
-            <a href="/help.php">Feedback</a> | 
+            <a href="/user/myaccount.php">Hi {$_SESSION['username']}</a> |
+            <a href="/user/myaccount.php">My Account</a> |
+            <a href="/help.php">Feedback</a> |
             <a href="/login_page.php?logout=true">Log Out</a>
 HTML;
             }
         ?>
             <form method="get" action="/search.php">
                 <span style="margin-top:5px; margin-left: 0px;">Search:</span>
-                <input name="q" id="search_box" type="text" class="Text2_b" 
+                <input name="q" id="search_box" type="text" class="Text2_b"
                        size="16"></input>
                 <img src="images/go.gif" />
             </form>
         </div>
-    </div>
+       </div>
 
-    <form method="get" action="/chat.php" onsubmit="strip_http(); ">
-        <span>Enter URL to yap:</span>
-        <input name="url" id="yapurl_box" type="text" value="http://" size="50" />
-        <input type="submit" value="Go" />
-    </form>
+    		<form method="get" action="/chat.php" onsubmit="strip_http(); ">
+        	<span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>
+        	<input name="url" id="yapurl_box" type="text" style="background: #F0F8FF  ; color: blue; font-size: 20px;"value="http://" size="50" />
+        	<input type="submit" value="Go" />
+    		</form>
+
+
 </div>
-
 
 
