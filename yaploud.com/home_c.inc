@@ -77,7 +77,7 @@ function getTopicUrlInfo($db, $offset, $limit) {
 
 
 // default values
-$num_pagelinks = 4;
+$num_pagelinks = 8;
 $offset = 0;
 $limit = $num_pagelinks;
 $db = new DB();
