@@ -58,11 +58,11 @@ HTML;
             $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
         	
             $jump++;
+          	if ($jump>$total_url)
+          	    break;
             print <<<HTML
         	  <a href="{$jump_url}">{$jump} </a>
 HTML;
-          	if ($x>=$c)
-          	    break;
         }
         
         print <<<HTML
