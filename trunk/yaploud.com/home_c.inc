@@ -38,7 +38,17 @@ function getChatUrlInfo($url) {
 	return $info;
 }
 
-function getTopicUrlInfo($offset, $limit) {
+function getCountTopicUrl($db) {
+	$sql = "select count(*) as count from ". 
+	         "(select topic_url from dev.chat group by topic_url) d";
+	
+	$result = $db->mysql_query($sql);
+    $res_obj = mysql_fetch_object($result);
+	$count = $res_obj->count;
+	return $count;
+}
+
+function getTopicUrlInfo($db, $offset, $limit) {
 	if (!$offset) {
 		$offset = 0;
 	}
@@ -48,11 +58,13 @@ function getTopicUrlInfo($offset, $limit) {
 	}
 	
 	$query = "select topic_url as url, count(*) as c, " .
-	            "(select count(username) from dev.room_users where topic_url = url) " .
-	            "as uniqs  from dev.chat group by topic_url order by 2 desc limit " .
-	            $offset . ", " . $limit;
+             "(select count(username) from dev.room_users where topic_url = url) " .
+	         "as uniqs  from dev.chat group by topic_url order by 2 desc ";
 	
-	$db = new DB();
+	if ( $limit >= 0 ) {
+		$query = $query . "limit $offset, $limit";
+	}
+	
 	$chatUrlInfo_result = $db->mysql_query($query);
 
 	if($chatUrlInfo_result) {
@@ -65,11 +77,14 @@ function getTopicUrlInfo($offset, $limit) {
 
 
 // default values
+$num_pagelinks = 4;
 $offset = 0;
-$limit = 4;
+$limit = $num_pagelinks;
+$db = new DB();
 
 $previous = $offset;
 $next = $offset + $limit;
+$total_url = getCountTopicUrl($db);
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
      isset($_REQUEST['offset']) && isset($_REQUEST['limit']) ) {
@@ -80,9 +95,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
     	$offset = 0;
     }
     
-    $topicUrlInfo_result = getTopicUrlInfo($offset, $limit);
+    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit);
     
-    $look_ahead = getTopicUrlInfo($offset+$limit, $limit);
+    $look_ahead = getTopicUrlInfo($db, $offset+$limit, $limit);
     $i = 0;
     while($row = mysql_fetch_assoc($look_ahead)) {
     	$i++;
@@ -101,7 +116,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
     }
 }
 else {
-    $topicUrlInfo_result = getTopicUrlInfo($offset, $limit);
+    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit);
 }
 
 ?>
