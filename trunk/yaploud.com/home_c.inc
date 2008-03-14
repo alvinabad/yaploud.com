@@ -77,17 +77,16 @@ function getTopicUrlInfo($db, $offset, $limit) {
 
 
 // default values
-$num_pagelinks = 5;
+$num_pagelinks = 8;
 $offset = 0;
 $limit = $num_pagelinks;
 $db = new DB();
 
 $previous = $offset;
 $next = $offset + $limit;
-if ($next>=$limit)
-    $next = $offset;
-    
 $total_url = getCountTopicUrl($db);
+if ($next>$total_url)
+    $next = $offset;
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
      isset($_REQUEST['offset']) && isset($_REQUEST['limit']) ) {
