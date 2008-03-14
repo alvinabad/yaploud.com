@@ -84,6 +84,9 @@ $db = new DB();
 
 $previous = $offset;
 $next = $offset + $limit;
+if ($next>=$limit)
+    $next = $offset;
+    
 $total_url = getCountTopicUrl($db);
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
