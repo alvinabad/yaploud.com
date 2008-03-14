@@ -44,10 +44,6 @@
         $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
         $next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
         
-        $c = (int)(($total_url-$offset)/$num_pagelinks);
-        if (($total_url-$offset) == $num_pagelinks)
-            $c = 0;
-            
         //--- Start pagination
         print <<<HTML
         <div style="text-align: center;">
@@ -117,11 +113,12 @@ HTML;
             $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
             
             $jump++;
+            if ($x>$total_url)
+                break;
+                
             print <<<HTML
               <a href="{$jump_url}">{$jump} </a>
 HTML;
-            if ($x>=$c)
-                break;
         }
         
         print <<<HTML
