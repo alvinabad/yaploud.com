@@ -46,7 +46,21 @@
         
         print <<<HTML
         <div style="text-align: center;">
-          <a href="{$previous_url}">Previous &lt</a> <a href="{$next_url}">&gt; Next</a>
+          <a href="{$previous_url}">Previous &lt</a> 
+HTML;
+        //$total_url = 13;
+        $c = (int)(($total_url-$offset)/$num_pagelinks);
+        if ($total_url%$num_pagelinks == 0)
+            $c = 0;
+            
+        //error_log($c);
+        for($x=0; $x<=$c; $x++) {
+          	print $x+$offset+1;
+          	print " ";
+        }
+        
+        print <<<HTML
+         <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
         if ($topicUrlInfo_result) {
