@@ -53,7 +53,7 @@
         <div style="text-align: center;">
           <a href="{$previous_url}">Previous &lt</a> 
 HTML;
-        for($x=0; $x<10; $x++) {
+        for($x=0; $x<$num_pagelinks; $x++) {
         	$jump = $x + $offset;
             $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
         	
@@ -112,7 +112,7 @@ HTML;
         <div style="text-align: center;">
           <a href="{$previous_url}">Previous &lt</a> 
 HTML;
-        for($x=0; $x<10; $x++) {
+        for($x=0; $x<$num_pagelinks; $x++) {
             $jump = $x + $offset;
             $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
             
