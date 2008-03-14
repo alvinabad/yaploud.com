@@ -50,11 +50,10 @@
 HTML;
         //$total_url = 13;
         $c = (int)(($total_url-$offset)/$num_pagelinks);
-        if ($total_url%$num_pagelinks == 0)
+        if (($total_url-$offset)%$num_pagelinks == 0)
             $c = 0;
             
         //error_log($c);
-        	print $c . ": ";
         for($x=0; $x<=$c; $x++) {
           	print $x+$offset+1;
           	print " ";
