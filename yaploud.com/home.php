@@ -87,7 +87,7 @@ HTML;
                 }
                 $i++;
          		print <<<HTML
-                    <b><a href="chat.php?url={$url}">{$title}</a></b>
+                    <b><a href="chat.php?url={$url}">{$title}</a></b>                    
                     <br/>
                     <strong><a href="http://{$url}">(http://{$url})</a></strong>
                     <br>
@@ -99,6 +99,10 @@ HTML;
                         <a href="/"><img src="images/ratings/stars-4-5.gif" /></a> {$yappers} ratings
                         <br>
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
+                        <br>
+                    <a href='javascript: window.open("/chat/chat_window.php?url={$url}",
+         "", "width=320, height=320, status=yes, resizable=no,
+         left=600, top=100"); void 0;'>Test new yaplet</a>
                     </div>
                 </div>
                 <br/>
