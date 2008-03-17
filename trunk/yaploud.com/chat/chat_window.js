@@ -1,29 +1,8 @@
 
-
-/**
-<!-- 
-<script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js" ></script> 
-<script type="text/javascript" src="/js/yui//build/event/event-min.js" ></script> 
-<script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js"> </style>
-<script type="text/javascript" src="/js/yui/build/event/event-min.js" > </script> 
-<script type="text/javascript"
-    src="/js/yui/build/yahoo-dom-event/yahoo-dom-event.js">
-</style>
-<script
-    type="text/javascript" src="/js/yui/build/utilities/utilities.js">
-</script>
- -->
-**/
-
-
 var title_header = "YapLoud.com";
 var poll_interval = 5000;
 var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
-
-function getMessages() {
-	//alert('xxx');
-}
 
 function displayBrowserInfo() {
     var browser = "Browser Information\n";	
@@ -62,12 +41,6 @@ function generateContent() {
     
     html_text += site_title + "</a>";
     title.innerHTML = html_text;
-	
-	var links_div = document.getElementById('links');
-	html_text = "<a href='#'>Login</a>"
-	html_text += " | <a href='#'>Help</a>"
-	html_text += "<br> <a href='#'>Signup</a>"
-	links_div.innerHTML = html_text;
 }
 
 function includeJavaScript(js_src) {
@@ -190,16 +163,15 @@ var GetMessages = {
 	    poll_interval_id = setInterval(GetMessages.sendRequest, poll_interval);
         chat_mode_div = document.getElementById('chat_mode');
         chat_mode_div.innerHTML = 
-            '<a href="javascript: GetMessages.stopPolling();">Suspend Chat</a>';
+            '<a href="javascript: GetMessages.stopPolling();">Suspend chat</a>';
     },
 
     stopPolling: function() {
         clearInterval(poll_interval_id);
         chat_mode_div = document.getElementById('chat_mode');
         chat_mode_div.innerHTML = 
-            '<a href="javascript: GetMessages.startPolling();">Resume Chat</a>';
-    },
-
+            '<a href="javascript: GetMessages.startPolling();">Resume chat</a>';
+    }
 };
 
 var GetMessages_callback = {
@@ -250,16 +222,15 @@ var SendMessage_callback = {
 
 var Chat = {
 	onunload: function() {
-	},
-	
-}
+	}
+};
 
 /************************************************************/
 
 function init() {
+    document.getElementById('chat_textarea').focus();
 	generateContent();
     GetMessages.startPolling();
-    //startPolling();
 }
 
 function quit() {
@@ -270,8 +241,3 @@ YAHOO.util.Event.onDOMReady(init);
 //YAHOO.util.Event.addListener(body, "onunload", quit); 
 
 
-
-//YAHOO.util.Event.onAvailable('main', init);
-//YAHOO.util.Event.on(window, "load", init);
-//YAHOO.util.Event.addListener("elementid", "click", fnCallbac); 
-//document.write('<link rel="stylesheet" type="text/css" href="/chat/embedded_chat.css" />');
