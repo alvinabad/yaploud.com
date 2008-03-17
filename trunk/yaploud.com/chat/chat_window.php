@@ -14,7 +14,8 @@ require("./chat_window_c.inc");
 <link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
 <script type="text/javascript">
-    var url_site = "<?php print $url_site; ?>";
+    var site_url = "<?php print $site_url; ?>";
+    var site_title = "<?php print $site_title; ?>";
 </script>
 
 </head>

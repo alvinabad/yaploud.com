@@ -34,8 +34,9 @@ function displayBrowserInfo() {
 }
 
 function generateContent() {
-	var url = url_site;
+	var url = site_url;
 	url = appendHttp2Url(url);
+	alert(url);
 	
     var title = document.getElementById('hd');
     html_text = "<strong>Yapping about: </strong>";
@@ -52,7 +53,7 @@ function generateContent() {
         html_text += '<a href="' + url + '" target="_blank">';
     }
     
-    html_text += url + "</a>";
+    html_text += site_title + "</a>";
     title.innerHTML = html_text;
 	
 	var links_div = document.getElementById('links');
@@ -167,13 +168,13 @@ var GetMessages = {
     },
 
     sendRequest:function() {
-        if (!url_site)
-            url_site = 'http://cmu.facebook.com/profile.php?id=4813337';
+        if (!site_url)
+            site_url = 'http://cmu.facebook.com/profile.php?id=4813337';
             
-    	url_site = removeHttp(url_site);
-	    url_site = encodeURIComponent(url_site);
+    	site_url = removeHttp(site_url);
+	    site_url = encodeURIComponent(site_url);
 	            
-        url = url_GetMessages + '?url=' + url_site + "&last_msg_id=" + last_msg_id;
+        url = url_GetMessages + '?url=' + site_url + "&last_msg_id=" + last_msg_id;
         YAHOO.util.Connect.asyncRequest('GET', url, GetMessages_callback, null);
     },
 
@@ -224,9 +225,9 @@ var SendMessage = {
     },
 
     sendRequest:function() {
-        url_site = encodeURIComponent(url_site);
+        site_url = encodeURIComponent(site_url);
         
-        url = url_GetMessages + '?url=' + url_site + "&last_msg_id=" + last_msg_id;
+        url = url_GetMessages + '?url=' + site_url + "&last_msg_id=" + last_msg_id;
         YAHOO.util.Connect.asyncRequest('GET', url, SendMessage_callback, null);
     }
 

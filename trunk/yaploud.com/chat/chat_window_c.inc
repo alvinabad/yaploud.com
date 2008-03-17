@@ -16,10 +16,16 @@ ob_start();
 require ("user.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
-	$url_site = $_REQUEST['url'];
+	$site_url = $_REQUEST['url'];
+	if (isset($_REQUEST['title'])) {
+	    $site_title = $_REQUEST['title'];
+	}
+	else {
+	    $site_title = $_REQUEST['url'];
+	}
 }
 else {
-	$url_site = "http://cmu.edu";
+	$site_url = "http://cmu.edu";
 }
 ?>
 
