@@ -13,6 +13,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 session_start();
 ob_start();
 
+require("./common/nocache.php");
 require ("user.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
