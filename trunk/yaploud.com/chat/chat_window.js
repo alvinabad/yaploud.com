@@ -33,8 +33,9 @@ function displayBrowserInfo() {
     alert(browser);
 }
 
-function openChatWindow(site_url) {
-	var url = "/chat/chat_window.php?url=" + site_url;
+function openChatWindow(site_url, title) {
+	var url = "/chat/chat_window.php?url=" + site_url +
+	          "&title=" + title;
 	var features = "width=320, height=320, status=yes, " +
 			       "resizable=no, left=600, top=100";
     window.open(url, "", features);
