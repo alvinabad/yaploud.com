@@ -10,13 +10,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="css/niftycube.js" ></script>
-        <script type="text/javascript" src="/chat/chat_window.js"></script>
         <script type="text/javascript">
             window.onload=function() {
                 Nifty("div.yap_url, div#tagCloud","big, transparent");
                 //Nifty("div#tagCloud", "big, transparent");
             }
         </script>
+  <script type="text/javascript">
+   function openChatWindow(site_url, title) {
+        var url = "/chat/chat_window.php?url=" + site_url +
+              "&title=" + title;
+       var features = "width=320, height=320, status=yes, " +
+                   "resizable=no, left=600, top=100";
+       window.open(url, "", features);
+   }
+  </script>
     </head>
 
     <body>
