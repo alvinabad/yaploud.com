@@ -1,0 +1,76 @@
+@CHARSET "ISO-8859-1";
+
+
+.body {
+    margin: 0;
+    padding:0;
+    background: white;
+}
+#main {
+    border: 2px solid blue;
+    margin: 2px;
+    background-color: white;
+    /*padding: 2px;*/
+    width: 300px;
+    height: 280px;
+    font-size: 12px;
+    font-family: georgia, times, "times new roman", serif;
+}
+#hd {
+    /*border: 1px solid red;*/
+    margin: 2px;
+    padding: 2px;
+}
+#ft {
+    /*border: 1px solid red;*/
+    margin: 2px;
+    padding: 2px;
+}
+#bd {
+    /*border: 1px solid red;*/
+    margin: 0px;
+    padding: 0px;
+}
+#msg {
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    width: 200px;
+    height: 150px;
+    overflow: auto;
+    font-family: arial, courier-new, serif;
+}
+
+.sender {
+	color: brown;
+}
+
+#yappers {
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    overflow: auto;
+    width: 76px;
+    height: 150px;
+}
+#links{
+    /*border: 1px solid green;*/
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    overflow: auto;
+    width: 76px;
+    height: 50px;
+    text-align: left;
+}
+#yap {
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    width: 200px;
+    font-size: 12px;
+    height: 50px;
+}
