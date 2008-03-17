@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="css/niftycube.js" ></script>
+        <script type="text/javascript" src="/chat/chat_window.js"></script>
         <script type="text/javascript">
             window.onload=function() {
                 Nifty("div.yap_url, div#tagCloud","big, transparent");
@@ -100,9 +101,7 @@ HTML;
                         <br>
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                         <br>
-                    <a href='javascript: window.open("/chat/chat_window.php?url={$url}",
-         "", "width=320, height=320, status=yes, resizable=no,
-         left=600, top=100"); void 0;'>Test new yaplet</a>
+                        <a href="" onclick='openChatWindow("{$url}"); return false;'>Test new yaplet window</a>
                     </div>
                 </div>
                 <br/>
