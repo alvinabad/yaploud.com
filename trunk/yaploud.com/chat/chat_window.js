@@ -44,7 +44,6 @@ function openChatWindow(site_url, title) {
 function generateContent() {
 	var url = site_url;
 	url = appendHttp2Url(url);
-	alert(url);
 	
     var title = document.getElementById('hd');
     html_text = "<strong>Yapping about: </strong>";
