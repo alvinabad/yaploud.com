@@ -21,7 +21,8 @@
         var url = "/chat/chat_window.php?url=" + site_url +
               "&title=" + title;
        var features = "width=320, height=320, status=yes, " +
-                   "resizable=no, left=600, top=100";
+                      "menubar=no, toolbar=no, status=no, " +
+                      "location=no, resizable=no, left=600, top=100";
        window.open(url, "", features);
    }
   </script>
