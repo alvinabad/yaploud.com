@@ -218,7 +218,6 @@ var SendMessage = {
         // retrieve message immediately
 	    //GetMessages.stopPolling(true);
 	    GetMessages.sendRequest();
-	    alert('xxxxxxxxxxxxxxx');
 	    //GetMessages.startPolling(true);
     },
 
