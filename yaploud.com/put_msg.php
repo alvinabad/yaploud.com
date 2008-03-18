@@ -13,12 +13,12 @@ $url = $_GET['url'];
 $url = normalizeURL($url);
 
 $query = "INSERT INTO dev.chat values (NULL, '$url', '$user', SYSDATE(), '$msg')"; 
-print "$query <br/>";
+//print "$query <br/>";
 if(!$result = mysql_query($query, $db->getConnection())){
    print "-1";
 }
 else{
-   print "$ok";
+   print "ok";
 }
 ?>
 
