@@ -111,6 +111,8 @@ HTML;
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                         <br>
                         <a href="" onclick='openChatWindow("{$url}", "{$title}"); return false;'>Test new yaplet window</a>
+                        <br>
+                        <a href="/chat/chat_window.php?url={$url}&title={$title}&iframe=yes" target="_blank">Test new yaplet widget</a>
                     </div>
                 </div>
                 <br/>
