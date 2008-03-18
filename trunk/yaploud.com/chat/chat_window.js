@@ -3,6 +3,7 @@ var title_header = "YapLoud.com";
 var poll_interval = 5000;
 var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
+var url_SendMessage = "/put_msg.php";
 
 function displayBrowserInfo() {
     var browser = "Browser Information\n";	
@@ -24,8 +25,9 @@ function generateContent() {
 	var url = site_url;
 	url = appendHttp2Url(url);
 	
-    var title = document.getElementById('hd');
-    html_text = "<strong>Yapping about: </strong>";
+    var title = document.getElementById('hd_title');
+    var html_text = "<strong>Yapping about: </strong>";
+    html_text = '';
     
     // check type of browser
     if (navigator.userAgent.indexOf('Firefox') != -1) {
@@ -85,8 +87,11 @@ function getNextColor(last_color){
 function renderMsgs(obj, prepend){
     var msgs_div = document.getElementById('msg');
     var msgs = obj.msgs;
+    
     var len = msgs.length;
     var tmp_html = '';
+    
+    
     for(var i = len-1; i >= 0; i--){
         var color = getNextColor(last_color); 
         last_color = color;
@@ -94,8 +99,10 @@ function renderMsgs(obj, prepend){
                     //'<span class=msg_time>[' + 
                     //msgs[i].t + 
                     //']</span> ' + 
-                    '<span class="sender">' + msgs[i].s + '</span>:' +
-                    " <span class=msg>" + msgs[i].msg + "</span></div>\n"; 
+                    '<span class="sender">' + 
+                    msgs[i].s + 
+                    '</span>' + 
+                    ": <span class=msg>" + msgs[i].msg + "</span></div>\n"; 
     }
 
     if(prepend){
@@ -143,8 +150,14 @@ var GetMessages = {
 			    return;
 		    }
             renderMsgs(obj); 
+        }
+        
+        if (msgs.length > 0) {
+        	last_msg_id = msgs[0].id;
+        	var stripped = msgs[0].msg.replace(/(<([^>]+)>)/ig,"");
+        	//document.title = msgs[0].s + " - " + stripped;
+        }
             renderYappers(obj);
-	   }
     },
 
     sendRequest:function() {
@@ -158,19 +171,25 @@ var GetMessages = {
         YAHOO.util.Connect.asyncRequest('GET', url, GetMessages_callback, null);
     },
 
-    startPolling: function() {
+    startPolling: function(auto) {
 	    GetMessages.sendRequest();
 	    poll_interval_id = setInterval(GetMessages.sendRequest, poll_interval);
-        chat_mode_div = document.getElementById('chat_mode');
-        chat_mode_div.innerHTML = 
+	    
+	    if (!auto) {
+            chat_mode_div = document.getElementById('chat_mode');
+            chat_mode_div.innerHTML = 
             '<a href="javascript: GetMessages.stopPolling();">Suspend chat</a>';
+	    }
     },
 
-    stopPolling: function() {
+    stopPolling: function(auto) {
         clearInterval(poll_interval_id);
-        chat_mode_div = document.getElementById('chat_mode');
-        chat_mode_div.innerHTML = 
+        
+	    if (!auto) {
+            chat_mode_div = document.getElementById('chat_mode');
+            chat_mode_div.innerHTML = 
             '<a href="javascript: GetMessages.startPolling();">Resume chat</a>';
+	    }
     }
 };
 
@@ -186,27 +205,39 @@ var GetMessages_callback = {
  * Send Message Object
  *****************************************************************************/
 var SendMessage = {
+    textMessage: '',
+    
     handleFailure:function(o){
-        alert('GetMessages handleFailure');
+        alert('SendMessage handleFailure');
     },
 
     handleSuccess:function(o){
         // This member is called by handleSuccess
-        var obj = eval('(' + o.responseText + ')'); 
-        var msgs = obj.msgs;
-        if(msgs.length > 0){
-            if(msgs[0].id <= last_msg_id) {
-                return;
-            }
-            renderMsgs(obj); 
-            renderYappers(obj);
-       }
+        //alert(o.responseText);
+        // set flag to skip getting messages by timer
+        // retrieve message immediately
+	    //GetMessages.stopPolling(true);
+	    GetMessages.sendRequest();
+	    alert('xxxxxxxxxxxxxxx');
+	    //GetMessages.startPolling(true);
     },
 
-    sendRequest:function() {
+    getText: function(event) {
+    	var e = event || window.event;
+    	var textMsg = '';
+    	var code = e.charCode || e.keyCode;
+        if (code == 13) {
+        	textMsg = document.chat_form.chat_textarea.value;
+        	SendMessage.sendRequest(textMsg);
+        	document.chat_form.chat_textarea.value = '';
+        }
+    },
+    
+    sendRequest:function(textMsg) {
         site_url = encodeURIComponent(site_url);
+        textMsg = escape(textMsg);
         
-        url = url_GetMessages + '?url=' + site_url + "&last_msg_id=" + last_msg_id;
+        url = url_SendMessage + '?url=' + site_url + "&user=" + username + "&msg=" + textMsg;
         YAHOO.util.Connect.asyncRequest('GET', url, SendMessage_callback, null);
     }
 
@@ -227,10 +258,22 @@ var Chat = {
 
 /************************************************************/
 
-function init() {
-    document.getElementById('chat_textarea').focus();
+function init_chat() {
 	generateContent();
     GetMessages.startPolling();
+}
+
+function init() {
+    // work around to display cursor in Firefox
+    if (navigator.userAgent.indexOf('Firefox') != -1) {
+        document.getElementById('chat_textarea').style.position = "fixed";
+    }
+    
+    init_chat();	
+    if (iframe_enabled)
+        init_panel();
+        
+    document.getElementById('chat_textarea').focus();
 }
 
 function quit() {
