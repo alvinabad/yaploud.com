@@ -14,7 +14,18 @@ session_start();
 ob_start();
 
 require("common/nocache.php");
-require ("user.php");
+require("user.php");
+
+$iframe = false;
+$username = 'guestxxx';
+$user = new User();
+
+if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['username']) ) {
+	$username = $_SESSION['username'];
+}
+elseif ( isset($_SESSION['guest']) ) {
+	$username = $_SESSION['guest'];
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 	$site_url = $_REQUEST['url'];
@@ -23,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 	}
 	else {
 	    $site_title = $_REQUEST['url'];
+	}
+	
+	if (isset($_REQUEST['iframe'])) {
+		$iframe = true;
 	}
 }
 else {
