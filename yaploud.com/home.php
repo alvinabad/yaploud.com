@@ -49,6 +49,8 @@
 			?>
 
             <div id="content">
+        <a href="" onclick='openChatWindow("www.intrade.com", "www.intrade.com"); return false;'>www.intrade.com</a>
+         <br>
         <?php
         
         $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
