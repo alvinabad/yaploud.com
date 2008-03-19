@@ -22,9 +22,13 @@
               "&title=" + title;
        var features = "width=320, height=320, status=yes, " +
                       "menubar=no, toolbar=no, status=no, " +
-                      "location=no, resizable=no, left=600, top=100";
+                      "location=no, resizable=yes, left=600, top=100";
        window.open(url, "", features);
    }
+    function strip_http() {
+        var url = document.getElementById("yapurl_box");
+        url.value = url.value.replace('/^http:\/\//', '');
+    }
   </script>
     </head>
 
@@ -49,7 +53,15 @@
 			?>
 
             <div id="content">
-        <a href="" onclick='openChatWindow("www.intrade.com", "www.intrade.com"); return false;'>www.intrade.com</a>
+    	<form method="get" action="/chat/chat_window.php">
+        	<span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>
+        	<input name="url" id="yapurl_box" type="text" 
+        	       style="background: #F0F8FF; color: blue; font-size: 20px;"
+        	       value="http://" size="50" />
+        	<input type="hidden" name="iframe" value="yes" />
+        	<input type="submit" value="Go" />
+    	</form>
+        Test: <a href='javascript: openChatWindow("www.intrade.com", "www.intrade.com");'>www.intrade.com</a>
          <br>
         <?php
         
@@ -99,7 +111,7 @@ HTML;
                 }
                 $i++;
          		print <<<HTML
-                    <b><a href="chat.php?url={$url}">{$title}</a></b>                    
+         		    <b><a href="/chat/chat_window.php?url={$url}&title={$title}&iframe=yes" target="_blank">{$title}</a></b>
                     <br/>
                     <strong><a href="http://{$url}">(http://{$url})</a></strong>
                     <br>
@@ -112,9 +124,8 @@ HTML;
                         <br>
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                         <br>
-                        <a href="" onclick='openChatWindow("{$url}", "{$title}"); return false;'>Test new yaplet window</a>
-                        <br>
-                        <a href="/chat/chat_window.php?url={$url}&title={$title}&iframe=yes" target="_blank">Test new yaplet widget</a>
+                        <a href='javascript: openChatWindow("{$url}", "{$title}");'>Open yaplet window</a>
+                        | <a href="chat.php?url={$url}">Original chat widget</a>                    
                     </div>
                 </div>
                 <br/>
