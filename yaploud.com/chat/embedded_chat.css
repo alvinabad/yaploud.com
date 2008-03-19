@@ -19,7 +19,7 @@
 
 #msgs {
 	font-size: 12px;
-	font-family: serif, Arial, Helvetica, sans-serif;
+    font-family: arial, courier-new, serif;
 }
 
 #yaploud_msgs {
@@ -30,6 +30,8 @@
 	height:200px;
 	width:320px;
 	background:white;
+	font-size: 12px;
+    font-family: arial, courier-new, serif;
 }
 
 .yaploud {
