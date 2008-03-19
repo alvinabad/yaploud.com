@@ -138,7 +138,7 @@ function renderYappers(obj) {
  *****************************************************************************/
 var GetMessages = {
     handleFailure:function(o){
-        alert('GetMessages handleFailure');
+        //alert('GetMessages handleFailure');
     },
 
     handleSuccess:function(o){
@@ -197,7 +197,7 @@ var GetMessages_callback = {
     success: GetMessages.handleSuccess,
     failure: GetMessages.handleFailure,
     scope: GetMessages,
-    timeout: 5000,
+    timeout: 4500,
     cache: false
 };
 
@@ -246,7 +246,7 @@ var SendMessage_callback = {
     success: SendMessage.handleSuccess,
     failure: SendMessage.handleFailure,
     scope: SendMessage,
-    timeout: 5000,
+    timeout: 4500,
     cache: false
 };
 
