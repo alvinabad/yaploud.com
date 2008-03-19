@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+.row{
+    color: black;
+    padding: 2px;
+    /*margin-top: 3px;*/
+    font-size:12px;
+    /* provides divider between msgs*/
+    border-top: 1px solid gray;
+} 
+
+.on_row { 
+    background-color:#E3E4FA; 
+} 
+
+.off_row { 
+    background-color: white; 
+} 
+
+#msgs {
+	font-size: 12px;
+	font-family: serif, Arial, Helvetica, sans-serif;
+}
+
+#yaploud_msgs {
+	margin-top:1px;
+	padding-top:1px;
+	overflow:auto;
+	border:1px solid gray;
+	height:200px;
+	width:320px;
+	background:white;
+}
+
+.yaploud {
+	border: 1px solid green;
+	margin: 2px;
+	padding: 2px;
+	width: 350px;
+	height: 200px;
+	overflow: auto;
+}
