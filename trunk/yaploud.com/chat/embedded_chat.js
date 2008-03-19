@@ -114,7 +114,7 @@ includeCSSfile("http://logan:9000/chat/embedded_chat.css");
 // includeJavascript();
 
 var yapurl;
-yapurl = String(document.location);
+//yapurl = String(document.location);
 
 if (!yapurl) {
     yapurl ="www.intrade.com";
@@ -123,14 +123,18 @@ if (!yapurl) {
 yapurl = appendHttp2Url(yapurl);
 
 var yaploud_msgs_div = document.getElementById('yaploud_msgs');
-create_div(yaploud_msgs_div.parentNode, 'yaploud_title', 'yyy');
-document.getElementById('yaploud_title').innerHTML = "Yapping about this page: " + 
+
+if (yaploud_msgs_div) {
+    create_div(yaploud_msgs_div.parentNode, 'yaploud_title', 'yyy');
+    yaploud_title_div = document.getElementById('yaploud_title');
+    yaploud_title_div.innerHTML = "Yapping about this page: " + 
                '<br>' +
                '<a href="' +
                yapurl +
                '" target="_blank">' +
                yapurl +
                '</a>';
+}
 
 // Retrieve chat messages from server
 get();
