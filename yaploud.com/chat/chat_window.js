@@ -13,11 +13,25 @@ function displayBrowserInfo() {
     alert(browser);
 }
 
-function openChatWindow(site_url, title) {
+function openChatWindow_old(site_url, title) {
 	var url = "/chat/chat_window.php?url=" + site_url +
 	          "&title=" + title;
 	var features = "width=320, height=320, status=yes, " +
 			       "location=no, resizable=no, left=600, top=100";
+    window.open(url, "", features);
+}
+
+function closeWindow() {
+    window.open('','_self','');
+    window.close();
+}
+
+function openChatWindow(site_url, title) {
+    var url = "/chat/chat_window.php?url=" + site_url +
+             "&title=" + title;
+    var features = "width=320, height=320, status=yes, " +
+                   "menubar=no, toolbar=no, status=no, " +
+                   "location=no, resizable=yes, left=600, top=100";
     window.open(url, "", features);
 }
 
