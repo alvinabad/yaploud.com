@@ -114,7 +114,7 @@ includeCSSfile("http://logan:9000/chat/embedded_chat.css");
 // includeJavascript();
 
 var yapurl;
-//yapurl = String(document.location);
+yapurl = String(document.location);
 
 if (!yapurl) {
     yapurl ="www.intrade.com";
