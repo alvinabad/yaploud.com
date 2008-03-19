@@ -57,8 +57,10 @@ if(!$iframe) {
       <strong>Yapping about: </strong><span id="hd_title"></span>
   </div>
     <div id="bd">
+      <div id="bd2">
       <div id="msg"></div>
       <div id="yappers"></div>
+      </div>
       <div style="clear: both;"></div>
       <div id="yap">
       <form name="chat_form">
@@ -75,7 +77,9 @@ if(!$iframe) {
             <a href="/login_page.php" target="_blank">Log In</a> |
             <a href="/user/register.php" target="_blank">Sign Up</a> | 
             <a href="javascript: location.reload();">Reload</a> |
-            <span id="chat_mode"></span>  
+            <span id="chat_mode"></span> | 
+            <br>
+            <a href="" onclick='openChatWindow("{$url}", "{$title}"); closeWindow(); return false;'>New window</a>
 HTML;
             }
             else {
@@ -83,7 +87,9 @@ HTML;
             <a href="/user/myaccount.php" target="_blank">Hi {$username}</a> | 
             <a href="/login_page.php?logout=true" target="_blank">Log Out</a> | 
             <a href="javascript: location.reload();">Reload</a> |
-            <span id="chat_mode"></span>  
+            <span id="chat_mode"></span>
+            <br>
+            <a href="" onclick='openChatWindow("{$url}", "{$title}"); closeWindow(); return false;'>New window</a>
 HTML;
             }
         ?>
