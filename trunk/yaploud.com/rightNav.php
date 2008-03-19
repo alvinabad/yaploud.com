@@ -13,7 +13,7 @@
     <div style="clear: both"></div>
     <hr>
     <div style="font-size: 12px; font-family: arial;">
-      <textarea rows="10" cols="20">
+      <textarea rows="5" cols="20">
 <div id="yaploud_msgs">
 </div>
 <script type="text/javascript" 
