@@ -13,9 +13,21 @@
     <div style="clear: both"></div>
     <hr>
     <div style="font-size: 12px; font-family: arial;">
-      <textarea rows="3" cols="20"><div id="eyl"></div>
-<script src="http://www.yaploud.com/chat/embedded_yaplet_link.js">
-</script></textarea>
-      Cut and paste this code to embed a yaplink on your website
-    </div>
+      <textarea rows="10" cols="20">
+<div id="yaploud_msgs">
 </div>
+<script type="text/javascript" 
+src="http://www.yaploud.com/chat/embedded_chat.js">
+</script>
+</textarea>
+      Cut and paste this code to embed a yap-widget on your website
+    </div>
+
+
+</div>
+
+      <!-- 
+      <div id="eyl"></div>
+<script src="http://www.yaploud.com/chat/embedded_yaplet_link.js">
+</script>
+       -->
