@@ -79,7 +79,7 @@ if(!$iframe) {
             <a href="javascript: location.reload();">Reload</a> |
             <span id="chat_mode"></span> | 
             <br>
-            <a href="" onclick='openChatWindow("{$url}", "{$title}"); closeWindow(); return false;'>New window</a>
+            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>New window</a>
 HTML;
             }
             else {
@@ -89,7 +89,7 @@ HTML;
             <a href="javascript: location.reload();">Reload</a> |
             <span id="chat_mode"></span>
             <br>
-            <a href="" onclick='openChatWindow("{$url}", "{$title}"); closeWindow(); return false;'>New window</a>
+            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>New window</a>
 HTML;
             }
         ?>
