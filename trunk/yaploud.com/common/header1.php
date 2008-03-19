@@ -1,10 +1,4 @@
 
-<script type="text/javascript">
-    function strip_http() {
-        var url = document.getElementById("yapurl_box");
-        url.value = url.value.replace('http://', '');
-    }
-</script>
 
 <!-- HEADER SECTION -->
 
@@ -48,11 +42,6 @@ HTML;
         </div>
        </div>
 
-    		<form method="get" action="/chat.php" onsubmit="strip_http(); ">
-        	<span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>
-        	<input name="url" id="yapurl_box" type="text" style="background: #F0F8FF  ; color: blue; font-size: 20px;"value="http://" size="50" />
-        	<input type="submit" value="Go" />
-    		</form>
 
 
 </div>
