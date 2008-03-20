@@ -12,7 +12,7 @@ function init_panel() {
     // PADDING USED FOR BODY ELEMENT (Hardcoded for example)
     var PANEL_BODY_PADDING = (10*2) // 10px top/bottom padding applied to Panel body element. The top/bottom border width is 0
 
-    // Create a panel Instance, from the 'chat_panel' DIV standard module markup
+    // Create a panel Instance, from the 'main' DIV standard module markup
     var panel = new YAHOO.widget.Panel('main', {
         draggable: true,
         width: '320px',
@@ -26,9 +26,9 @@ function init_panel() {
     panel.render();
     //panel.focus();
 
-/***
-    // Create Resize instance, binding it to the 'chat_panel' DIV 
-    var resize = new YAHOO.util.Resize('main2', {
+
+    // Create Resize instance, binding it to the 'main' DIV 
+    var resize = new YAHOO.util.Resize('main', {
         handles: ['br'],
         autoRatio: false,
         minWidth: 320,
@@ -66,7 +66,6 @@ function init_panel() {
         }, panel, true);
 
     YAHOO.util.Event.on("showbtn", "click", panel.show, panel, true);
-    ***/
+
 }
     
-//YAHOO.util.Event.onDOMReady(init_panel);
