@@ -4,6 +4,23 @@ var poll_interval = 5000;
 var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
 var url_SendMessage = "/put_msg.php";
+var bd_content = '';
+var chatWidgetMinimize = false;
+
+function minimizeChatWidget() {
+    bd_div = document.getElementById('bd0');	
+	if (chatWidgetMinimize) {
+        bd_div.innerHTML = bd_content;
+        chatWidgetMinimize = false;
+        GetMessages.startPolling();
+	}
+	else {
+        GetMessages.stopPolling();
+        bd_content = bd_div.innerHTML;
+        bd_div.innerHTML = '';
+        chatWidgetMinimize = true;
+	}
+}
 
 function displayBrowserInfo() {
     var browser = "Browser Information\n";	
