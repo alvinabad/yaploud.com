@@ -132,18 +132,16 @@ if (!yapurl) {
 yapurl = appendHttp2Url(yapurl);
 
 var yaploud_div = document.getElementById('yaploud');
+var yaploud_site = "http://www.yaploud.com";
 
 if (yaploud_div) {
 	// create header div inside yaploud div
     create_div(yaploud_div, 'hd', 'hd');
-    var image_txt = '<a href="http://www.yaploud.com/home.php" target="_blank">' +
-                    '<img src="http://www.yaploud.com/images/logo.gif" +' +
+    var image_txt = '<a href="' + yaploud_site + '/home.php" target="_blank">' +
+                    '<img src="' + yaploud_site + '/images/logo.gif" +' +
                     ' border="0" width=41 height=22 valign=absmiddle></img></a>' +
-                    '<strong>Yaps about this page: </strong>' + 
-                    '<a href="' +
-                     yapurl +
-                    '" target="_blank">' +
-                     yapurl +
+                    '<a href="' + yapurl + '">' +
+                    '<strong>Yaps about this page: </strong>' +
                     '</a>';
     $('hd').innerHTML = image_txt;
                

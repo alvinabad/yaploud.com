@@ -23,12 +23,13 @@
 }
 
 #hd {
-    /*border-bottom: 1px solid gray; */
+    /*border: 1px solid gray;*/
     /* background-color: #6CC; */ 
     margin: 2px;
     padding: 2px;
     vertical-align: top;
     overflow: hidden;
+    font-size: 18px;
 }
 
 #bd {
@@ -91,8 +92,8 @@
 	margin: 2px;
 	padding: 2px;
 	width: 345px;
-	height: 250px;
-	overflow: auto;
+	height: 245px;
+	overflow: hidden;
 }
 
 #yappers {
