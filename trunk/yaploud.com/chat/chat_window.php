@@ -56,6 +56,12 @@ if(!$iframe) {
       <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
       <strong>Yapping about: </strong><span id="hd_title"></span>
   </div>
+<?php
+  if($iframe) {
+      print '<div id="minimize_bar" onclick="minimizeChatWidget();"></div>';
+  }
+?>
+   <div id="bd0">
     <div id="bd">
       <div id="bd2">
       <div id="msg"></div>
@@ -94,6 +100,7 @@ HTML;
             }
         ?>
   </div>
+   </div>
 </div>
 
 </body>
