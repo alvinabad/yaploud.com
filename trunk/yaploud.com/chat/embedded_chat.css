@@ -22,7 +22,33 @@
     font-family: arial, courier-new, serif;
 }
 
+#hd {
+    /*border-bottom: 1px solid gray; */
+    /* background-color: #6CC; */ 
+    margin: 2px;
+    padding: 2px;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+#bd {
+    /*border: 1px solid red;*/ 
+    margin: 0px;
+    padding: 0px;
+}
+
+#bd2 {
+    /*border: 1px solid red;*/
+    margin: 0px;
+    padding: 0px;
+    /*width: 90%;
+    height: 50%;
+    float: left;*/
+    overflow: auto;
+}
+
 #yaploud_msgs {
+    /*
 	margin-top:1px;
 	padding-top:1px;
 	overflow:auto;
@@ -32,13 +58,62 @@
 	background:white;
 	font-size: 12px;
     font-family: arial, courier-new, serif;
+    */
+    
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    width: 250px;
+    height: 150px;
+    overflow: auto;
+    font-family: arial, courier-new, serif;
+    
 }
 
-.yaploud {
-	border: 1px solid green;
+#yap {
+    /**
+    border: 1px solid green;
+    font-size: 12px;
+    height: 50px;
+    **/
+    /*width: 210px;*/
+    border: 1px solid green;
+    width: 250px;
+    height: 45px;
+    margin: 2px;
+    padding: 0px;
+    float: left;
+}
+
+#yaploud {
+	border: 2px ridge gray;
 	margin: 2px;
 	padding: 2px;
-	width: 350px;
-	height: 200px;
+	width: 345px;
+	height: 250px;
 	overflow: auto;
+}
+
+#yappers {
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    overflow: auto;
+    /*width: 18%;*/
+    width: 75px;
+    max-width: 150px;
+    height: 150px;
+}
+
+#chat_textarea {
+    border: 1px solid green;
+    margin: 2px;
+    padding: 2px;
+    /*width: 70%;*/
+    width: 250px;
+    overflow: auto;
+    height: 45px;
+    float: left;
 }
