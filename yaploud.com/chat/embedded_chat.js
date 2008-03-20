@@ -57,9 +57,17 @@ function callback(s){
     if ( navigator.appName == "Microsoft Internet Explorer" ) {
         m.scrollTop = m.scrollHeight; // IE7 requires running this twice!
     }
-   
+    renderYappers(s);
 }
 
+function renderYappers(obj) {
+    var users = obj.users;
+    var users_el = document.getElementById('yappers');
+    users_el.innerHTML = '';
+    for(var i = 0; i < users.length; i++){
+        users_el.innerHTML += "<div class=room_user>" + users[i] + "</div>";
+    }
+}
 
 function includeJavascript(src) {
     if (document.createElement && document.getElementsByTagName) {
@@ -82,12 +90,21 @@ function includeCSSfile(href) {
     head_node.appendChild(link_tag);
 }
 
-function create_div(parent_node, id_value, class_value) {
+function create_div(parent_node, id_value, class_value, style_value) {
     if (document.createElement && document.getElementsByTagName) {
     	var div_tag = document.createElement('div');
     	div_tag.setAttribute('id', id_value);
     	div_tag.setAttribute('class', class_value);
+    	div_tag.setAttribute('style', style_value);
     	parent_node.appendChild(div_tag);
+    }
+}
+
+function create_textarea(parent_node, id_value) {
+    if (document.createElement && document.getElementsByTagName) {
+        var txt_tag = document.createElement('textarea');
+        txt_tag.setAttribute('id', id_value);
+        parent_node.appendChild(txt_tag);
     }
 	
 }
@@ -101,38 +118,48 @@ function appendHttp2Url(url) {
     return url;
 }
 
-/*******************************************
+/******************************************************************************
  * Start of program
- *******************************************/
- 
-
-
+ ******************************************************************************/
 // include CSS file
 includeCSSfile("http://logan:9000/chat/embedded_chat.css");
-
-// include more javascript src
-// includeJavascript();
 
 var yapurl;
 
 if (!yapurl) {
     yapurl = String(document.location);
 }
-
 yapurl = appendHttp2Url(yapurl);
 
-var yaploud_msgs_div = document.getElementById('yaploud_msgs');
+var yaploud_div = document.getElementById('yaploud');
 
-if (yaploud_msgs_div) {
-    create_div(yaploud_msgs_div.parentNode, 'yaploud_title', 'yyy');
-    yaploud_title_div = document.getElementById('yaploud_title');
-    yaploud_title_div.innerHTML = "Yapping about this page: " + 
-               '<br>' +
-               '<a href="' +
-               yapurl +
-               '" target="_blank">' +
-               yapurl +
-               '</a>';
+if (yaploud_div) {
+	// create header div inside yaploud div
+    create_div(yaploud_div, 'hd', 'hd');
+    var image_txt = '<a href="http://www.yaploud.com/home.php" target="_blank">' +
+                    '<img src="http://www.yaploud.com/images/logo.gif" +' +
+                    ' border="0" width=41 height=22 valign=absmiddle></img></a>' +
+                    '<strong>Yaps about this page: </strong>' + 
+                    '<a href="' +
+                     yapurl +
+                    '" target="_blank">' +
+                     yapurl +
+                    '</a>';
+    $('hd').innerHTML = image_txt;
+               
+    // create inner body div
+    create_div(yaploud_div, 'bd2', 'bd2');
+    var bd2_div = $('bd2');
+    //create_div(bd2_div, 'yaploud_msgs', 'yaploud_msgs');
+    //create_div(bd2_div, 'yappers', 'yappers');
+    
+    create_div(yaploud_div, 'yaploud_msgs', 'yaploud_msgs');
+    create_div(yaploud_div, 'yappers', 'yappers');
+    //create_div(yaploud_div, 'x', 'x', 'clear: both');
+    //create_div(yaploud_div, 'yap', 'yap');
+    //$('yap').innerHTML = "yap messages...";
+    create_textarea(yaploud_div, 'chat_textarea');
+    $('chat_textarea').style.disabled = "yes";
 }
 
 // Retrieve chat messages from server
