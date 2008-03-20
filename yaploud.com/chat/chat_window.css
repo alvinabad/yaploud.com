@@ -35,6 +35,13 @@ body {
     padding: 2px;
     vertical-align: top;
 }
+#minimize_bar {
+    /*border: 1px solid red;*/
+    margin: 2px;
+    padding: 0px;
+    height: 8px;
+    background-color: #38ACEC;
+}
 #ft {
     /*border: 1px solid red;*/
     margin: 2px;
