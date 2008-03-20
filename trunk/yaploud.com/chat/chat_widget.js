@@ -1,6 +1,7 @@
 
 function onClosePanel() {
     var url = appendHttp2Url(site_url);
+    url = encodeURIComponent(url);
     window.open(url);
     closeWindow();
 }
