@@ -14,13 +14,12 @@
     <hr>
     <div style="font-size: 12px; font-family: arial;">
       <textarea rows="5" cols="20">
-<div id="yaploud_msgs">
-</div>
+<div id="yaploud"></div>
 <script type="text/javascript" 
 src="http://www.yaploud.com/chat/embedded_chat.js">
 </script>
 </textarea>
-      Cut and paste this code to embed a yap-widget on your website
+      Cut and paste this code to embed a chat widget on your website
     </div>
 
 
