@@ -140,7 +140,7 @@ if (yaploud_div) {
     var image_txt = '<a href="' + yaploud_site + '/home.php" target="_blank">' +
                     '<img src="' + yaploud_site + '/images/logo.gif" +' +
                     ' border="0" width=41 height=22 valign=absmiddle></img></a>' +
-                    '<a href="' + yapurl + '" target="_blank>' +
+                    '<a href="' + yapurl + '" target="_blank">' +
                     '<strong>Yaps about this page: </strong>' +
                     '</a>';
     $('hd').innerHTML = image_txt;
