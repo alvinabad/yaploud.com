@@ -102,9 +102,7 @@
     padding: 2px;
     float: left;
     overflow: auto;
-    /*width: 18%;*/
     width: 75px;
-    max-width: 150px;
     height: 150px;
 }
 
