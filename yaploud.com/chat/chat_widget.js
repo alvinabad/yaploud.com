@@ -1,4 +1,9 @@
 
+function onClosePanel() {
+    var url = appendHttp2Url(site_url);
+    window.open(url);
+    closeWindow();
+}
 
 function init_panel() {
     // Setup constants
@@ -25,6 +30,8 @@ function init_panel() {
     
     panel.render();
     //panel.focus();
+    
+    panel.hideEvent.subscribe(onClosePanel);
 
 
     // Create Resize instance, binding it to the 'main' DIV 
@@ -37,7 +44,7 @@ function init_panel() {
     });
 
     // Setup resize handler to update the size of the Panel's body element
-    // whenever the size of the 'chat_panel' DIV changes
+    // whenever the size of the 'main' DIV changes
     resize.on('resize', 
         function(args) {
             var panelHeight = args.height;

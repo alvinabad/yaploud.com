@@ -12,9 +12,9 @@
 <script src="/js/yui/build/connection/connection-min.js"></script>
 
 <!-- Utility Dependencies -->
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/element/element-beta-min.js"></script> 
+<script type="text/javascript" src="/js/yui/build/element/element-beta-min.js"></script> 
 <!-- Optional Animation -->
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/animation/animation-min.js"></script> 
+<script type="text/javascript" src="/js/yui/build/animation/animation-min.js"></script> 
 
 <!-- Source file for the Resize Utility -->
 <script type="text/javascript" src="/js/yui/build/resize/resize-beta.js"></script>
