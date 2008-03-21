@@ -38,6 +38,15 @@ function openChatWindow_old(site_url, title) {
     window.open(url, "", features);
 }
 
+function openPopinWindow(site_url, title) {
+	site_url = encodeURIComponent(site_url);
+    var url = "/chat/chat_window.php?url=" + site_url +
+             "&title=" + title + "&iframe=yes";
+    var features = "width=800, height=640, status=yes, " +
+                   "menubar=yes, toolbar=yes, location=yes, resizable=yes";
+    window.open(url, "", features);
+}
+
 function closeWindow() {
     window.open('','_self','');
     window.close();

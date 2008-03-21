@@ -27,22 +27,6 @@ require("./yui.php");
 <body class=" yui-skin-sam">
 
 <?php
-if($iframe) {
-    if ( ! preg_match('/^http/', $site_url) ) {
-        $site_url = "http://" . $site_url;
-    }
-    print <<<HTML
-  <div style="position: absolute; width: 100%; height: 100%; z-index: 1;">
-    <iframe id="mainDocumentFrame" src="{$site_url}" 
-                height="100%" width="100%" frameborder="0" marginwidth="0" 
-                marginheight="0" vspace="0" hspace="0">
-    </iframe>
-  </div>
-HTML;
-}
-?>
-
-<?php
 if(!$iframe) {
     print '<div id="main" class="main_non_iframe">';
 } else {
@@ -77,6 +61,7 @@ if(!$iframe) {
     </div>
     <div id="ft">
         <?php
+            $url_encoded = urlencode($site_url);
             if ( preg_match('/^guest/', $username) ) {
                 print <<<HTML
             <a href="/login_page.php" target="_blank">Log In</a> |
@@ -84,7 +69,6 @@ if(!$iframe) {
             <a href="javascript: location.reload();">Reload</a> |
             <span id="chat_mode"></span> | 
             <br>
-            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>New window</a>
 HTML;
             }
             else {
@@ -94,13 +78,39 @@ HTML;
             <a href="javascript: location.reload();">Reload</a> |
             <span id="chat_mode"></span>
             <br>
-            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>New window</a>
+HTML;
+            }
+            if($iframe) {
+                print <<<HTML
+            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>Pop out</a>
+HTML;
+            }
+            else {
+                print <<<HTML
+            <a href='javascript: openPopinWindow("{$site_url}", "{$site_title}"); closeWindow();'>Pop in</a>
 HTML;
             }
         ?>
     </div>
   </div>
 </div>
+
+<?php
+if($iframe) {
+    if ( ! preg_match('/^http/', $site_url) ) {
+        $site_url = "http://" . $site_url;
+    }
+    print <<<HTML
+  <div style="position: absolute; width: 100%; height: 100%; z-index: 1;">
+    <iframe id="mainDocumentFrame" src="{$site_url}" 
+                height="100%" width="100%" frameborder="0" marginwidth="0" 
+                marginheight="0" vspace="0" hspace="0" scrolling="auto">
+    </iframe>
+  </div>
+HTML;
+}
+?>
+
 
 </body>
 </html>
