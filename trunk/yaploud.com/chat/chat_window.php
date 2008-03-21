@@ -13,16 +13,18 @@ require("./yui.php");
 ?>
 
 <link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
-<script type="text/javascript" src="/chat/chat_widget.js"></script>
-<script type="text/javascript" src="/chat/chat_window.js" ></script>
  <script type="text/javascript">
     var site_url = "<?php print $site_url; ?>";
     var site_title = "<?php print $site_title; ?>";
     var username = "<?php print $username; ?>";
+    var iframe_enabled = <?php print $iframe_enabled; ?>;
 </script>
 
+<script type="text/javascript" src="/chat/chat_widget.js"></script>
+<script type="text/javascript" src="/chat/chat_window.js" ></script>
+
 </head>
-<body class=" yui-skin-sam" onunload="Chat.onunload();">
+<body class=" yui-skin-sam">
 
 <?php
 if($iframe) {
@@ -30,9 +32,6 @@ if($iframe) {
         $site_url = "http://" . $site_url;
     }
     print <<<HTML
-        <script type="text/javascript">
-            var iframe_enabled = true;
-        </script>
   <div style="position: absolute; width: 100%; height: 100%; z-index: 1;">
     <iframe id="mainDocumentFrame" src="{$site_url}" 
                 height="100%" width="100%" frameborder="0" marginwidth="0" 
@@ -45,9 +44,9 @@ HTML;
 
 <?php
 if(!$iframe) {
-  print '<div id="main" class="main_non_iframe">';
+    print '<div id="main" class="main_non_iframe">';
 } else {
-  print '<div id="main" class="main">';
+    print '<div id="main" class="main">';
 }
 ?>
   
@@ -61,22 +60,22 @@ if(!$iframe) {
       print '<div id="minimize_bar" onclick="minimizeChatWidget();"></div>';
   }
 ?>
-   <div id="bd0">
+  <div id="bd0">
     <div id="bd">
       <div id="bd2">
-      <div id="msg"></div>
-      <div id="yappers"></div>
+          <div id="msg"></div>
+          <div id="yappers"></div>
       </div>
       <div style="clear: both;"></div>
       <div id="yap">
-      <form name="chat_form">
-        <textarea onkeyup="SendMessage.getText(event);" name="chat_textarea" class="chat_textarea" id="chat_textarea"></textarea>
-      </form>
+        <form name="chat_form">
+          <textarea onkeyup="SendMessage.getText(event);" name="chat_textarea" class="chat_textarea" id="chat_textarea"></textarea>
+        </form>
       </div>
       <div id="links"><?php print $username; ?></div>
-     <div style="clear: both;"></div>
+      <div style="clear: both;"></div>
     </div>
-  <div id="ft">
+    <div id="ft">
         <?php
             if ( preg_match('/^guest/', $username) ) {
                 print <<<HTML
@@ -99,8 +98,8 @@ HTML;
 HTML;
             }
         ?>
+    </div>
   </div>
-   </div>
 </div>
 
 </body>
