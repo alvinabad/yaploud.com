@@ -99,7 +99,7 @@
             
             <?php
                 // Footer page
-                include("footer.php"); 
+                include("common/footer1.php"); 
             ?>
         </div>
     </body>
