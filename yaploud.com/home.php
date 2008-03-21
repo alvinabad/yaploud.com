@@ -110,8 +110,10 @@ HTML;
                     print '<div class="yap_url odd">';
                 }
                 $i++;
+                $url_encoded = urlencode($url);
+                $title_encoded = urlencode($title);
          		print <<<HTML
-         		    <b><a href="/chat/chat_window.php?url={$url}&title={$title}&iframe=yes" target="_blank">{$title}</a></b>
+         		    <b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
                     <br/>
                     <strong><a href="http://{$url}">(http://{$url})</a></strong>
                     <br>
