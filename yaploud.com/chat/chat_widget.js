@@ -2,7 +2,7 @@
 function onClosePanel() {
     var url = decodeURIComponent(site_url);
     url = appendHttp2Url(url);
-    alert(url);
+    //alert(url);
     window.open(url);
     closeWindow();
 }
