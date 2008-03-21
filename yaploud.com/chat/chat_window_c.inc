@@ -19,6 +19,8 @@ require("user.php");
 $iframe = false;
 $username = 'guestxxx';
 $user = new User();
+$iframe = false;
+$iframe_enabled = "false";  // this is for setting javascript variable
 
 if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['username']) ) {
 	$username = $_SESSION['username'];
@@ -38,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 	
 	if (isset($_REQUEST['iframe'])) {
 		$iframe = true;
+		$iframe_enabled = "true";
 	}
 }
 else {
