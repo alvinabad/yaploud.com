@@ -195,10 +195,10 @@ var GetMessages = {
         if (!site_url)
             site_url = 'http://cmu.facebook.com/profile.php?id=4813337';
             
-    	site_url = removeHttp(site_url);
-	    site_url = encodeURIComponent(site_url);
+    	var url = removeHttp(site_url);
+	    url = encodeURIComponent(url);
 	            
-        url = url_GetMessages + '?url=' + site_url + "&last_msg_id=" + last_msg_id;
+        url = url_GetMessages + '?url=' + url + "&last_msg_id=" + last_msg_id;
         YAHOO.util.Connect.asyncRequest('GET', url, GetMessages_callback, null);
     },
 
@@ -264,10 +264,10 @@ var SendMessage = {
     },
     
     sendRequest:function(textMsg) {
-        site_url = encodeURIComponent(site_url);
+        var url = encodeURIComponent(site_url);
         textMsg = escape(textMsg);
         
-        url = url_SendMessage + '?url=' + site_url + "&user=" + username + "&msg=" + textMsg;
+        url = url_SendMessage + '?url=' + url + "&user=" + username + "&msg=" + textMsg;
         YAHOO.util.Connect.asyncRequest('GET', url, SendMessage_callback, null);
     }
 
