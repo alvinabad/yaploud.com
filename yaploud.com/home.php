@@ -30,6 +30,7 @@
         url.value = url.value.replace('/^http:\/\//', '');
     }
   </script>
+        <script type="text/javascript" src="/extension/browser_extension.js" ></script>
     </head>
 
     <body>
