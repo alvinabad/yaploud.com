@@ -363,7 +363,7 @@ var SendMessage_callback = {
 
 var SendLogout = {
     handleFailure:function(o){
-        alert('Sending logout failed ' + o.responseText + ' ' + o.status + );
+        alert('Sending logout failed: ' + o.responseText + ': ' + o.status);
     },
 
     handleSuccess:function(o){
