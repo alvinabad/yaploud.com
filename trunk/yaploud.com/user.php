@@ -54,6 +54,41 @@ class User {
         return true;
     }
 
+    function login($username, $password, $remember) {
+        $password = md5($password);
+        $username = addslashes($username);
+        $sql = "SELECT * FROM dev.user WHERE userid = '$username' AND password = '$password';";
+        $result = $this->db->mysql_query($sql);
+        
+        if (mysql_num_rows($result) != 1) {
+            // Login failed
+            $this->failed = true;
+            return false;
+        }
+
+        $res_obj = mysql_fetch_object($result);
+        // Login successful
+
+        // set session
+        $this->_setSession($res_obj, $remember, true);
+
+        // set remember-me cookie
+        if ($remember) {
+            $this->updateCookie($values->cookie, true);
+        } else {
+            setcookie("yaploud", "", time() - 60000);
+        }
+
+        $u['username'] = $res_obj->username;
+        $u['firstname'] = $res_obj->first_name;
+        $u['lastname'] = $res_obj->last_name;
+        $u['email'] = $res_obj->email;
+        
+        mysql_free_result($result);
+        
+        return $u;
+    }
+    
     function setSessionInDb($username) {
         $username = addslashes($username);
         $sql = "SELECT * FROM dev.user WHERE userid = '$username';";
