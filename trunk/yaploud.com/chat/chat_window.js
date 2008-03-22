@@ -4,6 +4,7 @@ var poll_interval = 5000;
 var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
 var url_SendMessage = "/put_msg.php";
+var url_SendLogout = "/chat/logout";
 var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
@@ -120,6 +121,13 @@ function generateContent() {
     title.innerHTML = html_text;
 }
 
+function logout() {
+    var continue_logout = confirm("Are you sure you want to log out?");	
+    if (continue_logout) {
+    	SendLogout.sendRequest(url_SendLogout);
+    } 
+}
+
 function updateLoginInfo(username) {
 	var login_info_html;
 	
@@ -131,8 +139,8 @@ function updateLoginInfo(username) {
 	                       ' <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;" id="signup">Signup</a>';
 	}
 	else {
-		login_info_html = 'Hi ' + username + '! ';
-	    login_info_html += '| Logout';
+		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
+	    login_info_html += '| <a href="javascript: logout(); void 0;">Logout</a>';
 	}
 	
 	$('login_info').innerHTML = login_info_html;
@@ -226,6 +234,16 @@ function renderYappers(obj) {
     }
 }
 
+function suspendChat() {
+    document.chat_form.chat_textarea.disabled = 'yes';
+    GetMessages.stopPolling();
+}
+
+function resumeChat() {
+    document.chat_form.chat_textarea.disabled = '';
+    GetMessages.startPolling();
+}
+
 /*****************************************************************************
  * Get Messages Object
  *****************************************************************************/
@@ -271,7 +289,7 @@ var GetMessages = {
 	    if (!auto) {
             chat_mode_div = document.getElementById('chat_mode');
             chat_mode_div.innerHTML = 
-            '<a href="javascript: GetMessages.stopPolling();">Suspend chat</a>';
+            '<a href="javascript: suspendChat(); void 0;">Suspend chat</a>';
 	    }
     },
 
@@ -281,7 +299,7 @@ var GetMessages = {
 	    if (!auto) {
             chat_mode_div = document.getElementById('chat_mode');
             chat_mode_div.innerHTML = 
-            '<a href="javascript: GetMessages.startPolling();">Resume chat</a>';
+            '<a href="javascript: resumeChat(); void 0;">Resume chat</a>';
 	    }
     }
 };
@@ -301,7 +319,7 @@ var SendMessage = {
     textMessage: '',
     
     handleFailure:function(o){
-        alert('SendMessage handleFailure');
+        //alert('SendMessage handleFailure');
     },
 
     handleSuccess:function(o){
@@ -342,6 +360,31 @@ var SendMessage_callback = {
     timeout: 4500,
     cache: false
 };
+
+var SendLogout = {
+    handleFailure:function(o){
+        alert('Sending logout failed');
+    },
+
+    handleSuccess:function(o){
+    	var username = eval('(' + o.responseText + ')');
+    	updateLoginInfo(username);
+    },
+
+    sendRequest:function(url) {
+        YAHOO.util.Connect.asyncRequest('GET', url, SendLogout_callback, null);
+    }
+
+};
+
+var SendLogout_callback = {
+    success: SendLogout.handleSuccess,
+    failure: SendLogout.handleFailure,
+    scope: SendLogout,
+    timeout: 4500,
+    cache: false
+};
+
 
 var Chat = {
 	onunload: function() {
