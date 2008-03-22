@@ -1,0 +1,31 @@
+.button {
+	
+	border-style: solid;
+}
+
+
+.toolbar-spacer {
+	width: 400px;
+}
+
+.textbox-label {
+	vertical-align: bottom;
+}
+
+.sample_input {
+}
+
+#parallel-web-toolbar {
+	height: 25px;
+}
+
+.error {
+	color: red;
+	font-size: 14px;
+}
+
+#yaploud_yappercount {
+	border: 0;
+	height: 100%;
+}
+
