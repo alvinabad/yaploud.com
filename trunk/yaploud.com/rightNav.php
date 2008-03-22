@@ -1,8 +1,10 @@
+
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
-    <img src="images/plugin_firefox.gif" />
-    <br/>
-    <img src="images/plugin_ie.gif" />
+    <a href="/extension/yaploud.xpi">
+    <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="installxpi(this); return false;">Install Firefox Extension</button>
+    </a>
+    <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="installExtention(this); return false;">Install IE Extension</button>
     <br/>
     <div id="tagCloud">
         <strong>Tag Cloud</strong>
