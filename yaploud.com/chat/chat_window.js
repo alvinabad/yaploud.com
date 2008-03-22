@@ -126,6 +126,7 @@ function logout() {
     var continue_logout = confirm("Are you sure you want to log out?");	
     if (continue_logout) {
     	SendLogout.sendRequest(url_SendLogout);
+    	init_login();
     } 
 }
 
@@ -137,6 +138,7 @@ function updateLoginInfo(username) {
 		                  '<strong>' + username + 
 		                  '</strong>. ';
 	    login_info_html += ' <a href="javascript: void 0;" id="login">Login</a>' + ' | ' +
+	     
 	                       ' <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;" id="signup">Signup</a>';
 	}
 	else {
@@ -399,6 +401,7 @@ function init_chat() {
     GetMessages.startPolling();
 }
 
+
 function init_login() {    
     var handleSubmit = function() {
         this.submit();
@@ -409,11 +412,11 @@ function init_login() {
     var handleSuccess = function(o) {
         var obj = eval('(' + o.responseText + ')');
         if (obj && obj.username == loginname) {
-        	username = obj.username;
-        	updateLoginInfo(username);
+            username = obj.username;
+            updateLoginInfo(username);
         }
         else {
-        	alert("Login failed.\nIncorrect username and/or password.");
+            alert("Login failed.\nIncorrect username and/or password.");
         }
     };
     var handleFailure = function(o) {
