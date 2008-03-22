@@ -146,10 +146,11 @@ function yaploud_chatAtYaploud(event) {
 
 	var ref_url = mainDocument.location;
 	ref_url = encodeURIComponent(ref_url);
-	mainDocument.location = 'http://www.yaploud.com/chat_frames.php?url=' + ref_url; 
+	var title = encodeURIComponent(document.title);
+	mainDocument.location = 'http://www.yaploud.com/chat/chat_window.php?url=' + 
+	                        ref_url + '&iframe=yes' + '&title=' + title; 
+	                        
 	return;
-	
-
 }
 
 
