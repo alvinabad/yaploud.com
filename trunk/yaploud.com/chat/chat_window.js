@@ -140,7 +140,7 @@ function updateLoginInfo(username) {
 	}
 	else {
 		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
-	    login_info_html += '| <a href="javascript: logout(); void 0;">Logout</a>';
+	    login_info_html += '| <a href="javascript: logout();">Logout</a>';
 	}
 	
 	$('login_info').innerHTML = login_info_html;
