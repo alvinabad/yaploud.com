@@ -22,7 +22,7 @@ $user = new User();
 $iframe = false;
 $iframe_enabled = "false";  // this is for setting javascript variable
 
-if(isset($_SESSION['logged']) && $_SESSION['logged'] == true && isset($_SESSION['username']) ) {
+if(isset($_SESSION['logged']) && $_SESSION['logged'] && isset($_SESSION['username']) ) {
 	$username = $_SESSION['username'];
 }
 elseif ( isset($_SESSION['guest']) ) {

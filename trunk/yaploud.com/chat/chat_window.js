@@ -6,6 +6,40 @@ var url_GetMessages = "/get_msg.php";
 var url_SendMessage = "/put_msg.php";
 var bd_content = '';
 var chatWidgetMinimize = false;
+var loginname = '';
+
+function $(s) {
+    return document.getElementById(s);
+}
+
+function onClosePanel() {
+    openWindow(site_url);
+    closeWindow();
+}
+
+function openWindow(url) {
+    var url = decodeURIComponent(url);
+    url = appendHttp2Url(url);
+    window.open(url);
+}
+
+function closeWindow() {
+    window.open('','_self','');
+    window.close();
+}
+
+function popout(site_url, site_title) {
+	openWindow(site_url);
+    //if (navigator.appName == 'Microsoft Internet Explorer') {
+    
+    setTimeout(closeWindow, 3000);
+    openChatWindow(site_url, site_title);
+}
+
+function popin(site_url, site_title) {
+    openPopinWindow(site_url, site_title);
+    closeWindow();
+}
 
 function minimizeChatWidget() {
     bd_div = document.getElementById('bd0');	
@@ -47,9 +81,10 @@ function openPopinWindow(site_url, title) {
     window.open(url, "", features);
 }
 
-function closeWindow() {
-    window.open('','_self','');
-    window.close();
+function openExternalWindow(url) {
+    var features = "width=800, height=640, status=yes, " +
+                   "menubar=yes, toolbar=yes, location=yes, resizable=yes";
+    window.open(url, "", features);
 }
 
 function openChatWindow(site_url, title) {
@@ -83,6 +118,24 @@ function generateContent() {
     
     html_text += site_title + "</a>";
     title.innerHTML = html_text;
+}
+
+function updateLoginInfo(username) {
+	var login_info_html;
+	
+	if (username.substr(0,5) == 'guest') {
+		login_info_html = 'You are logged in as ' + 
+		                  '<strong>' + username + 
+		                  '</strong>. ';
+	    login_info_html += ' <a href="javascript: void 0;" id="login">Login</a>' + ' | ' +
+	                       ' <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;" id="signup">Signup</a>';
+	}
+	else {
+		login_info_html = 'Hi ' + username + '! ';
+	    login_info_html += '| Logout';
+	}
+	
+	$('login_info').innerHTML = login_info_html;
 }
 
 function includeJavaScript(js_src) {
@@ -302,21 +355,148 @@ function init_chat() {
     GetMessages.startPolling();
 }
 
+function init_login() {    
+    var handleSubmit = function() {
+        this.submit();
+    };
+    var handleCancel = function() {
+        this.cancel();
+    };
+    var handleSuccess = function(o) {
+        var obj = eval('(' + o.responseText + ')');
+        if (obj && obj.username == loginname) {
+        	username = obj.username;
+        	updateLoginInfo(username);
+        }
+        else {
+        	alert("Login failed.\nIncorrect username and/or password.");
+        }
+    };
+    var handleFailure = function(o) {
+        //alert("Submission failed: " + o.status);
+        alert("Server failure. Please try again later.");
+    };
+
+    // Instantiate the Dialog
+    var login_dialog = new YAHOO.widget.Dialog("login_dialog", 
+                            { width : "275px",
+                              //height: "250px",
+                              fixedcenter : true,
+                              visible : false, 
+                              constraintoviewport : true,
+                              buttons : [ { text:"Login", handler:handleSubmit, isDefault:true },
+                                      { text:"Cancel", handler:handleCancel } ]
+                            });
+
+    // Validate the entries in the form to require that both first and last name are entered
+    login_dialog.validate = function() {
+        var data = this.getData();
+        loginname = data.username.replace(/^\s+|\s+$/g,"");
+        
+        if (data.username == "" || data.password == "") {
+            alert("Please enter username and password.");
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    // Wire up the success and failure handlers
+    login_dialog.callback = { success: handleSuccess,
+                             failure: handleFailure };
+    
+    // Render the Dialog
+    login_dialog.render();
+
+    YAHOO.util.Event.addListener("login", "click", login_dialog.show, login_dialog, true);
+    //YAHOO.util.Event.addListener("hide", "click", login_dialog.hide, login_dialog, true);
+}
+
+function init_signup() {    
+    var handleSubmit = function() {
+        this.submit();
+    };
+    var handleCancel = function() {
+        this.cancel();
+    };
+    var handleSuccess = function(o) {
+        var obj = eval('(' + o.responseText + ')');
+        if (obj && obj.username == loginname) {
+            username = obj.username;
+            updateLoginInfo(username);
+        }
+        else {
+            alert("Signup failed.\nUsername or email is already taken.");
+        }
+    };
+    var handleFailure = function(o) {
+        //alert("Submission failed: " + o.status);
+        alert("Server failure. Please try again later.");
+    };
+
+    // Instantiate the Dialog
+    var signup_dialog = new YAHOO.widget.Dialog("signup_dialog", 
+                            { width : "275px",
+                              //height: "250px",
+                              fixedcenter : true,
+                              visible : false, 
+                              constraintoviewport : true,
+                              buttons : [ { text:"Sign up", handler:handleSubmit, isDefault:true },
+                                      { text:"Cancel", handler:handleCancel } ]
+                            });
+
+    // Validate the entries in the form to require that both first and last name are entered
+    signup_dialog.validate = function() {
+        var data = this.getData();
+        loginname = data.username.replace(/^\s+|\s+$/g,"");
+        
+        if (data.username == "" || data.password == "") {
+            alert("Please enter username and password.");
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    // Wire up the success and failure handlers
+    signup_dialog.callback = { success: handleSuccess,
+                               failure: handleFailure };
+    
+    // Render the Dialog
+    signup_dialog.render();
+
+    YAHOO.util.Event.addListener("signup", "click", signup_dialog.show, signup_dialog, true);
+}
+
 function init() {
     // work around to display cursor in Firefox
     if (navigator.userAgent.indexOf('Firefox') != -1) {
         document.getElementById('chat_textarea').style.position = "fixed";
     }
     
-    init_chat();	
+    // set focus to chat textarea
+    document.getElementById('chat_textarea').focus();
+    
+	// initialize chat widget
+    init_chat();    
     if (iframe_enabled)
         init_panel();
-        
-    document.getElementById('chat_textarea').focus();
+    
+    // update login information
+    updateLoginInfo(username);
+    
+    // initialize login widget
+    init_login();
+    //if (navigator.userAgent.indexOf('Firefox') != -1) {
+    //    document.getElementById('login_username').style.position = "fixed";
+    //}
+    
+    // initialize signup widget
+    //init_signup();
 }
 
 function quit() {
-    alert('closing window');	
+    alert('closing window');    
 }
 
 YAHOO.util.Event.onDOMReady(init);
