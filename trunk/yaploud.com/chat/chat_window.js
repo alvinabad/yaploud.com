@@ -4,7 +4,7 @@ var poll_interval = 5000;
 var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
 var url_SendMessage = "/put_msg.php";
-var url_SendLogout = "/chat/logout";
+var url_SendLogout = "/chat/logout.php";
 var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
@@ -140,7 +140,7 @@ function updateLoginInfo(username) {
 	}
 	else {
 		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
-	    login_info_html += '| <a href="javascript: logout();">Logout</a>';
+	    login_info_html += '| <a href="javascript: logout(); void 0;">Logout</a>';
 	}
 	
 	$('login_info').innerHTML = login_info_html;
@@ -363,7 +363,7 @@ var SendMessage_callback = {
 
 var SendLogout = {
     handleFailure:function(o){
-        alert('Sending logout failed' + o.responseText + ' ' + o.status);
+        alert('Sending logout failed ' + o.responseText + ' ' + o.status + );
     },
 
     handleSuccess:function(o){
