@@ -5,6 +5,7 @@ var poll_interval_id;
 var url_GetMessages = "/get_msg.php";
 var url_SendMessage = "/put_msg.php";
 var url_SendLogout = "/chat/logout.php";
+var url_SendLogin = "/chat/login.php";
 var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
