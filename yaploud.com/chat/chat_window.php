@@ -56,41 +56,27 @@ if(!$iframe) {
           <textarea onkeyup="SendMessage.getText(event);" name="chat_textarea" class="chat_textarea" id="chat_textarea"></textarea>
         </form>
       </div>
-      <div id="links"><?php print $username; ?></div>
+      <div id="links">
+      </div>
       <div style="clear: both;"></div>
     </div>
     <div id="ft">
-        <?php
-            $url_encoded = urlencode($site_url);
-            if ( preg_match('/^guest/', $username) ) {
-                print <<<HTML
-            <a href="/login_page.php" target="_blank">Log In</a> |
-            <a href="/user/register.php" target="_blank">Sign Up</a> | 
-            <a href="javascript: location.reload();">Reload</a> |
-            <span id="chat_mode"></span> | 
-            <br>
+        <div id="login_info"><?php print $username; ?></div>
+        <a href="javascript: location.reload();">Reload</a>
+        | <span id="chat_mode"></span>
+     <?php
+     if($iframe) {
+        //| <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); openWindow("{$site_url}"); setTimeout(closeWindow, 2000); void 0;'>Pop out</a>
+         print <<<HTML
+        | <a href='javascript: popout("{$site_url}", "{$site_title}"); void 0;'>Pop out</a>
 HTML;
-            }
-            else {
-                print <<<HTML
-            <a href="/user/myaccount.php" target="_blank">Hi {$username}</a> | 
-            <a href="/login_page.php?logout=true" target="_blank">Log Out</a> | 
-            <a href="javascript: location.reload();">Reload</a> |
-            <span id="chat_mode"></span>
-            <br>
+     }
+     else {
+         print <<<HTML
+        | <a href='javascript: popin("{$site_url}", "{$site_title}"); void 0;'>Pop in</a>
 HTML;
-            }
-            if($iframe) {
-                print <<<HTML
-            <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); closeWindow();'>Pop out</a>
-HTML;
-            }
-            else {
-                print <<<HTML
-            <a href='javascript: openPopinWindow("{$site_url}", "{$site_title}"); closeWindow();'>Pop in</a>
-HTML;
-            }
-        ?>
+     }
+     ?>
     </div>
   </div>
 </div>
@@ -111,6 +97,36 @@ HTML;
 }
 ?>
 
+<div id="login_dialog">
+  <div class="hd">YapLoud Login</div>
+  <div class="bd">
+    <form name="login_form" method="POST" action="/chat/login.php">
+      <label>Username: </label><input type="text" name="username" value=''/>
+      <label>Password: </label><input type="password" name="password" value=''/>
+      <div class="clear"></div>
+      <label>Remember me: </label><input type="checkbox" name="remember" />
+    </form>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<!-- 
+<div id="signup_dialog">
+  <div class="hd">YapLoud Sign up</div>
+  <div class="bd">
+    <form name="signup_form" method="POST" action="/chat/signup.php">
+      <label>Username: </label><input type="text" name="username" value=''/>
+      <label>First Name: </label><input type="text" name="firstname" value=''/>
+      <label>Last Name: </label><input type="text" name="lastname" value=''/>
+      <label>Email: </label><input type="text" name="email" value=''/>
+      <label>Password: </label><input type="password" name="password" value=''/>
+      <label>Re-type password: </label><input type="password" name="password2" value=''/>
+      <div class="clear"></div>
+    </form>
+  </div>
+  <div class="clear"></div>
+</div>
+ -->
 
 </body>
 </html>
