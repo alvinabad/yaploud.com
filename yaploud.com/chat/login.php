@@ -6,6 +6,7 @@ if (!isset($_SESSION['logged'])) session_start();
     
 ob_start();
 require ("user.php");
+require ("common/nocache.php");
 $user = new User();
 
 $username = '';
