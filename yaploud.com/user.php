@@ -324,7 +324,7 @@ class User {
             $guestId = rand(50, 9999);
             $_SESSION['guest'] = "guest" . $guestId;
         }
-
+        $_SESSION['username'] = $_SESSION['guest'];
     }
 
     function changePassword($new_password) {
