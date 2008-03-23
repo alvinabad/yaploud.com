@@ -86,7 +86,16 @@ elseif ( isset($_SESSION['guest']) ) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
+	$site_url = '';
+	$site_title = ''; 
+	$site_description = '';
+	
 	$site_url = trim($_REQUEST['url']);
+	
+	if (isset($_REQUEST['description'])) {
+        $site_description = trim($_REQUEST['description']);
+	}
+	
 	if (isset($_REQUEST['title'])) {
 	    $site_title = $_REQUEST['title'];
 	}
@@ -99,8 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 		$iframe_enabled = "true";
 	}
 		
-    if (isset($_REQUEST['update']) && isset($_REQUEST['description'])) {
-        updateChatUrlInfo($site_url, $site_title, $_REQUEST['description']);
+    if (isset($_REQUEST['update'])) {
+        updateChatUrlInfo($site_url, $site_title, $site_description);
    	}
 }
 else {
