@@ -54,7 +54,6 @@ function updateChatUrlInfo($url, $title, $description) {
                "       description='$description' " .
                "WHERE url='$url'";
         $result = $db->mysql_query($sql);
-        error_log('updating here: ' . $result);
     }
     else if ($_REQUEST['update'] == 'View') {
         $sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
@@ -75,7 +74,6 @@ function updateChatUrlInfo($url, $title, $description) {
         $sql = "INSERT INTO dev.chat_url (url, title, description, creation_date) " .
                " values ('$url', '$title', '$description', SYSDATE() )";
         $result = $db->mysql_query($sql);
-        error_log('Trying to INSERT here: ' . $result);
         
         // if cannot insert, that means it already exists. Update then
         if (!$result) {
@@ -83,7 +81,6 @@ function updateChatUrlInfo($url, $title, $description) {
                    "       description='$description' " .
                    "WHERE url='$url'";
             $result = $db->mysql_query($sql);
-            error_log('Trying to UPDATE here: ' . $result);
         }
     }
 }
