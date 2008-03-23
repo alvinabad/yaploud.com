@@ -49,7 +49,7 @@ function updateChatUrlInfo($url, $title, $description) {
     
     $db = new DB();
     
-    if ($_REQUEST['update'] == 'UpdateX') {
+    if ($_REQUEST['update'] == 'Update') {
         $sql = "UPDATE dev.chat_url SET title='$title', " .
                "       description='$description' " .
                "WHERE url='$url'";
