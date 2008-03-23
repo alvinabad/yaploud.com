@@ -121,7 +121,7 @@ HTML;
 <div id="invite_friend_dialog">
   <div class="hd">YapLoud Invite a Friend</div>
   <div class="bd">
-    <strong>Invite your friend to join this chat:</strong>
+    <strong>Invite a friend to join this chat:</strong>
     <p>
     <form name="invite_friend_form" method="POST" action="/chat/invitefriend.php">
       <label>Email: </label><input size="37" type="text" name="email" value=''/>
