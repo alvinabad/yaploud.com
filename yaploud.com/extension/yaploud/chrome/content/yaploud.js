@@ -138,21 +138,38 @@ function yaploud_getYappers() {
 }
 
 function getDocumentDescription() {
-    var meta_tag = document.getElementsByTagName('meta');
+	var winWrapper = new XPCNativeWrapper(content, "doc");
+    var mainDocument = new XPCNativeWrapper(winWrapper.document, "top");
+	
+    var meta_tag = mainDocument.getElementsByTagName('meta');
     var name;
     var description = '';
-        
+    var description_content = '';
+    var keywords_content = '';
+
+    if (description) alert(description);
+
     for(var i=0; i<meta_tag.length; i++) {
         name = meta_tag[i].getAttribute('name');
         description = meta_tag[i].getAttribute('content');
-            
-        if ( name.toLowerCase() == 'description' && description ) {
-            return description;
+
+        if ( name && name.toLowerCase() == 'description' && description ) {
+            description_content = description;
+        }
+        else if ( name && name.toLowerCase() == 'keywords' && description ) {
+            keywords_content = description;
         }
         description = '';
     }
-        
-    return description;
+
+    if (description_content) {
+        return description_content;
+    }
+    else if (keywords_content) {
+        return keywords_content;
+    }
+
+    return '';
 }
 
 function yaploud_chatAtYaploud(event) {
@@ -163,7 +180,7 @@ function yaploud_chatAtYaploud(event) {
 
 	var ref_url = mainDocument.location;
 	ref_url = encodeURIComponent(ref_url);
-	var title = encodeURIComponent(document.title);
+	var title = encodeURIComponent(mainDocument.title);
 	var description = getDocumentDescription();
 	description = encodeURIComponent(description);
 	
