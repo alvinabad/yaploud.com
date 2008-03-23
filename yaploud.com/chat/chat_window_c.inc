@@ -86,12 +86,12 @@ elseif ( isset($_SESSION['guest']) ) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
-	$site_url = $_REQUEST['url'];
+	$site_url = trim($_REQUEST['url']);
 	if (isset($_REQUEST['title'])) {
 	    $site_title = $_REQUEST['title'];
 	}
 	else {
-	    $site_title = $_REQUEST['url'];
+	    $site_title = $site_url;
 	}
 	
 	if (isset($_REQUEST['iframe'])) {
