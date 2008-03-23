@@ -383,8 +383,9 @@ var SendLogout = {
     },
 
     handleSuccess:function(o){
-    	var username = eval('(' + o.responseText + ')');
-    	updateLoginInfo(username);
+    	var guestname = eval('(' + o.responseText + ')');
+    	username = guestname;
+    	updateLoginInfo(guestname);
     },
 
     sendRequest:function(url) {
