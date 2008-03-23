@@ -57,6 +57,11 @@ if(!$iframe) {
         </form>
       </div>
       <div id="links">
+      <a href="#">Show tags</a>
+      <br>
+      <a href="#">Add tags</a>
+      <br>
+      <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -104,7 +109,24 @@ HTML;
       <label>Username: </label><input type="text" name="username" value=''/>
       <label>Password: </label><input type="password" name="password" value=''/>
       <div class="clear"></div>
-      <label>Remember me: </label><input type="checkbox" name="remember" />
+      <label>&nbsp;</label><input type="checkbox" name="remember" /> Keep me logged in
+      <br>
+      <a href="javascript: openExternalWindow('/user/forgotpassword.php'); void 0;">Forgot password?</a>
+      | <a href="javascript: openExternalWindow('/user/forgotusername.php'); void0;">Forgot username?</a>
+    </form>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div id="invite_friend_dialog">
+  <div class="hd">YapLoud Invite a Friend</div>
+  <div class="bd">
+    <strong>Invite your friend to join this chat:</strong>
+    <p>
+    <form name="invite_friend_form" method="POST" action="/chat/invitefriend.php">
+      <label>Email: </label><input size="37" type="text" name="email" value=''/>
+      <label>Message: </label><textarea rows="3" cols="28"></textarea>
+      <div class="clear"></div>
     </form>
   </div>
   <div class="clear"></div>

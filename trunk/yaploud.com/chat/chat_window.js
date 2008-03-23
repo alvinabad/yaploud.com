@@ -14,6 +14,14 @@ function $(s) {
     return document.getElementById(s);
 }
 
+function scrollDown() {
+    msgs_div = $('msg');
+    msgs_div.scrollTop = msgs_div.scrollHeight;
+    if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        msgs_div.scrollTop = msgs_div.scrollHeight; // IE7 requires running this twice!
+    }
+}
+
 function onClosePanel() {
     openWindow(site_url);
     closeWindow();
@@ -45,11 +53,16 @@ function popin(site_url, site_title) {
 
 function minimizeChatWidget() {
     bd_div = document.getElementById('bd0');	
+ 
+    // maximize chat window   
 	if (chatWidgetMinimize) {
         bd_div.innerHTML = bd_content;
+        init_all_dialog();
         chatWidgetMinimize = false;
         GetMessages.startPolling();
+        scrollDown();
 	}
+	// minimize
 	else {
         GetMessages.stopPolling();
         bd_content = bd_div.innerHTML;
@@ -126,7 +139,7 @@ function logout() {
     var continue_logout = confirm("Are you sure you want to log out?");	
     if (continue_logout) {
     	SendLogout.sendRequest(url_SendLogout);
-    	init_login();
+    	init_all_dialog();
     } 
 }
 
@@ -459,6 +472,63 @@ function init_login() {
     //YAHOO.util.Event.addListener("hide", "click", login_dialog.hide, login_dialog, true);
 }
 
+function init_invite_friend() {    
+    var handleSubmit = function() {
+        this.submit();
+    };
+    var handleCancel = function() {
+        this.cancel();
+    };
+    var handleSuccess = function(o) {
+        var obj = eval('(' + o.responseText + ')');
+        if (obj && obj.username == loginname) {
+            username = obj.username;
+            updateLoginInfo(username);
+        }
+        else {
+            alert("Invite friend failed.");
+        }
+    };
+    var handleFailure = function(o) {
+        //alert("Submission failed: " + o.status);
+        alert("Server failure. Please try again later.");
+    };
+
+    // Instantiate the Dialog
+    var invite_friend_dialog = new YAHOO.widget.Dialog("invite_friend_dialog", 
+                            { width : "275px",
+                              //height: "250px",
+                              fixedcenter : true,
+                              visible : false, 
+                              constraintoviewport : true,
+                              buttons : [ { text:"Send", handler:handleSubmit, isDefault:true },
+                                      { text:"Cancel", handler:handleCancel } ]
+                            });
+
+    // Validate the entries in the form to require that both first and last name are entered
+    invite_friend_dialog.validate = function() {
+        var data = this.getData();
+        email = data.email.replace(/^\s+|\s+$/g,"");
+        
+        if (data.email == "") {
+            alert("Please enter email of your friend.");
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+    // Wire up the success and failure handlers
+    invite_friend_dialog.callback = { success: handleSuccess,
+                             failure: handleFailure };
+    
+    // Render the Dialog
+    invite_friend_dialog.render();
+
+    YAHOO.util.Event.addListener("invite_friend", "click", invite_friend_dialog.show, invite_friend_dialog, true);
+}
+
+
 function init_signup() {    
     var handleSubmit = function() {
         this.submit();
@@ -515,6 +585,11 @@ function init_signup() {
     YAHOO.util.Event.addListener("signup", "click", signup_dialog.show, signup_dialog, true);
 }
 
+function init_all_dialog() {
+	init_login();
+    init_invite_friend();	
+}
+
 function init() {
     // work around to display cursor in Firefox
     if (navigator.userAgent.indexOf('Firefox') != -1) {
@@ -533,7 +608,7 @@ function init() {
     updateLoginInfo(username);
     
     // initialize login widget
-    init_login();
+    init_all_dialog();
     //if (navigator.userAgent.indexOf('Firefox') != -1) {
     //    document.getElementById('login_username').style.position = "fixed";
     //}
