@@ -11,7 +11,7 @@
 		<toolbar id="parallel-web-toolbar" toolbarname="Parallel Web" accesskey="P"
          class="chromeclass-toolbar" context="toolbar-context-menu" 
          hidden="false" persist="hidden">
-			<toolbarbutton class="button" id="yaploud_chatButton" label="0 Yapper(s)" tooltiptext="Click here to chat" disabled="false" oncommand="yaploud_chatAtYaploud(event)"/>
+			<toolbarbutton class="button" id="yaploud_chatButton" label="0 Yapper(s)" tooltiptext="Click here to chat about this site" disabled="false" oncommand="yaploud_chatAtYaploud(event)"/>
 		</toolbar>
 	</toolbox>
 </overlay>

@@ -20,6 +20,6 @@ function installxpi (target) {
         InstallTrigger.install(xpi);
     }
     else {
-        alert("This extension works only on Firefox!");
+        alert("This extension works only with Firefox!");
     }
 }
