@@ -1,7 +1,7 @@
 
 var currentLocation = "";
 var numYappers = 0;
-var timerInterval = 10000;
+var timerInterval = 15000;
 var functionTimer = null;
 
 window.addEventListener("load", function() {
@@ -137,6 +137,23 @@ function yaploud_getYappers() {
 
 }
 
+function getDocumentDescription() {
+    var meta_tag = document.getElementsByTagName('meta');
+    var name;
+    var description = '';
+        
+    for(var i=0; i<meta_tag.length; i++) {
+        name = meta_tag[i].getAttribute('name');
+        description = meta_tag[i].getAttribute('content');
+            
+        if ( name.toLowerCase() == 'description' && description ) {
+            return description;
+        }
+        description = '';
+    }
+        
+    return description;
+}
 
 function yaploud_chatAtYaploud(event) {
 	
@@ -147,8 +164,13 @@ function yaploud_chatAtYaploud(event) {
 	var ref_url = mainDocument.location;
 	ref_url = encodeURIComponent(ref_url);
 	var title = encodeURIComponent(document.title);
+	var description = getDocumentDescription();
+	description = encodeURIComponent(description);
+	
 	mainDocument.location = 'http://www.yaploud.com/chat/chat_window.php?url=' + 
-	                        ref_url + '&iframe=yes' + '&title=' + title; 
+	                        ref_url + '&iframe=yes' + '&title=' + title +
+	                        '&update=info' +
+	                        '&description=' + description; 
 	                        
 	return;
 }
