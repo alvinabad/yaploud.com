@@ -173,7 +173,6 @@ function getDocumentDescription() {
 }
 
 function yaploud_chatAtYaploud(event) {
-	
 	// This function redirects the user to YapLoud.com to chat there
 	var winWrapper = new XPCNativeWrapper(content, "doc");
 	var mainDocument = new XPCNativeWrapper(winWrapper.document, "top");
@@ -184,9 +183,12 @@ function yaploud_chatAtYaploud(event) {
 	var description = getDocumentDescription();
 	description = encodeURIComponent(description);
 	
-	mainDocument.location = 'http://www.yaploud.com/chat/chat_window.php?url=' + 
+	var host = 'http://www.yaploud.com';
+	
+	mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + '&iframe=yes' + '&title=' + title +
 	                        '&update=info' +
+	                        //'&update=Update' +
 	                        '&description=' + description; 
 	                        
 	return;
