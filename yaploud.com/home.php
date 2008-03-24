@@ -62,8 +62,6 @@
         	<input type="hidden" name="iframe" value="yes" />
         	<input type="submit" value="Go" />
     	</form>
-        Test: <a href='javascript: openChatWindow("www.intrade.com", "www.intrade.com");'>www.intrade.com</a>
-         <br>
         <?php
         
         $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
