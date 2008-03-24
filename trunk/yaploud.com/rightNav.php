@@ -14,6 +14,9 @@
     <img src="images/add.gif" />
     <div style="clear: both"></div>
     <hr>
+    Test: <a href='javascript: openChatWindow("www.intrade.com", "www.intrade.com");'>www.intrade.com</a>
+    <hr>
+    
     <div style="font-size: 12px; font-family: arial;">
       <textarea rows="5" cols="20">
 <div id="yaploud"></div>
