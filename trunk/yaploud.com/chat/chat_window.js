@@ -361,7 +361,8 @@ var SendMessage = {
     
     sendRequest:function(textMsg) {
         var url = encodeURIComponent(site_url);
-        textMsg = escape(textMsg);
+        //textMsg = escape(textMsg);
+        textMsg = encodeURIComponent(textMsg);
         
         url = url_SendMessage + '?url=' + url + "&user=" + username + "&msg=" + textMsg;
         YAHOO.util.Connect.asyncRequest('GET', url, SendMessage_callback, null);
