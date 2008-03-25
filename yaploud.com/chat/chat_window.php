@@ -112,7 +112,7 @@ HTML;
       <label>&nbsp;</label><input type="checkbox" name="remember" /> Keep me logged in
       <br>
       <a href="javascript: openExternalWindow('/user/forgotpassword.php'); void 0;">Forgot password?</a>
-      | <a href="javascript: openExternalWindow('/user/forgotusername.php'); void0;">Forgot username?</a>
+      | <a href="javascript: openExternalWindow('/user/forgotusername.php'); void 0;">Forgot username?</a>
     </form>
   </div>
   <div class="clear"></div>
