@@ -66,7 +66,11 @@ if(!$iframe) {
       <div style="clear: both;"></div>
     </div>
     <div id="ft">
-        <div id="login_info"><?php print $username; ?></div>
+        <div>
+            <span id="login_info"><?php print $username; ?></span>
+            <span id="login">Login</span>
+            <span id="signup">SignUp</span>
+        </div>
         <a href="javascript: location.reload();">Reload</a>
         | <span id="chat_mode"></span>
      <?php
