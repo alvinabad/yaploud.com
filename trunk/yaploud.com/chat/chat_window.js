@@ -9,6 +9,7 @@ var url_SendLogin = "/chat/login.php";
 var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
+var logged_in = false;
 
 function $(s) {
     return document.getElementById(s);
@@ -140,26 +141,38 @@ function logout() {
     if (continue_logout) {
     	SendLogout.sendRequest(url_SendLogout);
     	init_all_dialog();
+    	logged_in = false;
     } 
+}
+
+function login() {
+	logged_in = true;
 }
 
 function updateLoginInfo(username) {
 	var login_info_html;
+	var login_html;
+	var signup_html;
 	
 	if (username.substr(0,5) == 'guest') {
 		login_info_html = 'You are logged in as ' + 
 		                  '<strong>' + username + 
 		                  '</strong>. ';
-	    login_info_html += ' <a href="javascript: void 0;" id="login">Login</a>' + ' | ' +
-	     
-	                       ' <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;" id="signup">Signup</a>';
+	    login_html = '| <a href="javascript: void 0;">Login</a> ';
+	    signup_html = '| <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;">Signup</a>';
+	    logged_in = false;
 	}
 	else {
 		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
 	    login_info_html += '| <a href="javascript: logout(); void 0;">Logout</a>';
+	    login_html = '';
+	    signup_html = '';
+	    logged_in = true;
 	}
 	
 	$('login_info').innerHTML = login_info_html;
+	$('login').innerHTML = login_html;
+	$('signup').innerHTML = signup_html;
 }
 
 function includeJavaScript(js_src) {
