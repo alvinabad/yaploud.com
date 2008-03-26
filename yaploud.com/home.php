@@ -126,7 +126,6 @@ HTML;
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                         <br>
                         <a href='javascript: openChatWindow("{$url}", "{$title}");'>Open yaplet window</a>
-                        | <a href="chat.php?url={$url}">Original chat widget</a>                    
                     </div>
                 </div>
                 <br/>
