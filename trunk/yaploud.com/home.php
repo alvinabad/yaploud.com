@@ -54,11 +54,14 @@
 			?>
 
             <div id="content">
+    	<a href="http://www.kampyle.com" style="cursor:hand;cursor:pointer;" onclick="javascript:window.open('http://www.kampyle.com/feedback_form/ff-feedback-form.php?site_code=6247727&url='+encodeURIComponent(window.location.href), 'kampyle_ff','left='+((window.screenX||window.screenLeft)+10)+',top='+((window.screenY||window.screenTop)+10)+',height=490px,width=440px,resizable=false');return false;"><img src="/images/button-gray.gif" alt="Give Feedback"></a>
+         <br/>
     	<form method="get" action="/chat/chat_window.php">
         	<span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>
+        	<br>
         	<input name="url" id="yapurl_box" type="text" 
         	       style="background: #F0F8FF; color: blue; font-size: 20px;"
-        	       value="http://" size="50" />
+        	       value="http://" size="60" />
         	<input type="hidden" name="iframe" value="yes" />
         	<input type="submit" value="Go" />
     	</form>
