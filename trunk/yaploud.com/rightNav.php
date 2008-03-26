@@ -4,19 +4,14 @@
     <a href="/extension/yaploud.xpi">
     <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="installxpi(this); return false;">Install Firefox Extension</button>
     </a>
-    <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="return false;">Install IE Extension</button>
-    <br/>
+    <hr>
     <div id="tagCloud">
         <strong>Tag Cloud</strong>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim 
     </div>
     <br/>
-    <img src="images/add.gif" />
     <div style="clear: both"></div>
     <hr>
-    Test: <a href='javascript: openChatWindow("www.intrade.com", "www.intrade.com");'>www.intrade.com</a>
-    <hr>
-    
     <div style="font-size: 12px; font-family: arial;">
       <textarea rows="5" cols="20">
 <div id="yaploud"></div>
