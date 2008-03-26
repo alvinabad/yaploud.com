@@ -15,6 +15,10 @@ function $(s) {
     return document.getElementById(s);
 }
 
+function trim(str) {
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');	
+}
+
 function scrollDown() {
     msgs_div = $('msg');
     msgs_div.scrollTop = msgs_div.scrollHeight;
@@ -367,7 +371,11 @@ var SendMessage = {
     	var code = e.charCode || e.keyCode;
         if (code == 13) {
         	textMsg = document.chat_form.chat_textarea.value;
-        	SendMessage.sendRequest(textMsg);
+            textMsg = trim(textMsg);
+            if (textMsg != "") {
+            	SendMessage.sendRequest(textMsg);
+            }
+                
         	document.chat_form.chat_textarea.value = '';
         }
     },
