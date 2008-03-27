@@ -1,11 +1,3 @@
-<?php
-    $user = new User();
-
-    // If the user pressed the logout link, end the session
-    if (isset($_REQUEST['logout'])) {
-        $user->_logout();
-    }
-?>
 
 <script type="text/javascript">
     function strip_http() {

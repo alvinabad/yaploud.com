@@ -5,6 +5,7 @@
 
 <?php
    require("./user_session_init_c.inc");
+   $user = new User();
 ?>
 
 
@@ -47,6 +48,11 @@ input{
     if(isset($_POST['action']) && $_POST['action'] == 'login') {
         // Login form was submiteted
         if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
+        	
+        	if (!isset($_POST['remember'])) {
+        		$_POST['remember'] = '';
+        	}
+        	
 	        $result = $user->_checkLogin($_POST['username'], $_POST['password'], 
 	                  $_POST['remember']);
 		
@@ -69,6 +75,13 @@ input{
 	    }
     }
 
+    // If the user pressed the logout link, end the session
+    if (isset($_REQUEST['logout']) && $_REQUEST['logout']=="true") {
+        $user->_logout();
+        $redirect = '/login_page.php';
+	  	header("Location: $redirect");
+    }
+    
    if (!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
    	// Display the login form
        echo <<<HTML

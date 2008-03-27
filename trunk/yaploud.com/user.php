@@ -308,13 +308,9 @@ class User {
     function _logout() {
         setcookie("yaploud", "", time() - 60000);
         
-        if( !isset( $_SESSION ) ) { 
-            // to prevent session_destroy from raising an exception in case there was no session
-            session_start();
-        }
-        
         session_unset();
         session_destroy();
+        session_start();
 
         $this->_session_defaults();	
     }
@@ -335,6 +331,7 @@ class User {
             $guestId = rand(50, 9999);
             $_SESSION['guest'] = "guest" . $guestId;
         }
+        
         $_SESSION['username'] = $_SESSION['guest'];
     }
 
