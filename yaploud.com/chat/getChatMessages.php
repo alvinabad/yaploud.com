@@ -53,7 +53,10 @@ if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
 $rs = array();
 $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
 $rs['users'] = $cr->getUsers($url);
-$rs['user_session'] = $_SESSION['username'];
+
+if (isset($_SESSION['username'])) {
+    $rs['user_session'] = $_SESSION['username'];
+}
 
 print json_encode($rs);
 
