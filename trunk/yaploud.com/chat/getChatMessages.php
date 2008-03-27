@@ -53,24 +53,7 @@ if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
 $rs = array();
 $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
 $rs['users'] = $cr->getUsers($url);
-
-/****
-// check if current user is in the chat room
-$found = false;
-foreach($rs['users'] as  $u) {
-	if (isset($_SESSION['username']) && $u == $_SESSION['username']) {
-		$found = true;
-	}
-}
-
-// if user is not found in chat room, log him out
-if (!$found) {
-	$user = new User();
-	$user->logout();
-}
-*****/
-
-
+$rs['user_session'] = $_SESSION['username'];
 
 print json_encode($rs);
 
