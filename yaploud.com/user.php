@@ -332,7 +332,7 @@ class User {
 
         if (!isset ($_SESSION['guest'])) {
             $guestId = rand(50, 9999);
-            $_SESSION['guest'] = "anon" . $guestId;
+            $_SESSION['guest'] = "guest" . $guestId;
         }
         $_SESSION['username'] = $_SESSION['guest'];
     }
