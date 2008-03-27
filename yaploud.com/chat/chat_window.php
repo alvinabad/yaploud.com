@@ -112,6 +112,7 @@ HTML;
     <form name="login_form" method="POST" action="/chat/login.php">
       <label>Username: </label><input type="text" name="username" value=''/>
       <label>Password: </label><input type="password" name="password" value=''/>
+      <input type="hidden" name="url" value="<?php print $site_url; ?>">
       <div class="clear"></div>
       <label>&nbsp;</label><input type="checkbox" name="remember" /> Keep me logged in
       <br>

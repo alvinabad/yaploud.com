@@ -7,7 +7,17 @@ session_start();
 ob_start();
 require ("user.php");
 require ("common/nocache.php");
+require("./ChatRoom.inc");
+
 $user = new User();
+
+// remove session user in chat room
+if (isset($_REQUEST['url']) && isset($_SESSION['username'])) {
+    $url = $_REQUEST['url'];
+    $username = $_SESSION['username'];
+    $cr = new ChatRoom();
+    $cr->removeUser($url, $username);
+}
 
 $user = $user->_logout();
 session_start();
