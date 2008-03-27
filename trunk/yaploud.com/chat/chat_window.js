@@ -2,7 +2,8 @@
 var title_header = "YapLoud.com";
 var poll_interval = 5000;
 var poll_interval_id;
-var url_GetMessages = "/get_msg.php";
+//var url_GetMessages = "/get_msg.php";
+var url_GetMessages = "/chat/getChatMessages.php";
 var url_SendMessage = "/put_msg.php";
 var url_SendLogout = "/chat/logout.php";
 var url_SendLogin = "/chat/login.php";
@@ -10,6 +11,7 @@ var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
 var logged_in = false;
+var query_count = 0;
 
 function $(s) {
     return document.getElementById(s);
@@ -140,17 +142,26 @@ function generateContent() {
     title.innerHTML = html_text;
 }
 
+function uiLogout() {
+    var confirm_logout = confirm("Are you sure you want to logout?");
+    
+    if (confirm_logout) {
+    	logout();
+    }
+}
+
 function logout() {
-    var continue_logout = confirm("Are you sure you want to log out?");	
-    if (continue_logout) {
-    	SendLogout.sendRequest(url_SendLogout);
-    	init_all_dialog();
-    	logged_in = false;
-    } 
+ 	SendLogout.sendRequest();
+    init_all_dialog();
+    logged_in = false;
+    	
+    // force update of chat room by calling GetMessages.sendRequest
+    query_count = 0;
+    GetMessages.sendRequest();
 }
 
 function login() {
-	logged_in = true;
+	alert("who's calling login?");
 }
 
 function updateLoginInfo(username) {
@@ -168,7 +179,7 @@ function updateLoginInfo(username) {
 	}
 	else {
 		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
-	    login_info_html += '| <a href="javascript: logout(); void 0;">Logout</a>';
+	    login_info_html += '| <a href="javascript: uiLogout(); void 0;">Logout</a>';
 	    login_html = '';
 	    signup_html = '';
 	    logged_in = true;
@@ -259,11 +270,22 @@ function renderYappers(obj) {
         already_hidden = true;
     }
     */
+    var found = false;
     var users = obj.users;
     var users_el = document.getElementById('yappers');
     users_el.innerHTML = '';
     for(var i = 0; i < users.length; i++){
         users_el.innerHTML += "<div class=room_user>" + users[i] + "</div>";
+        
+        // check if current user is in chat room
+        if (users[i] == username) {
+        	found = true;
+        }
+    }
+    
+    // if current user is in chat room, if not log him out
+    if (!found) {
+    	logout();
     }
 }
 
@@ -302,6 +324,8 @@ var GetMessages = {
         	//document.title = msgs[0].s + " - " + stripped;
         }
             renderYappers(obj);
+            
+        query_count++;
     },
 
     sendRequest:function() {
@@ -312,6 +336,11 @@ var GetMessages = {
 	    url = encodeURIComponent(url);
 	            
         url = url_GetMessages + '?url=' + url + "&last_msg_id=" + last_msg_id;
+        
+        if (query_count%Math.round(poll_interval/84) == 0 ) { // send heartbeat every 300 secs
+            url += "&heartbeat=1";	
+        }
+        
         YAHOO.util.Connect.asyncRequest('GET', url, GetMessages_callback, null);
     },
 
@@ -411,7 +440,9 @@ var SendLogout = {
     	updateLoginInfo(guestname);
     },
 
-    sendRequest:function(url) {
+    sendRequest:function() {
+        var url = encodeURIComponent(site_url);
+        url = url_SendLogout + "?url=" + url;
         YAHOO.util.Connect.asyncRequest('GET', url, SendLogout_callback, null);
     }
 

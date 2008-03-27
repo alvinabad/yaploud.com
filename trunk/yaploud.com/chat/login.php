@@ -7,6 +7,8 @@ if (!isset($_SESSION['logged'])) session_start();
 ob_start();
 require ("user.php");
 require ("common/nocache.php");
+require("./ChatRoom.inc");
+
 $user = new User();
 
 $username = '';
@@ -28,7 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ||
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
     
+    $old_user = $_SESSION['username'];
+    
     $user = $user->login($username, $password, $remember);
+    
+    // add user to chat room; remove previous user session
+    if ($user['username'] && isset($_REQUEST['url'])) {
+        $url = $_REQUEST['url'];
+        $username = $user['username'];
+        $cr = new ChatRoom();
+        $cr->addUser($url, $username);
+        $cr->removeUser($url, $old_user);
+    }
+    
     print json_encode($user);
 }
 else {

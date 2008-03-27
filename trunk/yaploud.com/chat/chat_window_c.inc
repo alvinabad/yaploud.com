@@ -17,12 +17,12 @@ require("common/nocache.php");
 require("user.php");
 
 $iframe = false;
-$username = 'guestxxx';
 $user = new User();
+$username = $_SESSION['username'];
 $iframe = false;
 $iframe_enabled = "false";  // this is for setting javascript variable
 
-session_start();
+//session_start();
 
 $title = '';
 $description = '';
