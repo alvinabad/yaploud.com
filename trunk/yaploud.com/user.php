@@ -316,6 +316,7 @@ class User {
         session_unset();
         session_destroy();
 
+        $this->_session_defaults();	
     }
 
     function logout() {
