@@ -20,7 +20,6 @@ if (isset($_REQUEST['url']) && isset($_SESSION['username'])) {
 }
 
 $user = $user->_logout();
-session_start();
 $user = new User();
 $username = $_SESSION['username'];
 print json_encode($username);
