@@ -325,6 +325,10 @@ var GetMessages = {
         }
             renderYappers(obj);
             
+        //if (username != obj.user_session) {
+        //	username = obj.user_session;
+        //}
+        
         query_count++;
     },
 
