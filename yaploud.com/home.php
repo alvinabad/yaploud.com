@@ -2,6 +2,7 @@
 
 <?php
     require("./home_c.inc");
+    require("chat/ChatRoom.inc");
 ?>
 
 <html>
@@ -95,6 +96,7 @@ HTML;
        //--- End pagination
        
         if ($topicUrlInfo_result) {
+            $cr = new ChatRoom();
         	$i = 0;
          	while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
          		$url = $row['url'];
@@ -105,6 +107,8 @@ HTML;
          		$title = $info['title'];
          		$description = $info['description'];
          		
+	            $yappers = sizeof( $cr->getUsers($url) );
+	
          		if ($i % 2 == 0) {
                     print '<div class="yap_url even">';
          		}
@@ -114,6 +118,13 @@ HTML;
                 $i++;
                 $url_encoded = urlencode($url);
                 $title_encoded = urlencode($title);
+                
+                $yappers_str = 'yappers';
+                if ($yappers==1) $yappers_str = 'yapper';
+                
+                $comments_str = 'comments';
+                if ($comments==1) $comments_str = 'comment';
+                
          		print <<<HTML
          		    <b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
                     <br/>
@@ -121,8 +132,8 @@ HTML;
                     <br>
                     {$description}
                     <div class="yap_links">
-                        <a href=""><img src="images/comment.gif" />{$yappers} yappers</a> |
-                        <a href=""><img src="images/comments.gif" />{$comments} comments</a> |
+                        <a href=""><img src="images/comment.gif" />{$yappers}  {$yappers_str}</a> |
+                        <a href=""><img src="images/comments.gif" />{$comments} {$comments_str}</a> |
                         <a href=""><img src="images/page.gif" />Share Yaplet</a> |
                         <a href=""><img src="images/ratings/stars-4-5.gif" /></a> {$yappers} ratings
                         <br>
