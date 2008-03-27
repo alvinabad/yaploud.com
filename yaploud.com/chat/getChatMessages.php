@@ -54,8 +54,12 @@ $rs = array();
 $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
 $rs['users'] = $cr->getUsers($url);
 
+
 if (isset($_SESSION['username'])) {
     $rs['user_session'] = $_SESSION['username'];
+}
+else {
+    $rs['user_session'] = 'guestxxx';
 }
 
 print json_encode($rs);
