@@ -283,9 +283,10 @@ function renderYappers(obj) {
         }
     }
     
-    // if current user is in chat room, if not log him out
+    // if current user is not in chat room, change login info
     if (!found) {
-    	logout();
+    	username = obj.user_session;
+    	updateLoginInfo(username);
     }
 }
 
@@ -325,9 +326,10 @@ var GetMessages = {
         }
             renderYappers(obj);
             
-        //if (username != obj.user_session) {
-        //	username = obj.user_session;
-        //}
+        if (username != obj.user_session) {
+      		username = obj.user_session;
+       		updateLoginInfo(username);
+        }
         
         query_count++;
     },
