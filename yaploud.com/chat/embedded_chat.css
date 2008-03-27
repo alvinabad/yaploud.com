@@ -1,7 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 .row{
-    color: black;
+    color: gray;
     padding: 2px;
     /*margin-top: 3px;*/
     font-size:12px;
@@ -68,8 +68,15 @@
     width: 250px;
     height: 150px;
     overflow: auto;
-    font-family: arial, courier-new, serif;
-    
+    font-size: 12px;
+    font-family: georgia, times, "times new roman", serif;
+}
+
+.sender {
+	color: brown;
+	/*font-style: italic;*/
+	/*font-weight: bold; */
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 
 #yap {
@@ -104,6 +111,8 @@
     overflow: auto;
     width: 75px;
     height: 150px;
+    font-size: 12px;
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 
 #chat_textarea {

@@ -54,7 +54,10 @@ function callback(s){
         var color = getNextColor(last_color);
         last_color = color;
         tmp_html += "<div class=\"row " + last_color + "\">" + 
-                    msgs[i].s + ": " + 
+                    '<span class="sender">' +
+                    msgs[i].s + 
+                    '</span>' +
+                    ": " + 
                     //msgs[i].t + " " + 
                     msgs[i].msg + 
                     "</div>";
