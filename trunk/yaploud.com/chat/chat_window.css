@@ -90,8 +90,8 @@ body {
 
 .sender {
 	color: brown;
-	font-style: italic;
 	/*font-weight: bold; */
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 
 /*on_row and off_row define background to alternate row colors */
@@ -123,6 +123,7 @@ body {
     min-width: 76px;
     max-width: 150px;
     height: 150px;
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 #links{
     /*border: 1px solid green;*/
