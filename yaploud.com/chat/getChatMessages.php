@@ -62,6 +62,12 @@ else {
     $rs['user_session'] = 'guestxxx';
 }
 
-print json_encode($rs);
+if (isset($_REQUEST['embed'])) {
+	$js = json_encode($rs);
+    print "callback(" . $js . "); ";
+}
+else {
+    print json_encode($rs);
+}
 
 ?>
