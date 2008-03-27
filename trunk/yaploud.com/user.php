@@ -307,12 +307,22 @@ class User {
 
     function _logout() {
         setcookie("yaploud", "", time() - 60000);
-        session_start(); // to prevent session_destroy from raising an exception in case there was no session
+        
+        if( !isset( $_SESSION ) ) { 
+            // to prevent session_destroy from raising an exception in case there was no session
+            session_start();
+        }
+        
         session_unset();
         session_destroy();
 
     }
 
+    function logout() {
+        $this->_logout();
+        $this->_session_defaults();	
+    }
+    
     function _session_defaults() {
         $_SESSION['logged'] = false;
         $_SESSION['userid'] = 0;
