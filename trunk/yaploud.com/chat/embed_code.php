@@ -88,7 +88,7 @@ src="http://www.yaploud.com/chat/embedded_chat.js">
             
             <?php
                 // Footer page
-                include("footer.php"); 
+                include("footer1.php"); 
             ?>
         </div>
     </body>
