@@ -135,11 +135,11 @@ function appendHttp2Url(url) {
 includeCSSfile("http://logan:9000/chat/embedded_chat.css");
 
 var yapurl;
-var external_url;
+var this_url;
 
 if (!yapurl) {
     yapurl = String(document.location);
-    external_url = true;
+    this_url = true;
 }
 yapurl = appendHttp2Url(yapurl);
 
@@ -151,14 +151,13 @@ if (yaploud_div) {
     create_div(yaploud_div, 'hd', 'hd');
     var title_str;
     
-    if (external_url) {
-        title_str = "Yaps about: " + yapurl;	
+    if (!this_url) {
         title_str = 'Yaps about: ' + '<a href="' + yapurl + '" target="_blank">' +
-                    '<strong>' + yapurl + '</strong>' + '</a>';
+                    yapurl + '</a>';
     }
     else {
         title_str = ' <a href="' + yapurl + '" target="_blank">' +
-                    '<strong>Yaps about this page: </strong>' + '</a>';
+                    'Yaps about this page:' + '</a>';
     }
     
     var image_txt = '<a href="' + yaploud_site + '/home.php" target="_blank">' +
