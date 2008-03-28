@@ -31,15 +31,15 @@
       </ul>
 	  <p class="style7">&nbsp;</p>
 	  <ul class="style8">
-	    <li> “Where can I download this application”&#13;– Sr Product manager, WebEx</li>
+	    <li> “Where can I download this application?”&#13;– Sr Product manager, WebEx</li>
       </ul>
 	  <p class="style7">&nbsp;</p>
 	  <ul class="style8">
-	    <li> &quot;Can you do this, this will be great for us”&#13;– Director of a Fortune 1000 company</li>
+	    <li> &quot;Can you do this? This will be great for us”&#13;– Director of a Fortune 1000 company</li>
       </ul>
 	  <p class="style7">&nbsp;</p>
 	  <ul>
-	    <li class="style7"><strong>“ I understand it. Its simple and I will use it”&#13;– My Wife&#13;</strong></li>
+	    <li class="style7"><strong>“ I understand it. It's simple and I will use it”&#13;– My Wife&#13;</strong></li>
       </ul></td>
   </tr>
   <tr>
