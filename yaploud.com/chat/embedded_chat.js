@@ -1,18 +1,15 @@
 
-var last_msg_id = -1;
-var on_color = "on_row";
-var off_color = "off_row";
-var last_color = "on_row";
+var last_msg_id   = -1;
+var on_color      = "on_row";
+var off_color     = "off_row";
+var last_color    = "on_row";
 var poll_interval = 7000;
 
 function get(){
     var el = document.createElement('script');
-    // el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=tim.com&last_msg_id=' + last_msg_id);
-    //el.setAttribute('src', 'http://www.yaploud.com/get_wid_msg.php?url=http://www.cnn.com/2007/WORLD/asiapcf/11/04/pakistan/index.html&last_msg_id=' + last_msg_id);
     var enc = escape||encodeURIComponent;
     var src_url;
     
-    //src_url = 'http://www.yaploud.com/get_wid_msg.php?url=' + 
     src_url = 'http://www.yaploud.com/chat/getChatMessages.php?url=' + 
                    enc(yapurl) + '&last_msg_id=' + last_msg_id +
                    '&embed=true';
@@ -86,8 +83,6 @@ function includeJavascript(src) {
         script_tag.setAttribute('type', 'text/javascript');
         script_tag.setAttribute('src', src);
         head_tag.appendChild(script_tag);
-    } else {
-     //alert('include failed');
     }
 }
 
@@ -116,14 +111,11 @@ function create_textarea(parent_node, id_value) {
         txt_tag.setAttribute('id', id_value);
         parent_node.appendChild(txt_tag);
     }
-	
 }
 
 function appendHttp2Url(url) {
     if ( url.indexOf('http') == -1 ) {
         url = 'http://' + url;  
-        // if protocol is not found, append http
-        // this could be https but that's the best we can do
     }
     return url;
 }
@@ -132,7 +124,7 @@ function appendHttp2Url(url) {
  * Start of program
  ******************************************************************************/
 // include CSS file
-includeCSSfile("http://logan:9000/chat/embedded_chat.css");
+includeCSSfile("http://www.yaploud.com/chat/embedded_chat.css");
 
 var yapurl;
 var this_url;
@@ -169,14 +161,9 @@ if (yaploud_div) {
     // create inner body div
     create_div(yaploud_div, 'bd2', 'bd2');
     var bd2_div = $('bd2');
-    //create_div(bd2_div, 'yaploud_msgs', 'yaploud_msgs');
-    //create_div(bd2_div, 'yappers', 'yappers');
     
     create_div(yaploud_div, 'yaploud_msgs', 'yaploud_msgs');
     create_div(yaploud_div, 'yappers', 'yappers');
-    //create_div(yaploud_div, 'x', 'x', 'clear: both');
-    //create_div(yaploud_div, 'yap', 'yap');
-    //$('yap').innerHTML = "yap messages...";
     create_textarea(yaploud_div, 'chat_textarea');
     $('chat_textarea').style.disabled = "yes";
 }
