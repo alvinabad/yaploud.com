@@ -65,7 +65,7 @@ ob_start();
             <hr>
             <div>
                 <form method="post" name="embed_form">
-                You can also view chats from another site from your webpage by using the
+                You can also view chats from another site on your webpage by using the
                 generated code below.
                 <br>
                 <input id="url" name="url" type="text" size="50" value="http://"> <button onclick="generateEmbedCode(); return false;">Generate code</button>
