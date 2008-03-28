@@ -9,8 +9,8 @@
     <head>
         <title>Welcome to YapLoud</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <script type="text/javascript" src="css/niftycube.js" ></script>
+        <link type="text/css" rel="stylesheet" href="/css/style.css" />
+        <script type="text/javascript" src="/css/niftycube.js" ></script>
         <script type="text/javascript">
             window.onload=function() {
                 Nifty("div.yap_url, div#tagCloud","big, transparent");
@@ -31,7 +31,6 @@
         url.value = url.value.replace('/^http:\/\//', '');
     }
   </script>
-        <script type="text/javascript" src="/extension/browser_extension.js" ></script>
     </head>
 
     <body>
@@ -55,7 +54,8 @@
 			?>
 
             <div id="content">
-    	<a href="http://www.kampyle.com" style="cursor:hand;cursor:pointer;" onclick="javascript:window.open('http://www.kampyle.com/feedback_form/ff-feedback-form.php?site_code=6247727&url='+encodeURIComponent(window.location.href), 'kampyle_ff','left='+((window.screenX||window.screenLeft)+10)+',top='+((window.screenY||window.screenTop)+10)+',height=490px,width=440px,resizable=false');return false;"><img src="/images/button-gray.gif" alt="Give Feedback"></a>
+    	<a href="http://www.kampyle.com" style="cursor:hand;cursor:pointer;" 
+    	   onclick="javascript:window.open('http://www.kampyle.com/feedback_form/ff-feedback-form.php?site_code=6247727&url='+encodeURIComponent(window.location.href), 'kampyle_ff','left='+((window.screenX||window.screenLeft)+10)+',top='+((window.screenY||window.screenTop)+10)+',height=490px,width=440px,resizable=false');return false;"><img src="/images/button-gray.gif" alt="Give Feedback"></a>
          <br/>
     	<form method="get" action="/chat/chat_window.php">
         	<span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>

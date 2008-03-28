@@ -1,4 +1,6 @@
 
+<script type="text/javascript" src="/extension/browser_extension.js" ></script>
+
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
     <a href="/extension/yaploud.xpi">
@@ -14,9 +16,3 @@
     <br/>
     <div style="clear: both"></div>
 </div>
-
-      <!-- 
-      <div id="eyl"></div>
-<script src="http://www.yaploud.com/chat/embedded_yaplet_link.js">
-</script>
-       -->
