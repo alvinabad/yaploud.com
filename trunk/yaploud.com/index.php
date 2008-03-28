@@ -27,7 +27,7 @@
 	  <p align="center"><span class="style3">Coming Soon</span></p>
 	  <p>&nbsp;</p>
 	  <ul>
-	    <li class="style4"> &quot;<span class="style7">The think that is great about this idea is that it simply overlays the entire web rather than creating a walled garden”&#13;– Dean of top university </span></li>
+	    <li class="style4"> &quot;<span class="style7">The thing that is great about this idea is that it simply overlays the entire web rather than creating a walled garden”&#13;– Dean of top university </span></li>
       </ul>
 	  <p class="style7">&nbsp;</p>
 	  <ul class="style8">
