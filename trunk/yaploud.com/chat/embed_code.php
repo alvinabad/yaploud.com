@@ -66,8 +66,7 @@ ob_start();
             <hr>
             <div>
                 <form method="post" name="embed_form">
-                You can also view chats from another site and stick it on 
-                your webpage. 
+                You can also have a chat window to view chats for another site. 
                 <br>
                 Type in the URL of the webpage to generate the code:
                 <br>
@@ -79,7 +78,7 @@ ob_start();
             <hr>
             <div>
             <br>
-            Here's a sample of how a yaplet is embedded on a webpage:
+            Below is a sample of a yaplet embedded on a webpage. In here, people are chatting about the Yahoo! site.
             <br>
             <div id="yaploud"></div>
              <script>yapurl="http://www.yahoo.com";</script>
