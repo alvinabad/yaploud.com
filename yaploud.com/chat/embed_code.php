@@ -54,7 +54,7 @@ ob_start();
             <div id="content">
             
             <div>
-            <h3>Insert a chat window into your web page</h3>
+            <h3>Put a chat window on your webpage</h3>
                 <form method="post" name="embed_form1">
                 <textarea name="text_area1" wrap="hard" rows="4" cols="50">
                 </textarea>
