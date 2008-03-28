@@ -75,12 +75,14 @@ ob_start();
             </div>
             <hr>
             <div>
-            Here's a sample of how it will look like on your webpage:
+            <br>
+            Here's a sample of how a yaplet is embedded on a webpage:
+            <br>
             <div id="yaploud"></div>
-<script>yapurl="http://www.yahoo.com";</script>
-<script type="text/javascript"
-src="http://www.yaploud.com/chat/embedded_chat.js">
-</script>
+             <script>yapurl="http://www.yahoo.com";</script>
+             <script type="text/javascript"
+               src="http://www.yaploud.com/chat/embedded_chat.js">
+             </script>
             
             </div>
             
