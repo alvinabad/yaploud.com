@@ -62,7 +62,7 @@
         	<br>
         	<input name="url" id="yapurl_box" type="text" 
         	       style="background: #F0F8FF; color: blue; font-size: 20px;"
-        	       value="http://" size="60" />
+        	       value="http://" size="45" />
         	<input type="hidden" name="iframe" value="yes" />
         	<input type="submit" value="Go" />
     	</form>
