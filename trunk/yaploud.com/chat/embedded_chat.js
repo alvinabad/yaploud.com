@@ -135,9 +135,11 @@ function appendHttp2Url(url) {
 includeCSSfile("http://logan:9000/chat/embedded_chat.css");
 
 var yapurl;
+var external_url;
 
 if (!yapurl) {
     yapurl = String(document.location);
+    external_url = true;
 }
 yapurl = appendHttp2Url(yapurl);
 
@@ -147,12 +149,22 @@ var yaploud_site = "http://www.yaploud.com";
 if (yaploud_div) {
 	// create header div inside yaploud div
     create_div(yaploud_div, 'hd', 'hd');
+    var title_str;
+    
+    if (external_url) {
+        title_str = "Yaps about: " + yapurl;	
+        title_str = 'Yaps about: ' + '<a href="' + yapurl + '" target="_blank">' +
+                    '<strong>' + yapurl + '</strong>' + '</a>';
+    }
+    else {
+        title_str = ' <a href="' + yapurl + '" target="_blank">' +
+                    '<strong>Yaps about this page: </strong>' + '</a>';
+    }
+    
     var image_txt = '<a href="' + yaploud_site + '/home.php" target="_blank">' +
                     '<img src="' + yaploud_site + '/images/logo.gif" +' +
                     ' border="0" width=41 height=22 valign=absmiddle></img></a>' +
-                    ' <a href="' + yapurl + '" target="_blank">' +
-                    '<strong>Yaps about this page: </strong>' +
-                    '</a>';
+                    title_str;
     $('hd').innerHTML = image_txt;
                
     // create inner body div
