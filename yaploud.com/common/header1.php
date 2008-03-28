@@ -7,7 +7,7 @@
 
     <div class="header-top">
         <div class="header-left">
-        <a href="home.php">
+        <a href="/home.php">
             <img src="/images/logo.gif" /><img src="images/home_06.gif" />
         </a>
         </div>
