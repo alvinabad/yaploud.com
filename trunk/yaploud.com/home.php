@@ -6,32 +6,15 @@
 ?>
 
 <html>
-    <head>
-        <title>Welcome to YapLoud</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <link type="text/css" rel="stylesheet" href="/css/style.css" />
-        <script type="text/javascript" src="/css/niftycube.js" ></script>
-        <script type="text/javascript">
-            window.onload=function() {
-                Nifty("div.yap_url, div#tagCloud","big, transparent");
-                //Nifty("div#tagCloud", "big, transparent");
-            }
-        </script>
-  <script type="text/javascript">
-   function openChatWindow(site_url, title) {
-        var url = "/chat/chat_window.php?url=" + site_url +
-              "&title=" + title;
-       var features = "width=320, height=320, status=yes, " +
-                      "menubar=no, toolbar=no, status=no, " +
-                      "location=no, resizable=yes, left=600, top=100";
-       window.open(url, "", features);
-   }
-    function strip_http() {
-        var url = document.getElementById("yapurl_box");
-        url.value = url.value.replace('/^http:\/\//', '');
-    }
-  </script>
-    </head>
+  <head>
+    <title>Welcome to YapLoud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <script type="text/javascript" src="/css/niftycube.js" ></script>
+    <script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js" ></script>
+    <script type="text/javascript" src="/js/yui/build/event/event-min.js" ></script>
+    <script type="text/javascript" src="/js/home.js" ></script>
+  </head>
 
     <body>
         <div id="container">
@@ -54,6 +37,14 @@
 			?>
 
             <div id="content">
+        <!-- 
+    	<div id="sort_tabs">
+    	<a id="most_yaps" href="javascript: void 0;">Most yaps</a> |
+    	<a id="most_recentyaps" href="javascript: void 0;">Most recent</a> |
+    	<a id="most_numberyaps" href="javascript: void 0;">Most number of yappers</a>
+    	</div>
+         -->    
+    	
     	<a href="http://www.kampyle.com" style="cursor:hand;cursor:pointer;" 
     	   onclick="javascript:window.open('http://www.kampyle.com/feedback_form/ff-feedback-form.php?site_code=6247727&url='+encodeURIComponent(window.location.href), 'kampyle_ff','left='+((window.screenX||window.screenLeft)+10)+',top='+((window.screenY||window.screenTop)+10)+',height=490px,width=440px,resizable=false');return false;"><img src="/images/button-gray.gif" alt="Give Feedback"></a>
          <br/>
@@ -66,6 +57,7 @@
         	<input type="hidden" name="iframe" value="yes" />
         	<input type="submit" value="Go" />
     	</form>
+    	
         <?php
         
         $previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
