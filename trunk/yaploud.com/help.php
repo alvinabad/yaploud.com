@@ -3,7 +3,7 @@
 <html>
     <?php
        //require("./user_session_init_c.inc");
-       //session_start();
+       session_start();
        //ob_start();
     ?>
     <head>
@@ -97,8 +97,8 @@
                 <form action="help.php" method="post" onSubmit="return checkme()">
                     <label for=yourName>Your Name: </label>
                     <?
-                        $sess = $_SESSION;
-                        if (!$sess['logged']) {
+                        //$sess = $_SESSION;
+                        if (!$_SESSION || !$_SESSION['logged']) {
                             print "<br><input type=\"text\" id=\"name\" name=\"name\" /><br/><br/>
                             <label for=email>Email: </label><br>
                             <input type=\"text\" id=\"email\" name=\"email\" /><br><br>";
