@@ -126,3 +126,24 @@ img {
 #rightnav p { margin: 0 0 1em 0; }
 #content h2 { margin: 0 0 .5em 0; }
 
+#sort_tabs {
+    text-align: center;
+	margin:0px;
+	padding:0px;
+}
+
+#sort_tabs #most_yaps {
+    color: black;
+    text-decoration: underline;
+}
+
+#sort_tabs #most_recentyaps {
+    color: black;
+    text-decoration: underline;
+}
+
+#sort_tabs #most_numberyaps {
+    color: black;
+    text-decoration: underline;
+    
+}
