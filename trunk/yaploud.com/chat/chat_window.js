@@ -364,7 +364,10 @@ var GetTags = {
         var tags_el = document.getElementById('tags');
         tags_el.innerHTML = '';
         for(var i = 0; i < tags.length; i++){
-            tags_el.innerHTML += "<div class=room_user>" + tags[i] + "</div>";
+            tags_el.innerHTML += '<div class=room_user>' + 
+                    '<a href="#">' +
+                    tags[i] + 
+                    '</a>' + '</div>';
         }
     }
 
