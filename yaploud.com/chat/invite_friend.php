@@ -43,7 +43,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $last_name = $res_obj->last_name;
 
     $emailfrom = "info@yaploud.com";
-    $subject = "Invitation from $first_name $last_name ($email)";
+    $subject = "Invitation from $first_name $last_name";
     
     $message_header = "You've been invited by $first_name $last_name to chat at:\n";
     $url = urlencode($url);
@@ -52,7 +52,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $message_header .= "$url\n\n";
     
     $message = $message_header . $message;
-    $message .= "\n\n" . $email;
+    $message .= "\n\n" . "$first_name $last_name\n$email";
 
     $result = sendEmail($email, $emailfrom, $subject, $message);	
     return $result;
