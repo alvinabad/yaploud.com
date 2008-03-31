@@ -533,6 +533,13 @@ function init_login() {
     //YAHOO.util.Event.addListener("hide", "click", login_dialog.hide, login_dialog, true);
 }
 
+function isEmailValid(email) {
+	//validate email
+    var regx = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var result = regx.test(email);
+    return result;
+}
+
 function init_invite_friend() {    
     var handleSubmit = function() {
         this.submit();
@@ -542,12 +549,13 @@ function init_invite_friend() {
     };
     var handleSuccess = function(o) {
         var obj = eval('(' + o.responseText + ')');
-        if (obj && obj.username == loginname) {
-            username = obj.username;
-            updateLoginInfo(username);
+        var msg;
+        if (obj.email) {
+            msg = "Your invitation has been sent to " + obj.email;
+            alert(msg);
         }
         else {
-            alert("Invite friend failed.");
+            alert("Failure sending invitation. Please try again later.");
         }
     };
     var handleFailure = function(o) {
@@ -571,12 +579,22 @@ function init_invite_friend() {
         var data = this.getData();
         email = data.email.replace(/^\s+|\s+$/g,"");
         
+        if (username.substr(0,5) == 'guest') {
+            alert("Sorry, guests are not allowed to invite a friend.\nPlease login to send invitation.");
+            return false;
+        }
+        
         if (data.email == "") {
             alert("Please enter email of your friend.");
             return false;
-        } else {
-            return true;
         }
+        
+        if (!isEmailValid(email)) {
+            alert("Invalid email: " + data.email + "\nPlease enter a valid email.");
+            return false;
+        }
+        
+        return true;
     };
 
     // Wire up the success and failure handlers
