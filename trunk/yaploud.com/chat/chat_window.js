@@ -618,7 +618,7 @@ function init_add_tags() {
         var obj = eval('(' + o.responseText + ')');
         var msg;
         if (obj.tags) {
-            msg = "Your tags have been added.\n" + obj.tags;
+            msg = "Your tags have been added:\n" + obj.tags;
             alert(msg);
         }
         else {
