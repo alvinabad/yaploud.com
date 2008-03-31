@@ -49,6 +49,7 @@ if(!$iframe) {
       <div id="bd2">
           <div id="msg"></div>
           <div id="yappers"></div>
+          <div id="tags"></div>
       </div>
       <div style="clear: both;"></div>
       <div id="yap">
@@ -57,11 +58,10 @@ if(!$iframe) {
         </form>
       </div>
       <div id="links">
-      <a href="#">Show tags</a>
+      <input type="radio" name="userstags" onclick="showUsers();" value="users" checked>Users
       <br>
-      <a href="javascript: void 0;" id="add_tags">Add tags</a> 
+      <input type="radio" name="userstags" onclick="showTags();" value="tags">Tags
       <br>
-      <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -86,6 +86,8 @@ HTML;
 HTML;
      }
      ?>
+      | <a href="javascript: void 0;" id="add_tags">Add tags</a> 
+      | <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
     </div>
   </div>
 </div>
