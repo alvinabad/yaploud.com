@@ -143,7 +143,7 @@ HTML;
   <div class="bd">
     <strong>Add tags to this chat:</strong>
     <p>
-    <form name="addtags_form" method="POST" action="/chat/addTags.php">
+    <form name="addtags_form" method="POST" action="/tags/addTags.php">
       <label></label><input size="37" type="text" name="tags" value=''/>
       <label>Use commas to separate tags</label>
       <input type="hidden" name="url" value="<?php print $site_url; ?>" >
