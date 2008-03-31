@@ -49,13 +49,15 @@ class Tags {
         $sql = "SELECT tag FROM dev.chat_url_tag WHERE chat_url_id ='$chat_url_id';";
         $result = $this->db->mysql_query($sql);
 
+        $tags = array();
         if( $result != null ) {
             while($row = mysql_fetch_assoc($result)){
-            	error_log($row['tag']);
+				array_push($tags, $row['tag']);
             }
         }
         
         mysql_free_result($result);
+        return $tags;
 	}
 }
 
