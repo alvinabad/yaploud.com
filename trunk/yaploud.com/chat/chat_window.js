@@ -60,7 +60,8 @@ function popin(site_url, site_title) {
     closeWindow();
 }
 
-function minimizeChatWidget() {
+//TODO: Retire when all is stable
+function minimizeChatWidget_old() {
     bd_div = document.getElementById('bd0');	
  
     // maximize chat window   
@@ -77,6 +78,21 @@ function minimizeChatWidget() {
         bd_content = bd_div.innerHTML;
         bd_div.innerHTML = '';
         chatWidgetMinimize = true;
+	}
+}
+
+function minimizeChatWidget() {
+    bd_div = document.getElementById('bd0');    
+    
+    // maximize chat window   
+	if (chatWidgetMinimize) {
+        chatWidgetMinimize = false;
+        YAHOO.util.Dom.setStyle(bd_div, 'display', 'inline');
+	}
+	// minimize
+	else {
+        chatWidgetMinimize = true;
+        YAHOO.util.Dom.setStyle(bd_div, 'display', 'none');
 	}
 }
 
