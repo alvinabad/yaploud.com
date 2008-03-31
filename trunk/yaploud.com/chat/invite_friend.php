@@ -52,7 +52,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $emailfrom = "info@yaploud.com";
     $subject = "Invitation from $first_name $last_name";
     
-    $message_header = "You've been invited by $first_name $last_name to chat at:\n";
+    $message_header = "You've been invited by $first_name $last_name to chat on this site:\n";
     $url = appendHttp2Url($url);
     $url = urlencode($url);
     $url = "http://www.yaploud.com/chat/chat_window.php?url=$url" .
