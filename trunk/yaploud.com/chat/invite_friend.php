@@ -47,9 +47,8 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     
     $message_header = "You've been invited by $first_name $last_name to chat at:\n";
     $url = urlencode($url);
-    $chat_url = "http://www.yaploud.com/chat/chat_window.php?url=$url" .
+    $url = "http://www.yaploud.com/chat/chat_window.php?url=$url" .
                 "&iframe=yes";
-    
     $message_header .= "$url\n\n";
     
     $message = $message_header . $message;
