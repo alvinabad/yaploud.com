@@ -24,6 +24,13 @@ function sendEmail($to, $from, $subject, $message) {
     return $result;
 }
 
+function appendHttp2Url($url) {
+    if (substr($url,0,4) == "http") {
+    	$url = "http://" . $url;	
+    }
+    return $url;
+}
+
 function sendInviteFriendEmail($url, $email, $username, $message) {
     $email = addslashes($email);
     $username = addslashes($username);
@@ -46,6 +53,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $subject = "Invitation from $first_name $last_name";
     
     $message_header = "You've been invited by $first_name $last_name to chat at:\n";
+    $url = appendHttp2Url($url);
     $url = urlencode($url);
     $url = "http://www.yaploud.com/chat/chat_window.php?url=$url" .
                 "&iframe=yes";
