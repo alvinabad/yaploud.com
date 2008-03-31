@@ -25,7 +25,7 @@ function sendEmail($to, $from, $subject, $message) {
 }
 
 function appendHttp2Url($url) {
-    if (substr($url,0,4) == "http") {
+    if (substr($url,0,5) != "http:") {
     	$url = "http://" . $url;	
     }
     return $url;
