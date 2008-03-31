@@ -59,7 +59,7 @@ if(!$iframe) {
       <div id="links">
       <a href="#">Show tags</a>
       <br>
-      <a href="#">Add tags</a>
+      <a href="javascript: void 0;" id="add_tags">Add tags</a> 
       <br>
       <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
       </div>
@@ -138,23 +138,20 @@ HTML;
   <div class="clear"></div>
 </div>
 
-<!-- 
-<div id="signup_dialog">
-  <div class="hd">YapLoud Sign up</div>
+<div id="add_tags_dialog">
+  <div class="hd">YapLoud Add tags</div>
   <div class="bd">
-    <form name="signup_form" method="POST" action="/chat/signup.php">
-      <label>Username: </label><input type="text" name="username" value=''/>
-      <label>First Name: </label><input type="text" name="firstname" value=''/>
-      <label>Last Name: </label><input type="text" name="lastname" value=''/>
-      <label>Email: </label><input type="text" name="email" value=''/>
-      <label>Password: </label><input type="password" name="password" value=''/>
-      <label>Re-type password: </label><input type="password" name="password2" value=''/>
+    <strong>Add tags to this chat:</strong>
+    <p>
+    <form name="addtags_form" method="POST" action="/chat/add_tags.php">
+      <label></label><input size="37" type="text" name="tags" value=''/>
+      <label>Use commas to separate tags</label>
+      <input type="hidden" name="url" value="<?php print $site_url; ?>" >
       <div class="clear"></div>
     </form>
   </div>
   <div class="clear"></div>
 </div>
- -->
 
 </body>
 </html>

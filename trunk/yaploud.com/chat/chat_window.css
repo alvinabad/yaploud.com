@@ -203,6 +203,13 @@ body {
     clear:left;
 }
 	
+#add_tags_dialog label {
+    display:block;
+    float:left;
+    width: 95%;
+    clear:left;
+}
+	
 label { 
     display:block;
     float:left;
