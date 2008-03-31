@@ -128,9 +128,10 @@ HTML;
   <div class="bd">
     <strong>Invite a friend to join this chat:</strong>
     <p>
-    <form name="invite_friend_form" method="POST" action="/chat/invitefriend.php">
+    <form name="invite_friend_form" method="POST" action="/chat/invite_friend.php">
       <label>Email: </label><input size="37" type="text" name="email" value=''/>
-      <label>Message: </label><textarea rows="3" cols="28"></textarea>
+      <label>Message: </label><textarea name="msg" rows="3" cols="28"></textarea>
+      <input type="hidden" name="url" value="<?php print $site_url; ?>" >
       <div class="clear"></div>
     </form>
   </div>
