@@ -46,7 +46,7 @@ class Tags {
         $res_obj = mysql_fetch_object($result);
         $chat_url_id = $res_obj->id;
         
-        $sql = "SELECT tag FROM dev.chat_url_tag WHERE chat_url_id ='$chat_url_id';";
+        $sql = "SELECT tag FROM dev.chat_url_tag WHERE chat_url_id ='$chat_url_id' order by tag asc";
         $result = $this->db->mysql_query($sql);
 
         $tags = array();

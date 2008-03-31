@@ -7,6 +7,8 @@ var url_GetMessages = "/chat/getChatMessages.php";
 var url_SendMessage = "/put_msg.php";
 var url_SendLogout = "/chat/logout.php";
 var url_SendLogin = "/chat/login.php";
+var url_GetTags = "/tags/getTags.php";
+
 var bd_content = '';
 var chatWidgetMinimize = false;
 var loginname = '';
@@ -263,6 +265,41 @@ function renderMsgs(obj, prepend){
     }
 }
    
+var tags_on = false;
+function toggleShow() {
+	var yappers_div = $('yappers');
+	var tags_div = $('tags');
+	
+	if (tags_on) {
+        tags_on = false;
+        YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
+        YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
+	}
+	else {
+        tags_on = true;
+        YAHOO.util.Dom.setStyle(yappers_div, 'display', 'none');
+        YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
+        GetTags.sendRequest();
+	}
+}   
+	   
+function showUsers() {
+    var yappers_div = $('yappers');
+    var tags_div = $('tags');
+    
+    YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
+    YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
+}
+
+function showTags() {
+    var yappers_div = $('yappers');
+    var tags_div = $('tags');
+    
+    YAHOO.util.Dom.setStyle(yappers_div, 'display', 'none');
+    YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
+    GetTags.sendRequest();
+}
+
 function renderYappers(obj) {
 	/**
     if(!already_hidden){
@@ -299,6 +336,48 @@ function resumeChat() {
     document.chat_form.chat_textarea.disabled = '';
     GetMessages.startPolling();
 }
+
+
+var GetTags = {
+    handleFailure:function(o){
+    },
+
+    handleSuccess:function(o){
+        // This member is called by handleSuccess
+        var obj = eval('(' + o.responseText + ')'); 
+        var tags = obj.tags;
+        GetTags.render(obj);
+    },
+
+    sendRequest:function() {
+        if (!site_url)
+            site_url = 'http://cmu.facebook.com/profile.php?id=4813337';
+            
+        var url = encodeURIComponent(site_url);
+        url = url_GetTags + '?url=' + url;
+        
+        YAHOO.util.Connect.asyncRequest('GET', url, GetTags_callback, null);
+    },
+    
+    render:function(obj) {
+        var tags = obj.tags;
+        var tags_el = document.getElementById('tags');
+        tags_el.innerHTML = '';
+        for(var i = 0; i < tags.length; i++){
+            tags_el.innerHTML += "<div class=room_user>" + tags[i] + "</div>";
+        }
+    }
+
+};
+
+var GetTags_callback = {
+    success: GetTags.handleSuccess,
+    failure: GetTags.handleFailure,
+    scope: GetTags,
+    timeout: 4500,
+    cache: false
+};
+
 
 /*****************************************************************************
  * Get Messages Object

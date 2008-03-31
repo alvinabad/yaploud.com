@@ -125,6 +125,20 @@ body {
     height: 150px;
     font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
+#tags {
+    border: 1px solid red;
+    margin: 2px;
+    padding: 2px;
+    float: left;
+    overflow: auto;
+    width: 18%;
+    min-width: 76px;
+    max-width: 150px;
+    height: 150px;
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
+    display: none;
+}
+
 #links{
     /*border: 1px solid green;*/
     margin: 2px;
