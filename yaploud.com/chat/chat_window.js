@@ -555,7 +555,7 @@ function init_invite_friend() {
             alert(msg);
         }
         else {
-            alert("Failure sending invitation. Please try again later.");
+            alert("Server failed sending invitation. Please try again later.");
         }
     };
     var handleFailure = function(o) {
@@ -607,8 +607,7 @@ function init_invite_friend() {
     YAHOO.util.Event.addListener("invite_friend", "click", invite_friend_dialog.show, invite_friend_dialog, true);
 }
 
-
-function init_signup() {    
+function init_add_tags() {    
     var handleSubmit = function() {
         this.submit();
     };
@@ -617,12 +616,13 @@ function init_signup() {
     };
     var handleSuccess = function(o) {
         var obj = eval('(' + o.responseText + ')');
-        if (obj && obj.username == loginname) {
-            username = obj.username;
-            updateLoginInfo(username);
+        var msg;
+        if (obj.tags) {
+            msg = "Your tags have been added.\n" + obj.tags;
+            alert(msg);
         }
         else {
-            alert("Signup failed.\nUsername or email is already taken.");
+            alert("Server failed adding tags. Please try again later.");
         }
     };
     var handleFailure = function(o) {
@@ -631,42 +631,49 @@ function init_signup() {
     };
 
     // Instantiate the Dialog
-    var signup_dialog = new YAHOO.widget.Dialog("signup_dialog", 
+    var add_tags_dialog = new YAHOO.widget.Dialog("add_tags_dialog", 
                             { width : "275px",
                               //height: "250px",
                               fixedcenter : true,
                               visible : false, 
                               constraintoviewport : true,
-                              buttons : [ { text:"Sign up", handler:handleSubmit, isDefault:true },
+                              buttons : [ { text:"Submit", handler:handleSubmit, isDefault:true },
                                       { text:"Cancel", handler:handleCancel } ]
                             });
 
     // Validate the entries in the form to require that both first and last name are entered
-    signup_dialog.validate = function() {
+    add_tags_dialog.validate = function() {
         var data = this.getData();
-        loginname = data.username.replace(/^\s+|\s+$/g,"");
+        tags = data.tags.replace(/^\s+|\s+$/g,"");
         
-        if (data.username == "" || data.password == "") {
-            alert("Please enter username and password.");
+        if (username.substr(0,5) == 'guest') {
+            alert("Sorry, guests are not allowed to invite a friend.\nPlease login to send invitation.");
             return false;
-        } else {
-            return true;
         }
+        
+        if (data.tags == "") {
+            alert("Please enter tags.");
+            return false;
+        }
+        
+        return true;
     };
 
     // Wire up the success and failure handlers
-    signup_dialog.callback = { success: handleSuccess,
-                               failure: handleFailure };
+    add_tags_dialog.callback = { success: handleSuccess,
+                                 failure: handleFailure };
     
     // Render the Dialog
-    signup_dialog.render();
+    add_tags_dialog.render();
 
-    YAHOO.util.Event.addListener("signup", "click", signup_dialog.show, signup_dialog, true);
+    YAHOO.util.Event.addListener("add_tags", "click", add_tags_dialog.show, add_tags_dialog, true);
 }
+
 
 function init_all_dialog() {
 	init_login();
     init_invite_friend();	
+    init_add_tags();	
 }
 
 function init() {
