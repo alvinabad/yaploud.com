@@ -500,7 +500,6 @@ var SendLogout = {
     	var guestname = eval('(' + o.responseText + ')');
     	username = guestname;
     	updateLoginInfo(guestname);
-    alert('updatelogininfo');
     },
 
     sendRequest:function() {
