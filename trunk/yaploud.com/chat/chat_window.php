@@ -66,11 +66,18 @@ if(!$iframe) {
       <div style="clear: both;"></div>
     </div>
     <div id="ft">
-        <div>
-            <span id="login_info"><?php print $username; ?></span>
-            <span id="login">Login</span>
-            <span id="signup">SignUp</span>
+        <div id="logout_info">
+         <strong><span id="username_info1"></span></strong>
+         | <a href="javascript: void 0;" id="login">Login</a> 
+         | <a href="javascript: openExternalWindow('/user/register.php'); void 0;" id="signup">SignUp</a> 
         </div>
+        <div id="login_info">
+         Hi <strong><span id="username_info2"></span>!</strong>
+	     | <a href="javascript: logout(); void 0;">Logout</a>
+         | <a href="javascript: void 0;" id="add_tags">Add tags</a> 
+         | <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
+        </div>
+        <br>
         <a href="javascript: location.reload();">Reload</a>
         | <span id="chat_mode"></span>
      <?php
@@ -86,8 +93,6 @@ HTML;
 HTML;
      }
      ?>
-      | <a href="javascript: void 0;" id="add_tags">Add tags</a> 
-      | <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
     </div>
   </div>
 </div>
