@@ -60,27 +60,6 @@ function popin(site_url, site_title) {
     closeWindow();
 }
 
-//TODO: Retire when all is stable
-function minimizeChatWidget_old() {
-    bd_div = document.getElementById('bd0');	
- 
-    // maximize chat window   
-	if (chatWidgetMinimize) {
-        bd_div.innerHTML = bd_content;
-        init_all_dialog();
-        chatWidgetMinimize = false;
-        GetMessages.startPolling();
-        scrollDown();
-	}
-	// minimize
-	else {
-        GetMessages.stopPolling();
-        bd_content = bd_div.innerHTML;
-        bd_div.innerHTML = '';
-        chatWidgetMinimize = true;
-	}
-}
-
 function minimizeChatWidget() {
     bd_div = document.getElementById('bd0');    
     
@@ -160,22 +139,13 @@ function generateContent() {
     title.innerHTML = html_text;
 }
 
-function uiLogout() {
+function logout() {
     var confirm_logout = confirm("Are you sure you want to logout?");
     
     if (confirm_logout) {
-    	logout();
+        SendLogout.sendRequest();
     }
-}
-
-function logout() {
- 	SendLogout.sendRequest();
-    init_all_dialog();
-    logged_in = false;
-    	
-    // force update of chat room by calling GetMessages.sendRequest
-    query_count = 0;
-    GetMessages.sendRequest();
+ 	
 }
 
 function login() {
@@ -183,29 +153,17 @@ function login() {
 }
 
 function updateLoginInfo(username) {
-	var login_info_html;
-	var login_html;
-	var signup_html;
-	
 	if (username.substr(0,5) == 'guest') {
-		login_info_html = 'You are logged in as ' + 
-		                  '<strong>' + username + 
-		                  '</strong>. ';
-	    login_html = '| <a href="javascript: void 0;">Login</a> ';
-	    signup_html = '| <a href="javascript: openExternalWindow(\'/user/register.php\'); void 0;">Signup</a>';
 	    logged_in = false;
 	}
 	else {
-		login_info_html = 'Hi ' + '<strong>' + username + '</strong>! ';
-	    login_info_html += '| <a href="javascript: uiLogout(); void 0;">Logout</a>';
-	    login_html = '';
-	    signup_html = '';
 	    logged_in = true;
 	}
 	
-	$('login_info').innerHTML = login_info_html;
-	$('login').innerHTML = login_html;
-	$('signup').innerHTML = signup_html;
+    render_login_info();
+    // force update of chat room by calling GetMessages.sendRequest
+    query_count = 0;
+    GetMessages.sendRequest();
 }
 
 function includeJavaScript(js_src) {
@@ -542,6 +500,7 @@ var SendLogout = {
     	var guestname = eval('(' + o.responseText + ')');
     	username = guestname;
     	updateLoginInfo(guestname);
+    alert('updatelogininfo');
     },
 
     sendRequest:function() {
@@ -767,6 +726,27 @@ function init_add_tags() {
     YAHOO.util.Event.addListener("add_tags", "click", add_tags_dialog.show, add_tags_dialog, true);
 }
 
+function render_login_info() {
+	login_info_el = document.getElementById('login_info');
+	logout_info_el = document.getElementById('logout_info');
+	user_divs_el = document.getElementById('user_divs');
+	username_info1_el = document.getElementById('username_info1');
+	username_info2_el = document.getElementById('username_info2');
+    
+    username_info1_el.innerHTML = username;
+    username_info2_el.innerHTML = username;
+    
+    if (logged_in) {
+        YAHOO.util.Dom.setStyle(login_info_el, 'display', 'inline');
+        YAHOO.util.Dom.setStyle(logout_info_el, 'display', 'none');
+        YAHOO.util.Dom.setStyle(user_divs_el, 'display', 'inline');
+    }
+    else {
+        YAHOO.util.Dom.setStyle(logout_info_el, 'display', 'inline');
+        YAHOO.util.Dom.setStyle(login_info_el, 'display', 'none');
+        YAHOO.util.Dom.setStyle(user_divs_el, 'display', 'none');
+    }
+}
 
 function init_all_dialog() {
 	init_login();
@@ -788,17 +768,15 @@ function init() {
     if (iframe_enabled)
         init_panel();
     
-    // update login information
-    updateLoginInfo(username);
     
     // initialize login widget
     init_all_dialog();
+    updateLoginInfo(username);
+    
     //if (navigator.userAgent.indexOf('Firefox') != -1) {
     //    document.getElementById('login_username').style.position = "fixed";
     //}
     
-    // initialize signup widget
-    //init_signup();
 }
 
 function quit() {
