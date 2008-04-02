@@ -16,7 +16,7 @@ class Tags {
 		$sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
 		$result = $this->db->mysql_query($sql);
 		if (mysql_num_rows($result) != 1) {
-			error_log('URL not found in dev.chat.url: ' . $url);
+			//error_log('URL not found in dev.chat.url: ' . $url);
 			return false;
 		}
 		$res_obj = mysql_fetch_object($result);
