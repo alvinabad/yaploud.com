@@ -674,6 +674,7 @@ function init_add_tags() {
         var obj = eval('(' + o.responseText + ')');
         var msg;
         if (obj.tags) {
+            GetTags.sendRequest();
             msg = "Your tags have been added:\n" + obj.tags;
             alert(msg);
         }
