@@ -41,20 +41,31 @@ var StarRating = {
     },
     
     select:function(star_rating) {
+    	var rating = 0;
+    	
         if (star_rating == "1starRating") {
             StarRating.current = StarRating.gif[1];
+            rating = 1;
         }
         else if (star_rating == "2starRating") {
             StarRating.current = StarRating.gif[2];
+            rating = 2;
         }
         else if (star_rating == "3starRating") {
             StarRating.current = StarRating.gif[3];
+            rating = 3;
         }
         else if (star_rating == "4starRating") {
             StarRating.current = StarRating.gif[4];
+            rating = 4;
         }
         else if (star_rating == "5starRating") {
             StarRating.current = StarRating.gif[5];
+            rating = 5;
+        }
+        
+        if (rating !=0 ) {
+            SendRating.sendRequest(rating);
         }
     },
     
@@ -86,3 +97,36 @@ var StarRating = {
     
     }
 }
+
+var url_SendRating = "/rating/sendRating.php";
+
+var SendRating = {
+    handleFailure:function(o){
+        //alert('Sending logout failed: ' + o.responseText + ': ' + o.status);
+        alert('Server failure. Please try again later. ' + o.status);
+    },
+
+    handleSuccess:function(o){
+        var guestname = eval('(' + o.responseText + ')');
+    },
+
+    sendRequest:function(rating) {
+    	if (username.substr(0,5) == "guest") {
+    		//alert("Requires login to rate: " + rating);
+    		return;
+    	}
+    	
+        var url = encodeURIComponent(site_url);
+        url = url_SendRating + "?url=" + url + "&rating=" + rating;
+        YAHOO.util.Connect.asyncRequest('GET', url, SendRating_callback, null);
+    }
+
+};
+
+var SendRating_callback = {
+    success: SendRating.handleSuccess,
+    failure: SendRating.handleFailure,
+    scope: SendRating,
+    timeout: 4500,
+    cache: false
+};
