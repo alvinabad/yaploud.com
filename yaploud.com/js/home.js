@@ -39,7 +39,8 @@ function init() {
     Nifty("div.yap_url, div#tagCloud","big, transparent");
     //Nifty("div#tagCloud", "big, transparent");
     
-    //YAHOO.util.Event.addListener($('most_yaps'), "click", select_link); 
+    var homeTabs = new YAHOO.widget.TabView("center_nav");    //YAHOO.util.Event.addListener($('most_yaps'), "click", select_link); 
+    
     //YAHOO.util.Event.addListener($('most_recentyaps'), "click", select_link); 
     //YAHOO.util.Event.addListener($('most_numberyaps'), "click", select_link); 
 }
