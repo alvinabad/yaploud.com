@@ -22,6 +22,7 @@ require("./yui.php");
 
 <script type="text/javascript" src="/chat/chat_widget.js"></script>
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
+<script type="text/javascript" src="/rating/StarRating.js" ></script>
 
 </head>
 <body class=" yui-skin-sam">
@@ -75,7 +76,7 @@ if(!$iframe) {
          Hi <strong><span id="username_info2"></span>!</strong>
 	     | <a href="javascript: logout(); void 0;">Logout</a>
          | <a href="javascript: void 0;" id="add_tags">Add tags</a> 
-         | <a href="javascript: void 0;" id="invite_friend">Invite friend</a> 
+         | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a> 
         </div>
         <br>
         <a href="javascript: location.reload();">Reload</a>
@@ -93,6 +94,28 @@ HTML;
 HTML;
      }
      ?>
+     <span id="star_rating" onmouseout="StarRating.restore();" >
+     | Rate:
+     <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating" 
+          border="0" id="stars" />
+     <map name="mapStarRating" id="mapStarRating" >
+        <area alt="1" shape="rect" coords="0,0,16,12" id="1starRating"
+            href="javascript: onclick=StarRating.select('1starRating')"
+            onmouseover="StarRating.show('1starRating');" />
+        <area alt="2" shape="rect" coords="16,0,28,12" id="2starRating"
+            href="javascript: onclick=StarRating.select('2starRating')"
+            onmouseover="StarRating.show('2starRating');" />
+        <area alt="3" shape="rect" coords="28,0,38,12" id="3starRating"
+            href="javascript: onclick=StarRating.select('3starRating')"
+            onmouseover="StarRating.show('3starRating');" />
+        <area alt="4" shape="rect" coords="38,0,48,12" id="4starRating"
+            href="javascript: onclick=StarRating.select('4starRating')"
+            onmouseover="StarRating.show('4starRating');" />
+        <area alt="5" shape="rect" coords="48,0,64,12" id="5starRating"
+            href="javascript: onclick=StarRating.select('5starRating')"
+            onmouseover="StarRating.show('5starRating');" />
+     </map>
+     </span>
     </div>
   </div>
 </div>

@@ -127,7 +127,7 @@ HTML;
                         <a href=""><img src="images/comment.gif" />{$yappers}  {$yappers_str}</a> |
                         <a href=""><img src="images/comments.gif" />{$comments} {$comments_str}</a> |
                         <a href=""><img src="images/page.gif" />Share Yaplet</a> |
-                        <a href=""><img src="images/ratings/stars-4-5.gif" /></a> {$yappers} ratings
+                        <a href=""><img src="images/ratings/stars-4-5.gif" /></a> {$comments} ratings
                         <br>
                         Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
                         <br>
