@@ -3,6 +3,7 @@
 <?php
     require("./home_c.inc");
     require("chat/ChatRoom.inc");
+    require("./util.inc");
 ?>
 
 <html>
@@ -119,12 +120,29 @@ HTML;
                 $comments_str = 'comments';
                 if ($comments==1) $comments_str = 'comment';
                 
+                //if ( strpos($title, $url) ) {
+                if ( $title == normalize_url($url) ) {
+                	$title = substr($title, 0, 65);
+                }
          		print <<<HTML
          		    <b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
-                    <br/>
-                    <strong><a href="http://{$url}">(http://{$url})</a></strong>
-                    <br>
-                    {$description}
+         		    <p>
+HTML;
+            $description = strip_tags($description);
+            $description = trim($description);
+         	if ($description == "") {
+         		$url_shortened = substr($url, 0, 60);
+         		print <<<HTML
+                    <a href="http://{$url}">[http://{$url_shortened}]</a>
+HTML;
+         	}
+         	else {
+         		print <<<HTML
+                    <a href="http://{$url}">{$description}</a>
+HTML;
+         	}
+                    
+         		print <<<HTML
                     <div class="yap_links">
                         <a href=""><img src="images/comment.gif" />{$yappers}  {$yappers_str}</a> |
                         <a href=""><img src="images/comments.gif" />{$comments} {$comments_str}</a> |
