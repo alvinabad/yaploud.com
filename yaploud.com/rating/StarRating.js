@@ -9,7 +9,7 @@ var StarRating = {
           '/images/ratings/stars-5-0.gif',
           ], 
     
-    current: '/images/ratings/stars-0-0.gif',
+    current: '/images/ratings/stars-3-5.gif',
     
     show:function(star_rating) {
         var stars_el = $("stars");
@@ -34,7 +34,12 @@ var StarRating = {
         var stars_el = $("stars");
         stars_el.src = StarRating.current;
     },
-
+    
+    init:function() {
+        StarRating.restore();	
+        StarRating.initTooltip();	
+    },
+    
     select:function(star_rating) {
         if (star_rating == "1starRating") {
             StarRating.current = StarRating.gif[1];
