@@ -775,7 +775,7 @@ function init() {
     //if (navigator.userAgent.indexOf('Firefox') != -1) {
     //    document.getElementById('login_username').style.position = "fixed";
     //}
-    
+    StarRating.initTooltip();
 }
 
 function quit() {
@@ -785,4 +785,7 @@ function quit() {
 YAHOO.util.Event.onDOMReady(init);
 //YAHOO.util.Event.addListener(body, "onunload", quit); 
 
-
+    
+    
+    
+    
