@@ -10,6 +10,28 @@
   }
 ?>
 
+
+<script type="text/javascript">
+function isSearchValid() {
+    var txt = document.search_form.q.value;
+    txt = txt.replace(/^\s\s*/, '').replace(/\s\s*$/, '');  
+    document.search_form.q.value = txt;
+            
+    if (txt == "" ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+        
+function submitSearch() {
+    if (isSearchValid()) {
+        document.search_form.submit();
+    }
+}
+</script>
+
 <!-- Top nav -->
 <div style="margin-bottom:5px;margin-top:10px; width:700px;">
 	<a href="http://www.yaploud.com"><img style="float:left;" alt="yaploud logo" width="163" height="90" border="0" src="images/logo.gif"></img></a>
@@ -27,10 +49,12 @@
 		    //echo("<span class=\"menu_1\"> <strong>Welcome, $current_user</strong></span> | <a scope=\"col\" class=\"menu_1\" href=\"myaccount.php\">My Account</a> | <a scope=\"col\" class=\"menu_1\" href=\"help.php\">Help</a> | <a scope=\"col\" class=\"menu_1\" href=\"/login_page.php?logout=true\">Log out</a>\n");
 	        }
 	?>
-		<form method=get action=search.php>
+		<form name="search_form" method=get action=search.php onsubmit="return isSearchValid();">
 		   <span class=menu_1 style="margin-top:5px; margin-left: 0px;">Search:</span>
 		   <input name="q" id=search_box type="text" class="Text2_b" size="16"></input>
+		   <a href="javascript: submitSearch();">
 		   <img src="images/go_image.gif" width="29" height="21" border="0"></img>
+		   </a>
 		</form>
 	</div>
 </div>
