@@ -1,9 +1,28 @@
 
 <script type="text/javascript">
-    function strip_http() {
-        var url = document.getElementById("yapurl_box");
-        url.value = url.value.replace('http://', '');
+function strip_http() {
+    var url = document.getElementById("yapurl_box");
+    url.value = url.value.replace('http://', '');
+}
+
+function isSearchValid() {
+    var txt = document.search_form.q.value;
+    txt = txt.replace(/^\s\s*/, '').replace(/\s\s*$/, '');  
+    document.search_form.q.value = txt;
+            
+    if (txt == "" ) {
+        return false;
     }
+    else {
+        return true;
+    }
+}
+        
+function submitSearch() {
+    if (isSearchValid()) {
+        document.search_form.submit();
+    }
+}
 </script>
 
 <!-- Top nav -->
@@ -37,10 +56,12 @@ HTML;
     }
 ?>
 
-    <form method=get action="/search.php">
+    <form name="search_form" method=get action="/search.php" onsubmit="return isSearchValid();">
     <span class=menu_1 style="margin-top:5px; margin-left: 0px;">Search:</span>
     <input name="q" id=search_box type="text" class="Text2_b" size="16"></input>
+    <a href="javascript: submitSearch();">
     <img src="/images/go_image.gif" width="29" height="21" border="0"></img>
+    </a>
     </form>
     </div>
 </div>
