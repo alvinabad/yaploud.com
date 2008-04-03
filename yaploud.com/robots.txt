@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /sql/
-Disallow: /js/
-Disallow: /imgs/
-Disallow: /old/
-Disallow: /backup/
-Disallow: /css/
-Disallow: /content/
