@@ -1,0 +1,4 @@
+style chrome://global/content/customizeToolbar.xul chrome://diggthis/skin/diggthis.css
+content diggthis jar:chrome/diggthis.jar!/content/
+overlay chrome://browser/content/browser.xul chrome://diggthis/content/diggthis.xul
+skin diggthis classic/1.0 jar:chrome/diggthis.jar!/skin/

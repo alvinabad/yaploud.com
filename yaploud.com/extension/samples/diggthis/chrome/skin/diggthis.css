@@ -1,0 +1,10 @@
+#diggthistoolbar-button-digg,
+#wrapper-diggthistoolbar-button-digg
+{
+	list-style-image: url("chrome://diggthis/skin/diggthis-24.png");
+}
+
+[iconsize="small"] #diggthistoolbar-button-digg
+{
+	list-style-image: url("chrome://diggthis/skin/diggthis-16.png");
+}

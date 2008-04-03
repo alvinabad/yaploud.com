@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+
+		<!-- Required Items -->
+		<em:id>{6E5A7695-7C8C-42ae-9ACE-98CB5E185599}</em:id>
+		<em:name>Digg This!</em:name>
+		<em:version>0.5</em:version>
+		<em:iconURL>chrome://diggthis/skin/diggthis.png</em:iconURL>
+		<em:aboutURL>chrome://diggthis/content/about.xul</em:aboutURL>
+		<em:creator>Daniel Radtke</em:creator>
+		<em:description>adds Digg This! to the right-click or Tools menu.</em:description>
+		<em:homepageURL>http://j.domaindlx.com/diggthis/</em:homepageURL>
+		<em:targetApplication>
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>1.0</em:minVersion>
+				<em:maxVersion>2.0.0.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		<em:targetApplication>
+			<Description>
+				<em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+				<em:minVersion>0.5</em:minVersion>
+				<em:maxVersion>1.0</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>
+</RDF>
