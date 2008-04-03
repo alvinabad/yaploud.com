@@ -339,9 +339,8 @@ var GetTags = {
         tags_el.innerHTML = '';
         for(var i = 0; i < tags.length; i++){
             tags_el.innerHTML += '<div class=room_user>' + 
-                    '<a href="#">' +
                     tags[i] + 
-                    '</a>' + '</div>';
+                    '</div>';
         }
     }
 
