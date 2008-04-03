@@ -1,3 +1,11 @@
+<link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="/js/yui/build/button/assets/skins/sam/button.css" />
+<link rel="stylesheet" type="text/css" href="/js/yui/build/container/assets/skins/sam/container.css">
+
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="/js/yui/build/resize/assets/skins/sam/resize.css" />
+<link rel="stylesheet" type="text/css" href="/js/yui/build/tabview/assets/skins/sam/tabview.css">
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/yahoo/yahoo-min.js"></script> 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/dom/dom-min.js"></script> 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/event/event-min.js"></script> 
@@ -11,3 +19,4 @@
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/editor/editor-beta-min.js"></script> 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/slider/slider-min.js"></script> 
 <script type="text/javascript" src="http://yui.yahooapis.com/2.3.1/build/tabview/tabview-min.js"></script> 
+ -->
