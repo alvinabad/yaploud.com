@@ -27,23 +27,3 @@
 
 <!-- Source file for TabView -->
 <script type="text/javascript" src="/js/yui/build/tabview/tabview-min.js"></script>
-
-<?php
-/**
-<link
-    rel="stylesheet" type="text/css"
-    href="/js/yui/build/resize/assets/skins/sam/resize.css" />
-
-
-<script
-    type="text/javascript" src="/js/yui/build/animation/animation-min.js"></script>
-
-
-<script
-    type="text/javascript" src="/js/yui/build/utilities/utilities.js"></script>
-
-
-<script
-    type="text/javascript" src="/js/yui/build/resize/resize-beta-min.js"></script>
-**/
-?>
