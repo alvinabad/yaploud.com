@@ -4,7 +4,7 @@ var poll_interval = 5000;
 var poll_interval_id;
 //var url_GetMessages = "/get_msg.php";
 var url_GetMessages = "/chat/getChatMessages.php";
-var url_SendMessage = "/put_msg.php";
+var url_SendMessage = "/chat/sendChatMessages.php";
 var url_SendLogout = "/chat/logout.php";
 var url_SendLogin = "/chat/login.php";
 var url_GetTags = "/tags/getTags.php";
