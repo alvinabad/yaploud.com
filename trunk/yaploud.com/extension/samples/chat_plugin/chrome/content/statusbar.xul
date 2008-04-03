@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<overlay id="sample" 
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ 	<script src="captain.js"/>
+ 	
+    <toolbox id="navigator-toolbox">
+      <toolbar id="Alvin_toolbar" toolbarname="Alvin's Toolbar">
+        <toolbaritem id="status-bar">
+          <toolbarbutton tooltiptext="alvin button" id="mypanel" label="AlvinXXX" />
+        </toolbaritem>
+      </toolbar>
+    </toolbox>
+</overlay>
+

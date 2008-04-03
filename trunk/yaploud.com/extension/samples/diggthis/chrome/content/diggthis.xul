@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://diggthis/skin/diggthis.css" type="text/css"?>
+<overlay id="diggthisOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+// This imports our javascript.
+
+<script type="application/x-javascript" src="chrome://diggthis/content/diggthis.js">
+
+</script>
+
+
+// This is for the right click menu.
+
+<popup id="contentAreaContextMenu">
+  <menuitem id="diggthis" label="Digg This!" accesskey="H" 
+  insertafter="context-stop" oncommand="digg();"/>
+</popup>
+
+
+// This is for the Tools menu.
+
+<menupopup id="menu_ToolsPopup">
+	<menuitem insertafter="devToolsSeparator" label="Digg This!"
+	accesskey="H" oncommand="digg();" />	
+</menupopup>
+
+  <toolbox id="navigator-toolbox">
+      <toolbarpalette id="BrowserToolbarPalette">
+	  <toolbarbutton id="diggthistoolbar-button-digg" class="toolbarbutton-1 chromeclass-toolbar-additional"
+                 label="Digg This!"
+                 tooltiptext="Digg This!"
+                 oncommand="digg();"/>
+      </toolbarpalette>
+  </toolbox>
+
+</overlay>
+

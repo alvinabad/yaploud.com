@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<overlay id="yaploud-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://yaploud/content/yaploud.js" />
+
+
+<popup id="contentAreaContextMenu">
+  <menuitem id="yaploud-menuitem" label="Yaploud! Chat about this page" accesskey="Y" 
+  insertafter="context-stop" oncommand="Yaploud.oncommand();"/>
+</popup>
+
+<menupopup id="menu_ToolsPopup">
+	<menuitem insertafter="devToolsSeparator" label="Yaploud! Chat about this page"
+	accesskey="Y" oncommand="Yaploud.oncommand();" />	
+</menupopup>
+
+</overlay>
+
