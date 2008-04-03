@@ -1,0 +1,16 @@
+<?php
+   require_once 'db.inc';
+   $db = new DB();
+   $url = $_GET['url'];
+   $sql = "select distinct(username) as u from dev.room_users where topic_url = '$url'"; 
+   $result = $db->mysql_query($sql);
+   $users = array();
+   $rv = array();
+   while($row = mysql_fetch_assoc($result)){
+      array_push($users, $row['u']); 
+   }
+   mysql_free_result($result);
+   $rv['users'] = $users;
+   $rv['topic_url'] = $url;
+   print json_encode($rv);
+?>
