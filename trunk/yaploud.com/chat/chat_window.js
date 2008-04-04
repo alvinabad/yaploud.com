@@ -51,7 +51,6 @@ function closeWindow() {
 
 function popout(site_url, site_title) {
 	openWindow(site_url);
-    //if (navigator.appName == 'Microsoft Internet Explorer') {
     
     setTimeout(closeWindow, 3000);
     openChatWindow(site_url, site_title);
@@ -77,14 +76,6 @@ function minimizeChatWidget() {
 	}
 }
 
-function displayBrowserInfo() {
-    var browser = "Browser Information\n";	
-    for(var propname in navigator) {
-    	browser += propname + ": " + navigator[propname] + "\n";
-    }
-    alert(browser);
-}
-
 function openChatWindow_old(site_url, title) {
 	var url = "/chat/chat_window.php?url=" + site_url +
 	          "&title=" + title;
@@ -97,14 +88,20 @@ function openPopinWindow(site_url, title) {
 	site_url = encodeURIComponent(site_url);
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title + "&iframe=yes";
-    var features = "width=800, height=640, status=yes, " +
+    var features = "width=800, height=640, status=yes, directories=yes " +
                    "menubar=yes, toolbar=yes, location=yes, resizable=yes";
     window.open(url, "", features);
 }
 
 function openExternalWindow(url) {
-    var features = "width=800, height=640, status=yes, " +
-                   "menubar=yes, toolbar=yes, location=yes, resizable=yes";
+	if (iframe_enabled) {
+		document.location = url;
+		return;
+	}
+	
+    var features = "width=900, height=640, status=1, + " +
+    		       "menubar=1, toolbar=1, location=1, resizable=1, " +
+    		       "directories=1, scrollbars=1";
     window.open(url, "", features);
 }
 
