@@ -100,6 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 	
 	$site_url = trim($_REQUEST['url']);
 	
+    if (stripos($site_url, $_SERVER['HTTP_HOST'])) {
+        $redirect = 'http://' . $_SERVER['HTTP_HOST'] . '/home.php';
+        header("Location: $redirect");
+    }
+	
 	if (isset($_REQUEST['description'])) {
         $site_description = trim($_REQUEST['description']);
 	}
