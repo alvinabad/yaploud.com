@@ -16,8 +16,8 @@ function init_panel() {
         draggable: true,
         width: '320px',
         //minWidth: '400px',
-        //xy: [800, 100],
-        fixedcenter: true,
+        xy: [800, 50],
+        //fixedcenter: true,
         constraintoviewport: true,
         context: ["showbtn", "tl", "bl"]
     });
