@@ -23,20 +23,9 @@
 <?php include("rightNav.php"); ?>
 
 <div id="content">
-  <div style="margin-bottom: 5px; margin-top: 5px; padding:0;">
-    <form style="text-align: left; margin:0; padding:0;" method="get" action="/chat/chat_window.php">
-       <span style="color: #EE9A49; font-size: 24px;" >Enter URL to yap:</span>
-       <br>
-       <input name="url" id="yapurl_box" type="text" 
-              style="background: #F0F8FF; color: blue; font-size: 20px;"
-              value="http://" size="45" />
-       <input type="hidden" name="iframe" value="yes" />
-       <input type="submit" value="Go" />
-    </form>
-  </div>
-        
+  <br>
   <div id="center_nav" class="yui-navset">
-    <ul class="yui-nav">
+    <ul style="text-align: center;" class="yui-nav">
       <li class="selected"><a href="#tab1"><em>Most Discussed</em></a></li>
       <li><a href="#tab2"><em>Most Active</em></a></li>
       <li><a href="#tab3"><em>Most Recent</em></a></li>
