@@ -6,7 +6,6 @@ function clean(&$str, $maxlength, &$connection){
 	return ($input);
 }
 
-
 class DB{
 	var $connection;
 
@@ -15,9 +14,9 @@ class DB{
 		return $link;
 	}
 
-	//function DB($host = "localhost", $user = "yaploud", $password = "yaploud"){
-	function DB($host = "west.yaploud.com", $user = "dev", $password = "cmuwest"){
-		$this->connection = $this->connect($host, $user, $password);
+	function DB() {
+        require("datasource.php");
+		$this->connection = $this->connect($ds['host'], $ds['user'], $ds['password']);
 	}
 
 	function unlock(){
