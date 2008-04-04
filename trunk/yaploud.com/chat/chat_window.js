@@ -52,7 +52,7 @@ function closeWindow() {
 function popout(site_url, site_title) {
 	openWindow(site_url);
     
-    setTimeout(closeWindow, 3000);
+    //setTimeout(closeWindow, 3000);
     openChatWindow(site_url, site_title);
 }
 
