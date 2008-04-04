@@ -36,7 +36,7 @@ if(!$iframe) {
 ?>
   
   <div class="hd" id="hd">
-    <a href="/home.php" target="_blank">
+    <a href="javascript: openExternalWindow('/home.php'); void 0;">
       <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
       <strong>Yapping about: </strong><span id="hd_title"></span>
   </div>
