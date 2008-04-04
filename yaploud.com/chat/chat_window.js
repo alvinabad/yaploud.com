@@ -43,7 +43,9 @@ function openWindow(url) {
 }
 
 function closeWindow() {
-    window.open('','_self','');
+    if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        window.open('','_self','');
+    }
     window.close();
 }
 
