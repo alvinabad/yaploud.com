@@ -1,20 +1,6 @@
 <?php
 //--- Initialize include path and session
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
-
-include("./myaccount_c.inc");
-
-/*
- * This is the view (MVC pattern) of My Account page.
- * The controller is located at myaccount_c.inc
- * 
- * PHP code in this view is only used for rendering logic and is kept 
- * to the minimum. Please put all logic in the controller.
- * 
- * Created on Nov 17, 2007
- * Author: alvinabad@alumni.cmu.edu
- * Revised:
- */
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
