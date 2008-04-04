@@ -32,8 +32,9 @@ function scrollDown() {
 }
 
 function onClosePanel() {
-    openWindow(site_url);
-    closeWindow();
+    //openWindow(site_url);
+    //closeWindow();
+    document.location = appendHttp2Url(site_url);
 }
 
 function openWindow(url) {
@@ -42,7 +43,8 @@ function openWindow(url) {
     window.open(url);
 }
 
-function closeWindow() {
+//TODO: Deprecate
+function closeWindow_deprecated() {
     if ( navigator.appName == "Microsoft Internet Explorer" ) {
         window.open('','_self','');
     }
@@ -50,15 +52,17 @@ function closeWindow() {
 }
 
 function popout(site_url, site_title) {
-	openWindow(site_url);
-    
-    //setTimeout(closeWindow, 3000);
-    openChatWindow(site_url, site_title);
+        openChatWindow(site_url, site_title);
+        document.location = appendHttp2Url(site_url);
 }
 
 function popin(site_url, site_title) {
     openPopinWindow(site_url, site_title);
-    closeWindow();
+    
+    if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        window.open('','_self','');
+    }
+    window.close();
 }
 
 function minimizeChatWidget() {
@@ -76,7 +80,8 @@ function minimizeChatWidget() {
 	}
 }
 
-function openChatWindow_old(site_url, title) {
+//TODO: Deprecate
+function openChatWindow_deprecated(site_url, title) {
 	var url = "/chat/chat_window.php?url=" + site_url +
 	          "&title=" + title;
 	var features = "width=320, height=320, status=yes, " +
