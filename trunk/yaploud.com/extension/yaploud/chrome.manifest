@@ -1,3 +1,3 @@
 content     yaploud    jar:chrome/yaploud.jar!/content/
 overlay chrome://browser/content/browser.xul chrome://yaploud/content/yaploud.xul
-skin yaploud classic/1.0 jar:chrome/yaploud.jar!/skin/
+skin yaploud classic/1.1 jar:chrome/yaploud.jar!/skin/
