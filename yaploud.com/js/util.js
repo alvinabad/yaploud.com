@@ -1,8 +1,16 @@
 
+function $(s) {
+    return document.getElementById(s);
+}
+
+function trim(str) {
+    return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
+}
+
 function promptChatUrl() {
     var site_url = prompt("Enter URL of the site you want to chat:","http://")
     
-    site_url = site_url.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    site_url = trim(site_url);
     if (site_url == "" || site_url == "http://") {
         return;
     }
@@ -15,6 +23,15 @@ function promptChatUrl() {
     //window.open(url, "", features);
     document.location = url;
 }
+
+function displayBrowserInfo() {
+    var browser = "Browser Information\n";  
+    for(var propname in navigator) {
+        browser += propname + ": " + navigator[propname] + "\n";
+    }
+    alert(browser);
+}
+
 
 function xmlHttpCreate() {
 	var req=null;
