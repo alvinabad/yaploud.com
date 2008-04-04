@@ -9,8 +9,8 @@ if (file_exists($_SERVER['DOCUMENT_ROOT']  . "/" . $ds_local) ) {
     include($ds_local);
 }
 else {
-	// Set your database credentials here
-	// Note: This will be shared by all developers
+	// Set your database credentials here if you want 
+	// them shared to all developers
     $ds['host'] = "";
     $ds['user'] = "";
     $ds['password'] = "";
