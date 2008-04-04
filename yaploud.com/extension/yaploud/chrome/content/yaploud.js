@@ -185,6 +185,10 @@ function yaploud_chatAtYaploud(event) {
 	
 	var host = 'http://www.yaploud.com';
 	
+	if (ref_url.indexOf(yaploud)) {
+		return;
+	}
+	
 	mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + '&iframe=yes' + '&title=' + title +
 	                        '&update=info' +
