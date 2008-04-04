@@ -8,6 +8,11 @@
     </a>
     <hr>
     <a href="/chat/embed_code.php">Embed a yaplet</a> 
+    <br>
+    <br>
+    Can't find the site people are yapping about? 
+    <br>
+    <a href="javascript: prompt("Enter the URL of the site you want to"); void 0;">Enter the URL here</a> 
     <hr>
     <div id="tagCloud">
         <strong>Tag Cloud</strong>
