@@ -15,30 +15,19 @@ window.addEventListener("load", function() {
   }
 }, false);
 
-
-function yaploud_tabSelected(event)
-{
-
+function yaploud_tabSelected(event) {
   yaploud_new_url(null);
-
-  
 }
-
 
 // During initialization
 var browser = window.getBrowser();
 
 if (browser.tabContainer) {
-
 	browser.tabContainer.addEventListener("TabSelect", yaploud_tabSelected, false);
-	
 } else {
-	
 	var container = browser.mPanelContainer;
 	container.addEventListener("select", yaploud_tabSelected, false);
-
 }
-
 
 // Get the yappers and set the timer
 yaploud_getYappers();
@@ -46,7 +35,6 @@ yaploud_getYappers();
 if (functionTimer == null) {
 	functionTimer = window.setInterval(yaploud_getYappers, timerInterval);
 }
-
 
 // This function will be called whenever a new page is loaded
 function yaploud_new_url(evt) {
@@ -62,7 +50,6 @@ function yaploud_new_url(evt) {
 	
 }
 
-
 function yaploud_enableButtons() {
 
 	var winWrapper = new XPCNativeWrapper(content, "doc");
@@ -71,23 +58,15 @@ function yaploud_enableButtons() {
 
 	var chatButton = document.getElementById("yaploud_chatButton");
 	chatButton.setAttribute("disabled", "false");
-
 }
 
 function yaploud_disableButtons() {
-
 	var chatButton = document.getElementById("yaploud_chatButton");
 	chatButton.setAttribute("disabled", "true");
-
 }
-
-
-
-
 
 // This function provides a browser-neutral method of getting an AJAX XMLHttp object
 function yaploud_createXHR() {
-	
 	if (typeof XMLHttpRequest != "undefined") {
 		return new XMLHttpRequest();
 	} else if (window.ActiveXObject) {
@@ -109,7 +88,6 @@ function yaploud_createXHR() {
 
 // This function will retrieve the number of yappers on the site  
 function yaploud_getYappers() {
-
 	var oXHR = yaploud_createXHR();
 	var addr = "http://www.yaploud.com/get_usercnt.php?url=" + encodeURIComponent(currentLocation);
 	oXHR.open("GET", addr, true);
@@ -124,17 +102,11 @@ function yaploud_getYappers() {
 				var usernum = eval( '(' + oXHR.responseText + ')' );
 				var chatButton = document.getElementById("yaploud_chatButton");
 				chatButton.setAttribute("label", usernum + " Yapper(s)");
-				
 			}		
-		
 		}	
-	
 	}
 	
 	oXHR.send(null);
-
-
-
 }
 
 function getDocumentDescription() {
@@ -185,19 +157,16 @@ function yaploud_chatAtYaploud(event) {
 	
 	var host = 'http://www.yaploud.com';
 	
-	if (ref_url.indexOf(yaploud)) {
-		return;
-	}
-	
-	mainDocument.location = host + '/chat/chat_window.php?url=' + 
+	if (ref_url.indexOf("yaploud") == -1) {
+	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + '&iframe=yes' + '&title=' + title +
 	                        '&update=info' +
 	                        //'&update=Update' +
 	                        '&description=' + description; 
+	}
 	                        
 	return;
 }
-
 
 
 
