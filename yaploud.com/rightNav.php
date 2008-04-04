@@ -1,5 +1,5 @@
 
-<script type="text/javascript" src="/extension/browser_extension.js" ></script>
+<script type="text/javascript" src="/js/util.js" ></script>
 
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
@@ -10,9 +10,9 @@
     <a href="/chat/embed_code.php">Embed a yaplet</a> 
     <br>
     <br>
-    Can't find the site people are yapping about? 
+    Can't find the site people are chatting about? 
     <br>
-    <a href="javascript: prompt("Enter the URL of the site you want to"); void 0;">Enter the URL here</a> 
+    <a href='javascript: promptChatUrl(); void 0;'>Enter URL here</a> 
     <hr>
     <div id="tagCloud">
         <strong>Tag Cloud</strong>
