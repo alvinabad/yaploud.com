@@ -64,7 +64,7 @@ class Rating {
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
             //error_log('URL not found:' . $url);
-            return false;
+            return 0;
         }
         $res_obj = mysql_fetch_object($result);
         $votes = $res_obj->votes;
@@ -72,6 +72,45 @@ class Rating {
         mysql_free_result($result);
         return $votes;
     }
+    
+    function getImage($rating) {
+        if ($rating > 4.75) {
+            $img = '/images/ratings/stars-5-0.gif';
+        }
+        else if ($rating > 4.25) {
+            $img = '/images/ratings/stars-4-5.gif';
+        }
+        else if ($rating > 3.75) {
+            $img = '/images/ratings/stars-4-0.gif';
+        }
+        else if ($rating > 3.25) {
+            $img = '/images/ratings/stars-3-5.gif';
+        }
+        else if ($rating > 2.75) {
+            $img = '/images/ratings/stars-3-0.gif';
+        }
+        else if ($rating > 2.25) {
+            $img = '/images/ratings/stars-2-5.gif';
+        }
+        else if ($rating > 1.75) {
+            $img = '/images/ratings/stars-2-0.gif';
+        }
+        else if ($rating > 1.25) {
+            $img = '/images/ratings/stars-1-5.gif';
+        }
+        else if ($rating > 0.75) {
+            $img = '/images/ratings/stars-1-0.gif';
+        }
+        else if ($rating > 0.25) {
+            $img = '/images/ratings/stars-0-5.gif';
+        }
+        else {
+            $img = '/images/ratings/stars-0-0.gif';
+        }
+        
+        return $img;
+    }
+    
 }
 
 ?>
