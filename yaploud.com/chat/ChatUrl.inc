@@ -1,6 +1,8 @@
 <?php
+set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
+
 require_once 'db.inc';
-//require 'util/util.inc';
+require 'util.inc';
 
 class ChatUrl{
 	private $db;
@@ -10,6 +12,10 @@ class ChatUrl{
 	}
 
 	function add($url, $title, $description) {
+		if ($title == "") {
+			$title = $url;
+		}
+		
         $url = normalize_url($url);
         $url = addslashes($url);
 
