@@ -14,6 +14,8 @@ session_start();
 ob_start();
 
 require ("user.php");
+require("rating/Rating.inc");
+require("tags/Tags.inc");
 
 function getChatUrlInfo($url) {
 	$url = 'http://' . $url;
