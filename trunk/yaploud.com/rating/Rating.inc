@@ -1,5 +1,6 @@
 <?php
 require_once 'db.inc';
+require('chat/ChatUrl.inc');
 
 class Rating {
 	private $db;
@@ -17,6 +18,13 @@ class Rating {
 		    return false;
 		}
 		    
+		// check if url exists
+		$cu = new ChatUrl();
+		$result = $cu->get($url);
+		if (!$result) {
+			$cu->add($url,"", "");
+		}
+		
         $sql = "UPDATE dev.chat_url SET " .
                //"average_rating = '$average_rating', " .
                "average_rating = (average_rating*votes + '$rating')/(votes+1) , " .
