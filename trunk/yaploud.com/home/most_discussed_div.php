@@ -61,6 +61,7 @@ HTML;
                     foreach($tags_array as $tag) {
                         $tags = $tags . $tag . ", ";
                     }
+                    $tags = rtrim($tags, ", ");
                 }
                 
                 if ($i % 2 == 0) {
