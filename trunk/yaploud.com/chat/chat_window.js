@@ -14,6 +14,8 @@ var chatWidgetMinimize = false;
 var loginname = '';
 var logged_in = false;
 var query_count = 0;
+var current_rating = 0;
+var has_rated = false;
 
 function $(s) {
     return document.getElementById(s);
@@ -383,7 +385,17 @@ var GetMessages = {
         	var stripped = msgs[0].msg.replace(/(<([^>]+)>)/ig,"");
         	//document.title = msgs[0].s + " - " + stripped;
         }
-            renderYappers(obj);
+        
+        
+        // update yappers list
+        renderYappers(obj);
+        
+        // update star ratings and votes
+        if (obj.rating && obj.rating != current_rating) {
+        	StarRating.set(obj.rating);
+        	Votes.set(obj.votes);
+        	current_rating = obj.rating;
+        }
             
         if (username != obj.user_session) {
       		username = obj.user_session;
