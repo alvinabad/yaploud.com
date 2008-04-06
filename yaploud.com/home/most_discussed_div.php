@@ -32,6 +32,9 @@ HTML;
        
         if ($topicUrlInfo_result) {
             $cr = new ChatRoom();
+            $rt = new Rating();
+            $tg = new Tags();
+            
             $i = 0;
             while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
                 $url = $row['url'];
@@ -43,7 +46,23 @@ HTML;
                 $description = $info['description'];
                 
                 $yappers = sizeof( $cr->getUsers($url) );
+                
+                // Get Rating info
+                $votes = $rt->getVotes($url);
+                $rating = $rt->getRating($url);
+                $image_rating = $rt->getImage($rating);
+                $rating = sprintf("%2.1f", $rating);
     
+                // Get Tag info
+                $tags = "";
+                $tags_array = $tg->getTags($url);
+                if ($tags_array) {
+                    //error_log($url);
+                    foreach($tags_array as $tag) {
+                        $tags = $tags . $tag . ", ";
+                    }
+                }
+                
                 if ($i % 2 == 0) {
                     print '<div class="yap_url even">';
                 }
@@ -59,6 +78,9 @@ HTML;
                 
                 $comments_str = 'comments';
                 if ($comments==1) $comments_str = 'comment';
+
+                $votes_str = "votes";
+                if ($votes==1) $votes_str = 'vote';
                 
                 if ( $title == normalize_url($url) ) {
                     $title = substr($title, 0, 65);
@@ -80,16 +102,16 @@ HTML;
                     <a href="http://{$url}">{$description}</a>
 HTML;
             }
-                    
+            
                 print <<<HTML
                     </p>
                     <div class="yap_links">
                         <a href=""><img src="images/comment.gif" />{$yappers}  {$yappers_str}</a> |
                         <a href=""><img src="images/comments.gif" />{$comments} {$comments_str}</a> |
                         <a href=""><img src="images/page.gif" />Share Yaplet</a> |
-                        <a href=""><img src="images/ratings/stars-4-5.gif" /></a> {$comments} ratings
+                        Rating: <img alt="{$rating}" src="{$image_rating}" > ({$votes} {$votes_str})
                         <br>
-                        Tags: <a href="#" onclick="alert();">tag1</a>|<a href="#">tag2</a>|<a href="#">tag3</a>
+                        Tags: {$tags}
                         <br>
                         <a href='javascript: openChatWindow("{$url}", "{$title}");'>Open chat window</a>
                     </div>
