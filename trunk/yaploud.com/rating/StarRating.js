@@ -1,5 +1,25 @@
 
 
+var Votes = {
+    current: 0,
+    
+    render:function() {
+        var votes_el = $("votes");
+        var votes_txt = Votes.current + " votes";
+        
+        if (Votes.current == 1) {
+            votes_txt = Votes.current + " vote";
+        }
+            
+        votes_el.innerHTML = votes_txt;
+    },
+    
+    set:function(votes) {
+    	Votes.current = votes;
+    	Votes.render();
+    }
+};
+
 var StarRating = {
     gif: ['/images/ratings/stars-0-0.gif',
           '/images/ratings/stars-1-0.gif',
@@ -9,7 +29,7 @@ var StarRating = {
           '/images/ratings/stars-5-0.gif',
           ], 
     
-    current: '/images/ratings/stars-3-5.gif',
+    current: '/images/ratings/stars-0-0.gif',
     
     show:function(star_rating) {
         var stars_el = $("stars");
@@ -30,37 +50,76 @@ var StarRating = {
         }
     },
 
-    restore:function() {
+    render:function() {
         var stars_el = $("stars");
         stars_el.src = StarRating.current;
     },
     
     init:function() {
-        StarRating.restore();	
+        StarRating.render();	
         StarRating.initTooltip();	
+    },
+    
+    set:function(rating) {
+    	var star_rating;
+    	
+        if (rating<0 || rating >5) {
+        	return;
+        }
+        
+        if (rating > 4.75) {
+            StarRating.current = '/images/ratings/stars-5-0.gif';
+        }
+        else if (rating > 4.25) {
+            StarRating.current = '/images/ratings/stars-4-5.gif';
+        }
+        else if (rating > 3.75) {
+            StarRating.current = '/images/ratings/stars-4-0.gif';
+        }
+        else if (rating > 3.25) {
+            StarRating.current = '/images/ratings/stars-3-5.gif';
+        }
+        else if (rating > 2.75) {
+            StarRating.current = '/images/ratings/stars-3-0.gif';
+        }
+        else if (rating > 2.25) {
+            StarRating.current = '/images/ratings/stars-2-5.gif';
+        }
+        else if (rating > 1.75) {
+            StarRating.current = '/images/ratings/stars-2-0.gif';
+        }
+        else if (rating > 1.25) {
+            StarRating.current = '/images/ratings/stars-1-5.gif';
+        }
+        else if (rating > 0.75) {
+            StarRating.current = '/images/ratings/stars-1-0.gif';
+        }
+        else if (rating > 0.25) {
+            StarRating.current = '/images/ratings/stars-0-5.gif';
+        }
+        else {
+            StarRating.current = '/images/ratings/stars-0-0.gif';
+        }
+        
+        StarRating.render();
     },
     
     select:function(star_rating) {
     	var rating = 0;
     	
         if (star_rating == "1starRating") {
-            StarRating.current = StarRating.gif[1];
             rating = 1;
         }
         else if (star_rating == "2starRating") {
-            StarRating.current = StarRating.gif[2];
             rating = 2;
         }
         else if (star_rating == "3starRating") {
-            StarRating.current = StarRating.gif[3];
             rating = 3;
         }
         else if (star_rating == "4starRating") {
-            StarRating.current = StarRating.gif[4];
             rating = 4;
         }
         else if (star_rating == "5starRating") {
-            StarRating.current = StarRating.gif[5];
             rating = 5;
         }
         
@@ -98,7 +157,7 @@ var StarRating = {
     }
 }
 
-var url_SendRating = "/rating/sendRating.php";
+var url_SendRating = "/rating/updateRating.php";
 
 var SendRating = {
     handleFailure:function(o){
@@ -108,11 +167,18 @@ var SendRating = {
 
     handleSuccess:function(o){
         var guestname = eval('(' + o.responseText + ')');
+        GetMessages.sendRequest();
+        //alert("Thank you for rating!");
     },
 
     sendRequest:function(rating) {
     	if (username.substr(0,5) == "guest") {
     		//alert("Requires login to rate: " + rating);
+    		//return;
+    	}
+    	
+    	if (has_rated) {
+    		//alert("You've already rated");
     		return;
     	}
     	
