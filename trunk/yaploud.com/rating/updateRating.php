@@ -14,24 +14,22 @@ if (
     $_SERVER['REQUEST_METHOD'] == 'GET' &&
     isset($_REQUEST['rating']) && isset($_REQUEST['url']) ) {
         
-    	
     $url = $_REQUEST['url'];
-    $rating = $_REQUEST['rating'];
+    $new_rating = $_REQUEST['rating'];
     
     $t = new Rating();
     
-    if (!isset($_SESSION['has_rated']) ) {
-    	$_SESSION['has_rated'] = false;
-    }
-    	
-    if (!$_SESSION['has_rated']) {
-        $result = $t->updateRating($url, $rating);
+    $has_rated_url = "has_rated_" . normalize_url($url);
+    
+    if ( !isset($_SESSION[$has_rated_url]) ) {
+        $js[$has_rated_url] = false;
+        $result = $t->updateRating($url, $new_rating);
         if ($result) {
-            $_SESSION['has_rated'] = true;
+            $_SESSION[$has_rated_url] = true;
         }
     }
     else {
-        $js['has_rated'] = true;
+        $js[$has_rated_url] = true;
     }
         
     $rating = $t->getRating($url);
