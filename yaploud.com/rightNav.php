@@ -1,5 +1,6 @@
 
 <script type="text/javascript" src="/js/util.js" ></script>
+<script type="text/javascript" src="/extension/browser_extension.js" ></script>
 
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
