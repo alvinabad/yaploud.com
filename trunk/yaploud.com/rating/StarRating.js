@@ -55,6 +55,11 @@ var StarRating = {
         stars_el.src = StarRating.current;
     },
     
+    render2:function(rating) {
+    	var img_el = this;
+    	alert(rating);
+    },   
+    
     init:function() {
         StarRating.render();	
         StarRating.initTooltip();	
@@ -67,41 +72,52 @@ var StarRating = {
         	return;
         }
         
-        if (rating > 4.75) {
-            StarRating.current = '/images/ratings/stars-5-0.gif';
-        }
-        else if (rating > 4.25) {
-            StarRating.current = '/images/ratings/stars-4-5.gif';
-        }
-        else if (rating > 3.75) {
-            StarRating.current = '/images/ratings/stars-4-0.gif';
-        }
-        else if (rating > 3.25) {
-            StarRating.current = '/images/ratings/stars-3-5.gif';
-        }
-        else if (rating > 2.75) {
-            StarRating.current = '/images/ratings/stars-3-0.gif';
-        }
-        else if (rating > 2.25) {
-            StarRating.current = '/images/ratings/stars-2-5.gif';
-        }
-        else if (rating > 1.75) {
-            StarRating.current = '/images/ratings/stars-2-0.gif';
-        }
-        else if (rating > 1.25) {
-            StarRating.current = '/images/ratings/stars-1-5.gif';
-        }
-        else if (rating > 0.75) {
-            StarRating.current = '/images/ratings/stars-1-0.gif';
-        }
-        else if (rating > 0.25) {
-            StarRating.current = '/images/ratings/stars-0-5.gif';
-        }
-        else {
-            StarRating.current = '/images/ratings/stars-0-0.gif';
+        StarRating.current = StarRating.getImage(rating);
+        StarRating.render();
+    },
+    
+    getImage:function(rating) {
+        var img;
+        
+        if (rating<0 || rating >5) {
+            return;
         }
         
-        StarRating.render();
+        if (rating > 4.75) {
+            img = '/images/ratings/stars-5-0.gif';
+        }
+        else if (rating > 4.25) {
+            img = '/images/ratings/stars-4-5.gif';
+        }
+        else if (rating > 3.75) {
+            img = '/images/ratings/stars-4-0.gif';
+        }
+        else if (rating > 3.25) {
+            img = '/images/ratings/stars-3-5.gif';
+        }
+        else if (rating > 2.75) {
+            img = '/images/ratings/stars-3-0.gif';
+        }
+        else if (rating > 2.25) {
+            img = '/images/ratings/stars-2-5.gif';
+        }
+        else if (rating > 1.75) {
+            img = '/images/ratings/stars-2-0.gif';
+        }
+        else if (rating > 1.25) {
+            img = '/images/ratings/stars-1-5.gif';
+        }
+        else if (rating > 0.75) {
+            img = '/images/ratings/stars-1-0.gif';
+        }
+        else if (rating > 0.25) {
+            img = '/images/ratings/stars-0-5.gif';
+        }
+        else {
+            img = '/images/ratings/stars-0-0.gif';
+        }
+        
+        return img;
     },
     
     select:function(star_rating) {
