@@ -3,6 +3,9 @@ require_once 'db.inc';
 include ("user/Token.php");
 
 class User {
+	
+	//TODO: This needs to be refactored. It's so poorly designed.
+	// I've done my best to work around it.
 
     var $db = null;
     var $failed = false;
@@ -230,6 +233,10 @@ class User {
     function _setSession(& $values, $remember, $init = true) {
         $this->userid = $values->username;
 
+        //session_unset();
+        //session_destroy();
+        //session_start();
+        
         // set session using data retrieved from database
         $_SESSION['username'] = htmlspecialchars($values->username);
         $_SESSION['cookie'] = $values->cookie;
@@ -308,16 +315,16 @@ class User {
     function _logout() {
         setcookie("yaploud", "", time() - 60000);
         
-        session_unset();
-        session_destroy();
-        session_start();
+        // a logout should not destroy the session
+        //session_unset();
+        //session_destroy();
+        //session_start();
 
         $this->_session_defaults();	
     }
 
     function logout() {
         $this->_logout();
-        $this->_session_defaults();	
     }
     
     function _session_defaults() {
@@ -326,7 +333,6 @@ class User {
         $_SESSION['username'] = '';
         $_SESSION['cookie'] = 0;
         $_SESSION['remember'] = false;
-        $_SESSION['has_rated'] = false;
 
         if (!isset ($_SESSION['guest'])) {
             $guestId = rand(50, 9999);
