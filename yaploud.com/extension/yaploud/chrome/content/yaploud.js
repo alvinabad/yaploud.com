@@ -159,8 +159,10 @@ function yaploud_chatAtYaploud(event) {
 	
 	if (ref_url.indexOf("yaploud") == -1) {
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
-	                        ref_url + '&iframe=yes' + '&title=' + title +
+	                        ref_url + 
+	                        '&title=' + title +
 	                        '&update=info' +
+	                        //'&iframe=yes' + 
 	                        //'&update=Update' +
 	                        '&description=' + description; 
 	}
