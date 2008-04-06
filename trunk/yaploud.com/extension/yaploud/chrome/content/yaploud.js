@@ -144,6 +144,19 @@ function getDocumentDescription() {
     return '';
 }
 
+function openChatWindow(site_url, title, description) {
+	var host = 'http://www.yaploud.com';
+    var url = host + "/chat/chat_window.php?url=" + site_url +
+              "&title=" + title +
+	          '&update=info' +
+	          '&description=' + description; 
+	          
+    var features = "width=320, height=320, status=yes, " +
+                   "menubar=no, toolbar=no, status=no, " +
+                   "location=no, resizable=yes, left=600, top=100";
+    window.open(url, "", features);
+}
+
 function yaploud_chatAtYaploud(event) {
 	// This function redirects the user to YapLoud.com to chat there
 	var winWrapper = new XPCNativeWrapper(content, "doc");
@@ -158,13 +171,16 @@ function yaploud_chatAtYaploud(event) {
 	var host = 'http://www.yaploud.com';
 	
 	if (ref_url.indexOf("yaploud") == -1) {
+		openChatWindow(ref_url, title, description);
+		/**
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + 
 	                        '&title=' + title +
 	                        '&update=info' +
-	                        //'&iframe=yes' + 
+	                        '&iframe=yes' + 
 	                        //'&update=Update' +
 	                        '&description=' + description; 
+	    * **/
 	}
 	                        
 	return;
