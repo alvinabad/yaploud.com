@@ -326,6 +326,7 @@ class User {
         $_SESSION['username'] = '';
         $_SESSION['cookie'] = 0;
         $_SESSION['remember'] = false;
+        $_SESSION['has_rated'] = false;
 
         if (!isset ($_SESSION['guest'])) {
             $guestId = rand(50, 9999);
