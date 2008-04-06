@@ -114,7 +114,7 @@ HTML;
                         <br>
                         Tags: {$tags}
                         <br>
-                        <a href='javascript: openChatWindow("{$url}", "{$title}");'>Open chat window</a>
+                        <a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}");'>Open chat window</a>
                     </div>
                 </div>
                 <br/>
