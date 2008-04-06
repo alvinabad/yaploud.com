@@ -24,9 +24,11 @@ if ($last_msg_id == 0) {
 
 require("./ChatRoom.inc");
 require("./ChatMessages.inc");
+require("rating/Rating.inc");
 
 $cr = new ChatRoom();
 $cm = new ChatMessages();
+$rt = new Rating();
 
 if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
     $username = $_SESSION['username'];
@@ -39,7 +41,8 @@ if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
 $rs = array();
 $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
 $rs['users'] = $cr->getUsers($url);
-
+$rs['rating'] = $rt->getRating($url);
+$rs['votes'] = $rt->getVotes($url);
 
 if (isset($_SESSION['username'])) {
     $rs['user_session'] = $_SESSION['username'];
