@@ -79,8 +79,10 @@ if(!$iframe) {
          | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a> 
         </div>
         <br>
-        <a href="javascript: location.reload();">Reload</a>
-        | <span id="chat_mode"></span>
+        <!-- 
+         <a href="javascript: location.reload();">Reload</a>
+         -->
+        <span id="chat_mode"></span>
      <?php
      if($iframe) {
         //| <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); openWindow("{$site_url}"); setTimeout(closeWindow, 2000); void 0;'>Pop out</a>
@@ -94,8 +96,8 @@ HTML;
 HTML;
      }
      ?>
-     <span id="star_rating" onmouseout="StarRating.restore();" >
-     | Rate:
+     <span id="star_rating" onmouseout="StarRating.render();" >
+     | Rating:
      <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating" 
           border="0" id="stars" />
      <map name="mapStarRating" id="mapStarRating" >
@@ -115,7 +117,7 @@ HTML;
             href="javascript: onclick=StarRating.select('5starRating')"
             onmouseover="StarRating.show('5starRating');" />
      </map>
-     </span>
+     </span><span id="votes">0 votes</span>
     </div>
   </div>
 </div>
