@@ -2,7 +2,6 @@
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
 
 require_once 'db.inc';
-require 'util.inc';
 
 class ChatUrl{
 	private $db;
