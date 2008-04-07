@@ -9,6 +9,7 @@ class ChatRoom {
 	}
 
 	function removeUser($url, $username) {
+		$url = addslashes($url);
 		$sql = "DELETE FROM dev.room_users " .
                "WHERE topic_url = '$url' and username = '$username' "; 
 		$result = $this->db->mysql_query($sql);
@@ -49,9 +50,10 @@ class ChatRoom {
 
 	function getUsers($url) {
 		$users = array();
+		$url = $this->removeHttp($url);
+		
 		$url = addslashes($url);
 
-		$url = $this->removeHttp($url);
 		$sql = "select distinct(username) as u, creation_date as d from dev.room_users " .
              "where topic_url = '$url'"; 
 		$result = $this->db->mysql_query($sql);
@@ -65,8 +67,8 @@ class ChatRoom {
 					array_push($users, $row['u']);
 				}
 			}
+            mysql_free_result($result);
 		}
-		mysql_free_result($result);
 		return $users;
 	}
 
