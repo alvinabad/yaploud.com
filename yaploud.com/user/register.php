@@ -64,27 +64,27 @@ HTML;
     
     <label>Desired Username: </label>
     <br>
-    <input type="text" id="username" name="username" />
+    <input type="text" id="username" name="username" value="<?php print $username; ?>"/>
     <br>
     <label>First Name: </label>
     <br>
-    <input type="text" id="first_name" name="first_name" />
+    <input type="text" id="first_name" name="first_name" value="<?php print $first_name; ?>"/>
     <br>
     <label>Last Name: </label>
     <br>
-    <input type="text" id="last_name" name="last_name" />
+    <input type="text" id="last_name" name="last_name" value="<?php print $last_name ?>"/>
     <br>
     <label>Email: </label>
     <br>
-    <input type="text" id="email" name="email" />
+    <input type="text" id="email" name="email" value="<?php print $email ?>"/>
     <br>
     <label>Password: </label>
     <br>
-    <input type="password" id="password" name="password" />
+    <input type="password" id="password" name="password" value=""/>
     <br>
     <label>Re-type password: </label>
     <br>
-    <input type="password" id="password2" name="password2" />
+    <input type="password" id="password2" name="password2" value=""/>
     <br><br>
     <div style="vertical-align: top;"><img src="Captcha.php" /></div>
     <label>Type in the characters shown above </label>
