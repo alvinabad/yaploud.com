@@ -5,7 +5,7 @@
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
     <a href="/extension/yaploud.xpi">
-    <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="installxpi(this); return false;">Install Firefox Extension</button>
+    <button style="width: 170px; height: 25px; margin: 1px; padding 2px;" onclick="installxpi(this); return false;">Firefox Add-on</button>
     </a>
     <hr>
     <a href="/chat/embed_code.php">Embed a yaplet</a> 
