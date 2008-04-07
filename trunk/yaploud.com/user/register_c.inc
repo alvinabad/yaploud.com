@@ -15,7 +15,22 @@ ob_start();
 
 require ("user.php");
 
+$username = "";
+$first_name = "";
+$last_name = "";
+$password = "";
+$password = "";
+$email = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $userid = $_POST['username'];
+        
+    $password = $_POST['password'];
+    $password = MD5($password);
+    $email = $_POST['email'];
 
     // validate captcha
     if (isset ($_REQUEST['captcha']) && isset ($_SESSION['captcha'])) {
@@ -36,15 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($status) {
-        $username = $_POST['username'];
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $userid = $_POST['username'];
-        
-        $password = $_POST['password'];
-        $password = MD5($password);
-        $email = $_POST['email'];
-
         require_once 'db.inc';
         $db = new DB();
         $sql = "INSERT INTO dev.user(username, first_name, last_name, " .
@@ -52,18 +58,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                " VALUES('$userid', '$first_name', '$last_name', '$password', " . 
                " sysdate(), '$email', '$userid');";
 
-        	$result = $db->mysql_query($sql);
-        	//$result = false;
+      	$result = $db->mysql_query($sql);
 
-	        if ($result) {
-	        	    $message = "Registration successful! Welcome $username!";
-        		}
-        		else {
-        			    $status = false;
-	        	    $message = "Registration has failed! ". 
-	        	               "Username or email is already taken. <br>" . 
-	        	               "Please try again.";
-        		}
+        if ($result) {
+            $emailfrom = "info@yaploud.com";
+            $message = "Hi $first_name $last_name, \n\n" . 
+              "Thank you for signing up. Your account is ready for login. ".
+              "Your username is $username. Please follow the link below to login.\n\n" .
+              "http://" . $_SERVER['HTTP_HOST'] . "/login_page.php" .
+            
+              "\n\n" .
+              "Thanks, \n" .
+              "The Yaploud Team";
+
+              mail($email, "YapLoud Registration", $message, "From: $emailfrom\n");
+              
+              $message = "Registration successful! Welcome $username!";
+              $redirect = '/login_page.php';
+              header("Location: $redirect");
+        }
+        else {
+            $status = false;
+	        $message = "Registration has failed! ". 
+	        	    "Username or email is already taken. <br>" . 
+	        	    "Please try again.";
+        }
     }
 }
 ?>
