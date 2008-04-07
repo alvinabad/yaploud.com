@@ -64,11 +64,23 @@ class ChatUrl{
         $sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
         $result = $this->db->mysql_query($sql);
 
-        //if (mysql_num_rows($result) != 1) {
-        //	return false;
-        //}
         return $result;
     }
-	
+    
+    function isExist($url) {
+        $url = normalize_url($url);
+        $url = addslashes($url);
+        
+        $sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+        $result = $this->db->mysql_query($sql);
+
+        if (mysql_num_rows($result) != 1) {
+            return false;
+        }
+        
+        mysql_free_result($result);
+        return $result;
+    }
+    
 }
 ?>
