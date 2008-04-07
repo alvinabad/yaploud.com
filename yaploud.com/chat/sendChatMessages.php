@@ -14,6 +14,7 @@ $msg = $_GET['msg'];
 $msg = strip_tags(clean($msg, 1024, $db->getConnection()), '<'.implode('><', $allow_tags).'>');
 $url = $_GET['url'];
 $url = normalizeURL($url);
+$url = addslashes($url);
 
 $query = "INSERT INTO dev.chat values (NULL, '$url', '$user', SYSDATE(), '$msg')"; 
 //print "$query <br/>";
