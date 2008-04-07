@@ -20,7 +20,7 @@ class Rating {
 		    
 		// check if url exists
 		$cu = new ChatUrl();
-		$result = $cu->get($url);
+		$result = $cu->isExist($url);
 		if (!$result) {
 			$cu->add($url,"", "");
 		}
