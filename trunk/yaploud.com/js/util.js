@@ -7,6 +7,16 @@ function trim(str) {
     return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
 }
 
+function openChatWindow(site_url, title) {
+    site_url = encodeURIComponent(site_url);
+    var url = "/chat/chat_window.php?url=" + site_url +
+             "&title=" + title;
+    var features = "width=320, height=320, status=yes, " +
+                   "menubar=no, toolbar=no, status=no, " +
+                   "location=no, resizable=yes, left=600, top=100";
+    window.open(url, "", features);
+}
+
 function promptChatUrl() {
     var site_url = prompt("Enter URL of the site you want to chat:","http://")
     
@@ -15,13 +25,10 @@ function promptChatUrl() {
         return;
     }
     
-    site_url = encodeURIComponent(site_url);
-    var url = "/chat/chat_window.php?url=" + site_url + "&iframe=yes";
-    //var features = "width=320, height=320, status=yes, " +
-    //               "menubar=no, toolbar=no, status=no, " +
-    //               "location=no, resizable=yes, left=600, top=100";
-    //window.open(url, "", features);
-    document.location = url;
+    openChatWindow(site_url, site_url);
+    
+    //site_url = encodeURIComponent(site_url);
+    //document.location = url;
 }
 
 function displayBrowserInfo() {
