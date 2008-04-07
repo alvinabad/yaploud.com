@@ -12,46 +12,27 @@
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
 session_start();
 
+require("chat/ChatUrl.inc");
+require("util.inc");
+
 $title = '';
 $description = '';
 $url = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
-	require_once 'db.inc';
-
+	$cu = new ChatUrl();
+	
 	$url = $_GET['url'];
-	$url = trim($url);
-	$url = preg_replace('/([a-zA-Z0-9_-])\/$/', '$1', $url);
-	if ($url == '') {
-		return;
-	}
-	
-	$url = addslashes($url);
-
 	$title = $_GET['title'];
-	$title = trim($title);
-	$title = strip_tags($title);
-	$title = addslashes($title);
-	
 	$description = $_GET['description'];
-	$description = trim($description);
-	$description = strip_tags($description);
-	$description = addslashes($description);
-	
-	$db = new DB();
 	
 	if ($_GET['update'] == 'Update') {
-    	$sql = "UPDATE dev.chat_url SET title='$title', " .
-    	       "       description='$description' " .
-    	       "WHERE url='$url'";
-    	$result = $db->mysql_query($sql);
+		error_log("Updating: " . $url);
+	    $result = $cu->update($url, $title, $description);
 	}
 	else if ($_GET['update'] == 'View') {
-        $sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
-        $result = $db->mysql_query($sql);
-
-        $title = '';
-        $description = '';
+		$result = $cu->get($url);
+		
         if (mysql_num_rows($result) != 1) {
         	$res_obj = false;
         	return;
@@ -62,9 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
         $description = $res_obj->description;
 	}
 	else {
-    	$sql = "INSERT INTO dev.chat_url (url, title, description, creation_date) " .
-	           " values ('$url', '$title', '$description', SYSDATE() )";
-    	$result = $db->mysql_query($sql);
+		error_log("Adding: " . $url);
+		$result = $cu->add($url,$title, $description);
 	}
 }
 
