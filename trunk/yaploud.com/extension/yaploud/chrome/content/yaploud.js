@@ -154,16 +154,17 @@ function openChatWindow(site_url, title, description) {
 	title = encodeURIComponent(title);
 	description = encodeURIComponent(description);
 	
-    var uri = "/chat/chat_window.php?url=" + site_url +
-              "&title=" + title +
-	          '&update=info' +
-	          '&description=' + description; 
+    var uri = "/chat/chat_window.php?url=" + site_url;
+              //"&title=" + title +
+	          //'&update=info' +
+	          //'&description=' + description; 
 	          
     var url = host + uri;
     
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
                    "location=no, resizable=yes, left=600, top=100";
+
     window.open(url, "", features);
 }
 
@@ -176,9 +177,8 @@ function yaploud_chatAtYaploud(event) {
 	var title = mainDocument.title;
 	var description = getDocumentDescription();
 	
+	openChatWindow(ref_url, title, description);
 	if (ref_url.indexOf("yaploud") == -1) {
-		openChatWindow(ref_url, title, description);
-		
 		/**
    	    title = encodeURIComponent(mainDocument.title);
 	    description = encodeURIComponent(description);
