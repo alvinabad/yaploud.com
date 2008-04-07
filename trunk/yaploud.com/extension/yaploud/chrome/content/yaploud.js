@@ -89,7 +89,9 @@ function yaploud_createXHR() {
 // This function will retrieve the number of yappers on the site  
 function yaploud_getYappers() {
 	var oXHR = yaploud_createXHR();
-	var addr = "http://www.yaploud.com/get_usercnt.php?url=" + encodeURIComponent(currentLocation);
+	//var addr = "http://www.yaploud.com/get_usercnt.php?url=" + encodeURIComponent(currentLocation);
+	var addr = "http://www.yaploud.com/chat/getUserCount.php?url=" + encodeURIComponent(currentLocation);
+	
 	oXHR.open("GET", addr, true);
 	// Set up the response handler
 	oXHR.onreadystatechange = function () {
@@ -146,6 +148,7 @@ function getDocumentDescription() {
 
 function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
+	//host = 'http://yaploud';
     var url = host + "/chat/chat_window.php?url=" + site_url +
               "&title=" + title +
 	          '&update=info' +
@@ -168,11 +171,11 @@ function yaploud_chatAtYaploud(event) {
 	var description = getDocumentDescription();
 	description = encodeURIComponent(description);
 	
-	var host = 'http://www.yaploud.com';
 	
 	if (ref_url.indexOf("yaploud") == -1) {
 		openChatWindow(ref_url, title, description);
 		/**
+        var host = 'http://www.yaploud.com';
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + 
 	                        '&title=' + title +
