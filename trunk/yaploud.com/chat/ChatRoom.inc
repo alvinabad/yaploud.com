@@ -20,6 +20,7 @@ class ChatRoom {
 	
 	function updateUser($url, $username) {
 		$url = $this->removeHttp($url);
+		$url = addslashes($url);
 
 		$sql = "select * from dev.room_users " .
              "where topic_url = '$url' and username = '$username' "; 
