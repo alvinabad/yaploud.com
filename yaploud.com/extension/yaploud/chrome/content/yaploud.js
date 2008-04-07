@@ -149,12 +149,14 @@ function getDocumentDescription() {
 function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
 	//host = 'http://yaploud';
-	site_url = encodeURIComponent(site_url);
-    var url = host + "/chat/chat_window.php?url=" + site_url +
+    var uri = "/chat/chat_window.php?url=" + site_url +
               "&title=" + title +
 	          '&update=info' +
 	          '&description=' + description; 
 	          
+    uri = encodeURIComponent(uri);
+    var url = host + uri;
+    
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
                    "location=no, resizable=yes, left=600, top=100";
@@ -167,15 +169,17 @@ function yaploud_chatAtYaploud(event) {
 	var mainDocument = new XPCNativeWrapper(winWrapper.document, "top");
 
 	var ref_url = mainDocument.location;
-	ref_url = encodeURIComponent(ref_url);
-	var title = encodeURIComponent(mainDocument.title);
+	var title = mainDocument.title;
 	var description = getDocumentDescription();
-	description = encodeURIComponent(description);
-	
 	
 	if (ref_url.indexOf("yaploud") == -1) {
 		openChatWindow(ref_url, title, description);
+		
 		/**
+   	    title = encodeURIComponent(mainDocument.title);
+	    description = encodeURIComponent(description);
+	    ref_url = encodeURIComponent(ref_url);
+	
         var host = 'http://www.yaploud.com';
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + 
