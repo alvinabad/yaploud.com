@@ -49,6 +49,7 @@ class ChatRoom {
 
 	function getUsers($url) {
 		$users = array();
+		$url = addslashes($url);
 
 		$url = $this->removeHttp($url);
 		$sql = "select distinct(username) as u, creation_date as d from dev.room_users " .
