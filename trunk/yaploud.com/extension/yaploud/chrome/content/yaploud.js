@@ -149,12 +149,16 @@ function getDocumentDescription() {
 function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
 	//host = 'http://yaploud';
+	
+	site_url = encodeURIComponent(site_url);
+	title = encodeURIComponent(title);
+	description = encodeURIComponent(description);
+	
     var uri = "/chat/chat_window.php?url=" + site_url +
               "&title=" + title +
 	          '&update=info' +
 	          '&description=' + description; 
 	          
-    uri = encodeURIComponent(uri);
     var url = host + uri;
     
     var features = "width=320, height=320, status=yes, " +
