@@ -27,12 +27,12 @@ class ChatRoom {
 		
 		if ($result) {
 		    $num_rows = mysql_num_rows($result);
+    		mysql_free_result($result);
 		}
 		else {
 			$num_rows = 0;
 		}
 		
-		mysql_free_result($result);
 
 		if ($num_rows > 0) {
 			$sql = "UPDATE dev.room_users SET creation_date=SYSDATE() " .
