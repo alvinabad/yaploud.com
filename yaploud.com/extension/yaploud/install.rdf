@@ -21,7 +21,7 @@
     <!-- Front End MetaData -->
     <em:name>YapLoud.com</em:name>
     <em:description>Yap while you surf!</em:description>
-    <em:creator>YapLoud 1.1.5</em:creator>
+    <em:creator>YapLoud</em:creator>
     <em:homepageURL>http://www.yaploud.com/</em:homepageURL>
   </Description>      
 </RDF>
