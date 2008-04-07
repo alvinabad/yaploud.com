@@ -4,6 +4,10 @@ function $(s) {
 }
 
 function trim(str) {
+    if (!str) {
+        return str;
+    }
+	    
     return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
 }
 
