@@ -24,7 +24,14 @@ class ChatRoom {
 		$sql = "select * from dev.room_users " .
              "where topic_url = '$url' and username = '$username' "; 
 		$result = $this->db->mysql_query($sql);
-		$num_rows = mysql_num_rows($result);
+		
+		if ($result) {
+		    $num_rows = mysql_num_rows($result);
+		}
+		else {
+			$num_rows = 0;
+		}
+		
 		mysql_free_result($result);
 
 		if ($num_rows > 0) {
