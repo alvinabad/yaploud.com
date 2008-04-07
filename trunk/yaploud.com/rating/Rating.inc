@@ -43,6 +43,7 @@ class Rating {
 
 	function getRating($url) {
         $url = normalize_url($url);
+		$url = addslashes($url);
         
         $sql = "SELECT average_rating FROM dev.chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
@@ -59,6 +60,7 @@ class Rating {
 
 	function getVotes($url) {
         $url = normalize_url($url);
+		$url = addslashes($url);
         
         $sql = "SELECT votes FROM dev.chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
