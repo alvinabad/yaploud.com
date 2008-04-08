@@ -146,19 +146,40 @@ function getDocumentDescription() {
     return '';
 }
 
+function addslashes(str) {
+	if (!str) {
+		return str;
+	}
+	
+    str=str.replace(/\'/g,'\\\'');
+    str=str.replace(/\"/g,'\\"');
+    str=str.replace(/\\/g,'\\\\');
+    str=str.replace(/\0/g,'\\0');
+    return str;
+}
+
+function stripslashes(str) {
+	if (!str) {
+		return str;
+	}
+	
+    str=str.replace(/\\'/g,'\'');
+    str=str.replace(/\\"/g,'"');
+    str=str.replace(/\\\\/g,'\\');
+    str=str.replace(/\\0/g,'\0');
+    return str;
+}
+
 function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
 	//host = 'http://yaploud';
 	
-	site_url = encodeURIComponent(site_url);
-	title = encodeURIComponent(title);
-	description = encodeURIComponent(description);
-	
     var uri = "/chat/chat_window.php?url=" + site_url;
-              //"&title=" + title +
-	          //'&update=info' +
-	          //'&description=' + description; 
+              "&title=" + title +
+	          "&update=info" +
+	          "&description=" + description; 
 	          
+	uri = addslashes(uri);
     var url = host + uri;
     
     var features = "width=320, height=320, status=yes, " +
@@ -177,13 +198,14 @@ function yaploud_chatAtYaploud(event) {
 	var title = mainDocument.title;
 	var description = getDocumentDescription();
 	
-	openChatWindow(ref_url, title, description);
-	if (ref_url.indexOf("yaploud") == -1) {
-		/**
-   	    title = encodeURIComponent(mainDocument.title);
-	    description = encodeURIComponent(description);
-	    ref_url = encodeURIComponent(ref_url);
+	ref_url = encodeURIComponent(ref_url);
+	title = encodeURIComponent(title);
+	description = encodeURIComponent(description);
 	
+	if (ref_url.toLowerCase().indexOf("yaploud") == -1) {
+        openChatWindow(ref_url, title, description);
+        
+		/**
         var host = 'http://www.yaploud.com';
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                        ref_url + 
@@ -193,6 +215,9 @@ function yaploud_chatAtYaploud(event) {
 	                        //'&update=Update' +
 	                        '&description=' + description; 
 	    * **/
+	}
+	else {
+		//alert("Can't chat about this site: " + ref_url);
 	}
 	                        
 	return;
