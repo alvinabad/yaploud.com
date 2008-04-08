@@ -36,6 +36,7 @@ class Tags {
 	
 	function getTags($url) {
         $url = normalize_url($url);
+		$url = addslashes($url);
         
         $sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
@@ -54,9 +55,9 @@ class Tags {
             while($row = mysql_fetch_assoc($result)){
 				array_push($tags, $row['tag']);
             }
+            mysql_free_result($result);
         }
         
-        mysql_free_result($result);
         return $tags;
 	}
 }
