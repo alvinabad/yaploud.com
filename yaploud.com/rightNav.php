@@ -15,10 +15,12 @@
     <br>
     <a href='javascript: promptChatUrl(); void 0;'>Enter URL here</a> 
     <hr>
+    <!-- 
     <div id="tagCloud">
         <strong>Tag Cloud</strong>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim 
     </div>
+     --> 
     <br/>
     <div style="clear: both"></div>
 </div>
