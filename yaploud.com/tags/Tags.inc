@@ -1,6 +1,6 @@
 <?php
 require_once 'db.inc';
-require "chat/ChatUrl.inc";
+require_once "chat/ChatUrl.inc";
 
 class Tags {
 	private $db;
