@@ -37,7 +37,6 @@ class Tags {
 			$tag = addslashes($tag);
 			$sql = "INSERT INTO dev.chat_url_tag (chat_url_id, tag) " .
                    " values ('$chat_url_id', '$tag')";
-			error_log($sql);
 			$result = $this->db->mysql_query($sql);
 		}
 
