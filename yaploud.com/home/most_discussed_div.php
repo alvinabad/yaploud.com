@@ -86,8 +86,11 @@ HTML;
                 if ( $title == normalize_url($url) ) {
                     $title = substr($title, 0, 65);
                 }
+                
+                //<b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
                 print <<<HTML
-                    <b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
+                <b><a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}"); void 0;'></b>
+                {$title}</a>
                     <p>
 HTML;
             $description = strip_tags($description);
@@ -107,14 +110,12 @@ HTML;
                 print <<<HTML
                     </p>
                     <div class="yap_links">
-                        <a href=""><img src="images/comment.gif" />{$yappers}  {$yappers_str}</a> |
-                        <a href=""><img src="images/comments.gif" />{$comments} {$comments_str}</a> |
-                        <a href=""><img src="images/page.gif" />Share Yaplet</a> |
+                        <img src="images/comment.gif" />{$yappers}  {$yappers_str} |
+                        <img src="images/comments.gif" />{$comments} {$comments_str} |
+                        <img src="images/page.gif" />Share Yaplet |
                         Rating: <img alt="{$rating}" src="{$image_rating}" > ({$votes} {$votes_str})
                         <br>
                         Tags: {$tags}
-                        <br>
-                        <a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}");'>Open chat window</a>
                     </div>
                 </div>
                 <br/>
