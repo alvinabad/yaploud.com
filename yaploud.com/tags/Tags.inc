@@ -1,5 +1,6 @@
 <?php
 require_once 'db.inc';
+require "chat/ChatUrl.inc";
 
 class Tags {
 	private $db;
@@ -10,15 +11,23 @@ class Tags {
 
 	function addTags($url, $tags) {
 		$url = normalize_url($url);
-		$tags = split(',', $tags);
 		$url = addslashes($url);
+		
+		$tags = split(',', $tags);
 
 		$sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
 		$result = $this->db->mysql_query($sql);
 		if (mysql_num_rows($result) != 1) {
-			//error_log('URL not found in dev.chat.url: ' . $url);
-			return false;
-		}
+            $cu = new ChatUrl();
+            $cu->add($url, "", "");
+   	        $sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
+	        $result = $this->db->mysql_query($sql);
+            if (mysql_num_rows($result) != 1) {
+                error_log('Cannot add new url: ' . $url);
+                return false;
+            }
+        }
+		
 		$res_obj = mysql_fetch_object($result);
 		$chat_url_id = $res_obj->id;
         mysql_free_result($result);
