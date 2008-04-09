@@ -6,7 +6,7 @@ require("./chat_window_c.inc");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>YapLoud.com</title>
+<title>YapLoud</title>
 
 <?php
 require("./yui.php");
