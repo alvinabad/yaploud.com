@@ -67,6 +67,7 @@ if(!$iframe) {
       <div style="clear: both;"></div>
     </div>
     <div id="ft">
+        <a href="javascript: SendMessage.text();"><img border="0" src="/images/go.gif" /></a>
         <div id="logout_info">
          <strong><span id="username_info1"></span></strong>
          | <a href="javascript: void 0;" id="login">Login</a> 
