@@ -83,13 +83,17 @@ HTML;
                 $votes_str = "votes";
                 if ($votes==1) $votes_str = 'vote';
                 
+                $norm_url = normalize_url($url);
                 if ( $title == normalize_url($url) ) {
                     $title = substr($title, 0, 65);
+                }
+                else if ( $title == "" ) {
+                	$title = normalize_url($url);
                 }
                 
                 //<b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
                 print <<<HTML
-                <b><a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}"); void 0;'></b>
+                <b><a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}"); document.location="{$norm_url}";'></b>
                 {$title}</a>
                     <p>
 HTML;
@@ -97,23 +101,22 @@ HTML;
             $description = trim($description);
             if ($description == "") {
                 $url_shortened = substr($url, 0, 60);
-                print <<<HTML
-                    <a href="http://{$url}">[http://{$url_shortened}]</a>
-HTML;
+                //TODO: link goes here
             }
             else {
                 print <<<HTML
-                    <a href="http://{$url}">{$description}</a>
+                    {$description}
 HTML;
             }
             
+                        //<img src="images/page.gif" />Share Yaplet |
                 print <<<HTML
                     </p>
                     <div class="yap_links">
                         <img src="images/comment.gif" />{$yappers}  {$yappers_str} |
                         <img src="images/comments.gif" />{$comments} {$comments_str} |
-                        <img src="images/page.gif" />Share Yaplet |
                         Rating: <img alt="{$rating}" src="{$image_rating}" > ({$votes} {$votes_str})
+                        <br>
                         <br>
                         Tags: {$tags}
                     </div>
