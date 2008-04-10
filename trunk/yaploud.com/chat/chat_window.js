@@ -479,14 +479,18 @@ var SendMessage = {
     	var textMsg = '';
     	var code = e.charCode || e.keyCode;
         if (code == 13) {
-        	textMsg = document.chat_form.chat_textarea.value;
-            textMsg = trim(textMsg);
-            if (textMsg != "") {
-            	SendMessage.sendRequest(textMsg);
-            }
-                
-        	document.chat_form.chat_textarea.value = '';
+        	SendMessage.text();
         }
+    },
+    
+    text: function() {
+        textMsg = document.chat_form.chat_textarea.value;
+        textMsg = trim(textMsg);
+        if (textMsg != "") {
+            SendMessage.sendRequest(textMsg);
+        }
+                
+        document.chat_form.chat_textarea.value = '';
     },
     
     sendRequest:function(textMsg) {
