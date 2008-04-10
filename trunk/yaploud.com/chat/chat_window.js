@@ -15,7 +15,7 @@ var loginname = '';
 var logged_in = false;
 var query_count = 0;
 var current_rating = 0;
-var has_rated = false;
+//var has_rated = false;
 var update_current_rating = true;
 
 function $(s) {
