@@ -121,6 +121,11 @@ var StarRating = {
     },
     
     select:function(star_rating) {
+    	if (StarRating.has_rated) {
+    		alert("You've already rated.");
+    		return;
+    	}
+    	
     	var rating = 0;
     	
         if (star_rating == "1starRating") {
@@ -178,6 +183,8 @@ var StarRating = {
 var url_SendRating = "/rating/updateRating.php";
 
 var SendRating = {
+    has_rated: false,
+    
     handleFailure:function(o){
         //alert('Sending logout failed: ' + o.responseText + ': ' + o.status);
         alert('Server failure. Please try again later. ' + o.status);
@@ -186,6 +193,7 @@ var SendRating = {
     handleSuccess:function(o){
         var guestname = eval('(' + o.responseText + ')');
         GetMessages.sendRequest();
+        StarRating.has_rated = true;
         //alert("Thank you for rating!");
     },
 
@@ -193,11 +201,6 @@ var SendRating = {
     	if (username.substr(0,5) == "guest") {
     		//alert("Requires login to rate: " + rating);
     		//return;
-    	}
-    	
-    	if (has_rated) {
-    		//alert("You've already rated");
-    		return;
     	}
     	
         var url = encodeURIComponent(site_url);
