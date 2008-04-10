@@ -16,6 +16,7 @@ var logged_in = false;
 var query_count = 0;
 var current_rating = 0;
 var has_rated = false;
+var update_current_rating = true;
 
 function $(s) {
     return document.getElementById(s);
@@ -117,7 +118,7 @@ function openChatWindow(site_url, title) {
              "&title=" + title;
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
-                   "location=no, resizable=yes, left=600, top=100";
+                   "location=no, resizable=yes, left=100, top=100";
     window.open(url, "", features);
 }
 
@@ -392,7 +393,9 @@ var GetMessages = {
         
         // update star ratings and votes
         if (obj.rating && obj.rating != current_rating) {
-        	StarRating.set(obj.rating);
+        	if ( update_current_rating ) {
+        	    StarRating.set(obj.rating);
+        	}
         	Votes.set(obj.votes);
         	current_rating = obj.rating;
         }
