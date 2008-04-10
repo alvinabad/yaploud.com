@@ -118,7 +118,7 @@ HTML;
                         Rating: <img alt="{$rating}" src="{$image_rating}" > ({$votes} {$votes_str})
                         <br>
                         <br>
-                        Tags: {$tags}
+                        Tags: <span class="tags">{$tags}</span>
                     </div>
                 </div>
                 <br/>

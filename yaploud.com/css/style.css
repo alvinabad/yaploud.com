@@ -101,6 +101,10 @@ img {
 	font-size: 18px;
 }
 
+#content .tags {
+	font-size: 16px;
+	color: brown;
+}
 /********** CSS for Footer *************/
 #footer {
 	clear: both;
