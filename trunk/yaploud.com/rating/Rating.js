@@ -140,7 +140,9 @@ var StarRating = {
         }
         
         if (rating !=0 ) {
+            update_current_rating = false;
             SendRating.sendRequest(rating);
+            StarRating.set(rating);
         }
     },
     
