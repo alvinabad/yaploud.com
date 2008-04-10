@@ -3,12 +3,12 @@ function $(id) {
 	return document.getElementById(id);
 }
 
-function openChatWindow(site_url, title) {
+function openChatWindow_deprecated(site_url, title) {
     var url = "/chat/chat_window.php?url=" + site_url +
               "&title=" + title;
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
-                   "location=no, resizable=yes, left=600, top=100";
+                   "location=no, resizable=yes, left=100, top=100";
     window.open(url, "", features);
 }
    
