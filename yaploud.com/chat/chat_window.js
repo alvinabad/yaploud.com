@@ -387,7 +387,6 @@ var GetMessages = {
         	//document.title = msgs[0].s + " - " + stripped;
         }
         
-        
         // update yappers list
         renderYappers(obj);
         
