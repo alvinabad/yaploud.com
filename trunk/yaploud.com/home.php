@@ -24,6 +24,8 @@
 
 <div id="content">
   <br>
+      <?php include("home/most_discussed_div.php")?>
+  <!-- 
   <div id="center_nav" class="yui-navset">
     <ul style="text-align: center;" class="yui-nav">
       <li class="selected"><a href="#tab1"><em>Most Discussed</em></a></li>
@@ -39,6 +41,7 @@
       <?php include("home/top_rated_div.php")?>
     </div>
   </div>
+   -->
 </div> <!-- content -->
 
 <?php include("common/footer1.php"); ?>
