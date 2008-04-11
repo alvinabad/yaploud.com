@@ -30,6 +30,15 @@ HTML;
 HTML;
        //--- End pagination
        
+       // set initial/default values
+       $yappers_str = 'yappers';
+       $yappers = 0;
+       $votes_str = "votes";
+       $votes = 0;
+       $tags = "";
+       $rating = 3;
+       $image_rating = "/images/ratings/stars-3-5.gif";
+       
         if ($topicUrlInfo_result) {
             $cr = new ChatRoom();
             $rt = new Rating();
@@ -38,23 +47,24 @@ HTML;
             $i = 0;
             while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
                 $url = $row['url'];
-                $yappers = $row['uniqs'];
                 $comments = $row['c'];
                 
                 $info = getChatUrlInfo($url);
                 $title = $info['title'];
                 $description = $info['description'];
                 
+                // get chatroom info
                 $yappers = sizeof( $cr->getUsers($url) );
+                if ($yappers==1) $yappers_str = 'yapper';
                 
                 // Get Rating info
                 $votes = $rt->getVotes($url);
                 $rating = $rt->getRating($url);
                 $image_rating = $rt->getImage($rating);
                 $rating = sprintf("%2.1f", $rating);
-    
+                if ($votes==1) $votes_str = 'vote';
+                
                 // Get Tag info
-                $tags = "";
                 $tags_array = $tg->getTags($url);
                 if ($tags_array) {
                     //error_log($url);
@@ -74,15 +84,9 @@ HTML;
                 $url_encoded = urlencode($url);
                 $title_encoded = urlencode($title);
                 
-                $yappers_str = 'yappers';
-                if ($yappers==1) $yappers_str = 'yapper';
-                
                 $comments_str = 'comments';
                 if ($comments==1) $comments_str = 'comment';
 
-                $votes_str = "votes";
-                if ($votes==1) $votes_str = 'vote';
-                
                 $norm_url = normalize_url($url);
                 if ( $title == normalize_url($url) ) {
                     $title = substr($title, 0, 65);
