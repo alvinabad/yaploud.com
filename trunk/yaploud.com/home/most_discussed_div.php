@@ -98,7 +98,7 @@ HTML;
                 //<b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
                 //<b><a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}"); document.location="{$norm_url}";'></b>
                 print <<<HTML
-                <b><a href="{$norm_url}" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
+                <b><a href="{$norm_url}" onclick='openChatWindow("{$url}", "{$title_encoded}");'></b>
                 {$title}</a>
                     <p>
 HTML;
