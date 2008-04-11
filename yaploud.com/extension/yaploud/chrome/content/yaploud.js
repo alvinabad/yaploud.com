@@ -203,19 +203,17 @@ function encodeURIComponent_recursive(url) {
     return encodeURIComponent(url);
 }
 
+function removeHttp(url) {
+    return url.replace(/^http:\/\//, ''); 
+}
+
 function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
-	//host = 'http://yaploud';
+	host = 'http://yaploud';
 	
-    if (site_url == null) {
-        site_url = ext_url;
-    }
-    
-    if (title == null) {
-        title = ext_title;
-    }
-    
+	site_url = removeHttp(site_url);
     site_url = encodeURIComponent_recursive(site_url);
+    
     title = encodeURIComponent_recursive(title);
     description = encodeURIComponent_recursive(description);
     
