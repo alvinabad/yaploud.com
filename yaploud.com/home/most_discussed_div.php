@@ -30,15 +30,6 @@ HTML;
 HTML;
        //--- End pagination
        
-       // set initial/default values
-       $yappers_str = 'yappers';
-       $yappers = 0;
-       $votes_str = "votes";
-       $votes = 0;
-       $tags = "";
-       $rating = 3;
-       $image_rating = "/images/ratings/stars-3-5.gif";
-       
         if ($topicUrlInfo_result) {
             $cr = new ChatRoom();
             $rt = new Rating();
@@ -46,6 +37,15 @@ HTML;
             
             $i = 0;
             while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
+                // set initial/default values
+                $yappers_str = 'yappers';
+                $yappers = 0;
+                $votes_str = "votes";
+                $votes = 0;
+                $tags = "";
+                $rating = 3;
+                $image_rating = "/images/ratings/stars-0-0.gif";
+       
                 $url = $row['url'];
                 $comments = $row['c'];
                 
