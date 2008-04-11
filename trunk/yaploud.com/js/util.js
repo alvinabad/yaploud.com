@@ -13,6 +13,8 @@ function trim(str) {
 
 function openChatWindow(site_url, title) {
     site_url = encodeURIComponent(site_url);
+	title = encodeURIComponent(title);
+	
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title;
     var features = "width=320, height=320, status=yes, " +

@@ -83,17 +83,10 @@ function minimizeChatWidget() {
 	}
 }
 
-//TODO: Deprecate
-function openChatWindow_deprecated(site_url, title) {
-	var url = "/chat/chat_window.php?url=" + site_url +
-	          "&title=" + title;
-	var features = "width=320, height=320, status=yes, " +
-			       "location=no, resizable=no, left=600, top=100";
-    window.open(url, "", features);
-}
-
 function openPopinWindow(site_url, title) {
 	site_url = encodeURIComponent(site_url);
+	title = encodeURIComponent(title);
+	
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title + "&iframe=yes";
     var features = "width=800, height=640, status=yes, directories=yes " +
