@@ -207,7 +207,8 @@
 	       	                  res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + 
 	       	                  "<br/>" +
 	       	                  '<a href=\'javascript: openChatWindow(' +
-	       	                  '\"' + encodeURIComponent_recursive(res.url) + '\", \"\"); void 0;\'' + '>' + 
+	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\", ' +
+	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\"); void 0;\'' + '>' + 
 	       	                  res.url + 
 	       	                  '</a></span></span><br/>';
 	       }
