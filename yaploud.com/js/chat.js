@@ -200,9 +200,16 @@
 	       else{
 	          el.innerHTML = "Found <span style=\"font-size:110%;\">" + r.length + " </span> results.<br/><hr/>\n";
 	       }
+	       x = 'xxx yyy';
 	       for(i = 0; i < r.length; i++){
 	       	  var res = r[i];
-	       	  el.innerHTML += "<p><span class=s_result><span style=\"color:orange;font-size:18px;\">" + res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + "<br/><a href=\"/chat/chat_window.php?url=" + encodeURIComponent(res.url) + "&iframe=yes" + "\">" + res.url + "</a></span></span><br/>";
+	       	  el.innerHTML += "<p><span class=s_result><span style=\"color:orange;font-size:18px;\">" +
+	       	                  res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + 
+	       	                  "<br/>" +
+	       	                  '<a href=\'javascript: openChatWindow(' +
+	       	                  '\"' + encodeURIComponent_recursive(res.url) + '\", \"\"); void 0;\'' + '>' + 
+	       	                  res.url + 
+	       	                  '</a></span></span><br/>';
 	       }
 
 	   }
