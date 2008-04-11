@@ -11,12 +11,32 @@ function trim(str) {
     return str.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
 }
 
+function addslashes(str) {
+    if (!str) {
+        return str;
+    }
+    
+    str=str.replace(/\'/g,'\\\'');
+    str=str.replace(/\"/g,'\\"');
+    str=str.replace(/\\/g,'\\\\');
+    str=str.replace(/\0/g,'\\0');
+    return str;
+}
+
 function openChatWindow(site_url, title) {
-    site_url = encodeURIComponent(site_url);
-	title = encodeURIComponent(title);
+	if (site_url == null) {
+		site_url = ext_url;
+	}
+	
+	if (title == null) {
+		title = ext_title;
+	}
 	
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title;
+             
+    url = decodeURIComponent_recursive(url);
+    
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
                    "location=no, resizable=yes, left=100, top=100";
@@ -32,9 +52,6 @@ function promptChatUrl() {
     }
     
     openChatWindow(site_url, site_url);
-    
-    //site_url = encodeURIComponent(site_url);
-    //document.location = url;
 }
 
 function displayBrowserInfo() {
@@ -69,13 +86,28 @@ function xmlHttpCreate() {
 
 
 function addEvent(obj, evt, fn){
-        if (obj.addEventListener){
-            obj.addEventListener(evt, fn, true);
-            return true;
-	} else if (obj.attachEvent){
+    if (obj.addEventListener){
+        obj.addEventListener(evt, fn, true);
+        return true;
+    } 
+    else if (obj.attachEvent){
 	    var r = obj.attachEvent("on" + evt, fn);
 	    return r;
-        } else {
-            return false;
-        }
+    } 
+    else {
+        return false;
+    }
+}
+
+function decodeURIComponent_recursive(url) {
+    new_url = decodeURIComponent(url);
+    if (new_url == url) {
+        return url;
+    }
+    return decodeURIComponent_recursive(new_url);
+}
+
+function encodeURIComponent_recursive(url) {
+    url = decodeURIComponent_recursive(url);
+    return encodeURIComponent(url);
 }
