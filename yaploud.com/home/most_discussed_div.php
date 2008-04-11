@@ -34,6 +34,7 @@ HTML;
             $cr = new ChatRoom();
             $rt = new Rating();
             $tg = new Tags();
+            $u = new Url();
             
             $i = 0;
             while($row = mysql_fetch_assoc($topicUrlInfo_result)) { 
@@ -47,11 +48,18 @@ HTML;
                 $image_rating = "/images/ratings/stars-0-0.gif";
        
                 $url = $row['url'];
+                $url = $u->stripslashes($url);
+                $url = $u->decode($url);
+                $url = normalize_url($url);
                 $comments = $row['c'];
                 
                 $info = getChatUrlInfo($url);
                 $title = $info['title'];
+                $title = $u->stripslashes($title);
+                $title = $u->decode($title);
+                
                 $description = $info['description'];
+                $description = $u->decode($description);
                 
                 // get chatroom info
                 $yappers = sizeof( $cr->getUsers($url) );
@@ -81,25 +89,26 @@ HTML;
                     print '<div class="yap_url odd">';
                 }
                 $i++;
-                $url_encoded = urlencode($url);
-                $title_encoded = urlencode($title);
                 
                 $comments_str = 'comments';
                 if ($comments==1) $comments_str = 'comment';
 
-                $norm_url = normalize_url($url);
-                if ( $title == normalize_url($url) ) {
-                    $title = substr($title, 0, 65);
+                $title_display = $title;
+                if ( $title_display == $url ) {
+                    $title_display = substr($title_display, 0, 70) . "  ...";
                 }
                 else if ( $title == "" ) {
-                	$title = normalize_url($url);
+                	$title_display = $url;
+                    $title_display = substr($title_display, 0, 70) . "  ...";
                 }
                 
                 //<b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
-                //<b><a href='javascript: openChatWindow("{$url_encoded}", "{$title_encoded}"); document.location="{$norm_url}";'></b>
+                $url_encoded = $u->encode($url);
+                $title_encoded = $u->encode($title);
+                
                 print <<<HTML
-                <b><a href="{$norm_url}" onclick='openChatWindow("{$url}", "{$title_encoded}");'></b>
-                {$title}</a>
+                <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
+                {$title_display}</a>
                     <p>
 HTML;
             $description = strip_tags($description);

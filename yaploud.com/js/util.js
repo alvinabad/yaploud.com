@@ -32,10 +32,9 @@ function openChatWindow(site_url, title) {
 		title = ext_title;
 	}
 	
-    var url = "/chat/chat_window.php?url=" + site_url +
-             "&title=" + title;
-             
-    url = decodeURIComponent_recursive(url);
+    site_url = encodeURIComponent_recursive(site_url);
+    title = encodeURIComponent_recursive(title);
+    var url = "/chat/chat_window.php?url=" + site_url + "&title=" + title;
     
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +

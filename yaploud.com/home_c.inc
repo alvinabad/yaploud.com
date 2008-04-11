@@ -14,11 +14,14 @@ session_start();
 ob_start();
 
 require ("user.php");
+require("chat/ChatRoom.inc");
 require("rating/Rating.inc");
 require("tags/Tags.inc");
+require("util.inc");
 
 function getChatUrlInfo($url) {
-	$url = 'http://' . $url;
+	$u = new Url();
+	$url = $u->addslashes($url);
 	$sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
 	$db = new DB();
 	$result = $db->mysql_query($sql);

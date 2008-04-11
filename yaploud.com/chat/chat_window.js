@@ -83,18 +83,40 @@ function minimizeChatWidget() {
 	}
 }
 
+function addslashes(str) {
+    if (!str) {
+        return str;
+    }
+    
+    str=str.replace(/\'/g,'\\\'');
+    str=str.replace(/\"/g,'\\"');
+    str=str.replace(/\\/g,'\\\\');
+    str=str.replace(/\0/g,'\\0');
+    return str;
+}
+
 function openPopinWindow(site_url, title) {
-	site_url = encodeURIComponent(site_url);
-	title = encodeURIComponent(title);
+	//site_url = encodeURIComponent(site_url);
+	//title = encodeURIComponent(title);
 	
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title + "&iframe=yes";
+    
+    url = addslashes(url);
+    
     var features = "width=800, height=640, status=yes, directories=yes " +
                    "menubar=yes, toolbar=yes, location=yes, resizable=yes";
     window.open(url, "", features);
 }
 
+var ext_url = "";
 function openExternalWindow(url) {
+	if (url == null) {
+		url = ext_url;
+	}
+	
+    url = decodeURIComponent_recursive(url);
+    
 	if (iframe_enabled) {
 		document.location = url;
 		return;
@@ -106,7 +128,7 @@ function openExternalWindow(url) {
     window.open(url, "", features);
 }
 
-function openChatWindow(site_url, title) {
+function openChatWindow_deprecated(site_url, title) {
     var url = "/chat/chat_window.php?url=" + site_url +
              "&title=" + title;
     var features = "width=320, height=320, status=yes, " +
@@ -115,22 +137,19 @@ function openChatWindow(site_url, title) {
     window.open(url, "", features);
 }
 
-function generateContent() {
+function generateContent_deprecated() {
 	var url = site_url;
 	url = appendHttp2Url(url);
+	ext_url = url;
 	
     var title = document.getElementById('hd_title');
-    var html_text = "<strong>Yapping about: </strong>";
-    html_text = '';
+    var html_text = '';
     
     // check type of browser
     if (navigator.userAgent.indexOf('Firefox') != -1) {
-    	var features = 'location=yes, menubar=yes, scrollbars=yes, ' +
-                       'status=yes, toolbar=yes'; 
-        var js_href = 'javascript: window.open(\'' + url +
-                      '\'' + ', \'\', ' + '\'' + features +
-                      '\'' + '); void 0;'; 
-        html_text += '<a href="' + js_href + '">';
+        html_text = '<a href="' + 
+                    'javascript: openExternalWindow(); void 0;' +
+                    '">';
     } else {
         html_text += '<a href="' + url + '" target="_blank">';
     }
@@ -541,7 +560,7 @@ var Chat = {
 /************************************************************/
 
 function init_chat() {
-	generateContent();
+	//generateContent();
     GetMessages.startPolling();
 }
 

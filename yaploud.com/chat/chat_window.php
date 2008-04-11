@@ -39,7 +39,15 @@ if(!$iframe) {
   <div class="hd" id="hd">
     <a href="javascript: openExternalWindow('/home.php'); void 0;">
       <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
-      <strong>Yapping about: </strong><span id="hd_title"></span>
+      <strong>Yapping about: </strong>
+      <?php
+      print <<<HTML
+      <span><a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+                {$site_title}</a>
+      </span>
+HTML;
+       ?>
+      
   </div>
 <?php
   if($iframe) {
@@ -89,12 +97,12 @@ if(!$iframe) {
      if($iframe) {
         //| <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); openWindow("{$site_url}"); setTimeout(closeWindow, 2000); void 0;'>Pop out</a>
          print <<<HTML
-        | <a href='javascript: popout("{$site_url}", "{$site_title}"); void 0;'>Pop out</a>
+        | <a href='javascript: popout("{$url_encoded}", "{$title_encoded}"); void 0;'>Pop out</a>
 HTML;
      }
      else {
          print <<<HTML
-        | <a href='javascript: popin("{$site_url}", "{$site_title}"); void 0;'>Pop in</a>
+        | <a href='javascript: popin("{$url_encoded}", "{$title_encoded}"); void 0;'>Pop in</a>
 HTML;
      }
      ?>
