@@ -2,8 +2,6 @@
 
 <?php
     require("./home_c.inc");
-    require("chat/ChatRoom.inc");
-    require("./util.inc");
 ?>
 
 <html>

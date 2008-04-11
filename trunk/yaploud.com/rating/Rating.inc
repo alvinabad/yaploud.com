@@ -11,7 +11,6 @@ class Rating {
 
 	function updateRating($url, $rating) {
 		$url = normalize_url($url);
-		$url = addslashes($url);
 
 		if ($rating < 0 || $rating > 5) {
 			error_log("Incorrect rating was passed: " . $rating);
@@ -22,9 +21,12 @@ class Rating {
 		$cu = new ChatUrl();
 		$result = $cu->isExist($url);
 		if (!$result) {
+			error_log("DOES NOT EXIST");
 			$cu->add($url,"", "");
 		}
+		error_log("EXIST");
 		
+		$url = addslashes($url);
         $sql = "UPDATE dev.chat_url SET " .
                //"average_rating = '$average_rating', " .
                "average_rating = (average_rating*votes + '$rating')/(votes+1) , " .

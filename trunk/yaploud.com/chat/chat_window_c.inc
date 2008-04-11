@@ -15,6 +15,7 @@ ob_start();
 
 require("common/nocache.php");
 require("user.php");
+require("util.inc");
 
 $iframe = false;
 $user = new User();
@@ -94,6 +95,7 @@ elseif ( isset($_SESSION['guest']) ) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
+   	$u = new Url();
 	$site_url = '';
 	$site_title = ''; 
 	$site_description = '';
@@ -111,9 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 	
 	if (isset($_REQUEST['title'])) {
 	    $site_title = $_REQUEST['title'];
+        $site_title = $u->decode($site_title);
 	}
 	else {
 	    $site_title = $site_url;
+        $site_title = $u->decode($site_title);
 	}
 	
 	if (isset($_REQUEST['iframe'])) {
@@ -124,7 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
     if (isset($_REQUEST['update'])) {
         updateChatUrlInfo($site_url, $site_title, $site_description);
    	}
-}
+   	
+    $url_encoded = $u->encode($site_url);
+    $title_encoded = $u->encode($site_title);
+}    
 else {
 	$site_url = "http://www.cmu.edu";
 }

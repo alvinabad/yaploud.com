@@ -170,7 +170,8 @@ function stripslashes(str) {
     return str;
 }
 
-function openChatWindow(site_url, title, description) {
+//TODO: deprecate
+function openChatWindow_deprecated(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
 	//host = 'http://yaploud';
 	
@@ -186,6 +187,43 @@ function openChatWindow(site_url, title, description) {
                    "menubar=no, toolbar=no, status=no, " +
                    "location=no, resizable=yes, left=600, top=100";
 
+    window.open(url, "", features);
+}
+
+function decodeURIComponent_recursive(url) {
+    new_url = decodeURIComponent(url);
+    if (new_url == url) {
+        return url;
+    }
+    return decodeURIComponent_recursive(new_url);
+}
+
+function encodeURIComponent_recursive(url) {
+    url = decodeURIComponent_recursive(url);
+    return encodeURIComponent(url);
+}
+
+function openChatWindow(site_url, title, description) {
+	var host = 'http://www.yaploud.com';
+	//host = 'http://yaploud';
+	
+    if (site_url == null) {
+        site_url = ext_url;
+    }
+    
+    if (title == null) {
+        title = ext_title;
+    }
+    
+    site_url = encodeURIComponent_recursive(site_url);
+    title = encodeURIComponent_recursive(title);
+    description = encodeURIComponent_recursive(description);
+    
+    var url = host + "/chat/chat_window.php?url=" + site_url + "&title=" + title;
+    
+    var features = "width=320, height=320, status=yes, " +
+                   "menubar=no, toolbar=no, status=no, " +
+                   "location=no, resizable=yes, left=100, top=100";
     window.open(url, "", features);
 }
 
