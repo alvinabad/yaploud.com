@@ -59,9 +59,15 @@ function getTopicUrlInfo($db, $offset, $limit) {
 		$limit = 3;
 	}
 	
+	/**
+	// Wow, the subselect was really heavy. Doing this takes at least 8 seconds.
 	$query = "select topic_url as url, count(*) as c, " .
              "(select count(username) from dev.room_users where topic_url = url) " .
 	         "as uniqs  from dev.chat group by topic_url order by 2 desc ";
+	**/
+	
+	$query = "select topic_url as url, count(*) as c " .
+	         "from dev.chat group by topic_url order by 2 desc ";
 	
 	if ( $limit >= 0 ) {
 		$query = $query . "limit $offset, $limit";
@@ -75,6 +81,7 @@ function getTopicUrlInfo($db, $offset, $limit) {
 	else {
 		return false;
 	}
+	
 }
 
 
