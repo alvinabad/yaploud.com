@@ -23,6 +23,7 @@ require("./yui.php");
 <script type="text/javascript" src="/chat/chat_widget.js"></script>
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
 <script type="text/javascript" src="/rating/Rating.js" ></script>
+<script type="text/javascript" src="/js/util.js" ></script>
 
 </head>
 <body class=" yui-skin-sam">
