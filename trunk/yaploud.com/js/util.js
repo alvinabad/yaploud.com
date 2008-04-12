@@ -33,6 +33,7 @@ function openChatWindow(site_url, title) {
 		title = ext_title;
 	}
 	
+    title = title.replace(/\s+|\s+/, ' - '); 
     site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
     var url = "/chat/chat_window.php?url=" + site_url + "&title=" + title;
