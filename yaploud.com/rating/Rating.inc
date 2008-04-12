@@ -21,10 +21,8 @@ class Rating {
 		$cu = new ChatUrl();
 		$result = $cu->isExist($url);
 		if (!$result) {
-			error_log("DOES NOT EXIST");
 			$cu->add($url,"", "");
 		}
-		error_log("EXIST");
 		
 		$url = addslashes($url);
         $sql = "UPDATE dev.chat_url SET " .
