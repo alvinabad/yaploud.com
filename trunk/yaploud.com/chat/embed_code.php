@@ -14,6 +14,7 @@ ob_start();
         <title>Welcome to YapLoud</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
         <script type="text/javascript" src="/css/niftycube.js" ></script>
         <script type="text/javascript" src="/chat/embed_code.js" ></script>
         <script type="text/javascript">
