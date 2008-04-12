@@ -31,22 +31,20 @@ $url = '';
 
 function updateChatUrlInfo($url, $title, $description) {
     require_once 'db.inc';
-
-    $url = trim($url);
-    $url = preg_replace('/([a-zA-Z0-9_-])\/$/', '$1', $url);
+    
+    $u = new Url();
+    $url = $u->normalize($url);
+    $url = $u->addslashes($url);
+    
     if ($url == '') {
         return;
     }
     
-    $url = addslashes($url);
-
-    $title = trim($title);
     $title = strip_tags($title);
-    $title = addslashes($title);
+    $title = $u->addslashes($title);
     
-    $description = trim($description);
     $description = strip_tags($description);
-    $description = addslashes($description);
+    $description = $u->addslashes($description);
     
     $db = new DB();
     
@@ -128,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
     if (isset($_REQUEST['update'])) {
         updateChatUrlInfo($site_url, $site_title, $site_description);
    	}
+        updateChatUrlInfo($site_url, $site_title, $site_description);
    	
     $url_encoded = $u->encode($site_url);
     $title_encoded = $u->encode($site_title);
