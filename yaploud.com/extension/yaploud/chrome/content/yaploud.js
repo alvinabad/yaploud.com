@@ -198,7 +198,9 @@ function openChatWindow(site_url, title, description) {
     title = encodeURIComponent_recursive(title);
     description = encodeURIComponent_recursive(description);
     
-    var url = host + "/chat/chat_window.php?url=" + site_url + "&title=" + title;
+    var url = host + "/chat/chat_window.php?url=" + 
+              site_url + "&title=" + title +
+              "&update=info";
     
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
