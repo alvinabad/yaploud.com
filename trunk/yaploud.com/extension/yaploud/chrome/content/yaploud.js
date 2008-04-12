@@ -192,13 +192,11 @@ function openChatWindow(site_url, title, description) {
 	var host = 'http://www.yaploud.com';
 	//host = 'http://yaploud';
 	
-	site_url = removeHttp(site_url);
-    site_url = encodeURIComponent_recursive(site_url);
-    
 	// bypass Apache' mod_security: Access denied with code 503 
     title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
     description = description.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
     
+    site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
     description = encodeURIComponent_recursive(description);
     
@@ -222,23 +220,22 @@ function yaploud_chatAtYaploud(event) {
 	var title = mainDocument.title;
 	var description = getDocumentDescription();
 	
-	ref_url = encodeURIComponent(ref_url);
-	title = encodeURIComponent(title);
-	description = encodeURIComponent(description);
-	
+    ref_url = encodeURIComponent_recursive(ref_url);
 	if (ref_url.toLowerCase().indexOf("yaploud") == -1) {
         openChatWindow(ref_url, title, description);
+	}
+	else if ( ref_url.indexOf('embed_code.php') != -1 || 
+	          ref_url.indexOf('help.php') != -1  ) {
+        openChatWindow(ref_url, title, description);
         
-		/**
+		/***
         var host = 'http://www.yaploud.com';
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
-	                        ref_url + 
-	                        '&title=' + title +
-	                        '&update=info' +
-	                        '&iframe=yes' + 
-	                        //'&update=Update' +
-	                        '&description=' + description; 
-	    * **/
+	                            ref_url + 
+	                            '&title=' + title;
+	                            '&update=info' +
+	                            '&iframe=yes';
+	    ***/
 	}
 	else {
 		//alert("Can't chat about this site: " + ref_url);
