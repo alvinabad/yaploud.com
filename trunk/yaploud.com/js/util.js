@@ -34,7 +34,7 @@ function openChatWindow(site_url, title) {
 	}
 	
     alert(title);
-    title = title.replace(/\s+|\s+/, ' - '); 
+    title = title.replace(/\s+\|\s+/, ' - '); 
     alert(title);
     
     site_url = encodeURIComponent_recursive(site_url);
