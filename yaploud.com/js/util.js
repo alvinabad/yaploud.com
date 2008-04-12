@@ -33,9 +33,8 @@ function openChatWindow(site_url, title) {
 		title = ext_title;
 	}
 	
-    alert(title);
-    title = title.replace(/\s+\|\s+/, ' - '); 
-    alert(title);
+	// bypass Apache' mod_security: Access denied with code 503 
+    title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
     
     site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
@@ -57,8 +56,6 @@ function promptChatUrl() {
     }
     
     title = site_url;
-    //title = "Box office: 'Leatherheads' fumbles | 21 | Box Office Report | Movies | Entertainment Weekly";
-    title = "Box office: 'Leatherheads' | xxxBox |";
     openChatWindow(site_url, title);
 }
 
