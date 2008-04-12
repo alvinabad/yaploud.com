@@ -195,12 +195,17 @@ function openChatWindow(site_url, title, description) {
 	site_url = removeHttp(site_url);
     site_url = encodeURIComponent_recursive(site_url);
     
+	// bypass Apache' mod_security: Access denied with code 503 
+    title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
+    description = description.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
+    
     title = encodeURIComponent_recursive(title);
     description = encodeURIComponent_recursive(description);
     
-    var url = host + "/chat/chat_window.php?url=" + 
-              site_url + "&title=" + title +
-              "&update=info";
+    var url = host + "/chat/chat_window.php?url=" + site_url + 
+                     "&title=" + title +
+                     "&update=info" +
+                     "&description=" + description;
     
     var features = "width=320, height=320, status=yes, " +
                    "menubar=no, toolbar=no, status=no, " +
