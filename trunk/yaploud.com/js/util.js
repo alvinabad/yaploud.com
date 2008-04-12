@@ -45,13 +45,16 @@ function openChatWindow(site_url, title) {
 
 function promptChatUrl() {
     var site_url = prompt("Enter URL of the site you want to chat:","http://")
+    var title;
     
     site_url = trim(site_url);
     if (site_url == "" || site_url == "http://") {
         return;
     }
     
-    openChatWindow(site_url, site_url);
+    title = site_url;
+    title = "xxx | YYY";
+    openChatWindow(site_url, title);
 }
 
 function displayBrowserInfo() {
