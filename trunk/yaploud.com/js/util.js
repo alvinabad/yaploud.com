@@ -54,7 +54,7 @@ function promptChatUrl() {
     
     title = site_url;
     //title = "Box office: 'Leatherheads' fumbles | 21 | Box Office Report | Movies | Entertainment Weekly";
-    title = "Box office: 'Leatherheads' ";
+    title = "Box office: 'Leatherheads' | 21 | Box";
     openChatWindow(site_url, title);
 }
 
