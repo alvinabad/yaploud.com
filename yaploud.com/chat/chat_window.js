@@ -1,4 +1,10 @@
-
+/**
+ * Chat Window Module
+ * 
+ * Created on Nov 17, 2007
+ * Author: alvinabad@alumni.cmu.edu
+ */
+ 
 var title_header = "YapLoud.com";
 var poll_interval = 5000;
 var poll_interval_id;
@@ -810,6 +816,7 @@ function init() {
     //    document.getElementById('login_username').style.position = "fixed";
     //}
     StarRating.init();
+    document.title = site_title;
 }
 
 function quit() {

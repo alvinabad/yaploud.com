@@ -1,4 +1,9 @@
-
+/**
+ * Rating Modulei
+ * 
+ * Created on Mar 9, 2008
+ * Author: alvinabad@alumni.cmu.edu
+ */
 
 var Votes = {
     current: 0,
