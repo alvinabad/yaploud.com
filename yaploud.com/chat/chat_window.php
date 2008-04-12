@@ -171,7 +171,7 @@ HTML;
     <strong>Invite a friend to join this chat:</strong>
     <p>
     <form name="invite_friend_form" method="POST" action="/chat/invite_friend.php">
-      <label>Email: </label><input size="37" type="text" name="email" value=''/>
+      <label>Email: </label><input size="34" type="text" name="email" value=''/>
       <label>Message: </label><textarea name="msg" rows="3" cols="28"></textarea>
       <input type="hidden" name="url" value="<?php print $site_url; ?>" >
       <div class="clear"></div>
@@ -186,7 +186,7 @@ HTML;
     <strong>Add tags to this chat:</strong>
     <p>
     <form name="addtags_form" method="POST" action="/tags/addTags.php">
-      <label></label><input size="37" type="text" name="tags" value=''/>
+      <label></label><input size="34" type="text" name="tags" value=''/>
       <label>Use commas to separate tags</label>
       <input type="hidden" name="url" value="<?php print $site_url; ?>" >
       <div class="clear"></div>
