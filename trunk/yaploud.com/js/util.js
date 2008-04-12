@@ -23,6 +23,7 @@ function addslashes(str) {
     return str;
 }
 
+var ext_url;
 function openChatWindow(site_url, title) {
 	if (site_url == null) {
 		site_url = ext_url;
