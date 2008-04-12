@@ -53,7 +53,7 @@ function promptChatUrl() {
     }
     
     title = site_url;
-    title = "xxx | YYY";
+    title = "http://xxx.com";
     openChatWindow(site_url, title);
 }
 
