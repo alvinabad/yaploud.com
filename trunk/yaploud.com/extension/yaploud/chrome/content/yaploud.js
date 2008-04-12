@@ -228,14 +228,14 @@ function yaploud_chatAtYaploud(event) {
 	          ref_url.indexOf('help.php') != -1  ) {
         openChatWindow(ref_url, title, description);
         
-		/***
+	/*******************************
         var host = 'http://www.yaploud.com';
 	    mainDocument.location = host + '/chat/chat_window.php?url=' + 
 	                            ref_url + 
 	                            '&title=' + title;
 	                            '&update=info' +
 	                            '&iframe=yes';
-	    ***/
+	********************************/
 	}
 	else {
 		//alert("Can't chat about this site: " + ref_url);
