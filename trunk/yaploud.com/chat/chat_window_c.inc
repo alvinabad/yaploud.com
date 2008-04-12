@@ -126,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
     if (isset($_REQUEST['update'])) {
         updateChatUrlInfo($site_url, $site_title, $site_description);
    	}
-        updateChatUrlInfo($site_url, $site_title, $site_description);
    	
     $url_encoded = $u->encode($site_url);
     $title_encoded = $u->encode($site_title);
