@@ -75,6 +75,7 @@ HTML;
       </div>
       <div style="clear: both;"></div>
     </div>
+    <div style="clear: both;"></div>
     <div id="ft">
         <a href="javascript: SendMessage.text();"><img border="0" src="/images/go.gif" /></a>
         <div id="logout_info">
