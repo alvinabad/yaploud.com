@@ -95,11 +95,15 @@ HTML;
 
                 $title_display = $title;
                 if ( $title_display == $url ) {
-                    $title_display = substr($title_display, 0, 70) . "  ...";
+                	if ( strlen($title_display) > 70 ) {
+                        $title_display = substr($title_display, 0, 70) . "  ...";
+                	}
                 }
                 else if ( $title == "" ) {
                 	$title_display = $url;
-                    $title_display = substr($title_display, 0, 70) . "  ...";
+                	if ( strlen($title_display) > 70 ) {
+                        $title_display = substr($title_display, 0, 70) . "  ...";
+                	}
                 }
                 
                 //<b><a href="/chat/chat_window.php?url={$url_encoded}&title={$title_encoded}&iframe=yes" target="_blank">{$title}</a></b>
