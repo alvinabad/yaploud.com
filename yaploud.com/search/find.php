@@ -37,7 +37,7 @@
     else {
         $r1 = $offset+1;
         $r2 = $next;
-        if ($r2 == 0) $r2=$r1;
+        if ($r2 == 0) $r2=$total_url;
     }
     print <<<HTML
     <p>
