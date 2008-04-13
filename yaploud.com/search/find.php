@@ -31,13 +31,17 @@
   </div>
   <div>
   <?php
-    $r1 = $offset+1;
-    if ($r1 == 1) $r1 = 0;
-    $r2 = $next;
-    if ($r2 == 0) $r2=$r1;
+    if ($total_url == 0) {
+    	$r1 = $r2 = 0;
+    }
+    else {
+        $r1 = $offset+1;
+        $r2 = $next;
+        if ($r2 == 0) $r2=$r1;
+    }
     print <<<HTML
     <p>
-    <strong>Results {$r1} - {$r2} of about {$total_url} for: <i>{$query_str}</i>
+    <strong>Results {$r1} - {$r2} of about {$total_url} for: "<span class="yapsent">{$query_str}</span>"
     </strong>
 HTML;
   ?>
@@ -50,41 +54,33 @@ $next_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
             "&offset=$next" . "&limit=$limit";
 
 //--- Start pagination
-print <<<HTML
-  <div style="text-align: center;">
-  <a href="{$previous_url}">Previous &lt</a> 
+if ($total_url != 0) {
+    print <<<HTML
+    <div style="text-align: center;">
+    <a href="{$previous_url}">Previous &lt</a> 
 HTML;
 
-for($x=0; $x<$num_pagelinks; $x++) {
-    $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
-                        "&offset=$jump" . "&" . "limit=$limit";
+    for($x=0; $x<$num_pagelinks; $x++) {
+        $jump = $x + $offset;
+        $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
+                    "&offset=$jump" . "&" . "limit=$limit";
             
-            $jump++;
-            if ($jump>$total_url)
-                break;
+        $jump++;
+        if ($jump>$total_url)
+            break;
                 
-            print <<<HTML
-              <a href="{$jump_url}">{$jump} </a>
-HTML;
-        }
-        
-        print <<<HTML
-         <a href="{$next_url}">&gt; Next</a>
-        </div>
-HTML;
-       //--- End pagination
-
-
-    /*
-    while($row = mysql_fetch_assoc($search_result)) { 
-    	print <<<HTML
-    	<br>
-    	{$row['topic_url']}
+         print <<<HTML
+            <a href="{$jump_url}">{$jump} </a>
 HTML;
     }
-    */
-    
+        
+    print <<<HTML
+       <a href="{$next_url}">&gt; Next</a>
+      </div>
+HTML;
+}
+//--- End pagination
+
     if ($search_result) {
         $cr = new ChatRoom();
         $rt = new Rating();
@@ -170,7 +166,7 @@ HTML;
                 <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
-            <span class="tags">... <i>{$row['msg']} </i> </span> <span class="yapper"> - {$row['submitter']}</span>
+            <span class="yapsent">"... {$row['msg']}" </span> <span class="yapper"> - {$row['submitter']}</span>
             <p>
 HTML;
             /*****
@@ -202,34 +198,35 @@ HTML;
                 <br/>
 HTML;
             }
-        //--- Start pagination
-print <<<HTML
-  <div style="text-align: center;">
-  <a href="{$previous_url}">Previous &lt</a> 
+            
+//--- Start pagination
+if ($total_url != 0) {
+    print <<<HTML
+        <div style="text-align: center;">
+        <a href="{$previous_url}">Previous &lt</a> 
 HTML;
 
-for($x=0; $x<$num_pagelinks; $x++) {
-    $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
-                        "&offset=$jump" . "&" . "limit=$limit";
+    for($x=0; $x<$num_pagelinks; $x++) {
+        $jump = $x + $offset;
+        $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
+                   "&offset=$jump" . "&" . "limit=$limit";
             
-            $jump++;
-            if ($jump>$total_url)
-                break;
+        $jump++;
+        if ($jump>$total_url)
+            break;
                 
-            print <<<HTML
-              <a href="{$jump_url}">{$jump} </a>
-HTML;
-        }
-        
         print <<<HTML
-         <a href="{$next_url}">&gt; Next</a>
+          <a href="{$jump_url}">{$jump} </a>
+HTML;
+    }
+        
+    print <<<HTML
+        <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
-            //--- End pagination
-
-        }
-    
+    }
+}    
+//--- End pagination
 ?>
 
 

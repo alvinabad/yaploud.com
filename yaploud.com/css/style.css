@@ -106,9 +106,16 @@ img {
 	color: brown;
 }
 
+#content .yapsent {
+    font-size: 16px;
+    color: brown;
+	font-style: italic;
+}
+
 #content .yapper {
-	font-size: 16px;
+	font-size: 15px;
 	color: black;
+    font-family: arial, courier-new;
 }
 /********** CSS for Footer *************/
 #footer {
