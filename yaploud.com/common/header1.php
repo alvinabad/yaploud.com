@@ -5,9 +5,9 @@
 
 <script type="text/javascript">
 function isSearchValid() {
-    var txt = document.search_form.q.value;
+    var txt = document.search_form.query.value;
     txt = txt.replace(/^\s\s*/, '').replace(/\s\s*$/, '');  
-    document.search_form.q.value = txt;
+    document.search_form.query.value = txt;
             
     if (txt == "" ) {
         return false;
@@ -56,9 +56,9 @@ HTML;
         ?>
                 
         
-            <form name="search_form" method="get" action="/search.php" onsubmit="return isSearchValid();">
+            <form name="search_form" method="get" action="/search/find.php" onsubmit="return isSearchValid();">
                 <span style="margin-top:5px; margin-left: 0px;">Search:</span>
-                <input name="q" id="search_box" type="text" class="Text2_b"
+                <input name="query" id="search_box" type="text" class="Text2_b"
                        size="16"></input>
                 <a href="javascript: submitSearch();">
                   <img src="/images/go.gif" /></a>
