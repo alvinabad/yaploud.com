@@ -46,7 +46,7 @@ function getChatUrlInfo($url) {
 
 
 // default values
-$num_pagelinks = 5;
+$num_pagelinks = 10;
 $offset = 0;
 $limit = $num_pagelinks;
 $db = new DB();
