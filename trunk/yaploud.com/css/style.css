@@ -4,7 +4,7 @@ body {
 	font-family: georgia, times, "times new roman", serif;
 	color: #000;
 	background:#FFFFFF url(../images/page-back.gif) repeat-x scroll 0%;
-	font-size: 18px;
+	font-size: 16px;
 }
 #container {
 	width: 90%;
@@ -16,10 +16,12 @@ body {
 }
 a {
 	color: #4284B0;
+	background-color: inherit;
 	text-decoration: none;
 }
 a:hover {
 	color: #9EC068;
+	background-color: inherit;
 }
 
 /********** CSS for Header (Logo etc) *************/
@@ -88,35 +90,69 @@ img {
 	margin:0 auto;
     background:#E6E6E6;
 	color:#000;
-	background:#FFFFFF url(../images/sidebar.png) repeat-x scroll 0%;
-	font-size: 18px;
+	font-size: 12px;
 }
 #content .odd {
-    background:#FFFFFF url(../images/gradient_yellow.gif);
+	background:#FFFFFF url(../images/gradient_yellow.gif) repeat-x scroll 0%;
 }
 #content .even {
-    background:#FFFFFF url(../images/gradient_blue.gif) repeat-x scroll 0%;
+	background:#FFFFFF url(../images/gradient_blue.gif) repeat-x scroll 0%;
 }
 #content .yap_url .yap_links {
-	font-size: 18px;
-}
-
-#content .tags {
 	font-size: 16px;
-	color: brown;
+}
+#content .link {
+	font-size: 20px;
+}
+#content .description {
+	font-size: 16px;
 }
 
-#content .yapsent {
-    font-size: 16px;
-    color: brown;
-	font-style: italic;
+.tags {
+	min-height: 1.6em;
+	list-style-type: none;
+	margin-right:2.5em;
+	overflow:visible;
+	position:relative;
+	text-align:right;
+}
+.tagLabel {
+	padding-top:0.1em;
+	position:absolute;
+	text-align:left;
+	width:2.6em;
+}
+.tags ul {
+	background:#EEEEEE none repeat scroll 0% 50%;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0pt;
+	padding:0pt;
+	position:relative;
+}
+.tags ul li {
+	border-bottom:medium none;
+	border-left:2px solid #FFFFFF;
+	display:inline;
+	margin:0pt;
+	padding:0pt 0.3em;
+	margin-left:.2em;
 }
 
-#content .yapper {
-	font-size: 15px;
-	color: black;
-    font-family: arial, courier-new;
+#tour {
+	width: 250px;
+	height: 110px;
+	background:#FFFFFF url(../images/gradient_gray.gif) repeat-x scroll 0%;
 }
+#tour .tour_odd {
+	height: 50px;
+	background:#FFFFFF url(../images/gradient_yellow.gif) repeat-x scroll 0%;
+}
+#tour .tour_even {
+	background:#FFFFFF url(../images/gradient_blue.gif) repeat-x scroll 0%;
+}
+
 /********** CSS for Footer *************/
 #footer {
 	clear: both;
@@ -140,24 +176,3 @@ img {
 #rightnav p { margin: 0 0 1em 0; }
 #content h2 { margin: 0 0 .5em 0; }
 
-#sort_tabs {
-    text-align: center;
-	margin:0px;
-	padding:0px;
-}
-
-#sort_tabs #most_yaps {
-    color: black;
-    text-decoration: underline;
-}
-
-#sort_tabs #most_recentyaps {
-    color: black;
-    text-decoration: underline;
-}
-
-#sort_tabs #most_numberyaps {
-    color: black;
-    text-decoration: underline;
-    
-}
