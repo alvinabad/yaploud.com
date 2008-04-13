@@ -40,8 +40,8 @@ function openChatWindow(site_url, title) {
     title = encodeURIComponent_recursive(title);
     var url = "/chat/chat_window.php?url=" + site_url + "&title=" + title;
     
-    var features = "width=320, height=320, status=yes, " +
-                   "menubar=no, toolbar=no, status=no, " +
+    var features = "width=330, height=340, status=yes, " +
+                   "scrollbars=1, menubar=no, toolbar=no, status=no, " +
                    "location=no, resizable=yes, left=100, top=100";
     window.open(url, "", features);
 }
