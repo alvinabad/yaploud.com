@@ -105,6 +105,11 @@ img {
 	font-size: 16px;
 	color: brown;
 }
+
+#content .yapper {
+	font-size: 16px;
+	color: black;
+}
 /********** CSS for Footer *************/
 #footer {
 	clear: both;

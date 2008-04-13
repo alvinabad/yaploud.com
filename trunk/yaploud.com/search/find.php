@@ -106,6 +106,7 @@ HTML;
             $url = $u->stripslashes($url);
             $url = $u->decode($url);
             $url = normalize_url($url);
+            
             $comments = $cu->getNumComments($url);
                 
             $info = getChatUrlInfo($url);
@@ -169,7 +170,7 @@ HTML;
                 <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
-            <span class="tags">... <i>{$row['msg']}</i></span>
+            <span class="tags">... <i>{$row['msg']} </i> </span> <span class="yapper"> - {$row['submitter']}</span>
             <p>
 HTML;
             /*****
