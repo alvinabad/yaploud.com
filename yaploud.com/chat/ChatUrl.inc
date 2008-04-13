@@ -99,11 +99,11 @@ class ChatUrl{
 		$query_str = addslashes($query_str);
 			
 		if ($limit == 0 && $offset == 0) {
-			$sql = "SELECT  topic_url, msg FROM dev.chat WHERE MATCH (msg) " .
+			$sql = "SELECT * FROM dev.chat WHERE MATCH (msg) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE)";
 		}
 		else {
-			$sql = "SELECT  topic_url, msg FROM dev.chat WHERE MATCH (msg) " .
+			$sql = "SELECT * FROM dev.chat WHERE MATCH (msg) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE) limit $offset, $limit";
 		}
 
