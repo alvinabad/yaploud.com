@@ -128,8 +128,8 @@ HTML;
             onmouseover="StarRating.show('5starRating');" />
      </map>
      </span><span id="votes">0 votes</span>
-    </div>
-  </div>
+    </div> <!-- footer -->
+  </div> <!-- bd0 -->
 </div>
 
 <?php
