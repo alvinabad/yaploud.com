@@ -10,6 +10,15 @@
    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
    <title> Yaploud Search </title>
    <link rel="stylesheet" type="text/css" href=css/chat.css />
+   
+   <link rel="stylesheet" type="text/css" href="/js/yui/build/container/assets/skins/sam/container.css" />
+   <script type="text/javascript" src="/js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+   <script type="text/javascript" src="/js/yui/build/dragdrop/dragdrop-min.js"></script>
+   <script type="text/javascript" src="/js/yui/build/container/container-min.js"></script>
+
+   <script type=text/javascript src=js/util.js></script>
+   <script type=text/javascript src=js/chat.js></script>
+   
    </head>
    <body>
    <script type="text/javascript"><!--
@@ -23,8 +32,6 @@
 
 
 
-   <script type=text/javascript src=js/util.js></script>
-   <script type=text/javascript src=js/chat.js></script>
 <?
    include 'common/header.php';
    $qt = $_GET['q'];

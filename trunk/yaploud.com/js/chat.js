@@ -206,10 +206,11 @@
 	       	  el.innerHTML += "<p><span class=s_result><span style=\"color:orange;font-size:18px;\">" +
 	       	                  res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + 
 	       	                  "<br/>" +
-	       	                  '<a href=\'javascript: openChatWindow(' +
+	       	                  '<a href="http://' + res.url + '" target="_blank" onclick=\'' +
+	       	                  'openChatWindow(' +
 	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\", ' +
-	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\"); void 0;\'' + '>' + 
-	       	                  res.url + 
+	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\"); \'' + '>' + 
+	       	                  'http://' + res.url + 
 	       	                  '</a></span></span><br/>';
 	       }
 
