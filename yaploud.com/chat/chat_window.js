@@ -826,7 +826,46 @@ function quit() {
 YAHOO.util.Event.onDOMReady(init);
 //YAHOO.util.Event.addListener(body, "onunload", quit); 
 
-    
+/**
+var yui_alert = {
+	dlg: null,
+
+    alert:function(str) {
+        yui_alert.dlg.setBody(str);
+        yui_alert.dlg.cfg.queueProperty('icon', YAHOO.widget.SimpleDialog.ICON_WARN);
+        yui_alert.dlg.cfg.queueProperty('zIndex', 9999);
+        yui_alert.dlg.render(document.body);
+        if (yui_alert.dlg.bringToTop) {
+            yui_alert.dlg.bringToTop();
+        }
+        dlg.show();
+    },
+
+    init:function() {
+        var handleOK = function() {
+            this.hide();
+        };
+
+        yui_alert.dlg = new YAHOO.widget.SimpleDialog('widget_alert', {
+            visible:false,
+            width: '20em',
+            zIndex: 9999,
+            close: false,
+            fixedcenter: true,
+            modal: false,
+            draggable: true,
+            constraintoviewport: true, 
+            icon: YAHOO.widget.SimpleDialog.ICON_WARN,
+            buttons: [
+                { text: 'OK', handler: handleOK, isDefault: true }
+                ]
+        });
+        yui_alert.dlg.setHeader("Alert!");
+        yui_alert.dlg.setBody('Alert body passed to window.alert'); // Bug in panel, must have a body when rendered
+        yui_alert.dlg.render(document.body);
+    }
+};
+**/    
     
     
     
