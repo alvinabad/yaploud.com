@@ -34,7 +34,7 @@ function submitSearch() {
 
 <!-- Top nav -->
 <div style="margin-bottom:5px;margin-top:10px; width:700px;">
-	<a href="http://www.yaploud.com"><img style="float:left;" alt="yaploud logo" width="163" height="90" border="0" src="images/logo.gif"></img></a>
+	<a href="/home.php"><img style="float:left;" alt="yaploud logo" width="163" height="90" border="0" src="images/logo.gif"></img></a>
 	<img style="float:left;" width="43" height="90" src="images/home_02.gif"></img>
 	<img style="float:left;" width=220 height=90 src="images/home_03.gif"></img>
 	<div style="float:left; padding-right:10px; height:90px; background-image: url(images/home_03.gif);">
