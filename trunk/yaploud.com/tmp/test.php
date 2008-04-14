@@ -26,4 +26,10 @@ print $url;
 print "<hr>";
 print $u->stripslashes($url);
 
+print "<hr>";
+
+print "2008-03-20 20:13:28";
+print "<br>";
+print strftime("%a %b %d %I:%M%p %Z %G ", "2008-03-20 20:13:28");
+
 ?>
