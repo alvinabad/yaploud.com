@@ -11,10 +11,10 @@
     <strong>Bookmarklet:</strong>
     <br>
     <div>
-    <a href="javascript: newurl = window.location.href.replace(/^http:\/\//, 
-               'http://www.yaploud.com/chat/chat_window.php?url=http://');
+    <a href="javascript: newurl = window.location.href.replace(/^http:\/\//,'http://www.yaploud.com/chat/chat_window.php?url=http://');
                newurl = newurl + '&title=' + window.document.title;
-             window.open(newurl, '', 'width=340, height=340, status=yes, 
+               if (location.hostname.indexOf('yaploud') == -1)
+               window.open(newurl, '', 'width=340, height=340, status=yes, 
                          scrollbars=1, menubar=no, toolbar=no, location=no, 
                          resizable=yes, left=100, top=100'); void 0;">
     <img src=/images/logo.gif alt="YapLoud" width="20" height="20" border="0"></a>
