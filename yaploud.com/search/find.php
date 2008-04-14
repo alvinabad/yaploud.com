@@ -162,28 +162,17 @@ HTML;
             $url_encoded = $u->encode($url);
             $title_encoded = $u->encode($title);
                 
+            $time_submitted = strtotime($row['creation_date']);
+            $time_submitted = strftime("%a %b %d %I:%M %p %Z %G ", $time_submitted);
             print <<<HTML
                 <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
-            <span class="yapsent">"... {$row['msg']}" </span> <span class="yapper"> - {$row['submitter']}</span>
+            <span class="yapsent">"... {$row['msg']}" </span>
+            <span class="yapper"> -- {$row['submitter']}</span>,
+            <span class="time_submitted"> {$time_submitted}</span>
             <p>
 HTML;
-            /*****
-            $description = strip_tags($description);
-            $description = trim($description);
-            if ($description == "") {
-                $url_shortened = substr($url, 0, 60);
-                //TODO: link goes here
-            }
-            else {
-                print <<<HTML
-                    {$description}
-HTML;
-            }
-            *****/
-            
-                        //<img src="images/page.gif" />Share Yaplet |
                 print <<<HTML
                     </p>
                     <div class="yap_links">

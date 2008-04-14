@@ -113,10 +113,17 @@ img {
 }
 
 #content .yapper {
-	font-size: 15px;
+	font-size: 16px;
 	color: black;
     font-family: arial, courier-new;
 }
+
+#content .time_submitted {
+	font-size: 12px;
+	color: black;
+    font-family: arial, courier-new;
+}
+
 /********** CSS for Footer *************/
 #footer {
 	clear: both;
