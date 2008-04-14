@@ -46,6 +46,10 @@ function getChatUrlInfo($url) {
 
 
 // default values
+$msg_selected = "";
+$url_selected = "";
+$searchby = "";
+
 $num_pagelinks = 10;
 $offset = 0;
 $limit = $num_pagelinks;
@@ -55,7 +59,7 @@ $previous = $offset;
 $next = $offset + $limit;
 $cu = new ChatUrl();
 
-$query_str = "test real";
+$query_str = "";
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'  && isset($_REQUEST['query'])) {
     if (isset($_REQUEST['offset'])) {
@@ -76,14 +80,28 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  && isset($_REQUEST['query'])) {
     $query_str = $_REQUEST['query'];
     $query_str = trim($query_str);
     
-    $total_url = $cu->getCountFindMsg($query_str);
+    if (isset($_REQUEST['searchby'])) {
+        $searchby = $_REQUEST['searchby'];
+        $searchby = trim($searchby);
+    }
+    
+    if ($searchby == "url") {
+        $total_url = $cu->getCountFindUrl($query_str);
+        $search_result = $cu->findUrl($query_str, $offset, $limit);
+        $look_ahead = $cu->findUrl($query_str, $offset+$limit, $limit);
+    	$url_selected = "SELECTED";
+    }
+    else {
+        $total_url = $cu->getCountFindMsg($query_str);
+        $search_result = $cu->findMsg($query_str, $offset, $limit);
+        $look_ahead = $cu->findMsg($query_str, $offset+$limit, $limit);
+        $msg_selected = "SELECTED";
+    }
+    
     if ($next>$total_url) {
         $next = $offset;
     }
     
-    $search_result = $cu->findMsg($query_str, $offset, $limit);
-    
-    $look_ahead = $cu->findMsg($query_str, $offset+$limit, $limit);
     $i = 0;
     while($row = mysql_fetch_assoc($look_ahead)) {
     	$i++;
@@ -100,9 +118,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  && isset($_REQUEST['query'])) {
     	$next = $offset;
     	$previous = $offset - $limit;
     }
-}
-else {
-    $search_result = $cu->findMsg($query_str, $offset, $limit);
 }
 
 ?>
