@@ -14,6 +14,9 @@
     
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/js/home.js" ></script>
+  <script type="text/javascript">
+    YAHOO.util.Event.onDOMReady(function() {document.getElementById('query').focus();});
+  </script>
 </head>
 
 <body class="yui-skin-sam">
@@ -22,15 +25,20 @@
 <?php include("rightNav.php"); ?>
 
 <div id="content">
-
   <div>
-    <form action="/search/find.php">
-      <input type="text" size="50" name="query" value="<?php print $query_str; ?>" >
+    <form name="search_form_main" action="/search/find.php">
+      <select name="searchby">  
+        <option value="msg" <?php print $msg_selected; ?> >Messages  
+        <option value="url" <?php print $url_selected; ?> >Title or Url  
+      </select>
+      <input id="query" type="text" size="50" name="query" value="<?php print $query_str; ?>" >
       <input type="submit" value="Search">
     </form>
   </div>
   <div>
-  <?php
+<?php
+  if ($query_str != "") {
+    
     if ($total_url == 0) {
     	$r1 = $r2 = 0;
     }
@@ -48,9 +56,11 @@ HTML;
   </div>
 <?php
 $previous_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
+                "&searchby=$searchby" .
                 "&offset=$previous" . "&limit=$limit";
 
 $next_url = $_SERVER['PHP_SELF'] . "?query=$query_str" . 
+            "&searchby=$searchby" .
             "&offset=$next" . "&limit=$limit";
 
 //--- Start pagination
@@ -63,6 +73,7 @@ HTML;
     for($x=0; $x<$num_pagelinks; $x++) {
         $jump = $x + $offset;
         $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
+                    "&searchby=$searchby" .
                     "&offset=$jump" . "&" . "limit=$limit";
             
         $jump++;
@@ -98,7 +109,12 @@ HTML;
             $rating = 3;
             $image_rating = "/images/ratings/stars-0-0.gif";
        
-            $url = $row['topic_url'];
+            if ($url_selected) {                $url = $row['url'];
+            }
+            else {
+                $url = $row['topic_url'];
+            }
+            
             $url = $u->stripslashes($url);
             $url = $u->decode($url);
             $url = normalize_url($url);
@@ -168,12 +184,17 @@ HTML;
                 <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
+HTML;
+            if ($msg_selected) {
+            print <<<HTML
             <span class="yapsent">"... {$row['msg']}" </span>
-            <span class="yapper"> -- {$row['submitter']}</span>,
+            <span class="yapper"> - {$row['submitter']}</span>,
             <span class="time_submitted"> {$time_submitted}</span>
             <p>
 HTML;
-                print <<<HTML
+        }
+        
+            print <<<HTML
                     </p>
                     <div class="yap_links">
                         <img src="/images/comment.gif" />{$yappers}  {$yappers_str} |
@@ -198,6 +219,7 @@ HTML;
     for($x=0; $x<$num_pagelinks; $x++) {
         $jump = $x + $offset;
         $jump_url = $_SERVER['PHP_SELF'] . "?query=$query_str" .
+                    "&searchby=$searchby" .
                    "&offset=$jump" . "&" . "limit=$limit";
             
         $jump++;
@@ -216,6 +238,7 @@ HTML;
     }
 }    
 //--- End pagination
+  } // if $query_str
 ?>
 
 

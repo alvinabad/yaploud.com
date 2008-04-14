@@ -111,7 +111,45 @@ class ChatUrl{
 		return $result;
 	}
 
-	function getCountFindMsg($query_str) {
+    function findUrl($query_str, $offset, $limit) {
+        $query_str = trim($query_str);
+        $query_str = addslashes($query_str);
+            
+        if ($limit == 0 && $offset == 0) {
+            $sql = "SELECT * FROM dev.chat_url WHERE " .
+                   "url LIKE '%$query_str%' " .
+                   "OR MATCH (title) " .
+                   "AGAINST ('$query_str' IN BOOLEAN MODE)";
+            ;
+        }
+        else {
+            $sql = "SELECT * FROM dev.chat_url WHERE " .
+                   "url LIKE '%$query_str%' " .
+                   "OR MATCH (title) " .
+                   "AGAINST ('$query_str' IN BOOLEAN MODE) " .
+                   "LIMIT $offset, $limit";
+        }
+
+        $result = $this->db->mysql_query($sql);
+        return $result;
+    }
+	
+    function getCountFindUrl($query_str) {
+        $sql = "SELECT count(*) as count from ". 
+               "(SELECT url FROM dev.chat_url WHERE " .
+               "url LIKE '%$query_str%' " .
+               "OR MATCH (title) " .
+               "AGAINST ('$query_str' IN BOOLEAN MODE)) d";
+
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        
+        return $count;
+    }
+    
+    function getCountFindMsg($query_str) {
 		$sql = "SELECT count(*) as count from ". 
                "(SELECT  topic_url FROM dev.chat WHERE MATCH (msg) " .
                         "AGAINST ('$query_str' IN BOOLEAN MODE)) d";

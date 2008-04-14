@@ -21,6 +21,9 @@ function submitSearch() {
     if (isSearchValid()) {
         document.search_form.submit();
     }
+    else {
+        window.location = "/search/find.php";
+    }
 }
 </script>
 
