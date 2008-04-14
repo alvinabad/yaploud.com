@@ -1,0 +1,38 @@
+<slideshow>
+    <control bar_visible='on' height="25" />
+ 	<slide purge='true'>
+		<image url='tour/screen1.JPG' duration='10' background='94cede' />
+	</slide>
+ 	<slide purge='true'>
+		<image url='tour/screen0.JPG' duration='10' background='94cede' />
+        <!--
+		<draw_rect>
+			<rect x='45' y='245' width='235' height='240' fill_color='000000' fill_alpha='80' line_alpha='0' />
+			<rect x='385' y='245' width='235' height='240' fill_color='000000' fill_alpha='80' line_alpha='0' />
+		</draw_rect>
+        -->
+		<link>
+			<area x='45' y='245' width='235' height='240' slide='2' />
+			<area x='385' y='245' width='235' height='240' slide='4' />
+		</link>
+	</slide>
+    
+    <!-- Slides for End Users -->
+	<slide>
+		<image url='tour/users1.JPG' duration='10' background='94cede' />
+	</slide>
+	<slide>
+		<image url='tour/users2.JPG' duration='10' background='94cede' />
+	</slide>
+    
+
+    <!-- Slides for Website Owners -->
+	<slide>
+		<image url='tour/owners1.JPG' duration='10' background='94cede' />
+        <navigation backward='1'/>
+	</slide>
+	<slide>
+		<image url='tour/owners2.JPG' duration='10' background='94cede' />
+	</slide>
+
+</slideshow>
