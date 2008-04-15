@@ -47,10 +47,10 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                             height="540"
                             id="slideshow"
                             align="">
-                        <param name=movie value="/tour/ext-libs/slideshow.swf?xml_source=/tour/tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK">
+                        <param name=movie value="ext-libs/slideshow.swf?xml_source=tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK">
                         <param name=quality value=high>
 
-                        <embed src="/tour/ext-libs/slideshow.swf?xml_source=/tour/tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK"
+                        <embed src="ext-libs/slideshow.swf?xml_source=tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK"
                                 quality="high"
                                 width="700"
                                 height="540"
