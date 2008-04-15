@@ -4,8 +4,8 @@
     <head>
         <title>Welcome to YapLoud</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <script type="text/javascript" src="css/niftycube.js" ></script>
+        <link type="text/css" rel="stylesheet" href="/css/style.css" />
+        <script type="text/javascript" src="/css/niftycube.js" ></script>
         <script type="text/javascript">
             window.onload=function() {
                 //alert("test");
@@ -19,7 +19,7 @@
         <div id="container">
 			<?php
     			// Logo - Header
-				include("common/header1.php");
+				include("/common/header1.php");
 			?>
 
             <!--
@@ -43,7 +43,7 @@
                             height="540"
                             id="slideshow"
                             align="">
-                        <param name=movie value="ext-libs/slideshow.swf?xml_source=tour/tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK">
+                        <param name=movie value="ext-libs/slideshow.swf?xml_source=/tour/tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK">
                         <param name=quality value=high>
 
                         <embed src="ext-libs/slideshow.swf?xml_source=tour/tours.xml&license=GUBS-15J1D6YCSNLRTO9DN6IKN49JK"
@@ -61,7 +61,7 @@
 
             <?php
                 // Footer page
-                include("common/footer1.php");
+                include("/common/footer1.php");
             ?>
         </div>
     </body>
