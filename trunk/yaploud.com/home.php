@@ -38,6 +38,8 @@
 </div> <!-- container -->
 
 </body>
+<?php include("js/google_analytics.js"); ?>
+
 </html>
 
 <?php
