@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <?php
+    $t0 = microtime(true);
     require("./find_c.inc");
 ?>
 
@@ -243,6 +244,13 @@ HTML;
 
 
 </div> <!-- content -->
+
+<div style="text-align: left">
+<?php
+    $t1 = microtime(true);
+    printf("%.3fs", ($t1 - $t0));
+?>
+</div>
 
 <?php include("common/footer1.php"); ?>
 </div> <!-- container -->
