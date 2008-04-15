@@ -23,7 +23,7 @@
         <div id="container">
 			<?php
     			// Logo - Header
-				include("header.php");
+				include("common/header1.php");
 			?>
             
             <!--
@@ -174,7 +174,7 @@
             
             <?php
                 // Footer page
-                include("footer.php"); 
+                include("common/footer1.php"); 
             ?>
         </div>
     </body>
