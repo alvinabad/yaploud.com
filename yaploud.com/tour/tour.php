@@ -1,3 +1,7 @@
+<?php
+set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
@@ -19,7 +23,7 @@
         <div id="container">
 			<?php
     			// Logo - Header
-				include("/common/header1.php");
+				include("common/header1.php");
 			?>
 
             <!--
@@ -61,7 +65,7 @@
 
             <?php
                 // Footer page
-                include("/common/footer1.php");
+                include("common/footer1.php");
             ?>
         </div>
     </body>
