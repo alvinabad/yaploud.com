@@ -37,9 +37,8 @@
 <?php include("common/footer1.php"); ?>
 </div> <!-- container -->
 
-</body>
 <?php include("js/google_analytics.js"); ?>
-
+</body>
 </html>
 
 <?php
