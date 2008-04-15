@@ -27,13 +27,11 @@
 </div> <!-- content -->
 
 
+<div style="text-align: left">
 <?php
     $t1 = microtime(true);
-    $diff = sprintf("%.3fs", ($t1 - $t0));
+    printf("%.3fs", ($t1 - $t0));
 ?>
-
-<div style="text-align: left">
-  <?php print $diff;  ?>
 </div>
 
 <?php include("common/footer1.php"); ?>
