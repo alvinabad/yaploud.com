@@ -1,0 +1,6 @@
+AddHandler fastcgi-script fcg fcgi fpl
+AddHandler php5-fastcgi .php
+#Action php5-fastcgi /php5-wrapper.fcgi
+Action php5-fastcgi /dispatch.fcgi
+Options +ExecCGI
+
