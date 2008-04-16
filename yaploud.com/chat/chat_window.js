@@ -128,21 +128,13 @@ function openExternalWindow(url) {
 		return;
 	}
 	
-    var features = "width=900, height=640, status=1, + " +
+    var features = "width=950, height=640, status=1, + " +
     		       "menubar=1, toolbar=1, location=1, resizable=1, " +
     		       "directories=1, scrollbars=1";
     window.open(url, "", features);
 }
 
-function openChatWindow_deprecated(site_url, title) {
-    var url = "/chat/chat_window.php?url=" + site_url +
-             "&title=" + title;
-    var features = "width=320, height=320, status=yes, " +
-                   "menubar=no, toolbar=no, status=no, " +
-                   "location=no, resizable=yes, left=100, top=100";
-    window.open(url, "", features);
-}
-
+//TODO: Deprecate
 function generateContent_deprecated() {
 	var url = site_url;
 	url = appendHttp2Url(url);
