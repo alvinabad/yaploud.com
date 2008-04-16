@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $message = "Hi $first_name $last_name, \n\n" . 
               "Thank you for signing up. Your account is ready for login. ".
               "Your username is $username. Please follow the link below to login.\n\n" .
-              "http://" . $_SERVER['HTTP_HOST'] . "/login_page.php" .
+              "http://" . $_SERVER['HTTP_HOST'] . "/user/login.php" .
             
               "\n\n" .
               "Thanks, \n" .
@@ -74,13 +74,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               mail($email, "YapLoud Registration", $message, "From: $emailfrom\n");
               
               $message = "Registration successful! Welcome $username!";
-              $redirect = '/login_page.php';
+              $redirect = '/user/login.php';
               header("Location: $redirect");
         }
         else {
             $status = false;
 	        $message = "Registration has failed! ". 
-	        	    "Username or email is already taken. <br>" . 
+	        	    "Username or email is already taken. " . 
 	        	    "Please try again.";
         }
     }

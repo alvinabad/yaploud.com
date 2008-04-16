@@ -18,7 +18,18 @@
                          scrollbars=1, menubar=no, toolbar=no, location=no, 
                          resizable=yes, left=100, top=100'); void 0;">
     <img src=/images/logo.gif alt="YapLoud" width="20" height="20" border="1"></a>
-    Drag this image to your toolbar. Click on this toolbar icon to chat about the site you are currently viewing.
+    <ol style="padding-left:10px;">
+    <li style="margin:0; padding:0;">
+    Firefox and Safari: 
+    <br>
+    Drag the above image to your toolbar.
+    </li>
+    <li>
+    IE:
+    <br>
+    Right-click on it and add it to your Favorites.
+    </li>
+    </ol>
     </div>
     <!-- 
     <hr>

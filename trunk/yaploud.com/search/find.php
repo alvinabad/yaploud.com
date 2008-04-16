@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <?php
-    $t0 = microtime(true);
+    //$t0 = microtime(true);
     require("./find_c.inc");
 ?>
 
@@ -11,7 +11,7 @@
   <title>Welcome to YapLoud</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
-  <?php require("chat/yui.php"); ?>
+  <?php require("common/yui.php"); ?>
     
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/js/home.js" ></script>
@@ -247,8 +247,8 @@ HTML;
 
 <div style="text-align: left">
 <?php
-    $t1 = microtime(true);
-    printf("%.3fs", ($t1 - $t0));
+    //$t1 = microtime(true);
+    //printf("%.3fs", ($t1 - $t0));
 ?>
 </div>
 

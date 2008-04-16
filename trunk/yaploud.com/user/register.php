@@ -1,5 +1,6 @@
-<?php
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
+<?php
 include("./register_c.inc");
 
 /*
@@ -12,96 +13,137 @@ include("./register_c.inc");
  * Created on Nov 18, 2007
  * Author: alvinabad@alumni.cmu.edu
  */
-
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.yaploud.com/TR/html4/loose.dtd">
 
 <html>
 <head>
-<title>Yaploud - Sign Up</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link href="/css/chat.css" rel="stylesheet" type="text/css">
-<link href="/style.css" rel="stylesheet" type="text/css">
-<link href="/images/style_Yaploud.css" rel="stylesheet" type="text/css">
-
-<script type="text/javascript" src="/user/Register.js" ></script>
-
+  <title>YapLoud - Sign Up</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link type="text/css" rel="stylesheet" href="/css/style.css" />
+  <?php require("common/yui.php"); ?>
+  <script type="text/javascript">
+    YAHOO.util.Event.onDOMReady(function() {document.getElementById('username').focus();});
+  </script>
+    
+  <script type="text/javascript" src="/css/niftycube.js" ></script>
+  <script type="text/javascript" src="/user/Register.js" ></script>
 </head>
 
-<body onLoad="Register.focus('username')">
+<body class="yui-skin-sam">
+<div id="container">
+<?php include("common/header1.php"); ?>
+<?php include("rightNav.php"); ?>
 
-<?php include("common/header2.php"); ?>
+<div id="content">
 
-<div style="float:left;width:600px;">
-  <div class=yap_title>Register at YapLoud</div>
-  <p>
+  <div style="width: 600px; overflow: hidden;">
+  <div id="greeting">
+  <h1>Register at YapLoud</h1>
+    <h4>What is YapLoud?</h4>
+    YapLoud is the home for yapping about everything:
+    <ul style="margin-left: 0;">
+    <li style="margin-left: 0;">Chat about any topic of your interest
+    <li>Share favorite Yaps
+    <li>Connect with other yappers 
+    </ul>
 
-  <div>
-    <form action="/user/register.php" method="post" 
-          onSubmit="return Register.validate();">
-    
-    <p>
+    <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
+    <br>
+    <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">Install</a> Firefox add-on
+  </div>
+  
+  <div id="register">
     <div style="color: red;" id="error_message">
-       <?php
-           if ( isset($registration_processed) ) {
-               if ( $status ) {
-                   echo <<<HTML
-    <div>$message
+    <?php
+      if ( isset($registration_processed) ) {
+          if ( $status ) {
+              echo <<<HTML
+    $message
     <br>
     You may now <a href="/login_page.php">login</a> 
     to continue.
-    </div>
 HTML;
-               }
-               else {
-                   print "$message <br>";
-               }
-           }
-       ?>
+          }
+          else {
+              print "$message <br>";
+          }
+      }
+    ?>
     </div>
     
-    <label>Desired Username: </label>
-    <br>
-    <input type="text" id="username" name="username" value="<?php print $username; ?>"/>
-    <br>
-    <label>First Name: </label>
-    <br>
-    <input type="text" id="first_name" name="first_name" value="<?php print $first_name; ?>"/>
-    <br>
-    <label>Last Name: </label>
-    <br>
-    <input type="text" id="last_name" name="last_name" value="<?php print $last_name ?>"/>
-    <br>
-    <label>Email: </label>
-    <br>
-    <input type="text" id="email" name="email" value="<?php print $email ?>"/>
-    <br>
-    <label>Password: </label>
-    <br>
-    <input type="password" id="password" name="password" value=""/>
-    <br>
-    <label>Re-type password: </label>
-    <br>
-    <input type="password" id="password2" name="password2" value=""/>
-    <br><br>
-    <div style="vertical-align: top;"><img src="Captcha.php" /></div>
-    <label>Type in the characters shown above </label>
-    <br>
-    <input type="text" id="captcha" name="captcha" />
-    <br><br>
+    <form action="/user/register.php" method="post" 
+          onSubmit="return Register.validate();">
+          
+    <table style="text-align: left;">
+    <tr>
+      <td>
+        Username:
+        <br>
+        <input type="text" id="username" name="username" value="<?php print $username; ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      First Name:
+      <br>
+      <input type="text" id="first_name" name="first_name" value="<?php print $first_name; ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Last Name:
+      <br>
+        <input type="text" id="last_name" name="last_name" value="<?php print $last_name ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email:
+      <br>
+        <input type="text" id="email" name="email" value="<?php print $email ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Password:
+      <br>
+        <input type="password" id="password" name="password" value=""/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Re-type password:
+      <br>
+        <input type="password" id="password2" name="password2" value=""/>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img style="vertical-align: bottom;" src="Captcha.php" />
+        Enter code:
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" id="captcha" name="captcha" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input style="width:100px;" type="submit" value="Sign up" ;/>
+      </td>
+    </tr>
+    </table>
     
-    <input type="submit" value="Submit" />
+    </form>
+    
+  </div>
   </div>
 
-  <?php include("common/footer.php");?>
-</div>
+</div> <!-- content -->
+
+<?php include("common/footer1.php"); ?>
+</div> <!-- container -->
 
 </body>
 </html>
-
-
-
-
-
