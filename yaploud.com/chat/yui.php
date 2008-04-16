@@ -1,5 +1,4 @@
 
-<link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
 <link rel="stylesheet" type="text/css" href="/js/yui/build/button/assets/skins/sam/button.css" />
 <link rel="stylesheet" type="text/css" href="/js/yui/build/container/assets/skins/sam/container.css">
 <link rel="stylesheet" type="text/css" href="/js/yui/build/resize/assets/skins/sam/resize.css" />
@@ -27,3 +26,7 @@
 
 <!-- Source file for TabView -->
 <script type="text/javascript" src="/js/yui/build/tabview/tabview-min.js"></script>
+
+<!-- 
+<link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
+ -->

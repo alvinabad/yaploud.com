@@ -45,7 +45,7 @@ function submitSearch() {
                 print <<<HTML
             <a href="/user/register.php"><strong>Sign Up</strong></a> |
             <a href="/help.php">Feedback</a> |
-            <a href="/login_page.php">Log In</a>
+            <a href="/user/login.php">Log In</a>
 HTML;
             }
             else {
@@ -53,7 +53,7 @@ HTML;
             <a href="/user/myaccount.php">Hi {$_SESSION['username']}</a> |
             <a href="/user/myaccount.php">My Account</a> |
             <a href="/help.php">Feedback</a> |
-            <a href="/login_page.php?logout=true">Log Out</a>
+            <a href="/user/login.php?logout=true">Log Out</a>
 HTML;
             }
         ?>

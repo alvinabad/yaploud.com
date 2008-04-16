@@ -1,4 +1,6 @@
-<?php 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<?php
 include("./myaccount_c.inc");
 
 /*
@@ -12,38 +14,41 @@ include("./myaccount_c.inc");
  * Author: alvinabad@alumni.cmu.edu
  * Revised:
  */
- 
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.yaploud.com/TR/html4/loose.dtd">
 
 <html>
 <head>
-<title>Yaploud - My Account</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link href="/css/chat.css" rel="stylesheet" type="text/css">
-<link href="/style.css" rel="stylesheet" type="text/css">
-<link href="/images/style_Yaploud.css" rel="stylesheet" type="text/css">
-
-<script type="text/javascript" src="/user/ChangePassword.js" ></script>
-<script type="text/javascript" src="/user/UpdateUserInfo.js" ></script>
-
+  <title>Yaploud - My Account</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link type="text/css" rel="stylesheet" href="/css/style.css" />
+  <?php require("common/yui.php"); ?>
+    
+  <script type="text/javascript" src="/css/niftycube.js" ></script>
+  <script type="text/javascript" src="/user/ChangePassword.js" ></script>
+  <script type="text/javascript" src="/user/UpdateUserInfo.js" ></script>
+  <script type="text/javascript">
+    function init() {
+        ChangePassword.clear();
+        document.getElementById('password').focus();
+    }
+    YAHOO.util.Event.onDOMReady(init);
+  </script>
 </head>
 
-<body onLoad="ChangePassword.focus('password'); ChangePassword.clear();">
+<body class="yui-skin-sam">
+<div id="container">
+<?php include("common/header1.php"); ?>
+<?php include("rightNav.php"); ?>
 
-<?php include("common/header2.php"); ?>
+<div id="content">
 
-<div style="float:left;width:700px;">
-  <div class=yap_title>My Account</div>
-  <p>
-
-  <div id="myaccount_change_password" style="float:left;width:350px;">
+  <div style="width: 600px; overflow: hidden;">
+  <h1>My Account</h1>
+  
+  <div id="greeting">
+    <h4>Change Password</h4>
     <form action="/user/myaccount.php" method="post" 
           onSubmit="return ChangePassword.validate();">
-    <strong>Change Password</strong>
-    <p>
     <div style="color: red;" id="error_message">
        <?php
            if ( isset($change_password_processed) && 
@@ -59,23 +64,35 @@ include("./myaccount_c.inc");
        ?>
     </div>
     
-    <label for=yourName>Password: </label>
-    <br>
-    <input type="password" id="password" name="password" />
-    <br>
-    <label>Re-type password: </label>
-    <br>
-    <input type="password" id="password2" name="password2" />
-    <br>
-    <input type="submit" name="submit_change_password" value="Change password" />
+    <table style="text-align: left;">
+    <tr>
+      <td>
+        Password:
+        <br>
+        <input type="password" id="password" name="password" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Re-type password:
+        <br>
+        <input type="password" id="password2" name="password2" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" name="submit_change_password" value="Change password" />
+      </td>
+    </tr>
+    </table>
     </form>
   </div>
 
-<div id="myaccount_updateUserInfo" style="float:left;width:350px;">
+  <div id="greeting">
+    <h4>Update User Profile</h4>
+    
     <form action="/user/myaccount.php" method="post" 
           onSubmit="return UpdateUserInfo.validate();">
-    <strong>Update User Profile</strong>
-    <p>
     <div style="color: red;" id="error_message_update_userinfo">
        <?php
            if ( isset($update_userinfo_processed) && 
@@ -91,33 +108,51 @@ include("./myaccount_c.inc");
        ?>
     </div>
     
-    <label for=yourName>Username: </label>
-    <strong><?php print $username; ?></strong>
-    <br>
-    <br>
-    <label>First Name: </label>
-    <br>
-    <input type="first_name" id="first_name" name="first_name" 
-           value="<?php print $first_name; ?>" />
-    <br>
-    <label>Last Name: </label>
-    <br>
-    <input type="last_name" id="last_name" name="last_name"
-           value="<?php print $last_name; ?>" />
-    <br>
-    <label>Email: </label>
-    <br>
-    <input type="email" id="email" name="email"
-           value="<?php print $email; ?>" />
-    <br>
-    <input type="submit" name="submit_update_userinfo" value="Update" />
+    <table style="text-align: left;">
+    <tr>
+      <td>
+        Username: <strong><?php print $username; ?></strong>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        First Name:
+        <br>
+        <input type="text" id="first_name" name="first_name" 
+               value="<?php print $first_name; ?>" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Last Name:
+        <br>
+        <input type="text" id="last_name" name="last_name"
+               value="<?php print $last_name; ?>" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email:
+        <br>
+        <input type="text" id="email" name="email"
+               value="<?php print $email; ?>" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="submit" name="submit_update_userinfo" value="Update" />
+      </td>
+    </tr>
+    </table>
+    
     </form>
   </div>
-</div>
+  </div>
 
-<p>
-<div style="clear:both;"></div>
-<?php include("common/footer.php");?>
+</div> <!-- content -->
+
+<?php include("common/footer1.php"); ?>
+</div> <!-- container -->
 
 </body>
 </html>
