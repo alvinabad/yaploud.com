@@ -10,19 +10,21 @@
     <hr>
     <strong>Bookmarklet:</strong>
     <br>
-    <div>
+    <div style="clear: both;">
     <a href="javascript: newurl = window.location.href.replace(/^http:\/\//,'http://www.yaploud.com/chat/chat_window.php?url=http://');
                newurl = newurl + '&title=' + window.document.title;
                if (location.hostname.indexOf('yaploud') == -1)
                window.open(newurl, '', 'width=340, height=340, status=yes, 
                          scrollbars=1, menubar=no, toolbar=no, location=no, 
                          resizable=yes, left=100, top=100'); void 0;">
-    <img src=/images/logo.gif alt="YapLoud" width="20" height="20" border="0"></a>
+    <img src=/images/logo.gif alt="YapLoud" width="20" height="20" border="1"></a>
     Drag this image to your toolbar. Click on this toolbar icon to chat about the site you are currently viewing.
     </div>
+    <!-- 
     <hr>
     <a href="/chat/embed_code.php">Embed a yaplet</a> 
     <br>
+     -->
     <hr>
     Can't find the site people are chatting about? 
     <br>
