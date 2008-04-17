@@ -35,7 +35,7 @@ require("./login_c.inc");
 
 <div id="content">
 
-  <div style="width: 600px; overflow: hidden;">
+  <div style="min-width: 600px; width: 90%; overflow: hidden; float: left;">
   <div id="greeting">
   <h1>Login at YapLoud</h1>
     <h4>What is YapLoud?</h4>
