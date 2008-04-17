@@ -3,7 +3,6 @@
 <script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js"></script> 
 <script type="text/javascript" src="/js/yui/build/event/event-min.js"></script> 
 
-
 <!-- 
 <link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
 <link rel="stylesheet" type="text/css" href="/js/yui/build/resize/assets/skins/sam/resize.css" />
