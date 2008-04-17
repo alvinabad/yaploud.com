@@ -8,22 +8,14 @@ require("./chat_window_c.inc");
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>YapLoud</title>
 
-<?php
-require("./yui.php");
-?>
-
 <link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
+
  <script type="text/javascript">
     var site_url = "<?php print $site_url; ?>";
     var site_title = "<?php print $site_title; ?>";
     var username = "<?php print $username; ?>";
     var iframe_enabled = <?php print $iframe_enabled; ?>;
 </script>
-
-<script type="text/javascript" src="/chat/chat_widget.js"></script>
-<script type="text/javascript" src="/chat/chat_window.js" ></script>
-<script type="text/javascript" src="/rating/Rating.js" ></script>
-<script type="text/javascript" src="/js/util.js" ></script>
 
 </head>
 <body class=" yui-skin-sam">
@@ -197,6 +189,12 @@ HTML;
   </div>
   <div class="clear"></div>
 </div>
+
+<?php require("./yui.php"); ?>
+<script type="text/javascript" src="/chat/chat_widget.js"></script>
+<script type="text/javascript" src="/chat/chat_window.js" ></script>
+<script type="text/javascript" src="/rating/Rating.js" ></script>
+<script type="text/javascript" src="/js/util.js" ></script>
 
 </body>
 </html>
