@@ -1,5 +1,4 @@
    //yeah, i'll worry about namespaces later.
-   var get_msgs_req = null;
    var url = ''; 
    var last_msg_id = -1; //the most recent msg id we've received
    var sl = null;
@@ -33,11 +32,11 @@
       var url = $('url').innerHTML;
       if(email == ''){return;}
       var xhr = xmlHttpCreate();
-      xhr.onreadystatechange = function(){
-   		if(xml_req.readyState == 4 && xml_req.status == 200){
-		}
-      }
       xhr.open("GET", "invitefriend.php?url="+url+"&to="+email, true);
+      xhr.onreadystatechange = function(){
+   	if(xhr.readyState == 4 && xhr.status == 200){
+	}
+      }
       xhr.send("");
       invite_dia.hide();
    }
@@ -51,7 +50,17 @@
 
    function showLoading(){
    	sl = null;
-   	sl = new YAHOO.widget.Panel("p", {iframe:true,zIndex:100000,width:"240px",fixedcenter:true, close:false,draggable:false,modal:true,visible:false,effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.5}});
+   	sl = new YAHOO.widget.Panel("p", {
+   		    iframe:true,
+   		    zIndex:100000,
+   		    width:"240px",
+   		    fixedcenter:true, 
+   		    close:false,
+   		    draggable:true,
+            constraintoviewport: true,
+   		    modal:true,
+   		    visible:false,
+   		    effect:{effect:YAHOO.widget.ContainerEffect.FADE, duration:0.5}});
 	sl.setHeader("Loading, please wait...");
 	sl.setBody('<img src="http://us.i1.yimg.com/us.yimg.com/i/us/per/gr/gp/rel_interstitial_loading.gif" />');
 	sl.render(document.body);
@@ -86,12 +95,7 @@
 
    function show_msg_times(toggle){
 	var a = YAHOO.util.Dom.getElementsByClassName('msg_time');
-	if(time_on){
-	   time_on = false;
-	}
-	else{
-	   time_on = true;
-	}
+	time_on = (time_on === true ? false : true);
 	for(var i = 0; i < a.length; i++){
 	   YAHOO.util.Dom.setStyle(a[i], 'display', (time_on ? 'inline' : 'none'));
 	}
@@ -106,13 +110,9 @@
 	var len = msgs.length;
 	var tmp_html = '';
 	for(var i = len-1; i >= 0; i--){
-		//it would be easy to just do every one row diff color
-		//but since we dynamically add things, we have to keep
-		//track of last color
 		var color = getNextColor(last_color); 
 		last_color = color;
 	   	tmp_html += "<div class=\"row " + last_color + "\"><span class=msg_time>[" + msgs[i].t + "]</span> " + msgs[i].s + ":<span class=msg>" + msgs[i].msg + "</span></div>\n"; 
-
 	}
 
 	if(prepend){
@@ -122,40 +122,9 @@
 		msgs_div.innerHTML += tmp_html; 
 	}
         msgs_div.scrollTop = msgs_div.scrollHeight;
-   }
-
-   function onGetMsgsDone(){
-
-   	if( !get_msgs_req || (get_msgs_req == null)){return;}
-   	if(get_msgs_req.readyState == 4 && get_msgs_req.status == 200){
-	   var obj = eval('(' + get_msgs_req.responseText + ')'); 
-	   var msgs = obj.msgs;
-	   if(msgs.length > 0){
-	      renderMsgs(obj); 
-	   }
-	   //so the msgs come to us in desc time order
-	   //if we received any new msgs, then len is not 0
-	   //if we received new msgs, update last_msg_id
-	   //again, since it's in desc order, the first msg (0) has the most recent id
-	   if(msgs.length > 0){
-	      last_msg_id = msgs[0].id;
-	      var stripped = msgs[0].msg.replace(/(<([^>]+)>)/ig,"");
-	      document.title = msgs[0].s + " - " + stripped;
-	   }
-
-	   //seems like calling hide() frequently is bad.
-	   // stupidly make sure it happens once
-	   if(!already_hidden){
-	      sl.hide();
-	      already_hidden = true;
-	   }
-	   var users = obj.users;
-	   var users_el = $('members');
-	   users_el.innerHTML = '';
-	   for(var i = 0; i < users.length; i++){
-	      users_el.innerHTML += "<div class=room_user>" + users[i] + "</div>";
-	   }
-	}
+    	if ( navigator.appName == "Microsoft Internet Explorer" ) {
+            msgs_div.scrollTop = msgs_div.scrollHeight; // IE7 requires running this twice!
+        }
    }
 
    function getNextColor(last_color){
@@ -185,8 +154,34 @@
 	if(url == ''){
 		url = getURL();
 	}
-   	get_msgs_req = xmlHttpCreate();
-	get_msgs_req.onreadystatechange = onGetMsgsDone;
+   	var get_msgs_req = xmlHttpCreate();
+	get_msgs_req.onreadystatechange = function(){
+   	 if(get_msgs_req.readyState == 4 && get_msgs_req.status == 200){
+	   var obj = eval('(' + get_msgs_req.responseText + ')'); 
+	   var msgs = obj.msgs;
+	   if(msgs.length > 0){
+	        if(msgs[0].id <= last_msg_id){
+			return;
+		}
+	        renderMsgs(obj); 
+	   }
+	   if(msgs.length > 0){
+	      last_msg_id = msgs[0].id;
+	      var stripped = msgs[0].msg.replace(/(<([^>]+)>)/ig,"");
+	      document.title = msgs[0].s + " - " + stripped;
+	   }
+	   if(!already_hidden){
+	      sl.hide();
+	      already_hidden = true;
+	   }
+	   var users = obj.users;
+	   var users_el = $('members');
+	   users_el.innerHTML = '';
+	   for(var i = 0; i < users.length; i++){
+	      users_el.innerHTML += "<div class=room_user>" + users[i] + "</div>";
+	   }
+	 }
+	}
 	get_msgs_req.open("GET", "get_msg.php?url=" + url + "&last_msg_id=" + last_msg_id, true);
 	get_msgs_req.send("");
 	return false;
@@ -205,9 +200,18 @@
 	       else{
 	          el.innerHTML = "Found <span style=\"font-size:110%;\">" + r.length + " </span> results.<br/><hr/>\n";
 	       }
+	       x = 'xxx yyy';
 	       for(i = 0; i < r.length; i++){
 	       	  var res = r[i];
-	       	  el.innerHTML += "<p><span class=s_result><span style=\"color:orange;font-size:18px;\">" + res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + "<br/><a href=\"http://www.yaploud.com/chat.php?url=" + encodeURIComponent(res.url) + "\">" + res.url + "</a></span></span><br/>";
+	       	  el.innerHTML += "<p><span class=s_result><span style=\"color:orange;font-size:18px;\">" +
+	       	                  res.m + "</span><span><br/>by <b>" + res.s + "</b> on " + res.t + 
+	       	                  "<br/>" +
+	       	                  '<a href="http://' + res.url + '" target="_blank" onclick=\'' +
+	       	                  'openChatWindow(' +
+	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\", ' +
+	       	                  '\"' + 'http://' + encodeURIComponent_recursive(res.url) + '\"); \'' + '>' + 
+	       	                  'http://' + res.url + 
+	       	                  '</a></span></span><br/>';
 	       }
 
 	   }
@@ -259,11 +263,12 @@
    function startMsgPull(){
    	YAHOO.util.Event.onAvailable('msgs_div', startPolling, this);
 	YAHOO.util.Event.onAvailable('msg_content', function(){
-	    myEditor = new YAHOO.widget.Editor('msg_content', { height: '100px', width: '400px', dompath: false, animate: false, toolbar: {  buttons: [ { group: 'textstyle', label: 'Font Style', buttons: [ { type: 'push', label: 'Bold', value: 'bold' }, { type: 'push', label: 'Italic', value: 'italic' }, { type: 'push', label: 'Underline', value: 'underline' }, { type: 'separator' }, { type: 'select', label: 'Arial', value: 'fontname', disabled: false, menu: [  { text: 'Arial', checked: true }, { text: 'Arial Black' }, { text: 'Comic Sans MS' }, { text: 'Courier New' }, { text: 'Lucida Console' }, { text: 'Tahoma' }, { text: 'Times New Roman' }, { text: 'Trebuchet MS' }, { text: 'Verdana' }] }, { type: 'spin', label: '13', value: 'fontsize', range: [ 9, 20 ], disabled: false }, { type: 'separator' }, {type:'color', label: 'Font Color', value: 'forecolor'}, { type: 'color', label: 'Background Color', value: 'backcolor'} ] } ] } });
+	    myEditor = new YAHOO.widget.Editor('msg_content', { width: '400px', dompath: false, animate: false, toolbar: {  buttons: [ { group: 'textstyle', label: 'Font Style', buttons: [ { type: 'push', label: 'Bold', value: 'bold' }, { type: 'push', label: 'Italic', value: 'italic' }, { type: 'push', label: 'Underline', value: 'underline' }, { type: 'separator' }, { type: 'select', label: 'Arial', value: 'fontname', disabled: false, menu: [  { text: 'Arial', checked: true }, { text: 'Arial Black' }, { text: 'Comic Sans MS' }, { text: 'Courier New' }, { text: 'Lucida Console' }, { text: 'Tahoma' }, { text: 'Times New Roman' }, { text: 'Trebuchet MS' }, { text: 'Verdana' }] }, { type: 'spin', label: '13', value: 'fontsize', range: [ 9, 20 ], disabled: false }, { type: 'separator' }, {type:'color', label: 'Font Color', value: 'forecolor'}, { type: 'color', label: 'Background Color', value: 'backcolor'} ] } ] } });
    		myEditor.on('editorKeyPress', function(o){
          		editorKeyPress(YAHOO.util.Event.getCharCode(o.ev));
    		});
    		myEditor.render();
+		$('msg_content').focus();
 	});
    }
 
