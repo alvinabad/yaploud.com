@@ -39,7 +39,7 @@ include("./forgotpassword_c.inc");
     <ul style="margin-left: 0;">
     <li style="margin-left: 0;">Enter the email address associated with your YapLoud account
     <li>Enter the verification code you see in the box
-    <li>We'll email you with instructions on how to reset your password 
+    <li>We'll send you an email with instructions on how to reset your password 
     </ul>
 
     <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
