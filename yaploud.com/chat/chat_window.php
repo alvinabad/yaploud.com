@@ -9,6 +9,7 @@ require("./chat_window_c.inc");
 <title>YapLoud</title>
 
 <link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
+<?php require("./yui.php"); ?>
 
  <script type="text/javascript">
     var site_url = "<?php print $site_url; ?>";
@@ -190,7 +191,6 @@ HTML;
   <div class="clear"></div>
 </div>
 
-<?php require("./yui.php"); ?>
 <script type="text/javascript" src="/chat/chat_widget.js"></script>
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
 <script type="text/javascript" src="/rating/Rating.js" ></script>
