@@ -102,9 +102,11 @@ HTML;
 HTML;
      }
      else {
+     	/** TODO: Retire
          print <<<HTML
         | <a href='javascript: popin("{$url_encoded}", "{$title_encoded}"); void 0;'>Pop in</a>
 HTML;
+        **/
      }
      ?>
      <span id="star_rating" onmouseout="StarRating.render();" >
