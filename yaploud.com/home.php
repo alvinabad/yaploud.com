@@ -9,10 +9,6 @@
   <title>Welcome to YapLoud</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
-  <?php require("common/yui.php"); ?>
-    
-  <script type="text/javascript" src="/css/niftycube.js" ></script>
-  <script type="text/javascript" src="/js/home.js" ></script>
 </head>
 
 <body class="yui-skin-sam">
@@ -28,6 +24,10 @@
 <?php include("common/footer1.php"); ?>
 </div> <!-- container -->
 
+  <?php require("common/yui.php"); ?>
+  <script type="text/javascript" src="/css/niftycube.js" ></script>
+  <script type="text/javascript" src="/js/home.js" ></script>
+  
 </body>
 </html>
 
