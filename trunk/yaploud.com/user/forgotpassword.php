@@ -1,3 +1,5 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
 <?php
 include("./forgotpassword_c.inc");
 
@@ -8,112 +10,110 @@ include("./forgotpassword_c.inc");
  * PHP code in this view is only used for rendering logic and is kept 
  * to the minimum. Please put all logic in the controller.
  */
- 
 ?>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.yaploud.com/TR/html4/loose.dtd">
 
 <html>
 <head>
-<link href="/css/chat.css" rel="stylesheet" type="text/css">
-<link href="/style.css" rel="stylesheet" type="text/css">
-<link href="/images/style_Yaploud.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="/user/forgotpassword.js" ></script>
-<style>
-label{
-   font: 18px Helvetica, Arial, sans-serif;
-   text-align:right;
-   display:block;
-   width:50px;
-}
-input{
-   font: 18px Helvetica, Arial, sans-serif;
-   color:orange;
-}
-</style>
+  <title>YapLoud - Forgot Password</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link type="text/css" rel="stylesheet" href="/css/style.css" />
+  <?php require("common/yui.php"); ?>
+    
+  <script type="text/javascript" src="/css/niftycube.js" ></script>
+  <script type="text/javascript" src="/user/forgotpassword.js" ></script>
+  <script type="text/javascript">
+    YAHOO.util.Event.onDOMReady(function() {document.getElementById('email').focus();});
+  </script>
 </head>
-<body>
 
-<?php include("common/header2.php");  ?>
+<body class="yui-skin-sam">
+<div id="container">
+<?php include("common/header1.php"); ?>
+<?php include("rightNav.php"); ?>
 
-<div style="color: red;">
+<div id="content">
+
+  <div id="content_0">
+  <h1>Forgot password</h1>
+  <div id="content_1">
+    <ul style="margin-left: 0;">
+    <li style="margin-left: 0;">Enter the email address associated with your YapLoud account
+    <li>Enter the verification code you see in the box
+    <li>We'll email you with instructions on how to reset your password 
+    </ul>
+
+    <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
+    <br>
+    <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">Install</a> Firefox add-on
+  </div>
+
+  <div style="color: green;">
     <?php
-      if (isset($post_processed) && $post_processed) {
-          if (isset($status) && $status) {
-          	    if ($valid_email) {
-          	    	    $email = "";
-          	    	    print "Thank you for your request. " .
-          	    	          "We've sent you an email with instructions on ".
-          	    	          "how to reset your password. <p>";
-          	    }
-          	    else {
-          	    	    print "Your email is not found in our system. " .
-          	    	          "Please try another email. <p>";
-          	    }
-          		}		
-      }  
+      if ($post_processed && $status) {
+          if ($valid_email) {
+              $email = "";
+              print "Thank you for your request. " .
+                    "We've sent you an email with instructions on ".
+                    "how to reset your password. <p>";
+          }
+          else {
+              print "Your email is not found in our system. " .
+                    "Please try another email. <p>";
+          }
+      }       
     ?>
-</div>
-	
-<div style="width:450px;float:left;">
-  <p>
-  <div style="font: 26px Helvetica, Arial, sans-serif;color:#006699;
-            font-weight:bold;">Forgot password</div>
+  </div>
 
-  <ul style="color:grey;font:18px Helvetica, Arial, sans-serif;">
-  <li>Enter the email address associated with your YapLoud account
-  <li>Enter the verification code you see in the box
-  <li>We'll email your password to you
-  </ul>
-
-  <div style="font: 20px Helvetica, Arial, sans-serif;
-     color:#336600; font-weight:bold;">
-     <a href="/user/register.php">Sign up now</a>
-     to join the YapLoud Community<br/><br/>
-     <a href="#">Download</a> the YapLoud toolbar</div>
-</div>
-
-<div style="float:left;margin-left:30px;">
-  <div id="error_message" style="color: red; font-weight: normal;">
+  <div id="content_2">    
+    <div id="error_message" style="color: red; font-weight: normal;">
     <?php
       if (isset($post_processed) && $post_processed &&
           isset($valid_captcha) && !$valid_captcha ) {
               print "Invalid code. Please try again.<br>";
       }
     ?>
+    </div>
+    
+    <form action="/user/forgotpassword.php" method="post"
+          name="forgotpassword_form" id="forgotpassword_form"
+          onSubmit="return ForgotPassword.validate();">
+          
+    <table style="text-align: left;">
+    <tr>
+      <td>
+        Email:
+        <br>
+        <input id="email" type="text" name="email" value="<?php print $email; ?>"/>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: left;">
+        <img style="vertical-align: bottom;" src="Captcha.php" />
+        Enter code:
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" id="captcha" name="captcha" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input style="width:100px;" type="submit" value="Submit" ;/>
+      </td>
+    </tr>
+    </table>
+    
+    <input type=hidden name=action value=login />
+    
+    </form>
+    </div>
   </div>
-	
-	  <div style="padding: 20px 30px 20px 20px; background-color:#BDEDFF;
-	              font-weight: normal;" 
-	       id="forgotpassword_div">
-		    <form name="forgotpassword_form" id="forgotpassword_form" 
-		          method=POST action="/user/forgotpassword.php" 
-		          onSubmit="return ForgotPassword.validate();">
-			    <label>Email: </label>
-    		<input type="text" id="email" name="email" value="<? print $email; ?>"/>
-    		<br><br>
-    		<div style="vertical-align: top;"><img src="/user/Captcha.php" /></div>
-    		<br>
-    		<label>Code: </label>
-    		<input type="text" id="captcha" name="captcha" />
-    		<br><br>
-    		<input type="submit" value="Email password" />
-    		<script type=text/javascript>
-			      document.getElementById('email').focus();
-			    </script>
-			    </form>
-	  </div>
-	</div>
 
-<div style="clear:both;"></div>
+</div> <!-- content -->
 
-</br>
-<div align="left" class="main_text">Free.No spyware or adware.</div>
-	
-<?PHP include("common/footer.php"); ?>
+<?php include("common/footer1.php"); ?>
+</div> <!-- container -->
 
 </body>
 </html>
-
-<?php ob_end_flush(); ?>

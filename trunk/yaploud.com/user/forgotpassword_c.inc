@@ -16,13 +16,17 @@ ob_start();
 require ("user.php");
 
 $email = "";
+$valid_captcha = false;	
+$status = false;
+$post_processed = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = false;
+    $email = $_POST['email'];
     
     // validate captcha
     if (isset ($_REQUEST['captcha']) && isset ($_SESSION['captcha'])) {
         $post_processed = true;
-        $valid_captcha = false;	
 
         $captcha_string = $_REQUEST['captcha'];
         $captcha_code = $_SESSION['captcha'];
@@ -35,8 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($status) {
-    	    $email = $_POST['email'];
-    	    $user = new User();
+        $user = new User();
         $valid_email = $user->_forgotPassword2($email);
     }
 }
