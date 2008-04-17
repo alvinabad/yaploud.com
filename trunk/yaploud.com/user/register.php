@@ -36,9 +36,9 @@ include("./register_c.inc");
 
 <div id="content">
 
-  <div style="width: 600px; overflow: hidden;">
-  <div id="greeting">
+  <div id="content_0">
   <h1>Register at YapLoud</h1>
+  <div id="content_1">
     <h4>What is YapLoud?</h4>
     YapLoud is the home for yapping about everything:
     <ul style="margin-left: 0;">
@@ -52,7 +52,7 @@ include("./register_c.inc");
     <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">Install</a> Firefox add-on
   </div>
   
-  <div id="register">
+  <div id="content_2">
     <div style="color: red;" id="error_message">
     <?php
       if ( isset($registration_processed) ) {

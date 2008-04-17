@@ -128,15 +128,6 @@ img {
     font-family: arial, courier-new;
 }
 
-#register input {
-	font-size: 16px;
-	width: 200px;
-}
-#greeting input {
-	font-size: 16px;
-	width: 200px;
-}
-
 /********** CSS for Footer *************/
 #footer {
 	clear: both;
@@ -182,29 +173,45 @@ img {
     
 }
 
-#greeting {
+#content_0 {
+   min-width: 600px;
+   width: 85%;
+   overflow: hidden;
+   float: left;
+   margin:0;
+   padding:0;
+}
+#content_1 {
 	float: left;
-	/*border: 1px solid red;*/ 
+	/*border: 1px solid red;*/
 	max-width: 300px;
 	padding: 10px;
-	margin: 10px;
+	margin: 2px;
 	overflow: hidden;
 }
-#greeting ul {
+#content_2 {
+    /*border: 2px solid red; */
+    padding: 10px;
+    margin: 2px;
+    float: right;
+    width: 220px;
+    background-color:#BDEDFF;
+    overflow: hidden;
+}
+#content_1 input {
+    font-size: 16px;
+    width: 200px;
+}
+#content_2 input {
+    font-size: 16px;
+    width: 200px;
+}
+#content_1 ul {
     margin-left: 0;
     padding-left: 10px;
 }
-#greeting li{
+#content_1 li{
     margin-left: 0;
-}
-#register {
-	/*border: 2px solid red; */
-	padding: 10px;
-	margin: 2px;
-	float: right;
-	width: 220px;
-	background-color:#BDEDFF;
-	overflow: hidden;
 }
 
 #signin {

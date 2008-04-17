@@ -42,10 +42,10 @@ include("./myaccount_c.inc");
 
 <div id="content">
 
-  <div style="width: 600px; overflow: hidden;">
+  <div id="content_0">
   <h1>My Account</h1>
   
-  <div id="greeting">
+  <div id="content_1">
     <h4>Change Password</h4>
     <form action="/user/myaccount.php" method="post" 
           onSubmit="return ChangePassword.validate();">
@@ -88,7 +88,7 @@ include("./myaccount_c.inc");
     </form>
   </div>
 
-  <div id="greeting">
+  <div style="background-color: #FFF;" id="content_2">
     <h4>Update User Profile</h4>
     
     <form action="/user/myaccount.php" method="post" 

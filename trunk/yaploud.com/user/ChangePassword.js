@@ -48,9 +48,7 @@ ChangePassword.validate = function() {
 ChangePassword.clear = function() {
     var password = document.getElementById('password');
     var password2 = document.getElementById('password2');
-    var error_message = document.getElementById('error_message');
-
-    error_message.innerHTML = "";
+    
     password.value = "";
     password2.value = "";
 };
