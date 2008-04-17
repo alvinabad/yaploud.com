@@ -10,7 +10,6 @@
 
 <script type="text/javascript" src="/js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
 <script type="text/javascript" src="/js/yui/build/dragdrop/dragdrop-min.js"></script>
-<script type="text/javascript" src="/js/yui/build/container/container-min.js"></script>
 
 <script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js"></script> 
 <script type="text/javascript" src="/js/yui/build/event/event-min.js"></script> 
