@@ -91,8 +91,8 @@ require("./login_c.inc");
     <tr>
       <td>
       <ul>
-      <li><a href="/user/forgotusername.php">Forgot username?</a>
       <li><a href="/user/forgotpassword.php">Forgot password?</a>
+      <li><a href="/user/forgotusername.php">Forgot username?</a>
       <li><a href="/user/register.php">Not yet registered?</a>
       </ul>
       </td>

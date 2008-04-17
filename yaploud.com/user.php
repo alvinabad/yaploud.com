@@ -215,7 +215,7 @@ class User {
         "Your username is $username. \n" .
         "If you did not make this request, please delete and ignore this email. \n\n" .
 
-        "http://" . $_SERVER['HTTP_HOST'] . "/login_page.php \n\n" .
+        "http://" . $_SERVER['HTTP_HOST'] . "/user/login.php \n\n" .
 
         "Please contact info@yaploud.com with any questions.\n\n" .
         "Thanks, \n" .
