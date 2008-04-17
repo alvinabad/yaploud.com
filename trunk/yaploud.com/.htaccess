@@ -3,4 +3,13 @@ AddHandler php5-fastcgi .php
 #Action php5-fastcgi /php5-wrapper.fcgi
 Action php5-fastcgi /dispatch.fcgi
 Options +ExecCGI
+Options -Indexes
+
+
+<FilesMatch "\.inc$">
+  Order Deny,Allow
+  Deny from All
+  Allow from env=REDIRECT_STATUS
+</FilesMatch>
+
 
