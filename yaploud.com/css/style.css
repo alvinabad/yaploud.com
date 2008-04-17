@@ -132,7 +132,7 @@ img {
 #footer {
 	clear: both;
 	margin: 0;
-	padding: .5em;
+	padding: 2px;
 	color: #333;
 	background-color: #fff;
 	border-top: 1px solid gray;
@@ -141,11 +141,9 @@ img {
 }
 #footer .footer-left {
 	float: left;
-	width: 65%;
 }
 #footer .footer-right {
 	float: right;
-	width: 30%;
 }
 #leftnav p { margin: 0 0 1em 0; }
 #rightnav p { margin: 0 0 1em 0; }
