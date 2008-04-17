@@ -73,9 +73,9 @@ include("./forgotusername_c.inc");
     ?>
     </div>
     
-    <form action="/user/forgotpassword.php" method="post"
-          name="forgotpassword_form" id="forgotpassword_form"
-          onSubmit="return ForgotPassword.validate();">
+    <form action="/user/forgotusername.php" method="post"
+          name="forgotusername_form" id="forgotusername_form"
+          onSubmit="return ForgotUsername.validate();">
           
     <table style="text-align: left;">
     <tr>
