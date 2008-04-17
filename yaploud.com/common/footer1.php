@@ -2,7 +2,7 @@
 <div id="footer">
     <div class="footer-left">
         <p class="align-left">
-            Copyrights &copy; 2008 <strong>YapLoud.com</strong>
+            Copyright &copy; 2008 <strong>YapLoud.com</strong>
         </p>
     </div>
     <div class="footer-right">
