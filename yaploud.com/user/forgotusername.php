@@ -34,7 +34,7 @@ include("./forgotusername_c.inc");
 <div id="content">
 
   <div id="content_0">
-  <h1>Forgot password</h1>
+  <h1>Forgot username</h1>
   <div id="content_1">
     <ul style="margin-left: 0;">
     <li style="margin-left: 0;">Enter the email address associated with your YapLoud account
