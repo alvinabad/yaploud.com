@@ -90,7 +90,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				</p>
 				<li><strong id="faqA7">How do I contact you?</strong></li>
 				<p>
-					We will love to hear from you. Please leave your comments at <a href="help.php">Feedback</a>
+					We love to hear from you. Please leave your comments at <a href="/help/feedback.php">Feedback</a>
 				</p>
 				<li><strong id="faqA9">Forgot password?</strong></li>
 				<p>
