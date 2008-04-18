@@ -1,11 +1,11 @@
+<?php
+    set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
+    session_start();
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
-    <?php
-       //require("./user_session_init_c.inc");
-       session_start();
-       //ob_start();
-    ?>
     <head>
         <title>Welcome to YapLoud - Help</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -90,7 +90,7 @@
             </p>
             <p>
                 <label for=Comment> Comments</label><br/>
-                <form action="help.php" method="post" onSubmit="return checkme()">
+                <form action="/help/feedback.php" method="post" onSubmit="return checkme()">
                     <label for=yourName>Your Name: </label>
                     <?
                         //$sess = $_SESSION;

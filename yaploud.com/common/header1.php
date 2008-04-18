@@ -44,7 +44,7 @@ function submitSearch() {
             if(!isset($_SESSION['logged']) || $_SESSION['logged'] == false) {
                 print <<<HTML
             <a href="/user/register.php"><strong>Sign Up</strong></a> |
-            <a href="/help.php">Feedback</a> |
+            <a href="/help/feedback.php">Feedback</a> |
             <a href="/user/login.php">Log In</a>
 HTML;
             }
@@ -52,7 +52,7 @@ HTML;
                 print <<<HTML
             <a href="/user/myaccount.php">Hi {$_SESSION['username']}</a> |
             <a href="/user/myaccount.php">My Account</a> |
-            <a href="/help.php">Feedback</a> |
+            <a href="/help/feedback.php">Feedback</a> |
             <a href="/user/login.php?logout=true">Log Out</a>
 HTML;
             }

@@ -226,7 +226,7 @@ function yaploud_chatAtYaploud(event) {
 	}
 	/*******************************
 	else if ( ref_url.indexOf('embed_code.php') != -1 || 
-	          ref_url.indexOf('help.php') != -1  ) {
+	          ref_url.indexOf('feedback.php') != -1  ) {
         openChatWindow(ref_url, title, description);
         
         var host = 'http://www.yaploud.com';
