@@ -82,7 +82,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				</p>
 				<li><strong id="faqA5">How do I install the plugin on Firefox browser?</strong></li>
 				<p>
-					You can download the plugin by clicking <a href="extension/yaploud.xpi">here</a>.
+					You can download the plugin by clicking <a href="/extension/yaploud.xpi">here</a>.
 				</p>
 				<li><strong id="faqA6">What about a plugin for other browsers (IE, Safari etc)?</strong></li>
 				<p>
@@ -137,13 +137,17 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 <ul>
 				<li><strong id="faqC2">What are Yaplets?</strong></li>
 				<p>
-					Yaplets are small, embedable HTML widgets which allow all users visiting that URL to Yap with each other. You can <a href="chat/embed_code.php">generate Yaplet</a> for any URL here. The HTML snippet can then be embedded into any website for its users to start interacting with each other.
+					Yaplets are small, embedable HTML widgets which allow all 
+					users visiting that URL to Yap with each other. 
+					You can <a href="/chat/embed_code.php">generate Yaplet</a> 
+					for any URL here. The HTML snippet can then be embedded 
+					into any website for its users to start interacting with each other.
 				</p>
                 </ul>
                 <ul>
 				<li><strong id="faqC3">How can I embed Yaplets on my website?</strong></li>
 				<p>
-					You can <a href="chat/embed_code.php">generate Yaplet</a> for any URL here. The HTML snippet that is generated for the URL, can be embedded into your website pages.
+					You can <a href="/chat/embed_code.php">generate Yaplet</a> for any URL here. The HTML snippet that is generated for the URL, can be embedded into your website pages.
 				</p>
                 </ul>
                 <ul>
