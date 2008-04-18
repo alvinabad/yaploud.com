@@ -9,9 +9,7 @@
     <head>
         <title>Welcome to YapLoud - Help</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <link type="text/css" rel="stylesheet" href="css/style.css" />
-        <link type="text/css" rel="stylesheet" href="css/chat.css" />
-        <link type="text/css" rel="stylesheet" href="images/style_Yaploud.css" />
+        <link type="text/css" rel="stylesheet" href="/css/style.css" />
         <script language="JavaScript">
             function processLogin() {
                 alert("Function called.");
@@ -54,9 +52,7 @@
 			<?php
     			// Logo - Header
 				include("common/header1.php");
-			?>
             
-			<?php
     			// Right Navigation Panel
 				include("rightNav.php");
 			?>    
@@ -76,12 +72,12 @@
             <p>
                 <?php
                     if (!isset ($_POST['action'])) {
-                        echo "<div class=yap_title>Welcome to Feedback </div>";
+                        echo "<h1>Welcome to Feedback </h1>";
                     } elseif ($feedback_sent) {
                         echo "<div class=yap_title>Thanks for your comments. </div>";
                         echo "<p>";
                         echo"<strong><a href=\"/home.php\">Home</a></strong>";
-                        include ("common/footer.php");
+                        include ("common/footer1.php");
                         exit;
                     } else {
                         echo "<strong>There was a problem sending the mail. " . "Please check that you filled in the form correctly.</strong>";
@@ -90,7 +86,7 @@
             </p>
             <p>
                 <!-- <strong> <a href="newinfo.php"> >> New User Information</a></strong><br/><br> -->
-                <strong> <a href="faq.php"> &gt;&gt; F.A.Q</a></strong><br/><br/>
+                <strong> <a href="/help/faq.php"> &gt;&gt; F.A.Q</a></strong><br/><br/>
             </p>
             <p>
                 <label for=Comment> Comments</label><br/>
@@ -114,12 +110,9 @@
                     <input type=hidden name=action value="help" />
                     <input type="submit" value="Submit">
                 </form>
-            </p>
             
-            <?php
-                // Footer page
-                include("common/footer1.php"); 
-            ?>
         </div>
+            <?php include("common/footer1.php");  ?>
+      </div>
     </body>
 </html>
