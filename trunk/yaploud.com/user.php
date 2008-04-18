@@ -4,8 +4,7 @@ include ("user/Token.php");
 
 class User {
 	
-	//TODO: This needs to be refactored. It's so poorly designed.
-	// I've done my best to work around it.
+	//TODO: This needs to be refactored big time!
 
     var $db = null;
     var $failed = false;
@@ -108,6 +107,7 @@ class User {
 
         // set session using data retrieved from database
         $_SESSION['username'] = htmlspecialchars($res_obj->username);
+        $_SESSION['email'] = htmlspecialchars($res_obj->email);
         $_SESSION['logged'] = true;
         $_SESSION['userid'] = $_SESSION['username'];
 
@@ -239,6 +239,7 @@ class User {
         
         // set session using data retrieved from database
         $_SESSION['username'] = htmlspecialchars($values->username);
+        $_SESSION['email'] = htmlspecialchars($values->email);
         $_SESSION['cookie'] = $values->cookie;
         $_SESSION['logged'] = true;
         $_SESSION['userid'] = $_SESSION['username'];
