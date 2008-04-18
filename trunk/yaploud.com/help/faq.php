@@ -94,7 +94,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				</p>
 				<li><strong id="faqA9">Forgot password?</strong></li>
 				<p>
-					<a href="forgotpass.php"> Go here </a> to retreive your password
+					<a href="/user/forgotpassword.php"> Go here </a> to retrieve your password
 				</p>
                 </ul>
                 
