@@ -73,6 +73,55 @@ img {
 	margin: 0;
 	padding: 1em;
 }
+#rightnav label {
+	font-weight: bolder;
+}
+#rightnav li label {
+	font-style: italic;
+}
+#rightnav img {
+	width:150px;
+}
+#plugins button {
+	width: 170px;
+	height: 25px;
+	margin: 1px;
+	padding: 2px;
+}
+#bookmarklet ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin:0pt;
+	padding: 0;
+	position:relative;
+}
+.tags ul li {
+	border-bottom:medium none;
+	border-left:2px solid #FFFFFF;
+	display:inline;
+	margin:0pt;
+	padding:0pt 0em;
+	margin-left:.2em;
+}
+
+/********** CSS for Footer *************/
+#footer {
+	clear: both;
+	margin: 0;
+	padding: 2px;
+	color: #333;
+	background-color: #fff;
+	border-top: 1px solid gray;
+	font-style: italic;
+	font-size: 0.70em;
+}
+#footer .footer-left {
+	float: left;
+}
+#footer .footer-right {
+	float: right;
+}
 
 /********** CSS for Main Body *************/
 #content {
@@ -125,23 +174,8 @@ img {
     font-family: arial, courier-new;
 }
 
-/********** CSS for Footer *************/
-#footer {
-	clear: both;
-	margin: 0;
-	padding: 2px;
-	color: #333;
-	background-color: #fff;
-	border-top: 1px solid gray;
-	font-style: italic;
-	font-size: 0.70em;
-}
-#footer .footer-left {
-	float: left;
-}
-#footer .footer-right {
-	float: right;
-}
+
+
 #leftnav p { margin: 0 0 1em 0; }
 #rightnav p { margin: 0 0 1em 0; }
 #content h2 { margin: 0 0 .5em 0; }
