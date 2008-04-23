@@ -72,6 +72,7 @@ img {
 	width: 160px;
 	margin: 0;
 	padding: 1em;
+	border-left: 1px solid gray;
 }
 #rightnav label {
 	font-weight: bolder;
@@ -126,7 +127,6 @@ img {
 /********** CSS for Main Body *************/
 #content {
 	margin-right: 200px;
-	border-right: 1px solid gray;
 	padding-top: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -223,7 +223,7 @@ img {
     padding: 10px;
     margin: 2px;
     float: right;
-    width: 220px;
+    width: 250px;
     background-color:#BDEDFF;
     overflow: hidden;
 }
