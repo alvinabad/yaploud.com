@@ -21,7 +21,7 @@
                window.open(newurl, '', 'width=340, height=340, status=yes, 
                          scrollbars=1, menubar=no, toolbar=no, location=no, 
                          resizable=yes, left=100, top=100'); void 0;">
-                <img style="border: 1.5px outset green; vertical-align: bottom;" src="/images/logo.gif" alt="YapLoud" width="40%" >
+                <img style="border: 1.5px outset green; vertical-align: bottom; width: 33%;" src="/images/logo-small.gif"  alt="YapLoud" >
             </a>
         </div>
         <ul>
@@ -45,7 +45,7 @@
         <label>Search YapURL:</label>
         Can't find the site people are yapping about? 
         <br/>
-        <a href='javascript: promptChatUrl(); void 0;'>Enter YapURL here</a>
+        <a href='javascript: promptChatUrl(); void 0;'>Enter URL here</a>
     </div>
     <hr/>
     
