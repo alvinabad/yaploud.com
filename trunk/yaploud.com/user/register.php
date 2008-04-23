@@ -22,6 +22,14 @@ include("./register_c.inc");
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
   <script type="text/javascript">
+    function enable_submit_signup(e) {
+        if (e.checked == true) {
+            document.getElementById('submit_signup').disabled=false;
+        }
+        else {
+            document.getElementById('submit_signup').disabled=true;
+        }
+    }
     YAHOO.util.Event.onDOMReady(function() {document.getElementById('username').focus();});
   </script>
     
@@ -119,7 +127,7 @@ HTML;
     </tr>
     <tr>
       <td>
-        <input style="width:20px;" type="checkbox" name="mailinglist" >
+        <input style="width:20px;" type="checkbox" name="mailinglist" checked>
         Add me to your mailing list
       </td>
     </tr>
@@ -137,7 +145,7 @@ HTML;
     <tr>
       <td>
         <input style="width:20px;" type="checkbox" name="eula" 
-               onclick="document.getElementById('submit_signup').disabled=false;">
+               onclick="enable_submit_signup(this);">
         I agree to all <a href="/user/terms_of_use.php"> terms and conditions</a>
       </td>
     </tr>
@@ -153,7 +161,6 @@ HTML;
     
   </div>
   </div>
-
 </div> <!-- content -->
 
 <?php include("common/footer1.php"); ?>
