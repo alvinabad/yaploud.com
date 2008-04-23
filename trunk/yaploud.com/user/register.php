@@ -118,6 +118,12 @@ HTML;
       </td>
     </tr>
     <tr>
+      <td>
+        <input style="width:20px;" type="checkbox" name="mailinglist" >
+        Add me to your mailing list
+      </td>
+    </tr>
+    <tr>
       <td style="text-align: left;">
         <img style="vertical-align: bottom;" src="Captcha.php" />
         Enter code:
@@ -130,7 +136,15 @@ HTML;
     </tr>
     <tr>
       <td>
-        <input style="width:100px;" type="submit" value="Sign up" ;/>
+        <input style="width:20px;" type="checkbox" name="eula" 
+               onclick="document.getElementById('submit_signup').disabled=false;">
+        I agree to all <a href="/user/terms_of_use.php"> terms and conditions</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input disabled=yes id="submit_signup" style="width:100px;" type="submit" 
+               value="Sign up" ;/>
       </td>
     </tr>
     </table>
