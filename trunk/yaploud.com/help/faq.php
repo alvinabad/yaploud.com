@@ -55,6 +55,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                     <li><a href="#faqC3">How can I embed Yaplets on my website?</a></li>
                     <li><a href="#faqC4">Can I embed Yaplet for any URL?</a></li>
                     <li><a href="#faqC5">Can I have more than one Yaplet on the same page?</a></li>
+                    <li><a href="#faqC6">Where can I generate Yaplet from?</a></li>
                 </ul>
                 
 				<div class="section_heading"><h1>General Questions</h1></div>
@@ -68,6 +69,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                     Well, there are several ways of doing this.
                     <ol>
                     <li>Go to homepage, search for a YapURL. Select one and join the Yapper community. </li>
+                    <li>Add YapLoud's Bookmarklet to your browser. Now, whenever you visit any website, you can click on the Bookmarlet and immediately get connected with the community. </li>
                     <li>Install Firefox Plugin. Now, whenever you visit any website, you will immediately know if there are other Yappers. Click on the plugin to immediately get connected with the community.</li>
                     </ol>
                     Once you are connected to the community, you will be able to Yap in real-time. You can also review previosuly posted comments.
@@ -78,7 +80,11 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				</p>
 				<li><strong id="faqA4">Can I Yap without downloading the client plugin?</strong></li>
 				<p>
-					Yes. You can go the home page, search for the YapURL of your interest. Select the link to immediately get connected with the Yapper Community or view the past Yaps.
+					Yes you can. 
+                    <ol>
+                    <li>You can go the home page, search for the YapURL of your interest. Select the link to immediately get connected with the Yapper Community or view the past Yaps. </li>
+                    <li>Add YapLoud's Bookmarklet to your browser. Now, whenever you visit any website, you can click on the Bookmarlet and immediately get connected with the community. </li>
+                    </ol>
 				</p>
 				<li><strong id="faqA5">How do I install the plugin on Firefox browser?</strong></li>
 				<p>
@@ -86,7 +92,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				</p>
 				<li><strong id="faqA6">What about a plugin for other browsers (IE, Safari etc)?</strong></li>
 				<p>
-					We are currently working on those plugins and will release them soon
+					We are currently working on those plugins and will release them soon. For now, you can use YapLoud Bookmarklet and get all the functionality of our plugin.
 				</p>
 				<li><strong id="faqA7">How do I contact you?</strong></li>
 				<p>
@@ -139,15 +145,14 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				<p>
 					Yaplets are small, embedable HTML widgets which allow all 
 					users visiting that URL to Yap with each other. 
-					You can <a href="/chat/embed_code.php">generate Yaplet</a> 
-					for any URL here. The HTML snippet can then be embedded 
+					You can generate Yaplet for any URL. The HTML snippet can then be embedded 
 					into any website for its users to start interacting with each other.
 				</p>
                 </ul>
                 <ul>
 				<li><strong id="faqC3">How can I embed Yaplets on my website?</strong></li>
 				<p>
-					You can <a href="/chat/embed_code.php">generate Yaplet</a> for any URL here. The HTML snippet that is generated for the URL, can be embedded into your website pages.
+                    Once you generate Yaplet, for any URL, the small HTML snippet can be embedded into your website pages.
 				</p>
                 </ul>
                 <ul>
@@ -160,6 +165,12 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 				<li><strong id="faqC5">Can I have more than one Yaplet on the same page?</strong></li>
 				<p>
 					Yes you can. There is no restriction on the URL or the number of Yaplets you can embed.
+				</p>
+                </ul>
+                <ul>
+				<li><strong id="faqC6">Where can I generate Yaplet from?</strong></li>
+				<p>
+                    Coming Soon!
 				</p>
                 </ul>
             
