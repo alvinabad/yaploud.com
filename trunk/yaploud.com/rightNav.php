@@ -21,7 +21,7 @@
                window.open(newurl, '', 'width=340, height=340, status=yes, 
                          scrollbars=1, menubar=no, toolbar=no, location=no, 
                          resizable=yes, left=100, top=100'); void 0;">
-                <img style="border: 1.5px outset green; vertical-align: bottom; width: 33%;" src="/images/logo-small.gif"  alt="YapLoud" >
+                <img style="border: 1.5px outset green; vertical-align: bottom; width: 33%;" src="/images/logo.gif"  alt="YapLoud" >
             </a>
         </div>
         <ul>
