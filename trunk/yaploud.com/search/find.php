@@ -182,7 +182,7 @@ HTML;
             $time_submitted = strtotime($row['creation_date']);
             $time_submitted = strftime("%a %b %d %I:%M %p %Z %G ", $time_submitted);
             print <<<HTML
-                <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
+                <b><a href="{$url}" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
 HTML;
