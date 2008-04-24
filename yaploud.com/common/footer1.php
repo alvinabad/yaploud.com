@@ -7,8 +7,8 @@
     </div>
     <div class="footer-right">
         <p class="align-right">
-            <a href="#">Terms of use</a> | 
-            <a href="#">Privacy Statement</a> | 
+            <a href="/user/Terms_of_Use.pdf">Terms of use</a> | 
+            <a href="/user/Privacy_Policy.pdf">Privacy Statement</a> | 
             <a href="#">Contact us</a>
         </p>
     </div>
