@@ -110,8 +110,9 @@ HTML;
                 $url_encoded = $u->encode($url);
                 $title_encoded = $u->encode($title);
                 
+                //<b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 print <<<HTML
-                <b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
+                <b><a href="{$url}" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
 HTML;
