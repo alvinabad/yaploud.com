@@ -103,7 +103,7 @@ HTML;
      }
      ?>
      <span id="star_rating" onmouseout="StarRating.render();" >
-     | Rating:
+     | <span id="votes">0 votes</span> | Rating:
      <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating" 
           border="0" id="stars" />
      <map name="mapStarRating" id="mapStarRating" >
@@ -123,7 +123,9 @@ HTML;
             href="javascript: onclick=StarRating.select('5starRating')"
             onmouseover="StarRating.show('5starRating');" />
      </map>
-     </span><span id="votes">0 votes</span>
+     </span>
+     <a href="javascript: openExternalWindow('/user/Terms_of_Use.pdf'); void 0;">Terms of Use</a>
+     | <a href="javascript: openExternalWindow('/user/Privacy_Policy.pdf'); void 0;">Privacy Statement</a>
     </div> <!-- footer -->
   </div> <!-- bd0 -->
 </div>
