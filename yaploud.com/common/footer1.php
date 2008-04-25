@@ -9,7 +9,7 @@
         <p class="align-right">
             <a href="/user/Terms_of_Use.pdf">Terms of use</a> | 
             <a href="/user/Privacy_Policy.pdf">Privacy Statement</a> | 
-            <a href="#">Contact us</a>
+            <a href="/help/feedback.php">Contact us</a>
         </p>
     </div>
 </div>
