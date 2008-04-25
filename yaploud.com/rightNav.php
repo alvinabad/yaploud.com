@@ -5,13 +5,13 @@
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
     <div id="plugins">
-        <a href="/extension/yaploud.xpi">
-            <button onclick="installxpi(this); return false;">Install Firefox Add-on</button>
+        <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">
+          Firefox Add-on
         </a>
     </div>
     <hr/>
     <div id="bookmarklet">
-        <label>Bookmarklet:</label>
+        <label>Bookmarklet</label>
         <br/>
         <div style="clear: both;"></div>
         <div style="text-align: center;">
@@ -26,10 +26,10 @@
         </div>
         <ul>
             <li>
-                <label>Firefox and Safari:</label> Drag the image above to your toolbar.
+               <b>Firefox and Safari browsers</b>: Drag the image above to your toolbar.
             </li>
             <li>
-                <label>IE:</label> Right-click on the image and select "Add to Favorites..."
+               <b>IE browser</b>: Right-click on the image and select "Add to Favorites..."
             </li>
         </ul>
     </div>
@@ -50,9 +50,9 @@
     <hr/>
     
     <div id="tour">
-        <label>Virtual Tour:</label>
-        <br/>
-        Take YapLouds <a href="/help/tour.php">virtual tour here</a>
+    <a href="/help/tour.php">
+        Virtual Tour
+    </a>
     </div>
     <hr/>
     <!-- 
