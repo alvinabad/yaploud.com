@@ -126,20 +126,20 @@ HTML;
       </td>
     </tr>
     <tr>
-      <td>
-        <input style="width:20px;" type="checkbox" name="mailinglist" checked>
-        Add me to your mailing list
-      </td>
-    </tr>
-    <tr>
       <td style="text-align: left;">
-        <img style="vertical-align: bottom;" src="Captcha.php" />
         Enter code:
       </td>
     </tr>
     <tr>
       <td>
-        <input type="text" id="captcha" name="captcha" />
+        <img style="vertical-align: bottom;" src="Captcha.php" />
+        <input style="width:120px;" type="text" id="captcha" name="captcha" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input style="width:20px;" type="checkbox" name="mailinglist" checked>
+        Add me to your mailing list
       </td>
     </tr>
     <tr>
