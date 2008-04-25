@@ -146,7 +146,8 @@ HTML;
       <td>
         <input style="width:20px;" type="checkbox" name="eula" 
                onclick="enable_submit_signup(this);">
-        I agree to all <a href="/user/Terms_of_Use.pdf"> terms and conditions</a>
+        I agree to <a href="/user/Terms_of_Use.pdf"> terms of use</a>
+        and <a href="/user/Privacy_Policy.pdf">privacy statement</a>
       </td>
     </tr>
     <tr>
