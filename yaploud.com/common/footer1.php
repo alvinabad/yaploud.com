@@ -10,7 +10,7 @@
             <a href="/user/Terms_of_Use.pdf">Terms of use</a> | 
             <a href="/user/Privacy_Policy.pdf">Privacy Statement</a> | 
             <a href="/help/feedback.php">Contact us</a> |
-            <a href="/help/about.php">About us</a>
+            <a href="/help/about_us.php">About us</a>
         </p>
     </div>
 </div>
