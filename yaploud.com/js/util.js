@@ -47,7 +47,8 @@ function openChatWindow(site_url, title) {
     
     var features = "width=340, height=340, status=yes, " +
                    "scrollbars=1, menubar=no, toolbar=no, " +
-                   "location=no, resizable=yes, left=100, top=100";
+                   "location=no, resizable=yes";
+                   //"location=no, resizable=yes, left=100, top=100";
     window.open(url, "", features);
 }
 
