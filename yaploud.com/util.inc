@@ -31,6 +31,11 @@ class Url {
 		return $url;
 	}
 
+	function removeHttp($url) {
+        $url = preg_replace('/^http:\/\//', '', $url);
+        return $url;
+	}
+	
 	function normalize($url) {
 		// trim spaces
 		$url = trim($url);
