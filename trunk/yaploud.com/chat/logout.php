@@ -8,6 +8,7 @@ ob_start();
 require ("user.php");
 require ("common/nocache.php");
 require("./ChatRoom.inc");
+require("util/Url.inc");
 
 $user = new User();
 

@@ -17,7 +17,7 @@ require ("user.php");
 require("chat/ChatRoom.inc");
 require("rating/Rating.inc");
 require("tags/Tags.inc");
-require("util.inc");
+require("util/Url.inc");
 
 function getChatUrlInfo($url) {
 	$u = new Url();

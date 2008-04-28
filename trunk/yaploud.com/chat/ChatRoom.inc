@@ -9,7 +9,10 @@ class ChatRoom {
 	}
 
 	function removeUser($url, $username) {
-		$url = addslashes($url);
+		$u = new Url();
+		$url = $u->removeHttp($url);
+		$url = $u->addslashes($url);
+		
 		$sql = "DELETE FROM dev.room_users " .
                "WHERE topic_url = '$url' and username = '$username' "; 
 		$result = $this->db->mysql_query($sql);

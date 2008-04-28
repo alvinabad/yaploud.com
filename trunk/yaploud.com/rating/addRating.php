@@ -7,7 +7,7 @@ if (!isset($_SESSION['logged'])) session_start();
 ob_start();
 require("user.php");
 require("common/nocache.php");
-require("util.inc");
+require("util/Url.inc");
 require("tags/Tags.inc");
 $user = new User();
 

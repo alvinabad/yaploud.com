@@ -15,7 +15,7 @@ ob_start();
 
 require("common/nocache.php");
 require("user.php");
-require("util.inc");
+require("util/Url.inc");
 
 $iframe = false;
 $user = new User();

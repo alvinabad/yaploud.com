@@ -6,7 +6,7 @@ if (!isset($_SESSION['logged'])) session_start();
     
 ob_start();
 require("common/nocache.php");
-require("util.inc");
+require("util/Url.inc");
 require("rating/Rating.inc");
 
 if (
