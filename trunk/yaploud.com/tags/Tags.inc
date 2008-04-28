@@ -15,12 +15,12 @@ class Tags {
 		
 		$tags = split(',', $tags);
 
-		$sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
+		$sql = "SELECT id FROM chat_url WHERE url ='$url';";
 		$result = $this->db->mysql_query($sql);
 		if (mysql_num_rows($result) != 1) {
             $cu = new ChatUrl();
             $cu->add($url, "", "");
-   	        $sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
+   	        $sql = "SELECT id FROM chat_url WHERE url ='$url';";
 	        $result = $this->db->mysql_query($sql);
             if (mysql_num_rows($result) != 1) {
                 error_log('Cannot add new url: ' . $url);
@@ -35,7 +35,7 @@ class Tags {
 		foreach ($tags as $tag) {
 			$tag = trim($tag);
 			$tag = addslashes($tag);
-			$sql = "INSERT INTO dev.chat_url_tag (chat_url_id, tag) " .
+			$sql = "INSERT INTO chat_url_tag (chat_url_id, tag) " .
                    " values ('$chat_url_id', '$tag')";
 			$result = $this->db->mysql_query($sql);
 		}
@@ -47,7 +47,7 @@ class Tags {
         $url = normalize_url($url);
 		$url = addslashes($url);
         
-        $sql = "SELECT id FROM dev.chat_url WHERE url ='$url';";
+        $sql = "SELECT id FROM chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
             //error_log('URL not found:' . $url);
@@ -56,7 +56,7 @@ class Tags {
         $res_obj = mysql_fetch_object($result);
         $chat_url_id = $res_obj->id;
         
-        $sql = "SELECT tag FROM dev.chat_url_tag WHERE chat_url_id ='$chat_url_id' order by tag asc";
+        $sql = "SELECT tag FROM chat_url_tag WHERE chat_url_id ='$chat_url_id' order by tag asc";
         $result = $this->db->mysql_query($sql);
 
         $tags = array();

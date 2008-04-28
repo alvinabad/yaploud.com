@@ -24,7 +24,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $user = new User();
     $db = new DB();
     
-    $sql = "SELECT * FROM dev.user WHERE username ='$username';";
+    $sql = "SELECT * FROM user WHERE username ='$username';";
     $result = $db->mysql_query($sql);
     if (mysql_num_rows($result) != 1) {
         return false;

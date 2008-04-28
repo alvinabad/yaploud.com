@@ -17,6 +17,7 @@ class DB{
 	function DB() {
         require("datasource.php");
 		$this->connection = $this->connect($ds['host'], $ds['user'], $ds['password']);
+		mysql_select_db($ds['database'], $this->connection);
 	}
 
 	function unlock(){

@@ -25,7 +25,7 @@ class Rating {
 		}
 		
 		$url = addslashes($url);
-        $sql = "UPDATE dev.chat_url SET " .
+        $sql = "UPDATE chat_url SET " .
                //"average_rating = '$average_rating', " .
                "average_rating = (average_rating*votes + '$rating')/(votes+1) , " .
                "votes = votes+1 " .
@@ -45,7 +45,7 @@ class Rating {
         $url = normalize_url($url);
 		$url = addslashes($url);
         
-        $sql = "SELECT average_rating FROM dev.chat_url WHERE url ='$url';";
+        $sql = "SELECT average_rating FROM chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
             //error_log('URL not found:' . $url);
@@ -62,7 +62,7 @@ class Rating {
         $url = normalize_url($url);
 		$url = addslashes($url);
         
-        $sql = "SELECT votes FROM dev.chat_url WHERE url ='$url';";
+        $sql = "SELECT votes FROM chat_url WHERE url ='$url';";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
             //error_log('URL not found:' . $url);

@@ -15,7 +15,7 @@ class ChatMessages {
 		$url = addslashes($url);
 
 		$query = "SELECT submitter as s, id, msg, date_format(creation_date, '%b %D %H:%i') as t " .
-             "FROM dev.chat WHERE id > $last_msg_id AND topic_url = '$url' " .
+             "FROM chat WHERE id > $last_msg_id AND topic_url = '$url' " .
              "ORDER BY creation_date DESC limit 50";
 
 		//$result = $db->mysql_query($query, $db->getConnection());

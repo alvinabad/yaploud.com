@@ -30,7 +30,7 @@ class User {
     function _checkLogin($username, $password, $remember) {
         $password = md5($password);
         $username = addslashes($username);
-        $sql = "SELECT * FROM dev.user WHERE userid = '$username' AND password = '$password';";
+        $sql = "SELECT * FROM user WHERE userid = '$username' AND password = '$password';";
         //print "$sql<br/>\n";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
@@ -59,7 +59,7 @@ class User {
     function login($username, $password, $remember) {
         $password = md5($password);
         $username = addslashes($username);
-        $sql = "SELECT * FROM dev.user WHERE userid = '$username' AND password = '$password';";
+        $sql = "SELECT * FROM user WHERE userid = '$username' AND password = '$password';";
         $result = $this->db->mysql_query($sql);
         
         if (mysql_num_rows($result) != 1) {
@@ -93,7 +93,7 @@ class User {
     
     function setSessionInDb($username) {
         $username = addslashes($username);
-        $sql = "SELECT * FROM dev.user WHERE userid = '$username';";
+        $sql = "SELECT * FROM user WHERE userid = '$username';";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
             // user not found
@@ -116,7 +116,7 @@ class User {
         $_SESSION['cookie'] = $cookie;
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        $sql = "UPDATE dev.user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
+        $sql = "UPDATE user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
         "userId = \"$this->userid\";";
         $this->db->mysql_query($sql) or die("Couldn't execute query $sql");
 
@@ -129,7 +129,7 @@ class User {
 
     function _forgotPassword($email) {
         $email = addslashes($email);
-        $sql = "SELECT * FROM dev.user WHERE email ='$email';";
+        $sql = "SELECT * FROM user WHERE email ='$email';";
         //print "$sql<br/>\n";
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
@@ -142,7 +142,7 @@ class User {
         $username = $res_obj->username; // Get your username
         $temp_password = "just4now";
         $new_password = md5($temp_password);
-        $sql1 = "UPDATE dev.user SET password = \"$new_password\" WHERE " .
+        $sql1 = "UPDATE user SET password = \"$new_password\" WHERE " .
         "username = \"$username\";";
         $this->db->mysql_query($sql1) or die("Couldn't execute query $sql1");
         $emailfrom = "info@yaploud.com";
@@ -162,7 +162,7 @@ class User {
 
     function _forgotPassword2($email) {
         $email = addslashes($email);
-        $sql = "SELECT * FROM dev.user WHERE email ='$email';";
+        $sql = "SELECT * FROM user WHERE email ='$email';";
 
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
@@ -197,7 +197,7 @@ class User {
 
     function _forgotUsername($email) {
         $email = addslashes($email);
-        $sql = "SELECT * FROM dev.user WHERE email ='$email';";
+        $sql = "SELECT * FROM user WHERE email ='$email';";
 
         $result = $this->db->mysql_query($sql);
         if (mysql_num_rows($result) != 1) {
@@ -250,7 +250,7 @@ class User {
             $_SESSION['cookie'] = $cookie;
             $ip = $_SERVER['REMOTE_ADDR'];
 
-            $sql = "UPDATE dev.user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
+            $sql = "UPDATE user SET session = \"$session\", ip = \"$ip\", cookie = \"$cookie\" WHERE " .
             "userId = \"$this->userid\";";
             $this->db->mysql_query($sql) or die("Couldn't execute query $sql");
 
@@ -279,7 +279,7 @@ class User {
         if (!$username or !$cookie)
             return;
 
-        $sql = "SELECT * FROM dev.user WHERE " .
+        $sql = "SELECT * FROM user WHERE " .
         "(userid = \"$username\") AND (cookie = \"$cookie\");";
         $result = $this->db->mysql_query($sql);
         $result = mysql_fetch_object($result);
@@ -298,7 +298,7 @@ class User {
         $session = session_id();
         $ip = $_SERVER['REMOTE_ADDR'];
 
-        $sql = "SELECT * FROM dev.user WHERE " .
+        $sql = "SELECT * FROM user WHERE " .
         "(userId = \"$username\") AND (cookie = \"$cookie\") AND " .
         "(session = \"$session\") AND (ip = \"$ip\");";
 
@@ -345,7 +345,7 @@ class User {
 
     function changePassword($new_password) {
         $username = addslashes($_SESSION['username']);
-        $sql = "SELECT * FROM dev.user WHERE username ='$username';";
+        $sql = "SELECT * FROM user WHERE username ='$username';";
         $result = $this->db->mysql_query($sql);
 
         if (mysql_num_rows($result) != 1) {
@@ -359,7 +359,7 @@ class User {
         $username = $res_obj->username; // Get your username
 
         $new_password = md5($new_password);
-        $sql1 = "UPDATE dev.user SET password = \"$new_password\" WHERE " .
+        $sql1 = "UPDATE user SET password = \"$new_password\" WHERE " .
         "username = \"$username\";";
         $this->db->mysql_query($sql1) or die("Couldn't execute query $sql1");
         mysql_free_result($result);
@@ -368,7 +368,7 @@ class User {
 
     function getUserInfo($username) {
         $username = addslashes($username);
-        $sql = "SELECT * FROM dev.user WHERE username ='$username';";
+        $sql = "SELECT * FROM user WHERE username ='$username';";
         $result = $this->db->mysql_query($sql);
 
         if (mysql_num_rows($result) != 1) {
@@ -398,7 +398,7 @@ class User {
         $first_name = addslashes($first_name);
         $email = addslashes($email);
 
-        $sql = "UPDATE dev.user SET first_name = \"$first_name\", " .
+        $sql = "UPDATE user SET first_name = \"$first_name\", " .
                "last_name = \"$last_name\", " .
                "email = \"$email\" " .
                "WHERE username = \"$username\"; ";

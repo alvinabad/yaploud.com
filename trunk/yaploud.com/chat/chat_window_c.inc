@@ -49,13 +49,13 @@ function updateChatUrlInfo($url, $title, $description) {
     $db = new DB();
     
     if ($_REQUEST['update'] == 'Update') {
-        $sql = "UPDATE dev.chat_url SET title='$title', " .
+        $sql = "UPDATE chat_url SET title='$title', " .
                "       description='$description' " .
                "WHERE url='$url'";
         $result = $db->mysql_query($sql);
     }
     else if ($_REQUEST['update'] == 'View') {
-        $sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+        $sql = "SELECT * FROM chat_url WHERE url='$url';";
         $result = $db->mysql_query($sql);
 
         $title = '';
@@ -70,13 +70,13 @@ function updateChatUrlInfo($url, $title, $description) {
         $description = $res_obj->description;
     }
     else {
-        $sql = "INSERT INTO dev.chat_url (url, title, description, creation_date) " .
+        $sql = "INSERT INTO chat_url (url, title, description, creation_date) " .
                " values ('$url', '$title', '$description', SYSDATE() )";
         $result = $db->mysql_query($sql);
         
         // if cannot insert, that means it already exists. Update then
         if (!$result) {
-            $sql = "UPDATE dev.chat_url SET title='$title', " .
+            $sql = "UPDATE chat_url SET title='$title', " .
                    "       description='$description' " .
                    "WHERE url='$url'";
             $result = $db->mysql_query($sql);
