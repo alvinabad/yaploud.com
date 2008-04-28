@@ -14,6 +14,7 @@ else {
     $ds['host'] = "";
     $ds['user'] = "";
     $ds['password'] = "";
+    $ds['database'] = "";
 }
 
 ?>
