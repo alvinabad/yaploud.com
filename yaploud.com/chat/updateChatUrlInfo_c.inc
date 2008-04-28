@@ -13,7 +13,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 session_start();
 
 require("chat/ChatUrl.inc");
-require("util.inc");
+require("util/Url.inc");
 
 $title = '';
 $description = '';

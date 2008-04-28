@@ -6,7 +6,7 @@ ob_start();
 
 require("common/nocache.php");
 require("user.php");
-require("util.inc");
+require("util/Url.inc");
 
 if ($_SERVER['REQUEST_METHOD'] != 'GET' || !isset($_REQUEST['url']) ||
     !isset($_REQUEST['last_msg_id'])  ) {

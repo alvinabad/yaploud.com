@@ -1,6 +1,6 @@
 <?php
 require ("user.php");
-require("util.inc");
+require("util/Url.inc");
 $user = new User();
 
 $username = '';

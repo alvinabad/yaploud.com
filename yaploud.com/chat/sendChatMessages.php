@@ -5,7 +5,7 @@ header('Content-type: application/json');
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
 
 require_once 'db.inc'; 
-require_once 'util.inc'; 
+require("util/Url.inc"); 
 
 $db = new DB();
 $allow_tags = array( 'b', 'strong', 'i', 'em', 'u', 'a', 'p', 'sup', 'sub', 'div', 'img', 'span', 'font', 'ul', 'ol', 'li');
