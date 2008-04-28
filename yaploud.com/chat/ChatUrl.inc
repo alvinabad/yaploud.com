@@ -26,7 +26,7 @@ class ChatUrl{
 		$description = strip_tags($description);
 		$description = addslashes($description);
 
-		$sql = "INSERT INTO dev.chat_url (url, title, description, creation_date) " .
+		$sql = "INSERT INTO chat_url (url, title, description, creation_date) " .
                " values ('$url', '$title', '$description', SYSDATE() )";
 		$result = $this->db->mysql_query($sql);
 		if (!$result) {
@@ -47,7 +47,7 @@ class ChatUrl{
 		$description = strip_tags($description);
 		$description = addslashes($description);
 
-		$sql = "UPDATE dev.chat_url SET title='$title', " .
+		$sql = "UPDATE chat_url SET title='$title', " .
                "description='$description' " .
                "WHERE url='$url'";
 		$result = $this->db->mysql_query($sql);
@@ -61,7 +61,7 @@ class ChatUrl{
 		$url = normalize_url($url);
 		$url = addslashes($url);
 
-		$sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+		$sql = "SELECT * FROM chat_url WHERE url='$url';";
 		$result = $this->db->mysql_query($sql);
 
 		return $result;
@@ -71,7 +71,7 @@ class ChatUrl{
         $url = normalizeURL($url);
         $url = addslashes($url);
 
-        $sql = "SELECT count(*) as count FROM dev.chat WHERE topic_url='$url';";
+        $sql = "SELECT count(*) as count FROM chat WHERE topic_url='$url';";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
@@ -83,7 +83,7 @@ class ChatUrl{
 		$url = normalize_url($url);
 		$url = addslashes($url);
 
-		$sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+		$sql = "SELECT * FROM chat_url WHERE url='$url';";
 		$result = $this->db->mysql_query($sql);
 
 		if (mysql_num_rows($result) != 1) {
@@ -99,11 +99,11 @@ class ChatUrl{
 		$query_str = addslashes($query_str);
 			
 		if ($limit == 0 && $offset == 0) {
-			$sql = "SELECT * FROM dev.chat WHERE MATCH (msg) " .
+			$sql = "SELECT * FROM chat WHERE MATCH (msg) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE)";
 		}
 		else {
-			$sql = "SELECT * FROM dev.chat WHERE MATCH (msg) " .
+			$sql = "SELECT * FROM chat WHERE MATCH (msg) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE) limit $offset, $limit";
 		}
 
@@ -116,14 +116,14 @@ class ChatUrl{
         $query_str = addslashes($query_str);
             
         if ($limit == 0 && $offset == 0) {
-            $sql = "SELECT * FROM dev.chat_url WHERE " .
+            $sql = "SELECT * FROM chat_url WHERE " .
                    "url LIKE '%$query_str%' " .
                    "OR MATCH (title) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE)";
             ;
         }
         else {
-            $sql = "SELECT * FROM dev.chat_url WHERE " .
+            $sql = "SELECT * FROM chat_url WHERE " .
                    "url LIKE '%$query_str%' " .
                    "OR MATCH (title) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE) " .
@@ -136,7 +136,7 @@ class ChatUrl{
 	
     function getCountFindUrl($query_str) {
         $sql = "SELECT count(*) as count from ". 
-               "(SELECT url FROM dev.chat_url WHERE " .
+               "(SELECT url FROM chat_url WHERE " .
                "url LIKE '%$query_str%' " .
                "OR MATCH (title) " .
                "AGAINST ('$query_str' IN BOOLEAN MODE)) d";
@@ -151,7 +151,7 @@ class ChatUrl{
     
     function getCountFindMsg($query_str) {
 		$sql = "SELECT count(*) as count from ". 
-               "(SELECT  topic_url FROM dev.chat WHERE MATCH (msg) " .
+               "(SELECT  topic_url FROM chat WHERE MATCH (msg) " .
                         "AGAINST ('$query_str' IN BOOLEAN MODE)) d";
 
 		$result = $this->db->mysql_query($sql);

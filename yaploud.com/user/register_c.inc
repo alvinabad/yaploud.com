@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($status) {
         require_once 'db.inc';
         $db = new DB();
-        $sql = "INSERT INTO dev.user(username, first_name, last_name, " .
+        $sql = "INSERT INTO user(username, first_name, last_name, " .
                " password, update_timestamp, email, userid) " . 
                " VALUES('$userid', '$first_name', '$last_name', '$password', " . 
                " sysdate(), '$email', '$userid');";

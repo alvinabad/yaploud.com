@@ -13,7 +13,7 @@ class ChatRoom {
 		$url = $u->removeHttp($url);
 		$url = $u->addslashes($url);
 		
-		$sql = "DELETE FROM dev.room_users " .
+		$sql = "DELETE FROM room_users " .
                "WHERE topic_url = '$url' and username = '$username' "; 
 		$result = $this->db->mysql_query($sql);
 	}
@@ -26,7 +26,7 @@ class ChatRoom {
 		$url = $this->removeHttp($url);
 		$url = addslashes($url);
 
-		$sql = "select * from dev.room_users " .
+		$sql = "select * from room_users " .
              "where topic_url = '$url' and username = '$username' "; 
 		$result = $this->db->mysql_query($sql);
 		
@@ -40,12 +40,12 @@ class ChatRoom {
 		
 
 		if ($num_rows > 0) {
-			$sql = "UPDATE dev.room_users SET creation_date=SYSDATE() " .
+			$sql = "UPDATE room_users SET creation_date=SYSDATE() " .
                    "where topic_url = '$url' and username = '$username' "; 
 			$result = $this->db->mysql_query($sql);
 		}
 		else {
-			$sql = "INSERT INTO dev.room_users values " .
+			$sql = "INSERT INTO room_users values " .
                "('$username', '$url', SYSDATE(), '')";
 			$result = mysql_query($sql);
 		}
@@ -57,7 +57,7 @@ class ChatRoom {
 		
 		$url = addslashes($url);
 
-		$sql = "select distinct(username) as u, creation_date as d from dev.room_users " .
+		$sql = "select distinct(username) as u, creation_date as d from room_users " .
              "where topic_url = '$url'"; 
 		$result = $this->db->mysql_query($sql);
 

@@ -22,7 +22,7 @@ require("util/Url.inc");
 function getChatUrlInfo($url) {
 	$u = new Url();
 	$url = $u->addslashes($url);
-	$sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+	$sql = "SELECT * FROM chat_url WHERE url='$url';";
 	$db = new DB();
 	$result = $db->mysql_query($sql);
 

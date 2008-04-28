@@ -16,7 +16,7 @@ $url = $_GET['url'];
 $url = normalizeURL($url);
 $url = addslashes($url);
 
-$query = "INSERT INTO dev.chat values (NULL, '$url', '$user', SYSDATE(), '$msg')"; 
+$query = "INSERT INTO chat values (NULL, '$url', '$user', SYSDATE(), '$msg')"; 
 //print "$query <br/>";
 if(!$result = mysql_query($query, $db->getConnection())){
    print "-1";

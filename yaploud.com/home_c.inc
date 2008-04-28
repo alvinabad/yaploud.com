@@ -22,7 +22,7 @@ require("util/Url.inc");
 function getChatUrlInfo($url) {
 	$u = new Url();
 	$url = $u->addslashes($url);
-	$sql = "SELECT * FROM dev.chat_url WHERE url='$url';";
+	$sql = "SELECT * FROM chat_url WHERE url='$url';";
 	$db = new DB();
 	$result = $db->mysql_query($sql);
 
@@ -45,7 +45,7 @@ function getChatUrlInfo($url) {
 
 function getCountTopicUrl($db) {
 	$sql = "select count(*) as count from ". 
-	         "(select topic_url from dev.chat group by topic_url) d";
+	         "(select topic_url from chat group by topic_url) d";
 	
 	$result = $db->mysql_query($sql);
     $res_obj = mysql_fetch_object($result);
@@ -65,12 +65,12 @@ function getTopicUrlInfo($db, $offset, $limit) {
 	/**
 	// Wow, the subselect was really heavy. Doing this takes at least 8 seconds.
 	$query = "select topic_url as url, count(*) as c, " .
-             "(select count(username) from dev.room_users where topic_url = url) " .
-	         "as uniqs  from dev.chat group by topic_url order by 2 desc ";
+             "(select count(username) from room_users where topic_url = url) " .
+	         "as uniqs  from chat group by topic_url order by 2 desc ";
 	**/
 	
 	$query = "select topic_url as url, count(*) as c " .
-	         "from dev.chat group by topic_url order by 2 desc ";
+	         "from chat group by topic_url order by 2 desc ";
 	
 	if ( $limit >= 0 ) {
 		$query = $query . "limit $offset, $limit";
