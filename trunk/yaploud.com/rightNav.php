@@ -19,7 +19,7 @@
                newurl = newurl + '&title=' + window.document.title;
                if (location.hostname.indexOf('yaploud') == -1)
                window.open(newurl, '', 'width=340, height=340, status=yes, 
-                         scrollbars=1, menubar=no, toolbar=no, location=no, 
+                         scrollbars=no, menubar=no, toolbar=no, location=no, 
                          resizable=yes'); void 0;">
                 <img alt="YapLoud" src="/images/bookmarklet.jpg" style="vertical-align: bottom;">
             </a>
