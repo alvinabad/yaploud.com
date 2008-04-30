@@ -5,7 +5,7 @@
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
     <div id="tour">
-    <a href="#"><b>What is YapLoud?</b></a>
+    <a href="/help/tour.php"><b>What is YapLoud?</b></a>
     </div>
     <hr/>
     <div id="plugins">
