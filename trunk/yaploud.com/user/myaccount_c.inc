@@ -60,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $update_userinfo = $user->updateUserInfo($username, $first_name, $last_name, $email);
         $update_userinfo_processed = true;
-        $redirect = '/home.php';
-        header("Location: $redirect");
+        //$redirect = '/home.php';
+        //header("Location: $redirect");
     }
 }
 
