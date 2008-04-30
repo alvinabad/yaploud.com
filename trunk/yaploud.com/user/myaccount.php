@@ -98,10 +98,12 @@ include("./myaccount_c.inc");
            if ( isset($update_userinfo_processed) && 
                    $update_userinfo_processed ) {
                if ( $update_userinfo ) {
-                   print "Success! Your user information has been updated. <br>";
+                   print "Success! Your user information has been updated.";
+                   print "<br><br>";
                }
                else {
-                   print "$email is already taken. <br>";
+                   print "<b>$email</b> is already taken. Please try another one.";
+                   print "<br><br>";
                }
            }
        ?>
