@@ -403,8 +403,8 @@ class User {
                "email = \"$email\" " .
                "WHERE username = \"$username\"; ";
         
-        $this->db->mysql_query($sql) or die("Couldn't execute query $sql");
-    	return true;
+        $result = $this->db->mysql_query($sql);
+    	return $result;
     }
     
 } // End class User
