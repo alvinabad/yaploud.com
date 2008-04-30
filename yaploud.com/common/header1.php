@@ -45,6 +45,7 @@ function submitSearch() {
                 print <<<HTML
             <a href="/user/register.php"><strong>Sign Up</strong></a> |
             <a href="/help/feedback.php">Feedback</a> |
+            <a href="/help/faq.php">FAQ</a> |
             <a href="/user/login.php">Log In</a>
 HTML;
             }
@@ -53,6 +54,7 @@ HTML;
             <a href="/user/myaccount.php">Hi {$_SESSION['username']}</a> |
             <a href="/user/myaccount.php">My Account</a> |
             <a href="/help/feedback.php">Feedback</a> |
+            <a href="/help/faq.php">FAQ</a> |
             <a href="/user/login.php?logout=true">Log Out</a>
 HTML;
             }
