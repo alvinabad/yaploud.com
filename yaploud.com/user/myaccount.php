@@ -101,8 +101,7 @@ include("./myaccount_c.inc");
                    print "Success! Your user information has been updated. <br>";
                }
                else {
-                   print "Server error! Your user information cannot be updated at " .
-                         "this time. Please try again later. <br>";
+                   print "$email is already taken. <br>";
                }
            }
        ?>
