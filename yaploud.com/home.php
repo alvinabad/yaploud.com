@@ -17,7 +17,7 @@
 <?php include("rightNav.php"); ?>
 
 <div id="content">
-   <div class="yap_url even">
+   <div class="yap_url title">
     <a href="/help/tour.php"><b>What is YapLoud?</b></a>
    </div>
   <br>
