@@ -4,6 +4,8 @@
 
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
+    <a href="#">What is YapLoud?</a>
+    <hr/>
     <div id="plugins">
         <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">
           Firefox Add-on
