@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               isset ($_REQUEST['email'])) {
         $first_name = $_REQUEST['first_name'];
         $last_name = $_REQUEST['last_name'];
-        $email = $_REQUEST['email'];
+        $email2 = $_REQUEST['email'];
         
-        $update_userinfo = $user->updateUserInfo($username, $first_name, $last_name, $email);
+        $update_userinfo = $user->updateUserInfo($username, $first_name, $last_name, $email2);
         $update_userinfo_processed = true;
         //$redirect = '/home.php';
         //header("Location: $redirect");

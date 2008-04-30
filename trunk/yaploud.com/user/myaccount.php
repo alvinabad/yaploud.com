@@ -102,7 +102,7 @@ include("./myaccount_c.inc");
                    print "<br><br>";
                }
                else {
-                   print "<b>$email</b> is already taken. Please try another one.";
+                   print "<b>$email2</b> is already taken. Please try another email.";
                    print "<br><br>";
                }
            }
