@@ -85,10 +85,6 @@
                 ?>
             </p>
             <p>
-                <!-- <strong> <a href="newinfo.php"> >> New User Information</a></strong><br/><br> -->
-                <strong> <a href="/help/faq.php"> &gt;&gt; F.A.Q</a></strong><br/><br/>
-            </p>
-            <p>
                 <label for=Comment> Comments</label><br/>
                 <form action="/help/feedback.php" method="post" onSubmit="return checkme()">
                     <label for=yourName>Your Name: </label>
