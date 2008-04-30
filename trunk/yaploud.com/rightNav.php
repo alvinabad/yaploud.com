@@ -4,7 +4,9 @@
 
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
-    <a href="#">What is YapLoud?</a>
+    <div id="tour">
+    <a href="#"><b>What is YapLoud?</b></a>
+    </div>
     <hr/>
     <div id="plugins">
         <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">
