@@ -4,10 +4,6 @@
 
 <!-- RIGHT NAV SECTION -->
 <div id="rightnav">
-    <div id="tour">
-    <a href="/help/tour.php"><b>What is YapLoud?</b></a>
-    </div>
-    <hr/>
     <div id="plugins">
         <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">
           Firefox Add-on
