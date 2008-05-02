@@ -8,6 +8,15 @@ class ChatMessages {
 		$this->db = new DB();
 	}
 
+    function getNumMessages() {
+    	$sql = "SELECT count(*) as count FROM chat;";
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        return $count;
+    }
+    
 	function getMessages($url, $last_msg_id) {
 		$msgs = array();
 		

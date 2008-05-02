@@ -3,7 +3,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 
 require_once 'db.inc';
 
-class ChatUrl{
+class ChatUrl {
 	private $db;
 
 	function ChatUrl() {
@@ -67,6 +67,15 @@ class ChatUrl{
 		return $result;
 	}
 
+	function getNumUrls() {
+        $sql = "SELECT count(*) as count FROM chat_url;";
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        return $count;
+    }
+	
     function getNumComments($url) {
         $url = normalizeURL($url);
         $url = addslashes($url);
