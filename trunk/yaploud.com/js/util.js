@@ -30,7 +30,7 @@ function openChatWindow(site_url, title) {
 	}
 	
 	if (title == null) {
-		title = ext_title;
+		title = site_url;
 	}
 	
 	// check if attempting to chat same site
@@ -53,8 +53,12 @@ function openChatWindow(site_url, title) {
 }
 
 function promptChatUrl() {
-    var site_url = prompt("Enter URL of the site you want to chat:","http://")
     var title;
+    var site_url = prompt("Enter URL of the site you want to chat about:","http://");
+    
+    if ( site_url == null ) {
+    	return;
+    }
     
     site_url = trim(site_url);
     if (site_url == "" || site_url == "http://") {
