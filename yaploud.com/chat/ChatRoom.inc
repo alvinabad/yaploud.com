@@ -100,6 +100,33 @@ class ChatRoom {
         return sizeof($users);
     }
 
+    function getNumActiveGuests() {
+        $users = array();
+
+        $sql = "SELECT username as u, creation_date as d " .
+               "FROM room_users " .
+               "WHERE username like 'guest%' " .
+               "GROUP BY username ORDER BY d desc ";
+        $result = $this->db->mysql_query($sql);
+
+        if( $result != null ) {
+            while($row = mysql_fetch_assoc($result)){
+                $time_lapse_since = time() - strtotime($row['d']);
+
+                // check if less than 5 minutes
+                if ($time_lapse_since < 300) {
+                    array_push($users, $row['u']);
+                }
+                else {
+                    break;  // once this is detected, the rest is out-dated.
+                            // no need to scan all records.
+                }
+            }
+            mysql_free_result($result);
+        }
+        return sizeof($users);
+    }
+
     function getNumActiveRooms() {
         $rooms = array();
 
