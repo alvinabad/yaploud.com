@@ -124,7 +124,8 @@ HTML;
             onmouseover="StarRating.show('5starRating');" />
      </map>
      </span>
-     <a href="javascript: openExternalWindow('/user/Terms_of_Use.pdf'); void 0;">Terms of Use</a>
+     | <a href='javascript: promptChatUrl(); void 0;'>Yap on another URL</a>
+     | <a href="javascript: openExternalWindow('/user/Terms_of_Use.pdf'); void 0;">Terms of Use</a>
      | <a href="javascript: openExternalWindow('/user/Privacy_Policy.pdf'); void 0;">Privacy Statement</a>
     </div> <!-- footer -->
   </div> <!-- bd0 -->
