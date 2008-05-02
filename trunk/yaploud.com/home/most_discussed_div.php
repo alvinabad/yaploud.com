@@ -90,8 +90,8 @@ HTML;
                 }
                 $i++;
                 
-                $comments_str = 'comments';
-                if ($comments==1) $comments_str = 'comment';
+                $comments_str = 'yaps';
+                if ($comments==1) $comments_str = 'yap';
 
                 $title_display = $title;
                 if ( $title_display == $url ) {
@@ -112,7 +112,7 @@ HTML;
                 
                 //<b><a href="{$url}" target="_blank" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 print <<<HTML
-                <b><a href="{$url}" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
+                Yap on: <b><a href="{$url}" onclick='openChatWindow("{$url_encoded}", "{$title_encoded}");'></b>
                 {$title_display}</a>
                     <p>
 HTML;
