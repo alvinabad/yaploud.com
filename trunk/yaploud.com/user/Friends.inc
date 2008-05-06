@@ -33,7 +33,7 @@ class Friends {
         return true;
 	}
 	
-	function getNumInvitedFriends() {
+	function getNumFriendsInvited() {
         $sql = "SELECT count(*) as count FROM invited_friends;";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
