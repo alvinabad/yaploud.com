@@ -1,6 +1,7 @@
 <?php
 require ("user.php");
 require("util/Url.inc");
+require("user/Friends.inc");
 $user = new User();
 
 $username = '';
@@ -35,6 +36,9 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $first_name = $res_obj->first_name;
     $last_name = $res_obj->last_name;
 
+    $friend = new Friends();
+    $friend->addInvitedFriend($username, $email);
+    
     $emailfrom = "info@yaploud.com";
     $subject = "Invitation from $first_name $last_name";
     
