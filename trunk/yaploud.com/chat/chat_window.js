@@ -639,6 +639,7 @@ function init_invite_friend() {
         var msg;
         if (obj.email) {
             msg = "Your invitation has been sent to " + obj.email;
+            document.invite_friend_form.email.value = '';
             alert(msg);
         }
         else {
