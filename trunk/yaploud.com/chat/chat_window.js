@@ -14,6 +14,7 @@ var url_SendMessage = "/chat/sendChatMessages.php";
 var url_SendLogout = "/chat/logout.php";
 var url_SendLogin = "/chat/login.php";
 var url_GetTags = "/tags/getTags.php";
+var url_SendLeaveRoom = "/chat/leaveRoom.php";
 
 var bd_content = '';
 var chatWidgetMinimize = false;
@@ -549,6 +550,34 @@ var SendLogout_callback = {
     cache: false
 };
 
+var SendLeaveRoom = {
+    handleFailure:function(o){
+        //alert('Sending logout failed: ' + o.responseText + ': ' + o.status);
+        alert('Server failure. Please try again later. ' + o.status);
+    },
+
+    handleSuccess:function(o){
+        //var guestname = eval('(' + o.responseText + ')');
+        //username = guestname;
+        //updateLoginInfo(guestname);
+    },
+
+    sendRequest:function() {
+        var url = encodeURIComponent(site_url);
+        url = url_SendLeaveRoom + "?url=" + url;
+        YAHOO.util.Connect.asyncRequest('GET', url, SendLeaveRoom_callback, null);
+    }
+
+};
+
+var SendLeaveRoom_callback = {
+    success: SendLeaveRoom.handleSuccess,
+    failure: SendLeaveRoom.handleFailure,
+    scope: SendLeaveRoom,
+    timeout: 4500,
+    cache: false
+};
+
 
 var Chat = {
 	onunload: function() {
@@ -813,11 +842,13 @@ function init() {
 }
 
 function quit() {
-    alert('closing window');    
+    //alert('closing window');
+    SendLeaveRoom.sendRequest();    
 }
 
 YAHOO.util.Event.onDOMReady(init);
-//YAHOO.util.Event.addListener(body, "onunload", quit); 
+window.onunload = quit;
+
 
 /**
 var yui_alert = {
