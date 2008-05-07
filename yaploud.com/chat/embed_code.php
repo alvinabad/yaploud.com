@@ -54,7 +54,7 @@ ob_start();
             
             <div id="content">
             
-            <h3>Put a chat window on your webpage</h3>
+            <h3>Embed a chat window in your web page</h3>
             <div>
                 <form method="post" name="embed_form" onsubmit="generateEmbedCode(); return false;">
                 <input id="url" name="url" type="text" size="50" value="http://"> 
@@ -62,13 +62,13 @@ ob_start();
                 <br>
                 <textarea rows="5" cols="55" name="text_area" id="text_area"></textarea>
                 </form>
-                Enter the URL of your webpage and select the generate code button.
-                Copy the generated code and save it into your webpage.
+                Enter the URL of your web page and select the generate code button.
+                Copy the generated code and save it into your web page.
             </div>
             <hr>
             <div>
-            Below is a sample yaplet embedded on a webpage. Visitors of your
-            site can chat directly using this embedded yaplet window.
+            Below is a sample yaplet embedded in a web page. Visitors of your
+            site can chat directly using the embedded yaplet window.
             <p>
             <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.cnn.com&title=http://www.cnn.com" 
             scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
