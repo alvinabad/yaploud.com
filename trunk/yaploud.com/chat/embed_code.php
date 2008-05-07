@@ -14,7 +14,6 @@ ob_start();
         <title>Welcome to YapLoud</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="/js/yui/build/fonts/fonts-min.css" />
         <script type="text/javascript" src="/css/niftycube.js" ></script>
         <script type="text/javascript" src="/chat/embed_code.js" ></script>
         <script type="text/javascript">
@@ -55,39 +54,35 @@ ob_start();
             
             <div id="content">
             
-            <div>
             <h3>Put a chat window on your webpage</h3>
-                <form method="post" name="embed_form1">
-                <textarea name="text_area1" wrap="hard" rows="4" cols="50">
-                </textarea>
-                </form>
-                Embed this code into your webpage to see what people are 
-                chatting about your site.
-            </div>
-            <hr>
             <div>
                 <form method="post" name="embed_form">
-                You can also have a chat window to view chats for another site. 
+                <input id="url" name="url" type="text" size="50" value="http://"> 
+                <button onclick="generateEmbedCode(); return false;">Generate code</button>
                 <br>
-                Type in the URL of the webpage to generate the code:
-                <br>
-                <input id="url" name="url" type="text" size="50" value="http://"> <button onclick="generateEmbedCode(); return false;">Generate code</button>
-                <br>
-                <textarea rows="5" cols="50" name="text_area" id="text_area"></textarea>
+                <textarea rows="5" cols="55" name="text_area" id="text_area"></textarea>
                 </form>
+                Enter the URL of your webpage and select the generate code button.
+                Copy the generated code and save it into your webpage.
             </div>
             <hr>
             <div>
-            <br>
-            Below is a sample of a yaplet embedded on a webpage. In here, people are chatting about the Yahoo! site.
+            Below is a sample yaplet embedded on a webpage. Visitors of your
+            site can chat directly using this embedded yaplet window.
+            <p>
+            <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.cnn.com&title=http://www.cnn.com" 
+            scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
+            <p>
+                    
+            <!-- 
             <br>
             <div id="yaploud"></div>
              <script>yapurl="http://www.yahoo.com";</script>
              <script type="text/javascript"
                src="http://www.yaploud.com/chat/embedded_chat.js">
              </script>
-            
             </div>
+             -->
             
          </div>
             
