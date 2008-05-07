@@ -56,9 +56,9 @@ ob_start();
             
             <h3>Put a chat window on your webpage</h3>
             <div>
-                <form method="post" name="embed_form">
+                <form method="post" name="embed_form" onsubmit="generateEmbedCode(); return false;">
                 <input id="url" name="url" type="text" size="50" value="http://"> 
-                <button onclick="generateEmbedCode(); return false;">Generate code</button>
+                <input type="submit" value="Generate code">
                 <br>
                 <textarea rows="5" cols="55" name="text_area" id="text_area"></textarea>
                 </form>
