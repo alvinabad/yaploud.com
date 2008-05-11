@@ -41,6 +41,13 @@ function scrollDown() {
     }
 }
 
+function resizeYapMessageDIV() {
+var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
+if (newHeight > 150)
+YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
+}
+YAHOO.util.Event.addListener(window, "resize", resizeYapMessageDIV);
+
 function onClosePanel() {
     //openWindow(site_url);
     //closeWindow();
