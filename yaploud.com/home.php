@@ -1,4 +1,3 @@
-
 <?php
     require("./home_c.inc");
 ?>
