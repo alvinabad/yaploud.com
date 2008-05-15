@@ -20,14 +20,12 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 <h1>Mumbai Indians Yap Party</h1>
 
 <p>
-<a href="http://www.themumbaiindians.com" 
-   onclick='openChatWindow("http://www.themumbaiindians.com", "http://www.themumbaiindians.com");'>
-   Open chat window</a>
-or send chat messages here:
-<p>
-
 <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.themumbaiindians.com&title=http://www.themumbaiindians.com" 
         scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
+<br>
+<a href="http://www.themumbaiindians.com" 
+   onclick='openChatWindow("http://www.themumbaiindians.com", "http://www.themumbaiindians.com");'>
+   Chat on a separate window</a>
 
 
 
