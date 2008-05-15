@@ -42,17 +42,16 @@
     <hr/>
     -->
     <div id="searchURL">
-        <label>Search YapURL</label>
-        Can't find the site people are yapping about? 
+        <label>Open a chat window</label>
         <br/>
         <a href='javascript: promptChatUrl(); void 0;'>Enter URL here</a>
     </div>
     <hr/>
     
     <div id="tour">
-    <a href="/help/tour.php">
-        Virtual Tour
-    </a>
+    <a href="/help/tour.php">Virtual Tour</a>
+    <br>
+    <a href="/chat/embed_code.php"> Embed yap window </a>
     </div>
     <hr/>
     <div id="bookmarklet">
