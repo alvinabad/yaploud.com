@@ -19,8 +19,8 @@ class ChatMessages {
     
     function getNumGuestUsers() {
     	$sql = "SELECT count(*) as count " .
-    	       "FROM (select submitter from chat where submitter like 'guest%' " .
-    	       "      group by submitter) c ";
+    	       "FROM (select distinct submitter, topic_url from chat " .
+    	       "      where submitter like 'guest%') c ";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
