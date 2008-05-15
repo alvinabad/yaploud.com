@@ -42,7 +42,7 @@
     <hr/>
     -->
     <div id="searchURL">
-        <label>Search YapURL:</label>
+        <label>Search YapURL</label>
         Can't find the site people are yapping about? 
         <br/>
         <a href='javascript: promptChatUrl(); void 0;'>Enter URL here</a>
@@ -55,6 +55,15 @@
     </a>
     </div>
     <hr/>
+    <div id="bookmarklet">
+    <label>YAP Parties:</label>
+    <ul>
+    <li>
+    <a href="/yapparty/MumbaiIndians.php">
+         Mumbai Indians
+    </a>
+    </ul>
+    </div>
     <!-- 
     <div id="tagCloud">
         <label>Tag Cloud</label>
