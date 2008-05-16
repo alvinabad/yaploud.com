@@ -142,6 +142,18 @@ class ChatUrl {
         $result = $this->db->mysql_query($sql);
         return $result;
     }
+        
+    function findUrlByTag($tags) {
+        $tags = trim($tags);
+        $tags = addslashes($tags);
+            
+        $sql = "SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
+               "WHERE MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE)";
+               
+        $result = $this->db->mysql_query($sql);
+        return $result;        
+    }
+    
 	
     function getCountFindUrl($query_str) {
         $sql = "SELECT count(*) as count from ". 
