@@ -21,7 +21,7 @@
    </div>
   <br>
    <div class="yap_url title">
-    <a href="/yapparty/ipl_events.php"><b>Participate in IPL Yap parties</b></a>
+    <a href="/yapparty/ipl_events.php"><b>Participate in IPL Cricket Yap parties</b></a>
    </div>
   <br>
       <?php include("home/most_discussed_div.php")?>
@@ -33,7 +33,7 @@
   <?php require("common/yui.php"); ?>
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/js/home.js" ></script>
-  
+
 </body>
 </html>
 
@@ -45,8 +45,8 @@
       <li><a href="#tab2"><em>Most Active</em></a></li>
       <li><a href="#tab3"><em>Most Recent</em></a></li>
       <li><a href="#tab4"><em>Top Rated</em></a></li>
-    </ul>            
-    
+    </ul>
+
     <div class="yui-content">
       <?php include("home/most_discussed_div.php")?>
       <?php include("home/most_active_div.php")?>
