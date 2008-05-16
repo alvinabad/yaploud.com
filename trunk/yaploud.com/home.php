@@ -17,11 +17,11 @@
 
 <div id="content">
    <div class="yap_url title">
-    <a href="/yapparty/ipl_events.php"><b>Participate in IPL yap parties</b></a>
+    <a href="/help/tour.php"><b>What is YapLoud?</b></a>
    </div>
   <br>
    <div class="yap_url title">
-    <a href="/"><b>What is YapLoud?</b></a>
+    <a href="/yapparty/ipl_events.php"><b>Participate in IPL yap parties</b></a>
    </div>
   <br>
       <?php include("home/most_discussed_div.php")?>
