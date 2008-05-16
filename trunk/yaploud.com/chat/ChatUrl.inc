@@ -152,7 +152,7 @@ class ChatUrl {
                    "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) ";
         }
         else {
-            $sql = "SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
+            $sql = "SELECT cu.* FROM chat_url cu, chat_url_tag ct " .
                    "WHERE cu.id = ct.chat_url_id " .
                    "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) " .
                    "LIMIT $offset, $limit";
