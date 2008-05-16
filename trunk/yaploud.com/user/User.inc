@@ -18,5 +18,11 @@ class User {
         mysql_free_result($result);
         return $count;
     }
+    
+    function getUsers() {
+    	$sql = "SELECT * FROM user order by update_timestamp";
+        $result = $this->db->mysql_query($sql);
+        return $result;        
+    }
 }
 ?>
