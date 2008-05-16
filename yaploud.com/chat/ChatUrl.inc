@@ -158,7 +158,6 @@ class ChatUrl {
                    "LIMIT $offset, $limit";
         }
         
-        error_log($sql);
         $result = $this->db->mysql_query($sql);
         return $result;        
     }

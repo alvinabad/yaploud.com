@@ -75,9 +75,10 @@ HTML;
                 // Get Tag info
                 $tags_array = $tg->getTags($url);
                 if ($tags_array) {
-                    //error_log($url);
                     foreach($tags_array as $tag) {
-                        $tags = $tags . $tag . ", ";
+                    	$tag_url = '<a href="/search/find.php?searchby=tag&query=' .
+                    	           $tag . '">' . $tag . '</a>';
+                        $tags = $tags . $tag_url . ', ';
                     }
                     $tags = rtrim($tags, ", ");
                 }
