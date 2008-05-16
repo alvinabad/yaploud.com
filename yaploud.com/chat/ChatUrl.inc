@@ -129,7 +129,6 @@ class ChatUrl {
                    "url LIKE '%$query_str%' " .
                    "OR MATCH (title) " .
                    "AGAINST ('$query_str' IN BOOLEAN MODE)";
-            ;
         }
         else {
             $sql = "SELECT * FROM chat_url WHERE " .
@@ -143,18 +142,38 @@ class ChatUrl {
         return $result;
     }
         
-    function findUrlByTag($tags) {
+    function findUrlByTag($tags, $offset, $limit) {
         $tags = trim($tags);
         $tags = addslashes($tags);
             
-        $sql = "SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
-               "WHERE MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE)";
-               
+        if ($limit == 0 && $offset == 0) {
+            $sql = "SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
+                   "WHERE MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) ";
+        }
+        else {
+            $sql = "SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
+                   "WHERE MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) " .
+                   "LIMIT $offset, $limit";
+        }
+        
         $result = $this->db->mysql_query($sql);
         return $result;        
     }
     
-	
+    function getCountFindUrlByTag($tags) {
+        $sql = "SELECT count(*) as count FROM " .
+               "(SELECT cu.* FROM chat_url cu natural join chat_url_tag ct " .
+               "WHERE MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE)) d ";
+        
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        
+        return $count;
+    }
+    
+    
     function getCountFindUrl($query_str) {
         $sql = "SELECT count(*) as count from ". 
                "(SELECT url FROM chat_url WHERE " .

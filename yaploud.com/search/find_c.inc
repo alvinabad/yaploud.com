@@ -91,6 +91,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  && isset($_REQUEST['query'])) {
         $look_ahead = $cu->findUrl($query_str, $offset+$limit, $limit);
     	$url_selected = "SELECTED";
     }
+    else if ($searchby == "tag") {
+        $total_url = $cu->getCountFindUrlByTag($query_str);
+        $search_result = $cu->findUrlByTag($query_str, $offset, $limit);
+        $look_ahead = $cu->findUrlByTag($query_str, $offset+$limit, $limit);
+    	$url_selected = "SELECTED";
+    }
     else {
         $total_url = $cu->getCountFindMsg($query_str);
         $search_result = $cu->findMsg($query_str, $offset, $limit);
