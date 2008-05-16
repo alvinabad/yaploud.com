@@ -18,11 +18,11 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 <div id="content">
 
                 <!--<div id="ipl_logo" align="right"><img src="header-sub-logo-blue-page.png" /></div>-->
-                
+
                 <p>
                     <img align="left" width="220px" height="180px" src="IPL_logo.png" />
                     <img align="right" width="120px" height="120px" src="header-sub-logo-blue-page.png" />
-                    <h1>Come join the online IPL Yap Parties</h1>
+                    <h1>Come join the online IPL Cricket Yap Parties</h1>
                     <!--
                     <div><strong>Where is the party?</strong> <a onclick="openChatWindow('http://www.themumbaiindians.com', 'http://www.themumbaiindians.com');" href="http://www.themumbaiindians.com">Click here</a></div>
                     <div><strong>When is the party?</strong> Sunday 18th 7:30AM PST. Also Live during any IPL matches.</div>
@@ -34,12 +34,12 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                         <li>No Registration required*</li>
                     </ul>
                     </div>
-                
+
                 <div>
                     Immediately get connected with your friends and Yap live while the match is going on.
                 </div>
                 <div style="font-size:10px">* Randomly selected registered users are eligiable to receive a surprise YapLoud gift.</div>
-                
+
                 <hr/>
                 <div>
                     <table border="1px" align="left" style="width: 400px">
@@ -163,15 +163,15 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                     <div align="center">
                     <strong>Check out what people are yapping about Mumbai Indians</strong>
                     <p>
-                    <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.themumbaiindians.com&title=http://www.themumbaiindians.com" 
+                    <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.themumbaiindians.com&title=http://www.themumbaiindians.com"
                             scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
                     <br>
-                    <a href="http://www.themumbaiindians.com" 
+                    <a href="http://www.themumbaiindians.com"
                        onclick='openChatWindow("http://www.themumbaiindians.com", "http://www.themumbaiindians.com");'>
                        Chat on a separate window</a>
                     </div>
                 </div>
-                        
+
                 <!--
                 <p>
                 <div>
@@ -182,7 +182,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                     </p>
                 </div>
                 </p>
-                
+
                 <hr/>
                 <p>
                     <strong>Want to create your own Yap Party?</strong>
@@ -201,7 +201,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 </p>
                 -->
             </div>
-            
+
 </div> <!-- content -->
 
 <?php include("common/footer1.php"); ?>
@@ -210,6 +210,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
   <?php require("common/yui.php"); ?>
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/js/home.js" ></script>
-  
+
 </body>
 </html>
