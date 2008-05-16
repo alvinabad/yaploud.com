@@ -20,7 +20,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 <!--<div id="ipl_logo" align="right"><img src="header-sub-logo-blue-page.png" /></div>-->
                 
                 <p>
-                    <img align="left" width="220px" height="180px" src="IPL_Logo.png" />
+                    <img align="left" width="220px" height="180px" src="IPL_logo.png" />
                     <img align="right" width="120px" height="120px" src="header-sub-logo-blue-page.png" />
                     <h1>Come join the online IPL Yap Parties</h1>
                     <!--
