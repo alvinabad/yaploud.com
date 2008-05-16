@@ -54,15 +54,6 @@
     <a href="/chat/embed_code.php"> Embed yap window </a>
     </div>
     <hr/>
-    <div id="bookmarklet">
-    <label>YAP Parties:</label>
-    <ul>
-    <li>
-    <a href="/yapparty/MumbaiIndians.php">
-         Mumbai Indians
-    </a>
-    </ul>
-    </div>
     <!-- 
     <div id="tagCloud">
         <label>Tag Cloud</label>
