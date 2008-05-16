@@ -31,6 +31,7 @@
       <select name="searchby">  
         <option value="msg" <?php print $msg_selected; ?> >Chat
         <option value="url" <?php print $url_selected; ?> >Title or Url  
+        <option value="tag" <?php print $url_selected; ?> >Tags  
       </select>
       <input id="query" type="text" size="50" name="query" value="<?php print $query_str; ?>" >
       <input type="submit" value="Search">
