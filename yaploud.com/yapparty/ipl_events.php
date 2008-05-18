@@ -160,15 +160,27 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                             -->
                         </tbody>
                     </table>
+
                     <div align="center">
-                    <strong>Check out what people are yapping about Mumbai Indians</strong>
-                    <p>
-                    <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.themumbaiindians.com&title=http://www.themumbaiindians.com"
-                            scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
-                    <br>
-                    <a href="http://www.themumbaiindians.com"
-                       onclick='openChatWindow("http://www.themumbaiindians.com", "http://www.themumbaiindians.com");'>
-                       Chat on a separate window</a>
+                        <strong>Deccan Chargers v Mumbai Indians</strong>
+                        <p>
+                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/content/story/351337.html&title=Deccan Chargers v Mumbai Indians"
+                                scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
+                        <br>
+                        <a href="http://content-usa.cricinfo.com/ipl/content/story/351337.html"
+                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/content/story/351337.html", "http://content-usa.cricinfo.com/ipl/content/story/351337.html");'>
+                           Chat on a separate window
+                        </a>
+                        <br/> <p/>
+                        <strong>Check out what people are yapping about Mumbai Indians</strong>
+                        <p>
+                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://www.themumbaiindians.com&title=http://www.themumbaiindians.com"
+                                scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
+                        <br>
+                        <a href="http://www.themumbaiindians.com"
+                           onclick='openChatWindow("http://www.themumbaiindians.com", "http://www.themumbaiindians.com");'>
+                           Chat on a separate window
+                        </a>
                     </div>
                 </div>
 
