@@ -149,12 +149,14 @@ class ChatUrl {
         if ($limit == 0 && $offset == 0) {
             $sql = "SELECT cu.* FROM chat_url cu, chat_url_tag ct " .
                    "WHERE cu.id = ct.chat_url_id " .
-                   "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) ";
+                   "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) " .
+                   "GROUP BY ct.chat_url_id ";
         }
         else {
             $sql = "SELECT cu.* FROM chat_url cu, chat_url_tag ct " .
                    "WHERE cu.id = ct.chat_url_id " .
                    "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) " .
+                   "GROUP BY ct.chat_url_id ";
                    "LIMIT $offset, $limit";
         }
         
@@ -166,7 +168,8 @@ class ChatUrl {
         $sql = "SELECT count(*) as count FROM " .
                "(SELECT cu.* FROM chat_url cu, chat_url_tag ct " .
                "WHERE cu.id = ct.chat_url_id " .
-               "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE)) d ";
+               "AND MATCH (ct.tag) AGAINST ('$tags' IN BOOLEAN MODE) " .
+               "GROUP BY ct.chat_url_id) d ";
         
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
