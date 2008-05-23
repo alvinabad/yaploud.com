@@ -1,6 +1,7 @@
 <?php
 
-$redirect = '/home.php';
+#$redirect = '/home.php';
+$redirect = '/yapparty/ipl_events.php';
 header("Location: $redirect");
 
 ?>
