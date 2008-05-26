@@ -162,6 +162,18 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                     </table>
 
                     <div align="center">
+
+                    <strong>Rajasthan Royals v Mumbai Indians,</strong>
+                        <p>
+                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/content/current/site/ipl/&title=Rajasthan Royals v Mumbai Indians"
+                                scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
+                        <br>
+                        <a href="http://content-usa.cricinfo.com/ipl/content/current/site/ipl/"
+                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/content/current/site/ipl/", "Rajasthan Royals v Mumbai Indians,");'>
+                           Chat on a separate window
+                        </a>
+                        <p>
+
                     <strong>Delhi Daredevils v Mumbai Indians</strong>
                         <p>
                         <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/content/current/site/ipl/&title=Delhi Daredevils v Mumbai Indians"
