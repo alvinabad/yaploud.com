@@ -8,6 +8,8 @@
 <html>
     <head>
         <title>Welcome to YapLoud - Help</title>
+	  <meta name="description" content="Real time discussion on web pages" />
+	  <meta name="keywords" content="yaploud, chat, yap, discuss, Social networking, networking, real-time conversation, real-time chat, dynamic group, URL, YapURL, cricket, sports, live cricket, live sports, live entertainment, live chat, live conversation, live discussion" />
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="/css/style.css" />
         <script language="JavaScript">
