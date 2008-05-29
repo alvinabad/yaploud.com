@@ -18,6 +18,8 @@ include("./register_c.inc");
 <html>
 <head>
   <title>YapLoud - Sign Up</title>
+  <meta name="description" content="Real time discussion on web pages" />
+  <meta name="keywords" content="yaploud, chat, yap, discuss, Social networking, networking, real-time conversation, real-time chat, dynamic group, URL, YapURL, cricket, sports, live cricket, live sports, live entertainment, live chat, live conversation, live discussion" />
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
