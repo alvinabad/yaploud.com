@@ -41,13 +41,13 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 <div style="font-size:10px">* Randomly selected registered users are eligiable to receive a surprise YapLoud gift.</div>
 
                 <hr/>
-                <div>
+                <!--<div>
                     <table border="1px" align="left" style="width: 400px">
                         <tbody style="font-size:12px">
                             <tr>
                                 <td class="Teamheadtxt" width="25%">Date</td>
                                 <td class="Teamheadtxt" style="border-left: 3px solid rgb(255, 255, 255); border-right: 3px solid rgb(255, 255, 255);" >Team v Team</td>
-                                <!--
+
                                 <td style="border-left: 3px solid rgb(255, 255, 255); border-right: 3px solid rgb(255, 255, 255);" class="Teamheadtxt" width="30%">Team v Team</td>
                                 <td class="Teamheadtxt" width="50%">Venue</td>
                                 -->
