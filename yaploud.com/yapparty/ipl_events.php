@@ -84,7 +84,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                                 <td class="blk-txt2">Eden Gardens, Kolkata</td>
                             </tr>
                             -->
-                            <tr height="40">
+                            <!--<tr height="40">
                                 <td class="blk-txt2" bgcolor="#f5f5f5">May, Sun 18 <br/>07:30AM PST</td>
                                 <td class="teamtdborder" bgcolor="#f5f5f5">42nd match - <a href="http://www.deccanchargers.com/" onclick='openChatWindow("http://www.deccanchargers.com/", "http://www.deccanchargers.com/");'>Deccan Chargers</a> <br/>v <a href="http://www.themumbaiindians.com/" onclick='openChatWindow("http://www.themumbaiindians.com/", "http://www.themumbaiindians.com/");'>Mumbai Indians</a></td>
                             </tr>
@@ -144,7 +144,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                                 <td class="blk-txt2" bgcolor="#f5f5f5">May, Wed 28 <br/>07:30AM PST</td>
                                 <td class="teamtdborder" bgcolor="#f5f5f5">56th match - <a href="http://www.kingsxipunjab.com/" onclick='openChatWindow("http://www.kingsxipunjab.com/", "http://www.kingsxipunjab.com/");'>Kings XI Punjab</a> <br/>v <a href="http://www.rajasthanroyals.com/" onclick='openChatWindow("http://www.rajasthanroyals.com/", "http://www.rajasthanroyals.com/");'>Rajasthan Royals</a></td>
                             </tr>
-                            <!--
+
                             <tr height="40">
                                 <td class="blk-txt2">May, Fri 30<br>07:30AM PST</td>
                                 <td class="teamtdborder">1st Semi-Final - TBC v TBC</td>
@@ -163,16 +163,16 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 
                     <div align="center">
 
-                    <strong>Bangalore Royal Challengers  v Mumbai Indians,</strong>
+                    <strong>Chennai Super Kings v Kings XI Punjab</strong>
                         <p>
-                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/content/current/site/ipl/&title=Bangalore Royal Challengers  v Mumbai Indians"
+                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/engine/match/336039.html&title=Chennai Super Kings v Kings XI Punjab"
                                 scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
                         <br>
-                        <a href="http://content-usa.cricinfo.com/ipl/content/current/site/ipl/"
-                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/content/current/site/ipl/", "Bangalore Royal Challengers  v Mumbai Indians,");'>
+                        <a href="http://content-usa.cricinfo.com/ipl/engine/match/336039.html"
+                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/engine/match/336039.html", "http://content-usa.cricinfo.com/ipl/engine/match/336039.html");'>
                            Chat on a separate window
                         </a>
-                        <p>
+                        <br/> <p/>
 
                    <!--  <strong>Delhi Daredevils v Mumbai Indians</strong>
                         <p>
