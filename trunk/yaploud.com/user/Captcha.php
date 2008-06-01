@@ -19,7 +19,8 @@ class Captcha {
         $this->captcha_string = substr($md5, 0, 4);
         
         // encrypt the captcha string and store in SESSION
-        $_SESSION['captcha'] = md5($this->captcha_string);
+       $_SESSION['captcha'] = md5($this->captcha_string);
+      // $_SESSION['captcha'] = md5("1111"); 
     }
 
     function generateImage() {

@@ -1,4 +1,3 @@
-
 <?php
 
 // Create your own datasource credentials locally 
@@ -16,5 +15,4 @@ else {
     $ds['password'] = "";
     $ds['database'] = "";
 }
-
 ?>

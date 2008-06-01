@@ -1,5 +1,4 @@
 <?php
-
 function clean(&$str, $maxlength, &$connection){
 	$input = substr($str, 0, $maxlength);
 	$input = mysql_real_escape_string($input, $connection);
@@ -43,6 +42,4 @@ class DB{
 		return $result;
 	}
 }
-
 ?>
-

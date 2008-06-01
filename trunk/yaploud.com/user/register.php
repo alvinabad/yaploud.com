@@ -1,6 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
 <?php
+require_once('../js/xajax/xajax_core/xajax.inc.php');
+include("./isAvailable.inc");
 include("./register_c.inc");
 
 /*
@@ -14,7 +14,7 @@ include("./register_c.inc");
  * Author: alvinabad@alumni.cmu.edu
  */
 ?>
-
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
   <title>YapLoud - Sign Up</title>
@@ -22,8 +22,11 @@ include("./register_c.inc");
   <meta name="keywords" content="yaploud, chat, yap, discuss, Social networking, networking, real-time conversation, real-time chat, dynamic group, URL, YapURL, cricket, sports, live cricket, live sports, live entertainment, live chat, live conversation, live discussion" />
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
-  <?php require("common/yui.php"); ?>
+  <?php require("common/yui.php"); 
+   $xajax->printJavascript("../js/xajax/");
+  ?>
   <script type="text/javascript">
+    function test1(nvar) {alert(nvar);}
     function enable_submit_signup(e) {
         if (e.checked == true) {
             document.getElementById('submit_signup').disabled=false;
@@ -81,16 +84,32 @@ HTML;
     ?>
     </div>
     
-    <form action="/user/register.php" method="post" 
+    <form name="form1" action="/user/register.php" method="post" 
           onSubmit="return Register.validate();">
           
     <table style="text-align: left;">
     <tr>
       <td>
-        Username:
-        <br>
+        Username:</td></tr>
+        <tr>
+        <td>
         <input type="text" id="username" name="username" value="<?php print $username; ?>"/>
-      </td>
+        
+        
+        
+        <input type="button" name="Submit2"  value="check availability!" 
+            onclick="xajax_processForm(form1.username.value);"/> 
+        </td>
+        </tr>
+        <tr>
+        <td>
+         <div id="result"></div></td>
+        </tr>
+        <tr>
+        
+    
+      
+     
     </tr>
     <tr>
       <td>
