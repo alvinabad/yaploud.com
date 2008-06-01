@@ -165,7 +165,8 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 
                     <div align="center">
 
-                    <strong>IPL Finals: Chennai Super Kings v Rajasthan Royals  ( Rajasthan Royals Win)</strong>
+                    <strong>IPL Finals: Chennai Super Kings v Rajasthan Royals </strong><br>
+                    <strong>Update: Rajasthan Royals win on last ball </strong>
                         <p>
                         <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/engine/match/336040.html&title=Chennai Super Kings v Rajasthan Royals"
                                 scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
