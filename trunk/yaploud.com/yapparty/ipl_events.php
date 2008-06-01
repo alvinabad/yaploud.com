@@ -165,13 +165,13 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 
                     <div align="center">
 
-                    <strong>Chennai Super Kings v Kings XI Punjab</strong>
+                    <strong>IPL Finals: Chennai Super Kings v Rajasthan Royals</strong>
                         <p>
-                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/engine/match/336039.html&title=Chennai Super Kings v Kings XI Punjab"
+                        <iframe src="http://www.yaploud.com/chat/chat_window.php?url=http://content-usa.cricinfo.com/ipl/engine/match/336040.html&title=Chennai Super Kings v Rajasthan Royals"
                                 scrolling="no" style="width:325px; height:320px" frameborder="1"></iframe>
                         <br>
-                        <a href="http://content-usa.cricinfo.com/ipl/engine/match/336039.html"
-                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/engine/match/336039.html", "http://content-usa.cricinfo.com/ipl/engine/match/336039.html");'>
+                        <a href="http://content-usa.cricinfo.com/ipl/engine/match/336040.html"
+                           onclick='openChatWindow("http://content-usa.cricinfo.com/ipl/engine/match/336040.html", "http://content-usa.cricinfo.com/ipl/engine/match/336040.html");'>
                            Chat on a separate window
                         </a>
                         <br/> <p/>
