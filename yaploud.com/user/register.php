@@ -97,8 +97,10 @@ HTML;
         
         
         
+        <!-- 
         <input type="button" name="Submit2"  value="check availability!" 
             onclick="xajax_processForm(form1.username.value);"/> 
+         -->
         </td>
         </tr>
         <tr>
