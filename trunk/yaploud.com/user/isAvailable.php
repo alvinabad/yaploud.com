@@ -11,11 +11,11 @@ function processForm($username) {
  
   $objResponse = new xajaxResponse();
   if (empty($username)) {
-  	$objResponse->assign("result", "innerHTML", "Empty username");
+  	$objResponse->assign("result1", "innerHTML", "Empty username");
   }elseif (mysql_num_rows($result)>0) {
-  	$objResponse->assign("result", "innerHTML", "Not Available");
+  	$objResponse->assign("result1", "innerHTML", "Not Available");
   } else {
-  	$objResponse->assign("result", "innerHTML", "Available");
+  	$objResponse->assign("result1", "innerHTML", "Available");
   }
   return $objResponse;
 }
