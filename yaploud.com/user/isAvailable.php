@@ -41,8 +41,8 @@ $xajax->printJavascript("../js/xajax/");
 <td width="8">:</td>
 <td width="306"><input type="text" name="username">
 <input type="button" name="Submit2" value="isAvailable?"
-onclick="xajax_processForm(form1.username.value);">
-
+onclick="xajax_processForm(form1.username.value);"></td>
+<td>
 <div id="result"></div></td>
 </tr>
 <tr>
