@@ -1,6 +1,4 @@
 <?php
-require_once('../js/xajax/xajax_core/xajax.inc.php');
-include("./isAvailable.inc");
 include("./register_c.inc");
 
 /*
@@ -15,6 +13,7 @@ include("./register_c.inc");
  */
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
 <html>
 <head>
   <title>YapLoud - Sign Up</title>
@@ -22,11 +21,8 @@ include("./register_c.inc");
   <meta name="keywords" content="yaploud, chat, yap, discuss, Social networking, networking, real-time conversation, real-time chat, dynamic group, URL, YapURL, cricket, sports, live cricket, live sports, live entertainment, live chat, live conversation, live discussion" />
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
-  <?php require("common/yui.php"); 
-   $xajax->printJavascript("../js/xajax/");
-  ?>
+  <?php require("common/yui.php"); ?>
   <script type="text/javascript">
-    function test1(nvar) {alert(nvar);}
     function enable_submit_signup(e) {
         if (e.checked == true) {
             document.getElementById('submit_signup').disabled=false;
@@ -40,6 +36,10 @@ include("./register_c.inc");
     
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/user/Register.js" ></script>
+  <script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js"></script>
+  <script type="text/javascript" src="/js/yui/build/event/event-min.js"></script>
+  <script type="text/javascript" src="/js/yui/build/connection/connection-min.js"></script>
+  
 </head>
 
 <body class="yui-skin-sam">
@@ -84,11 +84,11 @@ HTML;
     ?>
     </div>
     
-    <form name="form1" action="/user/register.php" method="post" 
+    <form action="/user/register.php" method="post" 
           onSubmit="return Register.validate();">
           
     <table style="text-align: left;">
-    <tr>
+     <tr>
       <td>
         Username:</td></tr>
         <tr>
@@ -97,10 +97,9 @@ HTML;
         
         
         
-        <!-- 
+        
         <input type="button" name="Submit2"  value="check availability!" 
-            onclick="xajax_processForm(form1.username.value);"/> 
-         -->
+            onclick="makeRequest(form.username.value);"/> 
          
         </td>
         </tr>
@@ -193,3 +192,32 @@ HTML;
 
 </body>
 </html>
+<script> 
+	var sUrl = "isUsernameAvailable.php?username=";  
+	
+	var div = document.getElementById('result'); 
+	 
+	var handleSuccess = function(o){ 
+	    if(o.responseText !== undefined){ 
+	     
+	        div.innerHTML = o.responseText; 
+	        
+	    } 
+	} 
+	 
+	var handleFailure = function(o){ 
+	
+	} 
+	 
+	var callback = 
+	{ 
+	  success:handleSuccess, 
+	  failure: handleFailure, 
+	  argument: { foo:"foo", bar:"bar" } 
+	}; 
+	
+	function makeRequest(userName){
+		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl+userName, callback);
+	}
+	
+</script>
