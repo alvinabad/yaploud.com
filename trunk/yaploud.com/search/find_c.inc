@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This is the controller (MVC pattern) for the find.php view
  * There shouldn't be HTML in here. Please put them in the view page.
