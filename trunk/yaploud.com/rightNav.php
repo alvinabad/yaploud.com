@@ -54,11 +54,12 @@
     <a href="/chat/embed_code.php"> Embed yap window </a>
     </div>
     <hr/>
-    <!-- 
+    	
     <div id="tagCloud">
-        <label>Tag Cloud</label>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim 
+        <label>Tag Cloud</label><p>
+        <?php include("chat/YapLoudCloud.php"); ?>
+         
     </div>
-     --> 
+     
     <div style="clear: both"></div>
 </div>
