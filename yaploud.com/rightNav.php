@@ -59,7 +59,7 @@
         <label>Tag Cloud</label><p>
         <?php 
         require_once 'db.inc';
-        include("chat/YapLoudCloud.php"); 
+        include("chat/YapLoudCloud.php");
         ?>
          
     </div>
