@@ -183,7 +183,7 @@ class wordCloud
      	$tag_url = createLink($word);
      	$cloud->addWord($tag_url, 1);
     }
-   print_r ($cloud->wordsArray);
+   //print_r ($cloud->wordsArray);
     echo $cloud->showCloud();
     
    
