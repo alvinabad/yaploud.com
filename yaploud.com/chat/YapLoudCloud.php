@@ -79,7 +79,7 @@ class wordCloud
     {
     	$this->shuffleCloud();
     	$this->max = max($this->wordsArray);
-    	print $this->max;
+    	//print $this->max;
     	if (is_array($this->wordsArray))
     	{
     		$return = ($returnType == "html" ? "" : ($returnType == "array" ? array() : ""));
@@ -87,6 +87,7 @@ class wordCloud
     		{
     			
     			$sizeRange = $this->getClassFromPercent(($popularity / $this->max) * 100);
+    			print $sizeRange;
     			if ($returnType == "array")
     			{
     			$return[$word]['word'] = $word;
@@ -161,7 +162,7 @@ class wordCloud
     	$word = $row['tag'];
      	//$tag = strtolower($word);
      	$tag_url = createLink($word);
-     	$tagArray[] = array($tag_url=> 1);
+     	$tagArray[] = array($tag_url=> 2);
     }
     //print_r ($tagArray);
     }
