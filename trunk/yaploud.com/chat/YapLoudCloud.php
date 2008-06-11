@@ -22,7 +22,7 @@ class wordCloud
 
     function addWord($word, $value = 1)
     {
-    	$word = strtolower($word);
+    	//$word = strtolower($word);
     	if (array_key_exists($word, $this->wordsArray))
     		$this->wordsArray[$word] += $value;
     	else
@@ -79,11 +79,13 @@ class wordCloud
     {
     	$this->shuffleCloud();
     	$this->max = max($this->wordsArray);
+    	print $this->max;
     	if (is_array($this->wordsArray))
     	{
     		$return = ($returnType == "html" ? "" : ($returnType == "array" ? array() : ""));
     		foreach ($this->wordsArray as $word => $popularity)
     		{
+    			
     			$sizeRange = $this->getClassFromPercent(($popularity / $this->max) * 100);
     			if ($returnType == "array")
     			{
@@ -151,41 +153,37 @@ class wordCloud
 
     <?
     function getTagList() {
-	$Array =array();
+	$tagArray =array();
 	$sql = "select distinct tag from chat_url_tag";
 	$db = new DB();
 	$result = $db->mysql_query($sql);
-	//print $result;
-    $count = 1;
-    while( ($row = mysql_fetch_assoc($result)) && ($count < 30) ) {
-     $word = $row['tag'];
-     $tag = strtolower($word);
-     $tag_url = createLink($tag);
-     $Array[] = $tag_url;
-     $count = $count + 1;
-    //print $row['tag'];
+    while( ($row = mysql_fetch_assoc($result))) {
+    	$word = $row['tag'];
+     	//$tag = strtolower($word);
+     	$tag_url = createLink($word);
+     	$tagArray[] = array($tag_url=> 1);
     }
-    return $Array;
-    
+    //print_r ($tagArray);
     }
+   
     function createLink($link = "") {
     	return '<a href="/search/find.php?searchby=tag&query=' .
                      $link . '">' . $link . '</a>';
     }
     $randomWords = getTagList();
-    /*$randomWords = array(
-    "webmasterworld", "Computer", "Skateboarding", "PC", "music", "music", "music", "music", "PHP", "C", "XHTML", "eminem", "programming", "forums", "webmasterworld",
-    "Chill out", "email", "forums", "Computer", "GTA", "css", "mysql", "sql", "css", "mysql", "sql",
-    "forums", "internet", "class", "object", "method", "music", "music", "music", "music", "gui", "encryption"
-    );*/
-
+    
     $cloud = new wordCloud($randomWords);
     
-    $cloud->addWord(createLink("news"), 12);
-    $cloud->addWord(createLink("cnn"), 8);
-    $cloud->addWord(createLink("democrat"), 17);
-    $cloud->addWord(createLink("blog"), 22);
-    $cloud->addWord(createLink("events"), 32);
+    $sql = "select tag from chat_url_tag";
+	$db = new DB();
+	$result = $db->mysql_query($sql);
+	while( ($row = mysql_fetch_assoc($result))) {
+    	$word = $row['tag'];
+     	//$tag = strtolower($word);
+     	$tag_url = createLink($word);
+     	$cloud->addWord($tag_url, 1);
+    }
+   print_r ($cloud->wordsArray);
     echo $cloud->showCloud();
     
    
