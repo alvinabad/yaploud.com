@@ -52,26 +52,19 @@ class wordCloud
     function getClassFromPercent($percent)
     {
 	    print $percent. "<p>";
-	    if ($percent >= 99)
+	    if ($percent >= 80)
     		$class = 1;
-    	else if ($percent >= 70)
-    		$class = 2;
     	else if ($percent >= 60)
     		$class = 3;
     	else if ($percent >= 50)
-    		$class = 4;
-    	else if ($percent >= 40)
     		$class = 5;
     	else if ($percent >= 30)
-    		$class = 6;
-    	else if ($percent >= 20)
     		$class = 7;
-    	else if ($percent >= 10)
-    		$class = 8;
-    	else if ($percent >= 5)
+    	else if ($percent >= 20)
     		$class = 9;
-    	else
+    	else 
     		$class = 0;
+    	
 
     	return $class;
     }
