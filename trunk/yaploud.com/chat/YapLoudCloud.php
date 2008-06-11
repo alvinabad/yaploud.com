@@ -87,7 +87,7 @@ class wordCloud
     		{
     			
     			$sizeRange = $this->getClassFromPercent(($popularity / $this->max) * 100);
-    			print $sizeRange;
+    			print $sizeRange. "<p>";
     			if ($returnType == "array")
     			{
     			$return[$word]['word'] = $word;
