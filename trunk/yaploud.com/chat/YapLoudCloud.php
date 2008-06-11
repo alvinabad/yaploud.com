@@ -51,7 +51,7 @@ class wordCloud
 
     function getClassFromPercent($percent)
     {
-	    print $percent. "<p>";
+	    //print $percent. "<p>";
 	    if ($percent >= 99)
     		$class = 1;
     	else if ($percent >= 70)
@@ -88,7 +88,7 @@ class wordCloud
     		{
     			
     			$sizeRange = $this->getClassFromPercent(($popularity / $this->max) * 100);
-    			print $sizeRange. "<p>";
+    			//print $sizeRange. "<p>";
     			if ($returnType == "array")
     			{
     			$return[$word]['word'] = $word;
@@ -108,7 +108,7 @@ class wordCloud
 ?>
 
     <style>
-    <!--
+    
     .word {
     font-family: Tahoma;
     padding: 4px 4px 4px 4px;
@@ -150,7 +150,7 @@ class wordCloud
     color: #ccc;
     font-size: .6em;
     }
-    //-->
+    
     </style>
 
     <?
