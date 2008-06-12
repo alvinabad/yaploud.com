@@ -19,30 +19,32 @@
 <?php
         
 //--- Start pagination
-print <<<HTML
-  <div style="text-align: center;">
-  <a href="{$previous_url}">Previous &lt</a> 
+if ($num_results !=0) {
+    print <<<HTML
+    <div style="text-align: center;">
+    <a href="{$previous_url}">Previous &lt</a> 
 HTML;
 
-for($x=0; $x<$num_pagelinks; $x++) {
-    $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
-                        "&limit=$limit" . "&list=$list_order";
+    for($x=0; $x<$num_pagelinks; $x++) {
+        $jump = $x + $offset;
+        $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
+                    "&limit=$limit" . "&list=$list_order";
             
-            $jump++;
-            if ($jump>$total_url)
-                break;
+        $jump++;
+        if ($jump>$total_url)
+            break;
                 
-            print <<<HTML
-              <a href="{$jump_url}">{$jump} </a>
-HTML;
-        }
-        
         print <<<HTML
-         <a href="{$next_url}">&gt; Next</a>
+            <a href="{$jump_url}">{$jump} </a>
+HTML;
+    }
+        
+    print <<<HTML
+        <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
-       //--- End pagination
+}
+//--- End pagination
        
         if ($topicUrlInfo_result) {
             $cr = new ChatRoom();
@@ -165,31 +167,35 @@ HTML;
                 <br/>
 HTML;
             }
-        //--- Start pagination
-        print <<<HTML
-        <div style="text-align: center;">
-          <a href="{$previous_url}">Previous &lt</a> 
+
+//--- Start pagination
+if ($num_results !=0) {
+    print <<<HTML
+    <div style="text-align: center;">
+    <a href="{$previous_url}">Previous &lt</a> 
 HTML;
-        for($x=0; $x<$num_pagelinks; $x++) {
-            $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
-                        "&limit=$limit" . "&list=$list_order";
+
+    for($x=0; $x<$num_pagelinks; $x++) {
+        $jump = $x + $offset;
+        $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
+                    "&limit=$limit" . "&list=$list_order";
             
-            $jump++;
-            if ($jump>$total_url)
-                break;
+        $jump++;
+        if ($jump>$total_url)
+            break;
                 
-            print <<<HTML
-              <a href="{$jump_url}">{$jump} </a>
-HTML;
-        }
-        
         print <<<HTML
-         <a href="{$next_url}">&gt; Next</a>
+            <a href="{$jump_url}">{$jump} </a>
+HTML;
+    }
+        
+    print <<<HTML
+        <a href="{$next_url}">&gt; Next</a>
         </div>
 HTML;
-       //--- End pagination
-
+}
+//--- End pagination
+            
         }
         ?>
         </div>
