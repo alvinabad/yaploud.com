@@ -119,6 +119,7 @@ $db = new DB();
 $previous = $offset;
 $next = $offset + $limit;
 $total_url = getCountTopicUrl($db);
+$num_results = -1;
 
 if ($next>$total_url)
     $next = $offset;
@@ -147,6 +148,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
     while($row = mysql_fetch_assoc($look_ahead)) {
     	$i++;
     }
+    
+    $num_results = $i;
+    
     if ($i != 0) {
         $previous = $offset - $limit;
         if ($previous < 0) {
