@@ -6,9 +6,9 @@
     
 <div>
    <div style="text-align: left;">
-     | <a id="most_discussed" href="<?php print $most_discussed_url; ?>">Most Discussed</a> | 
+     <a id="most_discussed" href="<?php print $most_discussed_url; ?>">Most Discussed</a> | 
      <a id="most_recent" href="<?php print $most_recent_url; ?>">Most Recent</a> |
-     <a id="most_active" href="<?php print $most_active_url; ?>">Most Active</a> |
+     <a id="most_active" href="<?php print $most_active_url; ?>">Most Active</a>
      <a id="most_yappers" >
      </a>
      <!-- 
