@@ -35,14 +35,42 @@ function reset_links() {
     $('most_numberyaps').style.color = "black";
 }
 
+var most_discussed_el = document.getElementById('most_discussed');
+var most_active_el = document.getElementById('most_active');
+var most_recent_el = document.getElementById('most_recent');
+var most_yappers_el = document.getElementById('most_yappers');
+
+function reset_tabs() {
+    most_discussed_el.style.textDecoration = "none";
+    most_active_el.style.textDecoration = "none";
+    most_recent_el.style.textDecoration = "none";
+    most_yappers_el.style.textDecoration = "none";
+}
+
 function init() {
     Nifty("div.yap_url, div#tagCloud","big, transparent");
     //Nifty("div#tagCloud", "big, transparent");
     
-    var homeTabs = new YAHOO.widget.TabView("center_nav");    //YAHOO.util.Event.addListener($('most_yaps'), "click", select_link); 
+    reset_tabs();
+    if (list_order == 'most_active') {
+        most_active_el.style.textDecoration = "underline";
+    }
+    else if (list_order == 'most_recent') {
+        most_recent_el.style.textDecoration = "underline";
+    }
+    else if (list_order == 'most_yappers') {
+        most_yappers_el.style.textDecoration = "underline";
+    }
+    else {
+        most_discussed_el.style.textDecoration = "underline";
+    }
+    
+    //var homeTabs = new YAHOO.widget.TabView("center_nav");    
+    //YAHOO.util.Event.addListener($('most_yaps'), "click", select_link); 
     
     //YAHOO.util.Event.addListener($('most_recentyaps'), "click", select_link); 
     //YAHOO.util.Event.addListener($('most_numberyaps'), "click", select_link); 
+
 }
 
 YAHOO.util.Event.onDOMReady(init);
