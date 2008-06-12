@@ -1,9 +1,22 @@
-
 <!-- Most Discussed -->
+
+<script type="text/javascript">
+    var list_order = "<?php print $list_order; ?>";
+</script>
+    
 <div>
+   <div style="text-align: left;">
+     | <a id="most_discussed" href="<?php print $most_discussed_url; ?>">Most Discussed</a> | 
+     <a id="most_recent" href="<?php print $most_recent_url; ?>">Most Recent</a> |
+     <a id="most_active" href="<?php print $most_active_url; ?>">Most Active</a> |
+     <a id="most_yappers" >
+     </a>
+     <!-- 
+     href="<?php print $most_yappers_url; ?>">Most Yappers
+      -->
+</div>
+
 <?php
-$previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&" . "limit=$limit";
-$next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
         
 //--- Start pagination
 print <<<HTML
@@ -13,7 +26,8 @@ HTML;
 
 for($x=0; $x<$num_pagelinks; $x++) {
     $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
+            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
+                        "&limit=$limit" . "&list=$list_order";
             
             $jump++;
             if ($jump>$total_url)
@@ -32,6 +46,7 @@ HTML;
        
         if ($topicUrlInfo_result) {
             $cr = new ChatRoom();
+            $cu = new ChatUrl();
             $rt = new Rating();
             $tg = new Tags();
             $u = new Url();
@@ -51,7 +66,13 @@ HTML;
                 $url = $u->stripslashes($url);
                 $url = $u->decode($url);
                 $url = normalize_url($url);
-                $comments = $row['c'];
+                
+                if ($list_order == "most_discussed") {
+                    $comments = $row['c'];
+                }
+                else {
+                    $comments = $cu->getNumComments($url);
+                }
                 
                 $info = getChatUrlInfo($url);
                 $title = $info['title'];
@@ -151,7 +172,8 @@ HTML;
 HTML;
         for($x=0; $x<$num_pagelinks; $x++) {
             $jump = $x + $offset;
-            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . "&" . "limit=$limit";
+            $jump_url = $_SERVER['PHP_SELF'] . "?offset=$jump" . 
+                        "&limit=$limit" . "&list=$list_order";
             
             $jump++;
             if ($jump>$total_url)
@@ -171,4 +193,3 @@ HTML;
         }
         ?>
         </div>
-

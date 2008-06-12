@@ -15,6 +15,7 @@ ob_start();
 
 require ("user.php");
 require("chat/ChatRoom.inc");
+//require_once("chat/ChatUrl.inc");
 require("rating/Rating.inc");
 require("tags/Tags.inc");
 require("util/Url.inc");
@@ -53,7 +54,7 @@ function getCountTopicUrl($db) {
 	return $count;
 }
 
-function getTopicUrlInfo($db, $offset, $limit) {
+function getTopicUrlInfo($db, $offset, $limit, $list_order) {
 	if (!$offset) {
 		$offset = 0;
 	}
@@ -69,8 +70,28 @@ function getTopicUrlInfo($db, $offset, $limit) {
 	         "as uniqs  from chat group by topic_url order by 2 desc ";
 	**/
 	
-	$query = "select topic_url as url, count(*) as c " .
-	         "from chat group by topic_url order by 2 desc ";
+	if ($list_order == "most_recent") {
+	    $query = "select distinct topic_url as url " .
+	             "from chat order by creation_date desc ";
+	             //"from chat group by topic_url order by creation_date desc ";
+	}
+	elseif ($list_order == "most_active") {
+	    $query = "select topic_url as url, count(*) as c " .
+	             "from room_users " .
+	             "where DATEDIFF(CURRENT_DATE(), creation_date) <1 " . 
+	             "group by topic_url order by creation_date desc ";
+	}
+	elseif ($list_order == "most_yappers") {
+	    $query = "select topic_url as url, count(*) as c " .
+	             "from room_users " .
+	             "where username != '' " .
+	             //"and DATEDIFF(CURRENT_DATE(), creation_date) <10 " . 
+	             "group by username order by c desc ";
+	}
+    else {
+	    $query = "select topic_url as url, count(*) as c " .
+	             "from chat group by topic_url order by 2 desc ";
+	}
 	
 	if ( $limit >= 0 ) {
 		$query = $query . "limit $offset, $limit";
@@ -88,6 +109,7 @@ function getTopicUrlInfo($db, $offset, $limit) {
 }
 
 
+
 // default values
 $num_pagelinks = 5;
 $offset = 0;
@@ -97,8 +119,16 @@ $db = new DB();
 $previous = $offset;
 $next = $offset + $limit;
 $total_url = getCountTopicUrl($db);
+
 if ($next>$total_url)
     $next = $offset;
+
+if (isset($_REQUEST['list']) ) {
+    $list_order = $_REQUEST['list'];
+}
+else {
+    $list_order = "most_discussed";
+}
 
 if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
      isset($_REQUEST['offset']) && isset($_REQUEST['limit']) ) {
@@ -109,9 +139,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
     	$offset = 0;
     }
     
-    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit);
     
-    $look_ahead = getTopicUrlInfo($db, $offset+$limit, $limit);
+    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit, $list_order);
+    
+    $look_ahead = getTopicUrlInfo($db, $offset+$limit, $limit, $list_order);
     $i = 0;
     while($row = mysql_fetch_assoc($look_ahead)) {
     	$i++;
@@ -130,8 +161,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'GET'  &&
     }
 }
 else {
-    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit);
+    $topicUrlInfo_result = getTopicUrlInfo($db, $offset, $limit, $list_order);
 }
+
+$previous_url = $_SERVER['PHP_SELF'] . "?offset=$previous" . "&limit=$limit" . 
+                "&list=$list_order";
+$next_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&limit=$limit" . 
+            "&list=$list_order";
+
+$most_discussed_url = $_SERVER['PHP_SELF'] . "?list=most_discussed";
+$most_active_url = $_SERVER['PHP_SELF'] . "?list=most_active";
+$most_recent_url = $_SERVER['PHP_SELF'] . "?list=most_recent";
+$most_yappers_url = $_SERVER['PHP_SELF'] . "?list=most_yappers";
+//$most_active_url = $_SERVER['PHP_SELF'] . "?offset=$next" . "&" . "limit=$limit";
 
 ?>
 
