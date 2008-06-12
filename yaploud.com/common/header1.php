@@ -2,6 +2,10 @@
 
 <!-- HEADER SECTION -->
 
+<?php
+    list($usec, $sec) = explode(" ", microtime());
+    $start_time = (float)$usec + (float)$sec;
+?>
 
 <script type="text/javascript">
 function isSearchValid() {

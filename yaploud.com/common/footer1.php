@@ -1,4 +1,10 @@
 <!-- FOOTER SECTION -->
+<?php
+    list($usec, $sec) = explode(" ", microtime());
+    $end_time = (float)$usec + (float)$sec;
+    $elapsed_time = $end_time - $start_time;
+?>
+
 <div id="footer">
     <div class="footer-left">
         <p class="align-left">
@@ -13,6 +19,14 @@
             <a href="/help/about_us.php">About us</a>
         </p>
     </div>
+</div>
+
+<div style="clear: both; font-size: 10px;">
+<?php 
+    if (isset($elapsed_time)) {
+    	//print $elapsed_time; 
+    }
+?>
 </div>
 
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
