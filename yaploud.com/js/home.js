@@ -45,6 +45,11 @@ function reset_tabs() {
     most_active_el.style.textDecoration = "none";
     most_recent_el.style.textDecoration = "none";
     most_yappers_el.style.textDecoration = "none";
+    
+    most_active_el.style.fontWeight = "normal";
+    most_recent_el.style.fontWeight = "normal";
+    most_yappers_el.style.fontWeight = "normal";
+    most_discussed_el.style.fontWeight = "normal";
 }
 
 function init() {
@@ -54,15 +59,19 @@ function init() {
     reset_tabs();
     if (list_order == 'most_active') {
         most_active_el.style.textDecoration = "underline";
+        most_active_el.style.fontWeight = "bold";
     }
     else if (list_order == 'most_recent') {
         most_recent_el.style.textDecoration = "underline";
+        most_recent_el.style.fontWeight = "bold";
     }
     else if (list_order == 'most_yappers') {
         most_yappers_el.style.textDecoration = "underline";
+        most_yappers_el.style.fontWeight = "bold";
     }
     else {
         most_discussed_el.style.textDecoration = "underline";
+        most_discussed_el.style.fontWeight = "bold";
     }
     
     //var homeTabs = new YAHOO.widget.TabView("center_nav");    
