@@ -9,6 +9,6 @@ if (yaploud_yaplink_el && document.location) {
                '"' + url + '", ' +
                '"' + url + '");' +
                '>' + link_name + '</a>'; 
-    
+    alert(code);
     yaploud_yaplink_el.innerHTML = code;
 }
