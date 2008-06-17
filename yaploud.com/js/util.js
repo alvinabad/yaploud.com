@@ -34,9 +34,9 @@ function openChatWindow(site_url, title) {
 	}
 	
 	// check if attempting to chat same site
-	if (site_url.indexOf(location.hostname) != -1) {
-        return;
-	}
+	//if (site_url.indexOf(location.hostname) != -1) {
+    //    return;
+	//}
 	
 	// bypass Apache' mod_security: Access denied with code 503 
     title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
