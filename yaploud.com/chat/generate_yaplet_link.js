@@ -4,7 +4,7 @@ if (yaploud_yaplink_el && document.location) {
     var url = document.location;
     var link_name = 'Open Yaplet';
     var code = '<a href="javascript: ' +
-               'alert("yaplet")' +
+               "alert('yaplet')" +
     /**
                'openChatWindow(' +
                "'" + url + "', " +
