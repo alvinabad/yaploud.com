@@ -56,7 +56,7 @@ function init() {
     Nifty("div.yap_url, div#tagCloud","big, transparent");
     //Nifty("div#tagCloud", "big, transparent");
     
-    reset_tabs();
+    //reset_tabs();
     if (list_order == 'most_active') {
         most_active_el.style.textDecoration = "underline";
         most_active_el.style.fontWeight = "bold";
