@@ -5,7 +5,7 @@
 $deny = array("10.2.2.105", "204.16.157.225", "333.333.333");
 if (in_array ($_SERVER['REMOTE_ADDR'], $deny)) {
    print $_SERVER['REMOTE_ADDR'];
-   print "<H1> YOU ARE NOT ALLOWED HERE </H1>"
+   print "<H1> YOU ARE NOT ALLOWED HERE </H1>";
    //header("location: http://www.google.com/");
    //exit();
 }
