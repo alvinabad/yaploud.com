@@ -1,5 +1,14 @@
 <?php
 
+
+
+$deny = array("10.2.2.105", "204.16.157.225", "333.333.333");
+if (in_array ($_SERVER['REMOTE_ADDR'], $deny)) {
+   header("location: http://www.google.com/");
+   exit();
+}
+
+
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
 require("util/Url.inc");
 
