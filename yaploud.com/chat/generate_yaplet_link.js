@@ -13,8 +13,14 @@ includeJavascript('http://www.yaploud.com/js/util.js');
 
 var yaploud_yaplink_el = document.getElementById('yaploud_yaplink');
 if (yaploud_yaplink_el && document.location) {
-    var url = document.location;
-    var link_name = 'Open Yaplet';
+	if (!url) {
+        var url = document.location;
+	}
+	
+	if (!link_name) {
+        var link_name = 'Open Yaplet';
+	}
+	
     var code = '<a href="javascript: ' +
                'openChatWindow(' +
                "'" + url + "', " +
