@@ -21,7 +21,8 @@ if (yaploud_yaplink_el && document.location) {
         var link_name = 'Open Yaplet';
 	}
 	
-    var code = '<a href="javascript: ' +
+    var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
+               'href="javascript: ' +
                'openChatWindow(' +
                "'" + url + "', " +
                "'" + url + "')" +
