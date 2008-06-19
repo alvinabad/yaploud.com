@@ -17,8 +17,8 @@ if (yaploud_yaplink_el && document.location) {
         var yaplink_url = document.location;
 	}
 	
-	if (!link_name) {
-        var link_name = 'Open Yaplet';
+	if (!yaplink_name) {
+        var yaplink_name = 'Open Yaplet';
 	}
 	
     var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
@@ -27,6 +27,6 @@ if (yaploud_yaplink_el && document.location) {
                "'" + yaplink_url + "', " +
                "'" + yaplink_url + "')" +
                '; void 0;' + '"' +
-               '>' + link_name + '</a>'; 
+               '>' + yaplink_name + '</a>'; 
     yaploud_yaplink_el.innerHTML = code;
 }
