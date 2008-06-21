@@ -12,6 +12,7 @@ function includeJavascript(src) {
 includeJavascript('http://www.yaploud.com/js/util.js');
 
 var yaploud_yaplink_el = document.getElementById('yaploud_yaplink');
+yaploud_yaplink_el.setAttribute('id', '');
 if (yaploud_yaplink_el && document.location) {
 	if (!yaplink_url) {
         var yaplink_url = document.location;
