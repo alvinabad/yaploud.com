@@ -38,7 +38,7 @@ function openChatWindow(site_url, title) {
 		yaploud_domain = "http://www.yaploud.com"
 	}
 	
-	// bypass Apache' mod_security: Access denied with code 503 
+    // bypass Apache' mod_security: Access denied with code 503 
     title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
     
     site_url = encodeURIComponent_recursive(site_url);
