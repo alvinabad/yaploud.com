@@ -33,6 +33,11 @@ function openChatWindow(site_url, title) {
 		title = site_url;
 	}
 	
+	var yaploud_domain = '';
+	if (location.hostname.indexOf('yaploud') == -1) {
+		yaploud_domain = "http://www.yaploud.com"
+	}
+	
 	// check if attempting to chat same site
 	//if (site_url.indexOf(location.hostname) != -1) {
     //    return;
@@ -43,7 +48,7 @@ function openChatWindow(site_url, title) {
     
     site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
-    var url = "/chat/chat_window.php?url=" + site_url + "&title=" + title;
+    var url = yaploud_domain + "/chat/chat_window.php?url=" + site_url + "&title=" + title;
     
     var features = "width=340, height=340, status=yes, " +
                    "scrollbars=no, menubar=no, toolbar=no, " +
