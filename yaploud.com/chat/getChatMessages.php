@@ -7,6 +7,7 @@ ob_start();
 require("common/nocache.php");
 require("user.php");
 require("util/Url.inc");
+$user = new User();
 
 if ($_SERVER['REQUEST_METHOD'] != 'GET' || !isset($_REQUEST['url']) ||
     !isset($_REQUEST['last_msg_id'])  ) {
