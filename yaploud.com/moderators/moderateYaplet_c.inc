@@ -80,7 +80,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
 }
 
     
-$yap_messages = $cm->getMessages($yap_url, -1);
+$yap_messages = array_reverse($cm->getMessages($yap_url, -1));
 $yappers = $cr->getUsers($yap_url);
 
 
