@@ -120,7 +120,7 @@ HTML;
 ?>
   </div>
   <div style="float: right; clear:both; padding-right: 10px;">
-    Users shown with a check mark is currently banned from sending messages.
+    Users shown with a check mark are currently banned from sending messages.
     Select or uncheck a user to ban or un-ban. 
     <br>
     Hit submit button to submit request => 
@@ -139,6 +139,12 @@ HTML;
   <?php require("common/yui.php"); ?>
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/js/home.js" ></script>
-
+  <script type="text/javascript">
+    yaps_div = document.getElementById('yaps');
+    yaps_div.scrollTop = yaps_div.scrollHeight;
+    if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        yaps_div.scrollTop = yaps_div.scrollHeight; // IE7 requires running this twice!
+    }
+  </script>
 </body>
 </html>
