@@ -63,12 +63,25 @@ class Moderators {
     }
     
     function getModerators($domainname) {
+    	$moderators = array();
         $domainname = addslashes($domainname);
     	
         $sql = "SELECT * FROM moderators WHERE " .
                "domainname = '$domainname' ";
         $result = $this->db->mysql_query($sql);
-        return $result;
+        if($result) {
+            while($row = mysql_fetch_assoc($result)) {
+                array_push($moderators, $row);
+            }
+            mysql_free_result($result);
+            
+            // hardcoded moderators for testing only:
+            $r['username'] = 'alvin';
+            array_push($moderators, $r);
+            $r['username'] = 'yapper';
+		}
+		
+		return $moderators;
     }
     
     function getDomainname($url) {
