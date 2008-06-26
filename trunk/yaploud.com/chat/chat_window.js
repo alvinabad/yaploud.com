@@ -268,11 +268,14 @@ var tags_on = false;
 function toggleShow() {
 	var yappers_div = $('yappers');
 	var tags_div = $('tags');
+	//var moderator_div = $('moderator');
+	
 	
 	if (tags_on) {
         tags_on = false;
         YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
         YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
+      //  YAHOO.util.Dom.setStyle(moderator_div, 'display', 'none');
 	}
 	else {
         tags_on = true;
@@ -285,21 +288,51 @@ function toggleShow() {
 function showUsers() {
     var yappers_div = $('yappers');
     var tags_div = $('tags');
+   // var moderator_div = $('moderator');
+    
     
     YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
     YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
+    //YAHOO.util.Dom.setStyle(moderator_div, 'display', 'inline');
+    
 }
 
 function showTags() {
     var yappers_div = $('yappers');
     var tags_div = $('tags');
+    //var moderator_div = $('moderator');
     
+     YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
     YAHOO.util.Dom.setStyle(yappers_div, 'display', 'none');
-    YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
+     //YAHOO.util.Dom.setStyle(moderator_div, 'display', 'none');
     GetTags.sendRequest();
+   
 }
+/*
+function deleteBannedUsers(users) {
+	//alert(bannedUsers.length + ' ' + users.length);
+	for (var i=0; i < bannedUsers.length ; i++) {
+		var bannedUser = bannedUsers[i];
+		//alert(bannedUser);
+		
+		for (var j=0; j < users.length; j++) {
+			//alert('inner for compare ' + bannedUser + ':' + users[j]);
+			if (bannedUser == users[j]) {
+				//alert('before ' + users.length);
+				users.splice(j,1);
+				//alert('after ' + users.length);
+				//bannedUsers.splice(i,1);
+				continue;
+				
+				}
+		
+		}
+	}
 
+}
+*/
 function renderYappers(obj) {
+	
 	/**
     if(!already_hidden){
         sl.hide();
@@ -308,13 +341,21 @@ function renderYappers(obj) {
     */
     var found = false;
     var users = obj.users;
+   /* var names = ':';
+    for (var i = 0; i < users.length; i++ ){
+    	names = names + users[i] + ":";
+    	}
+    alert(names);*/
     var users_el = document.getElementById('yappers');
+	//deleteBannedUsers(users);		
+    var user_ip = '';
     users_el.innerHTML = '';
+  
     for(var i = 0; i < users.length; i++){
-        users_el.innerHTML += "<div class=room_user>" + users[i] + "</div>";
-        
+        users_el.innerHTML += "<div class=room_user>" + users[i].name + "</div>";  
+        //moderator.innerHTML += "<div class=room_user>" + "flag" + "</div>";   
         // check if current user is in chat room
-        if (users[i] == username) {
+        if (users[i].name == username) {
         	found = true;
         }
     }
@@ -323,6 +364,30 @@ function renderYappers(obj) {
     if (!found) {
     	username = obj.user_session;
     	updateLoginInfo(username);
+    }
+    //var moderator = document.getElementById('moderator');
+    
+    //moderator.innerHTML = '';
+    //for(var i = 0; i < users.length; i++){
+      //onmouseover="this.src=\'../images/redFlag.jpg\'" onmouseout="this.src=\'../images/greenFlag.jpg\'"
+      //  moderator.innerHTML += "<div class=flag_user>" + "<img " + "id=" + users[i] + ' width=15 height=15 title="click to flag a user"  src="../images/greenFlag.jpg" alt="Click to flag user" onclick="moderate(this.id)" />' + "</div>";   
+   
+    //}
+}
+
+function processModerators(obj) {
+    var found = false;
+    var moderators = obj.moderators;
+    var moderator_el = document.getElementById('moderate_link');
+    var link = '<a href="javascript: openExternalWindow(' + "'" +
+               '/moderators/moderateYaplet.php?url=' + site_url + 
+               "'" + '); void 0;">Moderate</a> |';
+               
+    for(var i = 0; i < moderators.length; i++){
+        if (moderators[i].username == username) {
+            moderator_el.innerHTML = link;
+            return;
+        }
     }
 }
 
@@ -406,7 +471,11 @@ var GetMessages = {
         }
         
         // update yappers list
-        renderYappers(obj);
+        //alert('Hello new ' + bannedUsers[0]);// + bannedUsers[0]);
+		 renderYappers(obj);
+		 
+		 // Check if user is moderator
+		 processModerators(obj);
         
         // update star ratings and votes
         if (obj.rating && obj.rating != current_rating) {
@@ -430,6 +499,7 @@ var GetMessages = {
             site_url = 'http://cmu.facebook.com/profile.php?id=4813337';
             
     	var url = removeHttp(site_url);
+	
 	    url = encodeURIComponent(url);
 	            
         url = url_GetMessages + '?url=' + url + "&last_msg_id=" + last_msg_id;
@@ -478,7 +548,7 @@ var SendMessage = {
     textMessage: '',
     
     handleFailure:function(o){
-        //alert('SendMessage handleFailure');
+        //('SendMessage handleFailure');
     },
 
     handleSuccess:function(o){

@@ -1,5 +1,6 @@
 <?php
 require_once 'db.inc';
+require_once 'chat/BannedUsers.inc';
 
 class ChatRoom {
 	private $db;
@@ -18,13 +19,14 @@ class ChatRoom {
 		$result = $this->db->mysql_query($sql);
 	}
 
-	function addUser($url, $username) {
-	    $this->updateUser($url, $username);	
+	function addUser($url, $username, $ip) {
+	    $this->updateUser($url, $username, $ip);	
 	}
 	
-	function updateUser($url, $username) {
+	function updateUser($url, $username, $ip) {
 		$url = $this->removeHttp($url);
 		$url = addslashes($url);
+		$ip = addslashes($ip);
 
 		$sql = "select * from room_users " .
              "where topic_url = '$url' and username = '$username' "; 
@@ -45,20 +47,23 @@ class ChatRoom {
 			$result = $this->db->mysql_query($sql);
 		}
 		else {
-			$sql = "INSERT INTO room_users values " .
-               "('$username', '$url', SYSDATE(), '')";
+			$sql = "INSERT INTO room_users set " .
+               "username= '$username', topic_url = '$url', " .
+			   "creation_date = SYSDATE(), session = '$ip' ";
 			$result = mysql_query($sql);
 		}
 	}
 
-	function getUsers($url) {
+	function getUsers_old($url) {
 		$users = array();
 		$url = $this->removeHttp($url);
 		
 		$url = addslashes($url);
 
-		$sql = "select distinct(username) as u, creation_date as d from room_users " .
-             "where topic_url = '$url'"; 
+		$sql = "SELECT distinct(username) as u, creation_date as d, " .
+		       "session as ip " .
+		       "from room_users " .
+               "where topic_url = '$url'"; 
 		$result = $this->db->mysql_query($sql);
 
 		if( $result != null ) {
@@ -67,7 +72,8 @@ class ChatRoom {
 
 				// check if less than 5 minutes
 				if ($time_lapse_since < 300) {
-					array_push($users, $row['u']);
+					$user = $row['u'];// . " " . $row['ip'];
+					array_push($users, $user);
 				}
 			}
             mysql_free_result($result);
@@ -75,7 +81,37 @@ class ChatRoom {
 		return $users;
 	}
 
-    function getNumActiveUsers() {
+    function getUsers($url) {
+        $bu = new BannedUsers();
+        $users = array();
+        $url = $this->removeHttp($url);
+        
+        $url = addslashes($url);
+
+        $sql = "SELECT distinct(username) as name, creation_date as date, " .
+               "session as ip " .
+               "from room_users " .
+               "where topic_url = '$url'"; 
+        $result = $this->db->mysql_query($sql);
+
+        if( $result != null ) {
+            while($row = mysql_fetch_assoc($result)){
+                $time_lapse_since = time() - strtotime($row['date']);
+
+                // check if less than 5 minutes
+                if ($time_lapse_since < 300) {
+                    $domainname = $bu->getDomainname($url);
+                    $row['banned'] = $bu->isIpBanned($row['ip'], $domainname);
+                    $user = $row;
+                    array_push($users, $user);
+                }
+            }
+            mysql_free_result($result);
+        }
+        return $users;
+    }
+
+	function getNumActiveUsers() {
         $users = array();
 
         $sql = "SELECT username as u, creation_date as d " .

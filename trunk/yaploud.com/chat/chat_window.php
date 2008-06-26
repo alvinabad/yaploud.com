@@ -16,6 +16,7 @@ require("./chat_window_c.inc");
     var site_title = "<?php print $site_title; ?>";
     var username = "<?php print $username; ?>";
     var iframe_enabled = <?php print $iframe_enabled; ?>;
+    var bannedUsers = new Array();
 </script>
 
 </head>
@@ -51,7 +52,8 @@ HTML;
     <div id="bd">
       <div id="bd2">
           <div id="msg"></div>
-          <div id="yappers"></div>
+          		<div id="yappers"></div>
+          		<!-- <div id="moderator"></div> --> 
           <div id="tags"></div>
       </div>
       <div style="clear: both;"></div>
@@ -127,6 +129,8 @@ HTML;
      | <a href='javascript: promptChatUrl(); void 0;'>Yap on another site</a>
      | <a href="javascript: openExternalWindow('/user/Terms_of_Use.pdf'); void 0;">Terms of Use</a>
      | <a href="javascript: openExternalWindow('/user/Privacy_Policy.pdf'); void 0;">Privacy Statement</a>
+     | <span id="moderate_link"></span>
+     
     </div> <!-- footer -->
   </div> <!-- bd0 -->
 </div>
@@ -198,6 +202,45 @@ HTML;
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
 <script type="text/javascript" src="/rating/Rating.js" ></script>
 <script type="text/javascript" src="/js/util.js" ></script>
+<script type="text/javascript" src="/js/yui/build/yahoo/yahoo-min.js"></script>
+<script type="text/javascript" src="/js/yui/build/event/event-min.js"></script>
+<script type="text/javascript" src="/js/yui/build/connection/connection-min.js"></script>
 
+<script> /*
+	var sUrl = "moderate.php?username=";  
+	function moderate(elementId) {
+		var element = document.getElementById(elementId); 
+		element.src="../images/redFlag.jpg";
+		bannedUsers[bannedUsers.length] = elementId;
+		//alert('---' + elementId);
+		//applicationBan(elementId);
+	}
+	
+	var div = document.getElementById('result'); 
+	 
+	var handleSuccess = function(o){ 
+	    if(o.responseText !== undefined){ 
+	     
+	        div.innerHTML = o.responseText; 
+	        
+	    } 
+	} 
+	 
+	var handleFailure = function(o){ 
+	
+	} 
+	 
+	var callback = 
+	{ 
+	  success:handleSuccess, 
+	  failure: handleFailure, 
+	  argument: { foo:"foo", bar:"bar" } 
+	}; 
+	
+	function applicationBan(userName){
+		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl+userName, callback);
+	}
+	*/
+</script>
 </body>
 </html>

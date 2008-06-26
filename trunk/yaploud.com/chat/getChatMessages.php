@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET' || !isset($_REQUEST['url']) ||
 }
 
 $url = normalize_url($_REQUEST['url']);
+//$user_ip =$_SERVER['REMOTE_ADDR'];
 $last_msg_id = $_REQUEST['last_msg_id'] + 0;
 if ($last_msg_id == 0) {
 	$last_msg_id = -1;
@@ -30,12 +31,13 @@ require("rating/Rating.inc");
 $cr = new ChatRoom();
 $cm = new ChatMessages();
 $rt = new Rating();
+$md = new Moderators();
 
 if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
     $username = $_SESSION['username'];
-    
+    $ip = $_SERVER['REMOTE_ADDR'];
     // check if heartbeat of a user is sent
-    $cr->updateUser($url, $username);
+    $cr->updateUser($url, $username, $ip);
 }
 
 
@@ -44,6 +46,9 @@ $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
 $rs['users'] = $cr->getUsers($url);
 $rs['rating'] = $rt->getRating($url);
 $rs['votes'] = $rt->getVotes($url);
+
+$domainname = $md->getDomainname($url);
+$rs['moderators'] = $md->getModerators($domainname);
 
 if (isset($_SESSION['username'])) {
     $rs['user_session'] = $_SESSION['username'];

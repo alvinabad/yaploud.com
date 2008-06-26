@@ -6,6 +6,15 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 
 require_once 'db.inc'; 
 require("util/Url.inc"); 
+require('BannedUsers.inc');
+
+$ip = $_SERVER['REMOTE_ADDR'];
+$bu = new BannedUsers();
+$domainname = $bu->getDomainname($_GET['url']);
+if ($bu->isIpBanned($ip, $domainname)) {
+   print "-1";
+   return;
+}
 
 $db = new DB();
 $allow_tags = array( 'b', 'strong', 'i', 'em', 'u', 'a', 'p', 'sup', 'sub', 'div', 'img', 'span', 'font', 'ul', 'ol', 'li');
