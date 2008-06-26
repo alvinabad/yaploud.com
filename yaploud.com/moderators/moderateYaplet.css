@@ -1,0 +1,48 @@
+@CHARSET "ISO-8859-1";
+
+#yaps {
+	border: solid green 1px;
+	float: left;
+	overflow: auto;
+	width: 60%;
+	height: 300px;
+	padding: 2px;
+}
+
+#yap {
+	border-bottom: 1px solid gray;
+	padding-left: 5px;
+	padding-right: 5px;
+	clear: both;
+}
+
+#yappers {
+	border: solid green 1px;
+	float: right;
+	overflow: auto;
+	width: 37%;
+	height: 300px;
+	padding: 2px;
+}
+
+#yapper {
+	border-bottom: 1px solid gray;
+	padding-left: 5px;
+	clear: both;
+	font-size: 12px;
+	font-family: arial;
+	/*, courier-new, courier, georgia, times, "times new roman", serif;*/
+}
+
+#yap .sender {
+	color: brown;
+	font-family: arial, courier-new, courier, georgia, times,
+		"times new roman", serif;
+	font-size: 12px;
+}
+
+#yap .msg {
+	font-family: arial, courier-new, courier, georgia, times,
+		"times new roman", serif;
+	font-size: 12px;
+}

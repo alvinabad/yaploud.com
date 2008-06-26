@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' ||
         $url = $_REQUEST['url'];
         $username = $user['username'];
         $cr = new ChatRoom();
-        $cr->addUser($url, $username);
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $cr->addUser($url, $username, $ip);
         $cr->removeUser($url, $old_user);
     }
     
