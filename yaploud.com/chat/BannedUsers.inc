@@ -31,17 +31,21 @@ class BannedUsers{
         return $result;
     }
     
-    function isIpBanned($ip, $domainname, $limit) {
+    function isIpBanned($ip, $domainname, $votes=4) {
     	$num_entries = $this->getNumIps($ip, $domainname);
     	
-    	if ($this->getNumIps($ip, $domainname) >= $limit) {
+    	if ($this->getNumIps($ip, $domainname) >= $votes) {
     		return true;
     	}
     	
     	$md = new Moderators();
-    	
     	$result = $this->getIp($ip, $domainname);
         while($row = mysql_fetch_assoc($result)){
+        	// test only:
+        	if (preg_match('/^guest/', $row['voter']) == 0) {
+        		return true;
+        	}
+        	
         	if ($md->isModerator($row['voter'], $row['domainname'])) {
         	    return true;
         	}
@@ -65,6 +69,12 @@ class BannedUsers{
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         return $res_obj->count;
+    }
+    
+    function getDomainname($url) {
+        $domain = preg_replace('/^https?:\/\//', '', $url);
+        $domain = preg_replace('/\/.*$/', '', $domain);
+        return $domain;
     }
 }
 ?>
