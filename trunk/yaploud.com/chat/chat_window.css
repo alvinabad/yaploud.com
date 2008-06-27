@@ -90,11 +90,18 @@ body {
     height: 150px;
     overflow: auto;
     font-family: arial, courier-new, serif;
+    color: #383838;
 }
 
 .sender {
-	color: brown;
-	/*font-weight: bold; */
+	color: #8B0000;
+    font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
+}
+
+.msg_time {
+	font-size: 10px;
+    color: gray;
+	float: right;
     font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 
@@ -108,7 +115,6 @@ body {
 }
 
 .row{
-   color:gray;
    padding-top: 2px;
    padding-bottom: 2px;
    /*margin-top: 3px;*/
