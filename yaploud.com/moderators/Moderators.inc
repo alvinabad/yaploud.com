@@ -75,10 +75,6 @@ class Moderators {
                 array_push($moderators, $row);
             }
             mysql_free_result($result);
-            
-            // hardcoded moderators for testing only:
-            $r['username'] = 'yapper';
-            array_push($moderators, $r);
 		}
 		return $moderators;
     }
