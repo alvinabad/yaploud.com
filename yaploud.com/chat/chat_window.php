@@ -91,7 +91,6 @@ HTML;
         | <span id="chat_mode"></span> 
      <?php
      if($iframe) {
-        //| <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); openWindow("{$site_url}"); setTimeout(closeWindow, 2000); void 0;'>Pop out</a>
          print <<<HTML
         | <a href='javascript: popout("{$url_encoded}", "{$title_encoded}"); void 0;'>Pop out</a>
 HTML;
