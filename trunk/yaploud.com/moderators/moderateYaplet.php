@@ -23,6 +23,7 @@
   <h1>Moderate Yaplet of a website</h1>
   <p>
 <?php
+    /**************
 	print <<<HTML
     <form action="{$_SERVER['PHP_SELF']}" method="get" >
     Enter url of the website you wish to moderate: 
@@ -33,6 +34,7 @@
        window and click on the moderate link.)</font>
   <hr>
 HTML;
+    **************/
 ?>
 
 <?php
@@ -48,11 +50,11 @@ HTML;
 if (!$isModerator) {
 	print <<<HTML
 	<p>
-	You are currently not a moderator of this yaplet. Please send an email to 
-	<a href="mailto:info@yaploud.com">info@yaploud.com</a> if you wish to be a moderator.
-	<p>
-	<!-- You can still vote to ban users or remove inappropriate messages. However,
-	this will require several number of users to take effect. -->
+	You are designated to be the moderator for this yaplet. 
+	As a moderator, you have the authority to take any action in good faith 
+	to restrict access to or the availability of any material that you may 
+	consider to be obscene, lewd, lascivious, filthy, excessively violent, 
+	harassing or otherwise objectionable. 
 	<p>
 HTML;
 }
@@ -62,8 +64,11 @@ HTML;
 <?php
   $url_encoded = $url_util->encode($yap_url);
 	print <<<HTML
+	YapURL: 
+HTML;
+	print <<<HTML
   <a href="{$yap_url}" onclick='openChatWindow("{$url_encoded}", "{$url_encoded}");'>
-  Yap on this site:</a>
+  {$yap_url}</a>
 HTML;
 ?>
 
@@ -120,10 +125,18 @@ HTML;
 ?>
   </div>
   <div style="float: right; clear:both; padding-right: 10px;">
-    Users shown with a check mark are currently banned from sending messages.
-    Select or uncheck a user to ban or un-ban. 
-    <br>
-    Hit submit button to submit request => 
+  <p>
+    Users who are currently banned from having any conversations on this YapURL 
+    are shown with a check mark. Please select from above the users who 
+    should be prohibited from any conversations on this YapURL.
+    <p>
+    <!-- 
+     -->
+    Would you like to have the selected users' conversations to be deleted 
+    from the Yaplet? 
+        <input type="checkbox" name="delete_yaps" value="{$user},{$ip}">
+    <p>
+    Click here to submit your request: 
     <input type="submit" value="Submit">
   </div>
   </form>
