@@ -69,6 +69,7 @@ HTML;
 	print <<<HTML
   <a href="{$yap_url}" onclick='openChatWindow("{$url_encoded}", "{$url_encoded}"); return false;'>
   {$yap_url}</a>
+  <p>
 HTML;
 ?>
 
@@ -77,13 +78,9 @@ HTML;
 foreach($yap_messages as $yap_msg) {
 	print <<<HTML
 	<div id="yap">
-	  <div style="float: left;">
+	  <div class="msg_time">{$yap_msg['t']}</div>
 	    <span class="sender">{$yap_msg['s']}:</span>
 	    <span class="msg">{$yap_msg['msg']}</span>
-	  </div>
-	  <div style="float: right;">
-	    <span class="msg">{$yap_msg['t']}</span>
-	  </div>
 	</div>
 HTML;
 }
@@ -124,7 +121,7 @@ HTML;
 HTML;
 ?>
   </div>
-  <div style="float: right; clear:both; padding-right: 10px;">
+  <div style="clear:both;">
   <p>
     Users who are currently banned from having any conversations on this YapURL 
     are shown with a check mark. Please select from above the users who 
