@@ -68,7 +68,7 @@ class Moderators {
         $domainname = addslashes($domainname);
     	
         $sql = "SELECT * FROM moderators WHERE " .
-               "domainname = '$domainname' ";
+               "domainname = '$domainname' OR domainname = 'ALL' ";
         $result = $this->db->mysql_query($sql);
         if($result) {
             while($row = mysql_fetch_assoc($result)) {
@@ -79,12 +79,7 @@ class Moderators {
             // hardcoded moderators for testing only:
             $r['username'] = 'yapper';
             array_push($moderators, $r);
-            $r['username'] = 'mv';
-            array_push($moderators, $r);
-            $r['username'] = 'alvin';
-            array_push($moderators, $r);
 		}
-		
 		return $moderators;
     }
     
