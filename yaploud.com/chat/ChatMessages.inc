@@ -34,7 +34,7 @@ class ChatMessages {
 		$url = $this->removeHttp($url);
 		$url = addslashes($url);
 
-		$query = "SELECT submitter as s, id, msg, date_format(creation_date, '%b %D %H:%i') as t " .
+		$query = "SELECT submitter as s, id, msg, date_format(creation_date, '%e %b %H:%i') as t " .
              "FROM chat WHERE id > $last_msg_id AND topic_url = '$url' " .
              "ORDER BY creation_date DESC limit 50";
 
