@@ -6,14 +6,16 @@
 	overflow: auto;
 	width: 60%;
 	height: 300px;
-	padding: 2px;
+    margin: 0;
+    padding:0;
 }
 
 #yap {
 	border-bottom: 1px solid gray;
-	padding-left: 5px;
-	padding-right: 5px;
-	clear: both;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 #yappers {
@@ -34,15 +36,20 @@
 	/*, courier-new, courier, georgia, times, "times new roman", serif;*/
 }
 
-#yap .sender {
+.sender {
 	color: brown;
-	font-family: arial, courier-new, courier, georgia, times,
-		"times new roman", serif;
+	font-family: arial, courier-new, courier, georgia, times;
 	font-size: 12px;
 }
 
-#yap .msg {
-	font-family: arial, courier-new, courier, georgia, times,
-		"times new roman", serif;
+.msg {
+	font-family: arial, courier-new, courier, georgia, times;
 	font-size: 12px;
+}
+
+.msg_time {
+	font-family: arial, courier-new, courier, georgia, times;
+	font-size: 10px;
+	color: gray;
+	float: right;
 }
