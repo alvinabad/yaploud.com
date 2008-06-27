@@ -32,14 +32,15 @@
   <h1>Manage Moderators</h1>
   <p>
 
-  <hr>
-  <h3>Add Moderator</h3>
 <?php
 if ( !$isAuthenticated ) {
     return;
 }
 
 	print<<<HTML
+    <hr>
+    <h3>Add Moderator</h3>
+
     <form action="{$_SERVER['PHP_SELF']}" method="post" >
     <table>
     <tr>
