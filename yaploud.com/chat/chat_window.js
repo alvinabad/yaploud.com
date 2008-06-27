@@ -41,13 +41,6 @@ function scrollDown() {
     }
 }
 
-function resizeYapMessageDIV() {
-var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
-if (newHeight > 150)
-YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
-}
-YAHOO.util.Event.addListener(window, "resize", resizeYapMessageDIV);
-
 function onClosePanel() {
     //openWindow(site_url);
     //closeWindow();
@@ -242,9 +235,8 @@ function renderMsgs(obj, prepend){
         var color = getNextColor(last_color); 
         last_color = color;
         tmp_html += '<div class="row ' + last_color + '">' +
-                    //'<span class=msg_time>[' + 
-                    //msgs[i].t + 
-                    //']</span> ' + 
+                    '<div class=msg_time>' +  msgs[i].t + 
+                    '&nbsp;</div>' + 
                     '<span class="sender">' + 
                     msgs[i].s + 
                     '</span>' + 
@@ -379,9 +371,14 @@ function processModerators(obj) {
     var found = false;
     var moderators = obj.moderators;
     var moderator_el = document.getElementById('moderate_link');
+    /**
     var link = '<a href="javascript: openExternalWindow(' + "'" +
                '/moderators/moderateYaplet.php?url=' + site_url + 
                "'" + '); void 0;">Moderate</a> |';
+    **/
+    var href_link = '/moderators/moderateYaplet.php?url=' + site_url;
+    var link = '<a href="' + href_link + '" onclick="openExternalWindow(' + "'" +
+               href_link + "'" + '); return false;">Moderate</a> |';
                
     for(var i = 0; i < moderators.length; i++){
         if (moderators[i].username == username) {
@@ -893,6 +890,9 @@ function init_all_dialog() {
 }
 
 function init() {
+	resizeYapMessageDIV();
+	resizeYappersDIV();
+	
     // work around to display cursor in Firefox
     if (navigator.userAgent.indexOf('Firefox') != -1) {
         document.getElementById('chat_textarea').style.position = "fixed";
@@ -923,6 +923,20 @@ function quit() {
     SendLeaveRoom.sendRequest();    
 }
 
+function resizeYapMessageDIV() {
+    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
+    if (newHeight > 150)
+        YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
+}
+
+function resizeYappersDIV() {
+    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
+    if (newHeight > 150)
+        YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
+}
+
+YAHOO.util.Event.addListener(window, "resize", resizeYapMessageDIV);
+YAHOO.util.Event.addListener(window, "resize", resizeYappersDIV);
 YAHOO.util.Event.onDOMReady(init);
 window.onunload = quit;
 
