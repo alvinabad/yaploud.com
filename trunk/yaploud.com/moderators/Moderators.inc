@@ -30,9 +30,10 @@ class Moderators {
     }
     
     function isModerator($username, $domainname) {
-    	$result_obj = $this->getModerator($username, $domainname);
+    	$result1 = $this->getModerator($username, $domainname);
+    	$result2 = $this->getModerator($username, 'ALL');
     	
-    	if ($result_obj) {
+    	if ($result1 || $result2) {
     		return true;
     	}
     	else {
@@ -84,6 +85,20 @@ class Moderators {
             array_push($moderators, $r);
 		}
 		
+		return $moderators;
+    }
+    
+    function getAllModerators() {
+    	$moderators = array();
+    	
+        $sql = "SELECT * FROM moderators order by username asc";
+        $result = $this->db->mysql_query($sql);
+        if($result) {
+            while($row = mysql_fetch_assoc($result)) {
+                array_push($moderators, $row);
+            }
+            mysql_free_result($result);
+		}
 		return $moderators;
     }
     
