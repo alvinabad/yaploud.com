@@ -223,6 +223,13 @@ function getNextColor(last_color){
         return on_color;
     }
 
+function scrollDownDiv(div_el) {
+    div_el.scrollTop = div_el.scrollHeight;
+    if ( navigator.appName == "Microsoft Internet Explorer" ) {
+        div_el.scrollTop = div_el.scrollHeight; // IE7 requires running this twice!
+    }
+}
+
 function renderMsgs(obj, prepend){
     var msgs_div = document.getElementById('msg');
     var msgs = obj.msgs;
@@ -250,10 +257,13 @@ function renderMsgs(obj, prepend){
         msgs_div.innerHTML += tmp_html; 
     }
     
+    scrollDownDiv(msgs_div);
+    /**
     msgs_div.scrollTop = msgs_div.scrollHeight;
     if ( navigator.appName == "Microsoft Internet Explorer" ) {
         msgs_div.scrollTop = msgs_div.scrollHeight; // IE7 requires running this twice!
     }
+    * **/
 }
    
 var tags_on = false;
@@ -890,8 +900,7 @@ function init_all_dialog() {
 }
 
 function init() {
-	resizeYapMessageDIV();
-	resizeYappersDIV();
+	resizeWindow();
 	
     // work around to display cursor in Firefox
     if (navigator.userAgent.indexOf('Firefox') != -1) {
@@ -923,20 +932,28 @@ function quit() {
     SendLeaveRoom.sendRequest();    
 }
 
+function resizeWindow() {
+	resizeYapMessageDIV();
+	resizeYappersDIV();
+}
+
 function resizeYapMessageDIV() {
     var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
     if (newHeight > 150)
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
+        
+    scrollDownDiv($("msg"));
 }
 
 function resizeYappersDIV() {
     var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
     if (newHeight > 150)
         YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
+      
+    scrollDownDiv($("yappers"));
 }
 
-YAHOO.util.Event.addListener(window, "resize", resizeYapMessageDIV);
-YAHOO.util.Event.addListener(window, "resize", resizeYappersDIV);
+YAHOO.util.Event.addListener(window, "resize", resizeWindow);
 YAHOO.util.Event.onDOMReady(init);
 window.onunload = quit;
 
