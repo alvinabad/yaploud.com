@@ -88,7 +88,7 @@ HTML;
         <!-- 
          <a href="javascript: location.reload();">Reload</a>
          -->
-        <span id="chat_mode"></span>
+        | <span id="chat_mode"></span>
      <?php
      if($iframe) {
         //| <a href='javascript: openChatWindow("{$site_url}", "{$site_title}"); openWindow("{$site_url}"); setTimeout(closeWindow, 2000); void 0;'>Pop out</a>
@@ -126,9 +126,11 @@ HTML;
             onmouseover="StarRating.show('5starRating');" />
      </map>
      </span>
-     | <a href='javascript: promptChatUrl(); void 0;'>Yap on another site</a>
-     | <a href="javascript: openExternalWindow('/user/Terms_of_Use.pdf'); void 0;">Terms of Use</a>
-     | <a href="javascript: openExternalWindow('/user/Privacy_Policy.pdf'); void 0;">Privacy Statement</a>
+     | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
+     | <a href="/user/Terms_of_Use.pdf" 
+       onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms of Use</a>
+     | <a href="/user/Privacy_Policy.pdf" 
+       onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy Statement</a>
      | <span id="moderate_link"></span>
      
     </div> <!-- footer -->
@@ -161,8 +163,10 @@ HTML;
       <div class="clear"></div>
       <label>&nbsp;</label><input type="checkbox" name="remember" /> Keep me logged in
       <br>
-      <a href="javascript: openExternalWindow('/user/forgotpassword.php'); void 0;">Forgot password?</a>
-      | <a href="javascript: openExternalWindow('/user/forgotusername.php'); void 0;">Forgot username?</a>
+      <a href="/user/forgotpassword.php" 
+        onclick="openExternalWindow('/user/forgotpassword.php'); return false;">Forgot password?</a>
+      | <a href="/user/forgotusername.php" 
+        onclick="openExternalWindow('/user/forgotusername.php'); return false;">Forgot username?</a>
     </form>
   </div>
   <div class="clear"></div>
