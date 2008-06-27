@@ -67,7 +67,7 @@ HTML;
 	YapURL: 
 HTML;
 	print <<<HTML
-  <a href="{$yap_url}" onclick='openChatWindow("{$url_encoded}", "{$url_encoded}");'>
+  <a href="{$yap_url}" onclick='openChatWindow("{$url_encoded}", "{$url_encoded}"); return false;'>
   {$yap_url}</a>
 HTML;
 ?>
