@@ -930,8 +930,8 @@ function init() {
 }
 
 function quit() {
-    //alert('closing window');
     SendLeaveRoom.sendRequest();    
+    //alert('closing window');
 }
 
 function resizeDivs() {
@@ -947,8 +947,9 @@ function resizeDivs() {
 }
 
 YAHOO.util.Event.addListener(window, "resize", resizeDivs);
+YAHOO.util.Event.addListener(window, "beforeunload", quit);
 YAHOO.util.Event.onDOMReady(init);
-window.onunload = quit;
+//window.onunload = quit;
 
 
 /**
