@@ -900,7 +900,7 @@ function init_all_dialog() {
 }
 
 function init() {
-	resizeWindow();
+	resizeDivs();
 	
     // work around to display cursor in Firefox
     if (navigator.userAgent.indexOf('Firefox') != -1) {
@@ -932,28 +932,19 @@ function quit() {
     SendLeaveRoom.sendRequest();    
 }
 
-function resizeWindow() {
-	resizeYapMessageDIV();
-	resizeYappersDIV();
-}
-
-function resizeYapMessageDIV() {
+function resizeDivs() {
     var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
-    if (newHeight > 150)
+    if (newHeight > 150) {
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
-        
-    scrollDownDiv($("msg"));
-}
-
-function resizeYappersDIV() {
-    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
-    if (newHeight > 150)
         YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
-      
-    scrollDownDiv($("yappers"));
+        YAHOO.util.Dom.setStyle($("tags"), 'height', newHeight + "px");
+        scrollDownDiv($("msg"));
+        scrollDownDiv($("yappers"));
+        scrollDownDiv($("tags"));
+    }
 }
 
-YAHOO.util.Event.addListener(window, "resize", resizeWindow);
+YAHOO.util.Event.addListener(window, "resize", resizeDivs);
 YAHOO.util.Event.onDOMReady(init);
 window.onunload = quit;
 
