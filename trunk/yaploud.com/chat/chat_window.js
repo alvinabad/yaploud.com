@@ -524,8 +524,9 @@ var GetMessages = {
 	    
 	    if (!auto) {
             chat_mode_div = document.getElementById('chat_mode');
-            chat_mode_div.innerHTML = 
-            '<a href="javascript: suspendChat(); void 0;">Suspend chat</a>';
+            chat_mode_div.innerHTML = '<span id="chat_mode">' +
+               '<a href="javascript: suspendChat(); void 0;">Suspend chat</a>' +
+               ' </span>';
 	    }
     },
 
@@ -534,8 +535,9 @@ var GetMessages = {
         
 	    if (!auto) {
             chat_mode_div = document.getElementById('chat_mode');
-            chat_mode_div.innerHTML = 
-            '<a href="javascript: resumeChat(); void 0;">Resume chat</a>';
+            chat_mode_div.innerHTML = '<span id="chat_mode">' +
+               '<a href="javascript: resumeChat(); void 0;">Resume chat</a>' +
+               ' </span>';
 	    }
     }
 };
