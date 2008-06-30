@@ -32,10 +32,11 @@ body {
     font-family: arial, georgia, times, "times new roman", serif;
 }
 #main .hd {
-    /*border: 1px solid red;*/
-    margin: 2px;
+	/*border: solid red 1px; */
+    margin-top: 0;
+    margin-left: 2px;
+    margin-right: 2px;
     margin-bottom: 0px;
-    padding: 2px;
     vertical-align: top;
 }
 #minimize_bar {
@@ -267,5 +268,30 @@ label {
 
 #star_rating {
    background-color:white;
+}
+div.eptchat{
+	float: left;
+}
+div.purina_dogtime {
+	float: right;
+}
+span.purina {
+	font-size: 8px; 
+	vertical-align: top;
+}
+span.dogtime {
+	font-size: 8px; 
+	vertical-align: top;
+}
+div.yapping_about_c {
+    clear: both; 
+    font-size: 10px; 
+    font-weight: bold; 
+    vertical-align: top;
+}
+
+span.yapping_about {
+    font-weight: bold; 
+    vertical-align: top;
 }
 
