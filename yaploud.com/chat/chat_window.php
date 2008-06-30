@@ -31,16 +31,45 @@ if(!$iframe) {
 ?>
   
   <div class="hd" id="hd">
-    <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
-      <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img></a>
-      <strong>Yapping about: </strong>
-      <?php
-      print <<<HTML
-      <span><a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+  <?php
+  if (isset($_REQUEST['c'])) {
+  	print <<<HTML
+      <div class="eptchat">
+        <img src=/images/dogtime/eptchat.jpg border="0"></img>
+      </div>
+      <div class="purina_dogtime">
+          <div class="purina">
+            <span class="purina">Sponsored by:</span>
+            <img src=/images/dogtime/purina.jpg border="0"></img>
+          </div>
+          <div>
+            <span class="dogtime">Brought to you by:</span>
+            <img src=/images/dogtime/dogtime.jpg border="0"></img>
+          </div>
+      </div>
+      <div class="yapping_about_c">
+        Yapping about:
+        <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+                {$site_title}</a>
+      </div>
+HTML;
+  }
+  else {
+  	print <<<HTML
+  	<div>
+      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
+        <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
+      </a>
+      <span class="yapping_about">
+        Yapping about:
+        <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
                 {$site_title}</a>
       </span>
+  	</div>
 HTML;
-       ?>
+  }
+       
+  ?>
       
   </div>
 <?php
@@ -88,7 +117,7 @@ HTML;
         <!-- 
          <a href="javascript: location.reload();">Reload</a>
          -->
-        | <span id="chat_mode"></span> 
+        
      <?php
      if($iframe) {
          print <<<HTML
@@ -104,7 +133,7 @@ HTML;
      }
      ?>
      <span id="star_rating" onmouseout="StarRating.render();" >
-     | <span id="votes">0 votes</span> | Rating:
+     <span id="votes">0 votes</span> | Rating:
      <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating" 
           border="0" id="stars" />
      <map name="mapStarRating" id="mapStarRating" >
@@ -125,12 +154,15 @@ HTML;
             onmouseover="StarRating.show('5starRating');" />
      </map>
      </span>
+     <div style="font-size: 10px;">
+     | <span id="chat_mode"></span>
      | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
      | <a href="/user/Terms_of_Use.pdf" 
-       onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms of Use</a>
+       onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms</a>
      | <a href="/user/Privacy_Policy.pdf" 
-       onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy Statement</a>
+       onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
+     </div>
      
     </div> <!-- footer -->
   </div> <!-- bd0 -->
