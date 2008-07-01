@@ -37,7 +37,7 @@ function openChatWindow(site_url, title, yaploud_client) {
 		title = site_url;
 	}
 	
-	if (yaploud_client != null) {
+	if (yaploud_client != '') {
 		yaploud_client = "&c=" + yaploud_client;
 	}
 	
