@@ -24,6 +24,7 @@ function addslashes(str) {
 }
 
 var ext_url;
+var yaploud_client = null;
 function openChatWindow(site_url, title) {
 	if (site_url == null) {
 		site_url = ext_url;
@@ -33,17 +34,28 @@ function openChatWindow(site_url, title) {
 		title = site_url;
 	}
 	
+	if (yaploud_client == null) {
+		yaploud_client = '';
+	}
+	else {
+		yaploud_client = "&c=" + yaploud_client;
+	}
+	
 	var yaploud_domain = '';
-	if (location.hostname.indexOf('yaploud') == -1) {
+	if (location.hostname.indexOf('localhost') == 0) {
+	}
+	else if (location.hostname.indexOf('yaploud') == -1) {
 		yaploud_domain = "http://www.yaploud.com"
 	}
+	
 	
     // bypass Apache' mod_security: Access denied with code 503 
     title = title.replace(/\s+\|/g, ' -').replace(/\|\s+/g, '- '); 
     
     site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
-    var url = yaploud_domain + "/chat/chat_window.php?url=" + site_url + "&title=" + title;
+    var url = yaploud_domain + "/chat/chat_window.php?url=" + site_url + 
+              "&title=" + title + yaploud_client;
     
     var features = "width=340, height=340, status=yes, " +
                    "scrollbars=no, menubar=no, toolbar=no, " +
