@@ -22,7 +22,7 @@ if (yaploud_yaplink_el && document.location) {
         var yaplink_name = 'Open Yaplet';
 	}
 	
-	if (!yaploud_client) {
+	if (typeof(yaploud_client) == "undefined") {
 		yaploud_client = '';
 	}
 	
