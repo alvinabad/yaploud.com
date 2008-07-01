@@ -114,7 +114,7 @@ HTML;
          | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a> 
         </div>
 <?php
-if (!isset($_REQUEST['c'])) {
+if (isset($_REQUEST['c'])) {
     print <<<HTML
       <div style="float: right; font-size: 10px;">
       Powered by:
