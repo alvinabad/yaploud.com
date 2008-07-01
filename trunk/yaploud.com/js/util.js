@@ -46,6 +46,8 @@ function openChatWindow(site_url, title) {
 	var yaploud_domain = '';
 	if (location.hostname.indexOf('localhost') == 0) {
 	}
+	else if (location.hostname.indexOf('alvin') == 0) {
+	}
 	else if (location.hostname.indexOf('yaploud') == -1) {
 		yaploud_domain = "http://www.yaploud.com"
 	}
