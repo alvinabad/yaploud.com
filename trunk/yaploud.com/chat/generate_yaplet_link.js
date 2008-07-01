@@ -26,7 +26,8 @@ if (yaploud_yaplink_el && document.location) {
                'href="javascript: ' +
                'openChatWindow(' +
                "'" + yaplink_url + "', " +
-               "'" + yaplink_url + "')" +
+               "'" + yaplink_url + "', " + yaploud_client + 
+               ")" +
                '; void 0;' + '"' +
                '>' + yaplink_name + '</a>'; 
     yaploud_yaplink_el.innerHTML = code;
