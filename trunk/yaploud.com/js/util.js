@@ -25,10 +25,12 @@ function addslashes(str) {
 
 var ext_url;
 function openChatWindow(site_url, title, yaploud_client) {
-	var height = 360;
-	
 	if (site_url == null) {
 		site_url = ext_url;
+	}
+	
+	if (typeof(yaplet_height) == "undefined") {
+		yaplet_height = 360;
 	}
 	
 	if (title == null) {
@@ -55,7 +57,7 @@ function openChatWindow(site_url, title, yaploud_client) {
     var url = yaploud_domain + "/chat/chat_window.php?url=" + site_url + 
               "&title=" + title + yaploud_client;
     
-    var features = "width=340, height=" + height + ", status=yes, " +
+    var features = "width=340, height=" + yaplet_height + ", status=yes, " +
                    "scrollbars=no, menubar=no, toolbar=no, " +
                    "location=no, resizable=yes";
                    //"location=no, resizable=yes, left=100, top=100";
