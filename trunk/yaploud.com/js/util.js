@@ -25,7 +25,7 @@ function addslashes(str) {
 
 var ext_url;
 function openChatWindow(site_url, title, yaploud_client) {
-	var height = 340;
+	var height = 360;
 	
 	if (site_url == null) {
 		site_url = ext_url;
@@ -37,7 +37,6 @@ function openChatWindow(site_url, title, yaploud_client) {
 	
 	if (yaploud_client != null) {
 		yaploud_client = "&c=" + yaploud_client;
-		height = 400;
 	}
 	
 	var yaploud_domain = '';
