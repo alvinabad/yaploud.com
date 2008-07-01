@@ -37,7 +37,7 @@ function openChatWindow(site_url, title, yaploud_client) {
 	
 	if (yaploud_client != null) {
 		yaploud_client = "&c=" + yaploud_client;
-		height = 350;
+		height = 400;
 	}
 	
 	var yaploud_domain = '';
