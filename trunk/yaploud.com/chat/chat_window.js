@@ -24,7 +24,6 @@ var query_count = 0;
 var current_rating = 0;
 //var has_rated = false;
 var update_current_rating = true;
-var yaplet_height = 360;
 
 function $(s) {
     return document.getElementById(s);
@@ -936,7 +935,7 @@ function quit() {
 }
 
 function resizeDivs() {
-    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 380;
+    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 390;
     if (newHeight > 150) {
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
         YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
