@@ -156,23 +156,24 @@ HTML;
      </span>
      <div style="font-size: 10px;">
      <span id="chat_mode"></span>
-     | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a> |
-<?php
-if (isset($_REQUEST['c'])) {
-	print <<<HTML
-	 <span>Powered by:</span> 
-      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
-        <img style="vertical-align: bottom;" src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
-      </a>
-     <br>
-HTML;
-}
-?>
-     <a href="/user/Terms_of_Use.pdf" 
+     | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
+     | <a href="/user/Terms_of_Use.pdf" 
        onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms</a>
      | <a href="/user/Privacy_Policy.pdf" 
        onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
+<?php
+if (isset($_REQUEST['c'])) {
+	print <<<HTML
+	  <div style="float: right;">
+	  Powered by:
+      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
+        <img style="vertical-align: bottom;" src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
+      </a>
+      </div>
+HTML;
+}
+?>
      </div>
      
     </div> <!-- footer -->
