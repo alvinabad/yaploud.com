@@ -40,7 +40,9 @@ function openChatWindow(site_url, title, yaploud_client) {
 	if (typeof(yaplet_client) == "undefined") {
 		yaploud_client = '';
 	}
-	else if (yaploud_client != '') {
+	else if (yaploud_client == '') {
+	}
+	else {
 		yaploud_client = "&c=" + yaploud_client;
 	}
 	
