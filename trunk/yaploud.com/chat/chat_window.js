@@ -935,7 +935,7 @@ function quit() {
 }
 
 function resizeDivs() {
-    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 390;
+    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 375;
     if (newHeight > 150) {
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
         YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
