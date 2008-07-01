@@ -162,7 +162,7 @@ if (isset($_REQUEST['c'])) {
 	print <<<HTML
 	 <span>Powered by:</span> 
       <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
-        <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
+        <img style="vertical-align: bottom;" src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
       </a>
      <br>
 HTML;
