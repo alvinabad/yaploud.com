@@ -30,7 +30,7 @@ function openChatWindow(site_url, title, yaploud_client) {
 	}
 	
 	if (typeof(yaplet_height) == "undefined") {
-		yaplet_height = 365;
+		yaplet_height = 355;
 	}
 	
 	if (title == null) {
