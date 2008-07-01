@@ -22,6 +22,10 @@ if (yaploud_yaplink_el && document.location) {
         var yaplink_name = 'Open Yaplet';
 	}
 	
+	if (!yaploud_client) {
+		yaploud_client = '';
+	}
+	
     var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
                'href="javascript: ' +
                'openChatWindow(' +
