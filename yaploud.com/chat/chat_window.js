@@ -936,7 +936,7 @@ function quit() {
 }
 
 function resizeDivs() {
-    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - yaplet_height;
+    var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 340;
     if (newHeight > 150) {
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
         YAHOO.util.Dom.setStyle($("yappers"), 'height', newHeight + "px");
