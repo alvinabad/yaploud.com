@@ -19,7 +19,7 @@ if (yaploud_yaplink_el && document.location) {
 	}
 	
 	if (!yaplink_name) {
-        var yaplink_name = 'Open Yaplet';
+        var yaplink_name = 'Discuss on YapLoud';
 	}
 	
 	if (typeof(yaploud_client) == "undefined") {
