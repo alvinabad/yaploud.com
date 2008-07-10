@@ -2,6 +2,9 @@ var keywords = ['Google',
                 'resume',
                 'Life',
                 'service',
+                'Hindu',
+                'Hansraj',
+                'Ramjas',
                ];
 
 function chomp(str) {
