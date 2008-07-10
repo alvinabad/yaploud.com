@@ -54,6 +54,26 @@ if(!$iframe) {
       </div>
 HTML;
   }
+  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+  	print <<<HTML
+    <div class="eptchat">
+      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
+        <img src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
+      </a>
+  	</div>
+    <div class="purina_dogtime">
+      <a href="http://yads.zedo.com/ads2/r?n=809;c=312;s=140;x=768;u=j;z=[timestamp]" 
+  	          target="_blank"><img border="0" width="120" height="90" 
+  	          src="http://yads.zedo.com/ads2/x?n=809;c=312;s=140;x=768;u=j;z=[timestamp]" 
+  	          alt="Click here"></a>
+  	</div>
+    <div class="yapping_about_c">
+        Yapping about:
+        <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+                {$site_title}</a>
+    </div>
+HTML;
+  }
   else {
   	print <<<HTML
   	<div>
