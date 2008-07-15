@@ -32,8 +32,11 @@ function addYaplinkNode(node, text) {
                "'" + text + "')" +
                '; void 0;';
         
+    var style_str = "border-bottom: double; text-decoration: none;";
+    
     new_node.setAttribute('href', yaplink_url);
     new_node.setAttribute('id', 'yaplink_url');
+    new_node.setAttribute('style', style_str);
     appendTextNode(new_node, text);
     node.appendChild(new_node);
 }
