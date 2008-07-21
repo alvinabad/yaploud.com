@@ -25,9 +25,11 @@ includeJavascript('http://www.yaploud.com/js/util.js');
 var parent_node = null;
 
 function addYaplinkNode(node, text) {
+	var yaplet_url = "http://www.yaploud.com/home.php#" + text;
+	
     var new_node = document.createElement('a');
     var yaplink_url = 'javascript: openChatWindow(' +
-               "'" + text + "', " +
+               "'" + yaplet_url + "', " +
                "'" + text + "', " + 
                "'" + text + "')" +
                '; void 0;';
