@@ -48,7 +48,7 @@ function openChatWindow(site_url, title, yaploud_client) {
 	if (location.hostname.indexOf('localhost') == 0) {
 	}
 	else if (location.hostname.indexOf('yaploud') == -1) {
-		yaploud_domain = "http://www.yaploud.com"
+		yaploud_domain = "http://www.yaploud.com";
 	}
 	
 	
