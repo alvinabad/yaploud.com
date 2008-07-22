@@ -24,6 +24,7 @@ var query_count = 0;
 var current_rating = 0;
 //var has_rated = false;
 var update_current_rating = true;
+var msgCount = 0;
 
 function $(s) {
     return document.getElementById(s);
@@ -229,7 +230,72 @@ function scrollDownDiv(div_el) {
         div_el.scrollTop = div_el.scrollHeight; // IE7 requires running this twice!
     }
 }
+function generateTimeString(chatTimeString, currentTime) {
+	//return chatTimeString;
+	var currentYear = parseInt(currentTime.getFullYear(),10);
+	var currentMonth = parseInt(currentTime.getMonth(),10) + 1;
+	var currentDay = parseInt(currentTime.getDate(),10);
+	var currentHour = parseInt(currentTime.getHours(),10);
+	var currentMinute = parseInt(currentTime.getMinutes(),10);
+	var currentSecond = parseInt(currentTime.getSeconds(),10);
+	
+	var diff = 0;
+	var chatDateTime = chatTimeString.split(" ");
+	var chatDate = chatDateTime[0];
+	var chatMonthDayYear = chatDate.split("/");
+	var chatMonth = parseInt(chatMonthDayYear[0],10);
+	var chatDay = parseInt(chatMonthDayYear[1],10);
+	var chatYear = parseInt(chatMonthDayYear[2],10);
+	var chatTime = chatDateTime[1];
+	var chatHourMinuteSecond = chatTime.split(":");
+	var chatHour = parseInt(chatHourMinuteSecond[0],10);
+	var chatMinute = parseInt(chatHourMinuteSecond[1],10);
+	var chatSecond = parseInt(chatHourMinuteSecond[2],10);
+	//return currentMonth - chatMonth;
+	//return chatTimeString + "-" + currentTime + "-" + currentMonth - chatMonth;
+    //return chatTimeString + "-" + currentYear + ":" + currentMonth + ":" + currentDay + "--" + currentHour + ":" + currentMinute + ":" +		currentSecond;
+	//alert(":" + chatYear + ":" + currentYear + ":");
+	if (chatYear !== currentYear) {
+		return currentTime.getFullYear() - chatYear + " years ago"; 
+		}
+		
+	//return chatMonth + ":" + currentMonth;
+	if (chatMonth !== currentMonth) { 
+		var diffMonths = currentMonth - chatMonth ;
+		if (diffMonths >= 2 ) {
+			return currentMonth - chatMonth + " months ago";
+			}
+		else {
+			return (31 - chatDay) + currentDay + " days ago";
+			}
+		}
+	//return chatDay + ":" + currentDay;
+	if (chatDay !== currentDay) {
+		return currentDay - chatDay + " days ago"; 
+		}
+	//return chatHour +":"+ currentHour;
+	if (chatHour !== currentHour) {
+		var diffHour = currentHour-chatHour;
+		if (diffHour >= 2) {
+			return diffHour + " hours ago";
+		}
+		else {
+			return (59 - chatMinute) + currentMinute + " minutes ago";
+			}
+		}
+	if (chatMinute !== currentMinute) {
+		diffMinute = currentMinute - chatMinute;
+		if (diffMinute > 1) {
+			return (diffMinute - 1) + " minutes ago ";
+			}
+		else {
+			return "";
+			}
+	}
+	return "";
+	
 
+}
 function renderMsgs(obj, prepend){
     var msgs_div = document.getElementById('msg');
     var msgs = obj.msgs;
@@ -238,11 +304,8 @@ function renderMsgs(obj, prepend){
     var tmp_html = '';
     
     
-    for(var i = len-1; i >= 0; i--){
-        var color = getNextColor(last_color); 
-        last_color = color;
-        tmp_html += '<div class="row ' + last_color + '">' +
-                    '<div class=msg_time>' +  msgs[i].t + 
+    tmp_html += '<div class="row ' + last_color + '">' +
+                    '<div class=msg_time id="' + msgs[i].t + '-' + msgCount++ + '">' +  msgTimeString + 
                     '&nbsp;</div>' + 
                     '<span class="sender">' + 
                     msgs[i].s + 
@@ -450,6 +513,32 @@ var GetTags_callback = {
     timeout: 4500,
     cache: false
 };
+function updateChatTimes() {
+    
+	
+	var elements = YAHOO.util.Dom.getElementsByClassName('msg_time','div');
+	var currentTime = new Date();
+	
+	var localTime = currentTime.getTime();
+	var localOffset = currentTime.getTimezoneOffset() * 60000;
+	var utc = localTime + localOffset;
+	var offset = -7.0;
+	var pacific = utc + (3600000*offset);
+	var newCurrentTime = new Date(pacific);
+	//alert("Pacific time is :" + currentTime + "      " + "Local time is : " + newCurrentTime);
+	var ele1;
+	for (var i = 0; i < elements.length; i++ ) {
+		
+		var elementID = elements[i].id;
+		ele1 = elements[i];
+		var rawTimeString = elementID.split("-");
+		var chatTimeString = rawTimeString[0];
+		ele1.innerHTML = generateTimeString(chatTimeString, newCurrentTime);
+		
+	}
+	
+	
+}
 
 
 /*****************************************************************************
@@ -499,6 +588,7 @@ var GetMessages = {
         }
         
         query_count++;
+        updateChatTimes();
     },
 
     sendRequest:function() {
