@@ -50,7 +50,7 @@ if(!$iframe) {
       <div class="yapping_about_c">
         Yapping about:
         <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
-                {$site_title}</a>
+                {$yapAboutTitle}</a>
       </div>
 HTML;
   }
@@ -83,7 +83,7 @@ HTML;
       <span class="yapping_about">
         Yapping about:
         <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
-                {$site_title}</a>
+                {$yapAboutTitle}</a>
       </span>
   	</div>
 HTML;
