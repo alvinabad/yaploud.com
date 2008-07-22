@@ -70,7 +70,7 @@ HTML;
     <div class="yapping_about_c">
         Yapping about:
         <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
-                {$site_title}</a>
+                {$yapAboutTitl}</a>
     </div>
 HTML;
   }

@@ -135,5 +135,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_REQUEST['url']) ) {
 else {
 	$site_url = "http://www.cmu.edu";
 }
+$yapAboutTitle = $site_title;
+if (strlen($site_title) > 65) {
+	$yapAboutTitle = substr($yapAboutTitle,0,64);
+	$yapAboutTitle = $yapAboutTitle . "...";
+}
 ?>
 
