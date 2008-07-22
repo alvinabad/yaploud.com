@@ -304,7 +304,12 @@ function renderMsgs(obj, prepend){
     var tmp_html = '';
     
     
-    tmp_html += '<div class="row ' + last_color + '">' +
+    for(var i = len-1; i >= 0; i--){
+        		
+		var msgTimeString = ""; 
+		var color = getNextColor(last_color); 
+        last_color = color;
+        tmp_html += '<div class="row ' + last_color + '">' +
                     '<div class=msg_time id="' + msgs[i].t + '-' + msgCount++ + '">' +  msgTimeString + 
                     '&nbsp;</div>' + 
                     '<span class="sender">' + 
