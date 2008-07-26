@@ -48,12 +48,12 @@ if(!$iframe) {
           </div>
       </div>
 
-      // Comment: Dogtime does not want to display the Yap Url on the petchat yaplet
-      // <div class="yapping_about_c">
-      //   Yapping about:
-      //  <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
-      //         {$yapAboutTitle}</a>
-      // </div>
+      <!--  Comment: Dogtime does not want to display the Yap Url on the petchat yaplet
+      <div class="yapping_about_c">
+         Yapping about:
+        <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+               {$yapAboutTitle}</a>
+       </div> -->
 HTML;
   }
   else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
