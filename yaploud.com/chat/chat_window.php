@@ -29,7 +29,7 @@ if(!$iframe) {
     print '<div id="main" class="main">';
 }
 ?>
-  
+
   <div class="hd" id="hd">
   <?php
   if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtime") {
@@ -47,11 +47,13 @@ if(!$iframe) {
             <img src=/images/dogtime/dogtime.jpg border="0"></img>
           </div>
       </div>
-      <div class="yapping_about_c">
-        Yapping about:
-        <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
-                {$yapAboutTitle}</a>
-      </div>
+
+      // Comment: Dogtime does not want to display the Yap Url on the petchat yaplet
+      // <div class="yapping_about_c">
+      //   Yapping about:
+      //  <a href="{$site_url}" onclick='openExternalWindow("{$url_encoded}", "{$title_encoded}"); return false;'>
+      //         {$yapAboutTitle}</a>
+      // </div>
 HTML;
   }
   else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
@@ -62,9 +64,9 @@ HTML;
       </a>
   	</div>
     <div class="purina_dogtime">
-      <a href="http://yads.zedo.com/ads2/r?n=809;c=312;s=140;x=768;u=j;z=[timestamp]" 
-  	          target="_blank"><img border="0" width="120" height="90" 
-  	          src="http://yads.zedo.com/ads2/x?n=809;c=312;s=140;x=768;u=j;z=[timestamp]" 
+      <a href="http://yads.zedo.com/ads2/r?n=809;c=312;s=140;x=768;u=j;z=[timestamp]"
+  	          target="_blank"><img border="0" width="120" height="90"
+  	          src="http://yads.zedo.com/ads2/x?n=809;c=312;s=140;x=768;u=j;z=[timestamp]"
   	          alt="Click here"></a>
   	</div>
     <div class="yapping_about_c">
@@ -88,9 +90,9 @@ HTML;
   	</div>
 HTML;
   }
-       
+
   ?>
-      
+
   </div>
 <?php
   if($iframe) {
@@ -102,7 +104,7 @@ HTML;
       <div id="bd2">
           <div id="msg"></div>
           		<div id="yappers"></div>
-          		<!-- <div id="moderator"></div> --> 
+          		<!-- <div id="moderator"></div> -->
           <div id="tags"></div>
       </div>
       <div style="clear: both;"></div>
@@ -124,14 +126,14 @@ HTML;
         <a href="javascript: SendMessage.text();"><img border="0" src="/images/go.gif" /></a>
         <div id="logout_info">
          <strong><span id="username_info1"></span></strong>
-         | <a href="javascript: void 0;" id="login">Login</a> 
-         | <a href="javascript: openExternalWindow('/user/register.php'); void 0;" id="signup">SignUp</a> 
+         | <a href="javascript: void 0;" id="login">Login</a>
+         | <a href="javascript: openExternalWindow('/user/register.php'); void 0;" id="signup">SignUp</a>
         </div>
         <div id="login_info">
          Hi <strong><span id="username_info2"></span>!</strong>
 	     | <a href="javascript: logout(); void 0;">Logout</a>
-         | <a href="javascript: void 0;" id="add_tags">Add tags</a> 
-         | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a> 
+         | <a href="javascript: void 0;" id="add_tags">Add tags</a>
+         | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a>
         </div>
 <?php
 if (isset($_REQUEST['c'])) {
@@ -146,10 +148,10 @@ HTML;
 }
 ?>
         <br>
-        <!-- 
+        <!--
          <a href="javascript: location.reload();">Reload</a>
          -->
-        
+
      <?php
      if($iframe) {
          print <<<HTML
@@ -166,7 +168,7 @@ HTML;
      ?>
      <span id="star_rating" onmouseout="StarRating.render();" >
      <span id="votes">0 votes</span> | Rating:
-     <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating" 
+     <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating"
           border="0" id="stars" />
      <map name="mapStarRating" id="mapStarRating" >
         <area alt="1" shape="rect" coords="0,0,16,12" id="1starRating"
@@ -189,13 +191,13 @@ HTML;
      <div style="font-size: 10px;">
      <span id="chat_mode"></span>
      | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
-     | <a href="/user/Terms_of_Use.pdf" 
+     | <a href="/user/Terms_of_Use.pdf"
        onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms</a>
-     | <a href="/user/Privacy_Policy.pdf" 
+     | <a href="/user/Privacy_Policy.pdf"
        onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
      </div>
-     
+
     </div> <!-- footer -->
   </div> <!-- bd0 -->
 </div>
@@ -207,8 +209,8 @@ if($iframe) {
     }
     print <<<HTML
   <div style="position: absolute; width: 100%; height: 100%; z-index: 1;">
-    <iframe id="mainDocumentFrame" src="{$site_url}" 
-                height="100%" width="100%" frameborder="0" marginwidth="0" 
+    <iframe id="mainDocumentFrame" src="{$site_url}"
+                height="100%" width="100%" frameborder="0" marginwidth="0"
                 marginheight="0" vspace="0" hspace="0" scrolling="auto">
     </iframe>
   </div>
@@ -226,9 +228,9 @@ HTML;
       <div class="clear"></div>
       <label>&nbsp;</label><input type="checkbox" name="remember" /> Keep me logged in
       <br>
-      <a href="/user/forgotpassword.php" 
+      <a href="/user/forgotpassword.php"
         onclick="openExternalWindow('/user/forgotpassword.php'); return false;">Forgot password?</a>
-      | <a href="/user/forgotusername.php" 
+      | <a href="/user/forgotusername.php"
         onclick="openExternalWindow('/user/forgotusername.php'); return false;">Forgot username?</a>
     </form>
   </div>
@@ -274,36 +276,36 @@ HTML;
 <script type="text/javascript" src="/js/yui/build/connection/connection-min.js"></script>
 
 <script> /*
-	var sUrl = "moderate.php?username=";  
+	var sUrl = "moderate.php?username=";
 	function moderate(elementId) {
-		var element = document.getElementById(elementId); 
+		var element = document.getElementById(elementId);
 		element.src="../images/redFlag.jpg";
 		bannedUsers[bannedUsers.length] = elementId;
 		//alert('---' + elementId);
 		//applicationBan(elementId);
 	}
-	
-	var div = document.getElementById('result'); 
-	 
-	var handleSuccess = function(o){ 
-	    if(o.responseText !== undefined){ 
-	     
-	        div.innerHTML = o.responseText; 
-	        
-	    } 
-	} 
-	 
-	var handleFailure = function(o){ 
-	
-	} 
-	 
-	var callback = 
-	{ 
-	  success:handleSuccess, 
-	  failure: handleFailure, 
-	  argument: { foo:"foo", bar:"bar" } 
-	}; 
-	
+
+	var div = document.getElementById('result');
+
+	var handleSuccess = function(o){
+	    if(o.responseText !== undefined){
+
+	        div.innerHTML = o.responseText;
+
+	    }
+	}
+
+	var handleFailure = function(o){
+
+	}
+
+	var callback =
+	{
+	  success:handleSuccess,
+	  failure: handleFailure,
+	  argument: { foo:"foo", bar:"bar" }
+	};
+
 	function applicationBan(userName){
 		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl+userName, callback);
 	}
