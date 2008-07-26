@@ -47,7 +47,9 @@ if(!$iframe) {
             <img src=/images/dogtime/dogtime.jpg border="0"></img>
           </div>
       </div>
-
+      <div class="yapping_about_c">
+         Yapping about: Pet Chat
+       </div>
 HTML;
   }
   else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
