@@ -16,7 +16,8 @@ require("./chat_window_c.inc");
     var site_title = "<?php print $site_title; ?>";
     var username = "<?php print $username; ?>";
     var iframe_enabled = <?php print $iframe_enabled; ?>;
-    var bannedUsers = new Array();
+	var yaploud_client = "<?php print $_REQUEST['c']; ?>";
+    var bannedUsers = new Array(); 
 </script>
 
 </head>
@@ -123,7 +124,7 @@ HTML;
         <div id="logout_info">
          <strong><span id="username_info1"></span></strong>
          | <a href="javascript: void 0;" id="login">Login</a>
-         | <a href="javascript: openExternalWindow('/user/register.php'); void 0;" id="signup">SignUp</a>
+         | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
         </div>
         <div id="login_info">
          Hi <strong><span id="username_info2"></span>!</strong>
