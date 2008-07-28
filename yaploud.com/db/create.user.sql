@@ -11,6 +11,7 @@ CREATE TABLE user (
   ip varchar(15) NOT NULL default '',
   session char(32) NOT NULL default '',
   userid varchar(32) NOT NULL,
+  partner varchar(256) NOT NULL default '',
   PRIMARY KEY  (`email`),
   UNIQUE (userid)
 ) type=MyISAM;
