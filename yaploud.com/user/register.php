@@ -23,6 +23,7 @@ include("./register_c.inc");
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
   <script type="text/javascript">
+	var yaploud_client = "<?php print $_REQUEST['yaploud_client']; ?>"; 
     function enable_submit_signup(e) {
         if (e.checked == true) {
             document.getElementById('submit_signup').disabled=false;
@@ -115,9 +116,10 @@ HTML;
     </tr>
     <tr>
       <td>
-      First Name:
+      First Name: 
       <br>
       <input type="text" id="first_name" name="first_name" value="<?php print $first_name; ?>"/>
+	  <input type="hidden" id="yaploud_client" name="yaploud_client" value="<?php print $_REQUEST['yaploud_client']; ?>"/>	  
       </td>
     </tr>
     <tr>
