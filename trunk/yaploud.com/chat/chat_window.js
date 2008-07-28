@@ -122,9 +122,7 @@ function openExternalWindow(url) {
 	if (url == null) {
 		url = ext_url;
 	}
-	
     url = decodeURIComponent_recursive(url);
-    
 	if (iframe_enabled) {
 		document.location = url;
 		return;
