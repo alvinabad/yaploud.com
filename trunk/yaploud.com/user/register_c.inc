@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $password = MD5($password);
     $email = $_POST['email'];
-
+    $yaploud_client = $_POST['yaploud_client'];
     // validate captcha
     if (isset ($_REQUEST['captcha']) && isset ($_SESSION['captcha'])) {
         $registration_processed = true;
@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         require_once 'db.inc';
         $db = new DB();
         $sql = "INSERT INTO user(username, first_name, last_name, " .
-               " password, update_timestamp, email, userid) " . 
+               " password, update_timestamp, email, userid,partner) " . 
                " VALUES('$userid', '$first_name', '$last_name', '$password', " . 
-               " sysdate(), '$email', '$userid');";
+               " sysdate(), '$email', '$userid','$yaploud_client');";
 
       	$result = $db->mysql_query($sql);
 
