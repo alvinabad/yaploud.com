@@ -33,7 +33,7 @@ if(!$iframe) {
 
   <div class="hd" id="hd">
   <?php
-  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtime") {
+  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
   	print <<<HTML
       <div class="eptchat">
         <img src=/images/dogtime/eptchat.jpg border="0"></img>
