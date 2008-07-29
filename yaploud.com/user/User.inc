@@ -24,5 +24,10 @@ class User {
         $result = $this->db->mysql_query($sql);
         return $result;        
     }
+    function getPartnerUsers() {
+    	$sql = "SELECT * FROM user where partner='dogtimemedia' order by update_timestamp";
+        $result = $this->db->mysql_query($sql);
+        return $result;        
+    }
 }
 ?>
