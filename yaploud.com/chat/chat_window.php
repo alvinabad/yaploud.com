@@ -38,6 +38,11 @@ if(!$iframe) {
       <div class="eptchat">
         <img src=/images/dogtime/eptchat.jpg border="0"></img>
       </div>
+      <div class="purina_dogtime">
+          <div class="purina"></div>
+          <div></div>
+      </div>
+      <div class="yapping_about_c"></div>
 
 HTML;
   }
