@@ -125,22 +125,7 @@ HTML;
          | <a href="javascript: void 0;" id="add_tags">Add tags</a>
          | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a>
         </div>
-<?php
-if (isset($_REQUEST['c'])) {
-    print <<<HTML
-      <div style="float: right; font-size: 10px;">
-      Powered by:
-      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
-        <img style="vertical-align: bottom;" src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
-      </a>
-      </div>
-      <div>
-            <span class="dogtime">Brought to you by:</span>
-            <img src=/images/dogtime/dogtime.jpg border="0"></img>
-          </div>
-HTML;
-}
-?>
+
         <br>
         <!--
          <a href="javascript: location.reload();">Reload</a>
@@ -191,7 +176,22 @@ HTML;
        onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
      </div>
-
+<?php
+if (isset($_REQUEST['c'])) {
+    print <<<HTML
+      <div style="float: right; font-size: 10px;">
+      Powered by:
+      <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
+        <img style="vertical-align: bottom;" src=/images/logo.gif border="0" width=41 height=22 valign=absmiddle></img>
+      </a>
+      </div>
+      <div>
+            <span class="dogtime">Brought to you by:</span>
+            <img src=/images/dogtime/dogtime.jpg border="0"></img>
+          </div>
+HTML;
+}
+?>
     </div> <!-- footer -->
   </div> <!-- bd0 -->
 </div>
