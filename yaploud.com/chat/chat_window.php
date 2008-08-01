@@ -17,7 +17,7 @@ require("./chat_window_c.inc");
     var username = "<?php print $username; ?>";
     var iframe_enabled = <?php print $iframe_enabled; ?>;
 	var yaploud_client = "<?php print $_REQUEST['c']; ?>";
-    var bannedUsers = new Array(); 
+    var bannedUsers = new Array();
 </script>
 
 </head>
@@ -38,19 +38,7 @@ if(!$iframe) {
       <div class="eptchat">
         <img src=/images/dogtime/eptchat.jpg border="0"></img>
       </div>
-      <div class="purina_dogtime">
-          <div class="purina">
-            <span class="purina">Sponsored by:</span>
-            <img src=/images/dogtime/purina.jpg border="0"></img>
-          </div>
-          <div>
-            <span class="dogtime">Brought to you by:</span>
-            <img src=/images/dogtime/dogtime.jpg border="0"></img>
-          </div>
-      </div>
-      <div class="yapping_about_c">
-         Yapping about: Pet Chat
-       </div>
+
 HTML;
   }
   else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
