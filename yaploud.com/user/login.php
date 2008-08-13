@@ -1,19 +1,16 @@
+<?php require("./login_c.inc"); ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<?php
-require("./login_c.inc");
-
-/*
+<!-- /*
  * This is the view (MVC pattern) of the login page
  * The controller is located in register_c.inc
- * 
- * PHP code in this view is only used for rendering logic and is kept 
+ *
+ * PHP code in this view is only used for rendering logic and is kept
  * to the minimum. Please put all logic in the controller.
- * 
+ *
  * Created on Nov 18, 2007
  * Author: alvinabad@alumni.cmu.edu
- */
-?>
+ */-->
+
 
 <html>
 <head>
@@ -21,7 +18,7 @@ require("./login_c.inc");
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
-    
+
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript">
     YAHOO.util.Event.onDOMReady(function() {document.getElementById('username').focus();});
@@ -43,7 +40,7 @@ require("./login_c.inc");
     <ul style="margin-left: 0;">
     <li style="margin-left: 0;">Chat about any topic of your interest
     <li>Share favorite Yaps
-    <li>Connect with other yappers 
+    <li>Connect with other yappers
     </ul>
 
     <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
@@ -59,9 +56,9 @@ require("./login_c.inc");
         }
     ?>
     </div>
-    
+
     <form action="/user/login.php" method="post" >
-          
+
     <table style="text-align: left;">
     <tr>
       <td>
@@ -98,9 +95,9 @@ require("./login_c.inc");
       </td>
     </tr>
     </table>
-    
+
     <input type=hidden name=action value=login />
-    
+
     </form>
     </div>
   </div>
