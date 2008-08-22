@@ -1,28 +1,28 @@
+<?php include("./myaccount_c.inc");?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
-<?php
-include("./myaccount_c.inc");
-
-/*
- * This is the view (MVC pattern) of My Account page.
- * The controller is located at myaccount_c.inc
- * 
- * PHP code in this view is only used for rendering logic and is kept 
- * to the minimum. Please put all logic in the controller.
- * 
- * Created on Nov 17, 2007
- * Author: alvinabad@alumni.cmu.edu
- * Revised:
- */
-?>
-
 <html>
+<!--
+
+This is the view (MVC pattern) of My Account page.
+The controller is located at myaccount_c.inc
+
+PHP code in this view is only used for rendering logic and is kept
+to the minimum. Please put all logic in the controller.
+
+Created on Nov 17, 2007
+Author: alvinabad@alumni.cmu.edu
+Revised:
+
+ -->
+
 <head>
   <title>Yaploud - My Account</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
-    
+
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/user/ChangePassword.js" ></script>
   <script type="text/javascript" src="/user/UpdateUserInfo.js" ></script>
@@ -44,14 +44,14 @@ include("./myaccount_c.inc");
 
   <div id="content_0">
   <h1>My Account</h1>
-  
+
   <div id="content_1">
     <h4>Change Password</h4>
-    <form action="/user/myaccount.php" method="post" 
+    <form action="/user/myaccount.php" method="post"
           onSubmit="return ChangePassword.validate();">
     <div style="color: red;" id="error_message">
        <?php
-           if ( isset($change_password_processed) && 
+           if ( isset($change_password_processed) &&
                    $change_password_processed ) {
                if ( $reset_password ) {
                    print "Success! Your password has been changed. <br>";
@@ -63,7 +63,7 @@ include("./myaccount_c.inc");
            }
        ?>
     </div>
-    
+
     <table style="text-align: left;">
     <tr>
       <td>
@@ -90,12 +90,12 @@ include("./myaccount_c.inc");
 
   <div style="background-color: #FFF;" id="content_2">
     <h4>Update User Profile</h4>
-    
-    <form action="/user/myaccount.php" method="post" 
+
+    <form action="/user/myaccount.php" method="post"
           onSubmit="return UpdateUserInfo.validate();">
     <div style="color: red;" id="error_message_update_userinfo">
        <?php
-           if ( isset($update_userinfo_processed) && 
+           if ( isset($update_userinfo_processed) &&
                    $update_userinfo_processed ) {
                if ( $update_userinfo ) {
                    print "Success! Your user information has been updated.";
@@ -108,7 +108,7 @@ include("./myaccount_c.inc");
            }
        ?>
     </div>
-    
+
     <table style="text-align: left;">
     <tr>
       <td>
@@ -119,7 +119,7 @@ include("./myaccount_c.inc");
       <td>
         First Name:
         <br>
-        <input type="text" id="first_name" name="first_name" 
+        <input type="text" id="first_name" name="first_name"
                value="<?php print $first_name; ?>" />
       </td>
     </tr>
@@ -145,7 +145,7 @@ include("./myaccount_c.inc");
       </td>
     </tr>
     </table>
-    
+
     </form>
   </div>
   </div>
