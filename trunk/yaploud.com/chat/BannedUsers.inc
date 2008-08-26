@@ -30,6 +30,17 @@ class BannedUsers{
         $result = $this->db->mysql_query($sql);
         return $result;
     }
+
+	function removeIp_community($ip, $voter, $domainname) {
+        $ip = addslashes($ip);
+        $domainname = addslashes($domainname);
+		$voter = addslashes($voter);
+
+        $sql = "DELETE FROM banned_users WHERE " .
+               "ip = '$ip' and domainname = '$domainname' and voter = '$voter' ";
+        $result = $this->db->mysql_query($sql);
+        return $result;
+	}
     
     function isIpBanned($ip, $domainname, $votes=4) {
     	$num_entries = $this->getNumIps($ip, $domainname);
@@ -52,6 +63,18 @@ class BannedUsers{
         }
         return false;
     }
+
+	function isIpFlaggedByMe($ip, $domainname, $voter) {
+		$num_entries = $this->getNumIps($ip, $domainname);
+    	
+    	$result = $this->getIp($ip, $domainname);
+        while($row = mysql_fetch_assoc($result)){
+        	if ($row['voter'] == $voter) {
+        	    return true;
+        	}
+        }
+        return false;
+	}
     
     function getIp($ip, $domainname) {
         $ip = addslashes($ip);

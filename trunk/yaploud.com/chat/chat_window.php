@@ -95,6 +95,7 @@ HTML;
           <div id="msg"></div>
           		<div id="yappers"></div>
           		<!-- <div id="moderator"></div> -->
+          	    <div id="community"></div> 
           <div id="tags"></div>
       </div>
       <div style="clear: both;"></div>
@@ -269,41 +270,52 @@ HTML;
 <script type="text/javascript" src="/js/yui/build/event/event-min.js"></script>
 <script type="text/javascript" src="/js/yui/build/connection/connection-min.js"></script>
 
-<script> /*
-	var sUrl = "moderate.php?username=";
-	function moderate(elementId) {
+
+<script> 
+	//var sUrl = "../community/moderate.php?user=" + ;  
+	function community(elementId) {
+		//alert('empty? ' + elementId); 
 		var element = document.getElementById(elementId);
-		element.src="../images/redFlag.jpg";
-		bannedUsers[bannedUsers.length] = elementId;
-		//alert('---' + elementId);
-		//applicationBan(elementId);
+		if (element.src.search("redFlag.jpg")==-1)
+			ban ="1";
+		else
+			ban="0";
+		var sUrl = "../community/moderate.php?user=" + elementId +"&url=" + escape(site_url) + "&ban=" + ban; 
+		
+		//alert(sUrl);
+		applicationBan(sUrl);
 	}
 
-	var div = document.getElementById('result');
 
-	var handleSuccess = function(o){
-	    if(o.responseText !== undefined){
-
-	        div.innerHTML = o.responseText;
-
-	    }
+	
+	//var div = document.getElementById('result'); 
+	 
+	var handleSuccess = function(o){ 
+		GetMessages.sendRequest();
+	    /*if(o.responseText !== "success"){ 
+	     
+	       alert('True');
+	        
+	    } 
+	    else
+	    	alert('False')*/
+	} 
+	 
+	var handleFailure = function(o){ 
+	
+	} 
+	 
+	var callback = 
+	{ 
+	  success:handleSuccess, 
+	  failure: handleFailure, 
+	  argument: { foo:"foo", bar:"bar" } 
+	}; 
+	
+	function applicationBan(sUrl){
+		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl, callback);
 	}
 
-	var handleFailure = function(o){
-
-	}
-
-	var callback =
-	{
-	  success:handleSuccess,
-	  failure: handleFailure,
-	  argument: { foo:"foo", bar:"bar" }
-	};
-
-	function applicationBan(userName){
-		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl+userName, callback);
-	}
-	*/
 </script>
 </body>
 </html>

@@ -102,6 +102,9 @@ class ChatRoom {
                 if ($time_lapse_since < 300) {
                     $domainname = $bu->getDomainname($url);
                     $row['banned'] = $bu->isIpBanned($row['ip'], $domainname);
+					if (isset($_SESSION['username'])) {
+						$row['flagged_by_me'] = $bu->isIpFlaggedByMe($row['ip'], $domainname, $_SESSION['username']);
+					}
                     $user = $row;
                     array_push($users, $user);
                 }

@@ -336,14 +336,14 @@ var tags_on = false;
 function toggleShow() {
 	var yappers_div = $('yappers');
 	var tags_div = $('tags');
-	//var moderator_div = $('moderator');
+	var community_div = $('community');
 	
 	
 	if (tags_on) {
         tags_on = false;
         YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
         YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
-      //  YAHOO.util.Dom.setStyle(moderator_div, 'display', 'none');
+        YAHOO.util.Dom.setStyle(community_div, 'display', 'none');
 	}
 	else {
         tags_on = true;
@@ -356,23 +356,23 @@ function toggleShow() {
 function showUsers() {
     var yappers_div = $('yappers');
     var tags_div = $('tags');
-   // var moderator_div = $('moderator');
+   var community_div = $('community');
     
     
     YAHOO.util.Dom.setStyle(yappers_div, 'display', 'inline');
     YAHOO.util.Dom.setStyle(tags_div, 'display', 'none');
-    //YAHOO.util.Dom.setStyle(moderator_div, 'display', 'inline');
+    YAHOO.util.Dom.setStyle(community_div, 'display', 'inline');
     
 }
 
 function showTags() {
     var yappers_div = $('yappers');
     var tags_div = $('tags');
-    //var moderator_div = $('moderator');
+    var community_div = $('community');
     
-     YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
+    YAHOO.util.Dom.setStyle(tags_div, 'display', 'inline');
     YAHOO.util.Dom.setStyle(yappers_div, 'display', 'none');
-     //YAHOO.util.Dom.setStyle(moderator_div, 'display', 'none');
+    YAHOO.util.Dom.setStyle(community_div, 'display', 'none');
     GetTags.sendRequest();
    
 }
@@ -420,7 +420,15 @@ function renderYappers(obj) {
     users_el.innerHTML = '';
   
     for(var i = 0; i < users.length; i++){
-        users_el.innerHTML += "<div class=room_user>" + users[i].name + "</div>";  
+        if(!users[i].flagged_by_me){
+         	//alert('if ' + users[i].banned);  //onmouseover="this.src=\'../images/redFlag.jpg\'" onmouseout="this.src=\'../images/greenFlag.jpg\'"
+        	users_el.innerHTML += "<div class=room_user>" + users[i].name + "<img " + "id=" + users[i].name + ' width=15 height=15 title="click to flag a user"   src="../images/greenFlag.jpg" alt="Click to flag user" onclick="community(this.id)"  />' + "</div>"; 
+        	} 
+        else
+        	{
+        	//alert('else ' + users[i].banned);
+        	users_el.innerHTML += "<div class=room_user>" + users[i].name + "<img " + "id=" + users[i].name + ' width=15 height=15 title="click to flag a user"   src="../images/redFlag.jpg" alt="Click to flag user" onclick="community(this.id)"  />' + "</div>";  
+        }
         //moderator.innerHTML += "<div class=room_user>" + "flag" + "</div>";   
         // check if current user is in chat room
         if (users[i].name == username) {
@@ -433,14 +441,16 @@ function renderYappers(obj) {
     	username = obj.user_session;
     	updateLoginInfo(username);
     }
-    //var moderator = document.getElementById('moderator');
     
-    //moderator.innerHTML = '';
-    //for(var i = 0; i < users.length; i++){
-      //onmouseover="this.src=\'../images/redFlag.jpg\'" onmouseout="this.src=\'../images/greenFlag.jpg\'"
-      //  moderator.innerHTML += "<div class=flag_user>" + "<img " + "id=" + users[i] + ' width=15 height=15 title="click to flag a user"  src="../images/greenFlag.jpg" alt="Click to flag user" onclick="moderate(this.id)" />' + "</div>";   
+    var community = document.getElementById('community');
+    //alert(community);
+    community.innerHTML = '';
+    for(var i = 0; i < users.length; i++){
+       //alert(users[i].name);
+        //onmouseover="this.src=\'../images/redFlag.jpg\'" onmouseout="this.src=\'../images/greenFlag.jpg\'"
+        //community.innerHTML += "<div class=flag_user>" + "<img " + "id=" + users[i].name + ' width=15 height=15 title="click to flag a user"  onmouseover="this.src=\'../images/redFlag.jpg\'" onmouseout="this.src=\'../images/greenFlag.jpg\'" src="../images/greenFlag.jpg" alt="Click to flag user" onclick="community(this.id)" />' + "</div>";   
    
-    //}
+    }
 }
 
 function processModerators(obj) {
