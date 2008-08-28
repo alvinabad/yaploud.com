@@ -26,6 +26,14 @@ class User {
         }
 
     }
+	function isUser($user) {
+        $sql = "SELECT count(*) as count FROM user where username = '$user';";
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        return $count;
+    }
 
     function _checkLogin($username, $password, $remember) {
         $password = md5($password);
