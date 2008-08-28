@@ -15,6 +15,7 @@ ob_start();
 
 require_once("moderators/Moderators.inc");
 require_once('user.php');
+
 require("util/Url.inc");
 $user = new User();
 
@@ -28,7 +29,7 @@ $domainname = '';
 
 if ( isset($_SESSION['username'])) {
     // temporarily hardcoded here for testing
-    $admins = array('yapper', 'alvin', 'aman', 'josh', 'mv');
+    $admins = array('dogtimemedia','yapper', 'alvin', 'aman', 'josh', 'mv');
     
     foreach($admins as $admin) {
     	if ($admin == $_SESSION['username']) {
@@ -43,6 +44,7 @@ else {
 
 $md = new Moderators();
 
+
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['add']) &&
      isset($_REQUEST['moderator']) && isset($_REQUEST['domainname'])) {
      	
@@ -54,9 +56,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['add']) &&
 	$domainname = trim($domainname);
 	
 	if ($moderator == '' || $domainname == '') {
-		return;
+		$moderator=$_SESSION['username'];
+		$domainname='ALL';
+		//return;
 	}
+	$userCount = $user->isUser($moderator);
 	
+	if (!$userCount == 1) {
+		$moderator=$_SESSION['username'];
+		$domainname='ALL';
+		//return;
+	}
+	$md->add($moderator, $domainname); // 
+	/*
 	if ($domainname == 'ALL') {
         foreach($admins as $admin) {
         	if ($admin == $moderator) {
@@ -67,7 +79,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['add']) &&
 	}
 	else {
     	$md->add($moderator, $domainname);
-	}
+	}*/
 }
 else if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['remove']) &&
 	      isset($_REQUEST['moderators']) ){

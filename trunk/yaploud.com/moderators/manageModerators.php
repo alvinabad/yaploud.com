@@ -46,13 +46,13 @@ if ( !$isAuthenticated ) {
     <tr>
       <td>Moderator username:</td>
       <td>
-        <input size="30" id="moderator" type="text" name="moderator" value="{$moderator}"/>
+        <input size="30" id="moderator" type="text" name="moderator" value="{$moderator}"/> Must be a registered site user.
       </td>
     </tr>
     <tr>
       <td>Domainname or Url:</td>
       <td>
-        <input size="30" id="domainname" type="text" name="domainname" value="{$domainname}"/>
+        <input size="30" id="domainname" type="text" name="domainname" value="ALL" readonly/>
       </td>
     </tr>
     <tr>
