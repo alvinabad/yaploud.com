@@ -4,7 +4,7 @@
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
 //if (!isset($_SESSION['logged'])) session_start();
     
-//ob_start();
+ob_start();
 require ("common/nocache.php");
 require("./invite_friend.inc");
 
