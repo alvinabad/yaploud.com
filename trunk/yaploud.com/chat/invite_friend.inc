@@ -15,9 +15,6 @@ function sendEmail($to, $from, $subject, $message) {
     $from = "From: $from\n";
     
     $result = mail($to, $subject, $message, $from);
-	print "test1:";
-	print $result;
-	print "test1:end";
     return $result;
 }
 
@@ -31,6 +28,7 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $sql = "SELECT * FROM user WHERE username ='$username';";
     $result = $db->mysql_query($sql);
     if (mysql_num_rows($result) != 1) {
+		print "no data";
         return false;
     }
 
