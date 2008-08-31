@@ -20,7 +20,7 @@ function sendEmail($to, $from, $subject, $message) {
 
 function sendInviteFriendEmail($url, $email, $username, $message) {
     $email = addslashes($email);
-	print $username;
+	print "username=$username..";
     $username = addslashes($username);
     
     $user = new User();
