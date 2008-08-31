@@ -15,6 +15,9 @@ function sendEmail($to, $from, $subject, $message) {
     $from = "From: $from\n";
     
     $result = mail($to, $subject, $message, $from);
+	print "test1:";
+	print $result;
+	print "test1:end";
     return $result;
 }
 
