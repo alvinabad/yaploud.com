@@ -33,7 +33,7 @@ if (
     }
     else {
         print json_encode(false);
-		print "error 1";Å
+		print "error 1";
     }
 }
 else {
