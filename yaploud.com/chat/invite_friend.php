@@ -33,12 +33,10 @@ if (
     }
     else {
         print json_encode(false);
-		print "error 1";
-    }
+	}
 }
 else {
     print json_encode(false);
-	print "error 2";
 }
 
 ?>
