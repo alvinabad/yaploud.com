@@ -20,7 +20,6 @@ function sendEmail($to, $from, $subject, $message) {
 
 function sendInviteFriendEmail($url, $email, $username, $message) {
     $email = addslashes($email);
-	print "username=$username..";
     $username = addslashes($username);
     
     $user = new User();
@@ -29,7 +28,6 @@ function sendInviteFriendEmail($url, $email, $username, $message) {
     $sql = "SELECT * FROM user WHERE username ='$username';";
     $result = $db->mysql_query($sql);
     if (mysql_num_rows($result) != 1) {
-		print "no data for $username";
         return false;
     }
 
