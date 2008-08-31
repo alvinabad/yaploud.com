@@ -1,8 +1,9 @@
 <?php
-
+print $_SESSION;
+/*
 //--- Initialize include path and session
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
-//if (!isset($_SESSION['logged'])) session_start();
+if (!isset($_SESSION['logged'])) session_start();
     
 ob_start();
 require ("common/nocache.php");
@@ -38,5 +39,5 @@ if (
 else {
     print json_encode(false);
 }
-
+*/
 ?>
