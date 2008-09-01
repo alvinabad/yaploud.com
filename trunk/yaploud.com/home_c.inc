@@ -76,13 +76,13 @@ function getTopicUrlInfo($db, $offset, $limit, $list_order) {
 	             //"from chat group by topic_url order by creation_date desc ";
 	}
 	elseif ($list_order == "most_active") {
-	    $query = "select distinct topic_url as url, count(*) as c " .
+	    $query = "select topic_url as url, count(*) as c " .
 	             "from room_users " .
 	             "where DATEDIFF(CURRENT_DATE(), creation_date) <1 " . 
 	             "group by topic_url order by creation_date desc ";
 	}
 	elseif ($list_order == "most_yappers") {
-	    $query = "select distinct topic_url as url, count(*) as c " .
+	    $query = "select topic_url as url, count(*) as c " .
 	             "from room_users " .
 	             "where username != '' " .
 	             //"and DATEDIFF(CURRENT_DATE(), creation_date) <10 " . 
