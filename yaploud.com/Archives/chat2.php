@@ -108,11 +108,13 @@ Username: <input type=text id=username></input>
    var p = new YAHOO.widget.ResizePanel('panel1', {width:'500px', visible:true, draggable:true, close:true});
    p.render(document.body);
 </script>
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-2224520-1";
-urchinTracker();
+<script type="text/javascript"> 
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); 
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); 
+</script> 
+<script type="text/javascript"> 
+	var pageTracker = _gat._getTracker("UA-5654854-1"); 
+	pageTracker._trackPageview(); 
 </script>
 </body>
 </html>
