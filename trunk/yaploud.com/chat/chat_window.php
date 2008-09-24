@@ -127,8 +127,8 @@ HTML;
          | <a href="javascript: void 0;" id="add_tags">Add tags</a>
          | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a>
         </div>
-
-        <br>
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <!-- <br> -->
         <!--
          <a href="javascript: location.reload();">Reload</a>
          -->
