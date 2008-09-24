@@ -33,8 +33,8 @@ if(!$iframe) {
 
   <div class="hd" id="hd">
   <?php
- //  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
- //  	print <<<HTML
+  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
+//   	print <<<HTML
  //     <div class="eptchat">
  //       <img src=/images/dogtime/eptchat.jpg border="0"></img>
  //     </div>
@@ -42,12 +42,11 @@ if(!$iframe) {
  //         <div class="purina"></div>
  //         <div></div>
  //     </div>
- //     <div class="yapping_about_c"></div>
+ //     <div class="wut_c"></div>
 
 //HTML;
-//  }
-//  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
-    if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+  }
+  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
   	print <<<HTML
     <div class="eptchat">
       <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
