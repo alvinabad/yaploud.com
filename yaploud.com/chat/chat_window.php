@@ -33,20 +33,21 @@ if(!$iframe) {
 
   <div class="hd" id="hd">
   <?php
-  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
-  	print <<<HTML
-      <div class="eptchat">
-        <img src=/images/dogtime/eptchat.jpg border="0"></img>
-      </div>
-      <div class="purina_dogtime">
-          <div class="purina"></div>
-          <div></div>
-      </div>
-      <div class="yapping_about_c"></div>
+ //  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
+ //  	print <<<HTML
+ //     <div class="eptchat">
+ //       <img src=/images/dogtime/eptchat.jpg border="0"></img>
+ //     </div>
+ //     <div class="purina_dogtime">
+ //         <div class="purina"></div>
+ //         <div></div>
+ //     </div>
+ //     <div class="yapping_about_c"></div>
 
-HTML;
-  }
-  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+//HTML;
+//  }
+//  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+    if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
   	print <<<HTML
     <div class="eptchat">
       <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
@@ -95,7 +96,7 @@ HTML;
           <div id="msg"></div>
           		<div id="yappers"></div>
           		<!-- <div id="moderator"></div> -->
-          	    <div id="community"></div> 
+          	    <div id="community"></div>
           <div id="tags"></div>
       </div>
       <div style="clear: both;"></div>
@@ -271,47 +272,47 @@ HTML;
 <script type="text/javascript" src="/js/yui/build/connection/connection-min.js"></script>
 
 
-<script> 
-	//var sUrl = "../community/moderate.php?user=" + ;  
+<script>
+	//var sUrl = "../community/moderate.php?user=" + ;
 	function community(elementId) {
-		//alert('empty? ' + elementId); 
+		//alert('empty? ' + elementId);
 		var element = document.getElementById(elementId);
 		if (element.src.search("redFlag.jpg")==-1)
 			ban ="1";
 		else
 			ban="0";
-		var sUrl = "../community/moderate.php?user=" + elementId +"&url=" + escape(site_url) + "&ban=" + ban; 
-		
+		var sUrl = "../community/moderate.php?user=" + elementId +"&url=" + escape(site_url) + "&ban=" + ban;
+
 		//alert(sUrl);
 		applicationBan(sUrl);
 	}
 
 
-	
-	//var div = document.getElementById('result'); 
-	 
-	var handleSuccess = function(o){ 
+
+	//var div = document.getElementById('result');
+
+	var handleSuccess = function(o){
 		GetMessages.sendRequest();
-	    /*if(o.responseText !== "success"){ 
-	     
+	    /*if(o.responseText !== "success"){
+
 	       alert('True');
-	        
-	    } 
+
+	    }
 	    else
 	    	alert('False')*/
-	} 
-	 
-	var handleFailure = function(o){ 
-	
-	} 
-	 
-	var callback = 
-	{ 
-	  success:handleSuccess, 
-	  failure: handleFailure, 
-	  argument: { foo:"foo", bar:"bar" } 
-	}; 
-	
+	}
+
+	var handleFailure = function(o){
+
+	}
+
+	var callback =
+	{
+	  success:handleSuccess,
+	  failure: handleFailure,
+	  argument: { foo:"foo", bar:"bar" }
+	};
+
 	function applicationBan(sUrl){
 		var request = YAHOO.util.Connect.asyncRequest('GET', sUrl, callback);
 	}
