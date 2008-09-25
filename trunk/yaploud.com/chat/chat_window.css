@@ -55,7 +55,7 @@ body {
 #minimize_bar:hover {
     cursor: pointer; cursor: hand;
 }
-	
+
 #ft {
     /*border: 1px solid red;*/
     margin: 2px;
@@ -109,7 +109,8 @@ body {
 /*on_row and off_row define background to alternate row colors */
 /*for the row class below.  used with multiple classes in a row */
 .on_row{
-   background-color:#E3E4FA;
+      /*background-color:#E3E4FA;*/
+   background-color:#A0C544
 }
 .off_row{
    background-color:white;
@@ -149,7 +150,7 @@ body {
     font-family: arial, courier-new, courier, georgia, times, "times new roman", serif;
 }
 #flag_user {
-	
+
 
 }
 #tags {
@@ -246,15 +247,15 @@ body {
     width: 55%;
     clear:left;
 }
-	
+
 #add_tags_dialog label {
     display:block;
     float:left;
     width: 95%;
     clear:left;
 }
-	
-label { 
+
+label {
     display:block;
     float:left;
     width: 35%;
@@ -276,21 +277,21 @@ div.purina_dogtime {
 	float: right;
 }
 span.purina {
-	font-size: 8px; 
+	font-size: 8px;
 	vertical-align: top;
 }
 span.dogtime {
-	font-size: 8px; 
+	font-size: 8px;
 	vertical-align: top;
 }
 div.yapping_about_c {
-    clear: both; 
-    font-size: 10px; 
-    font-weight: bold; 
+    clear: both;
+    font-size: 10px;
+    font-weight: bold;
     vertical-align: top;
 }
 
 span.yapping_about {
-    font-weight: bold; 
+    font-weight: bold;
 }
 
