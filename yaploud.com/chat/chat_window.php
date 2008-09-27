@@ -7,17 +7,7 @@ require("./chat_window_c.inc");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>YapLoud</title>
-<?php 
-if (isset($_REQUEST['yaploud_css']) && $_REQUEST['yaploud_css'] != "") {
-	print <<<HTML
-	<link rel="stylesheet" type="text/css" href="{$_REQUEST['yaploud_css']}"></link>
-	HTML;
-} else {
-	print <<<HTML
-	<link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
-	HTML;
-}
-?>
+<link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
 
 <?php require("./yui.php"); ?>
 
