@@ -17,7 +17,7 @@ class ChatMessages {
         return $count;
     }
     function getPartnerNumMessages($partner) {
-    	$sql = "SELECT count(*) as count FROM chat where topic_url like '%www.dogtimemedia.com%';";
+    	$sql = "SELECT count(*) as count FROM chat where topic_url like '%dogtimemedia%';";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
@@ -39,7 +39,7 @@ class ChatMessages {
     function getPartnerNumGuestUsers($partner) {
     	$sql = "SELECT count(*) as count " .
     	       "FROM (select distinct submitter, topic_url from chat " .
-    	       "      where submitter like 'guest%' and topic_url like '%www.dogtimemedia.com%') c ";
+    	       "      where submitter like 'guest%' and topic_url like '%dogtimemedia%') c ";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
