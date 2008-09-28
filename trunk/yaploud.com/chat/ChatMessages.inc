@@ -16,11 +16,30 @@ class ChatMessages {
         mysql_free_result($result);
         return $count;
     }
+    function getNumMessages($partner) {
+    	$sql = "SELECT count(*) as count FROM chat where topic_url like 'www.dogtimemedia.com';";
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        return $count;
+    }
     
     function getNumGuestUsers() {
     	$sql = "SELECT count(*) as count " .
     	       "FROM (select distinct submitter, topic_url from chat " .
     	       "      where submitter like 'guest%') c ";
+        $result = $this->db->mysql_query($sql);
+        $res_obj = mysql_fetch_object($result);
+        $count = $res_obj->count;
+        mysql_free_result($result);
+        return $count;
+    }
+    
+    function getPartnerNumGuestUsers($partner) {
+    	$sql = "SELECT count(*) as count " .
+    	       "FROM (select distinct submitter, topic_url from chat " .
+    	       "      where submitter like 'guest%' and topic_url like '%www.dogtimemedia.com%') c ";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
