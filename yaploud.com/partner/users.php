@@ -85,12 +85,12 @@ HTML;
 print "Total users = $total_users". "<br>";
 print "Total guest users = $numGuestUsers" . "<br/>";
 print "Total number of yaps = $numYaps" . "<br/> <br/>";
-	
+/*	
 print "Other Statistics...." . "<br/>";
 print "Yaps in last 60 minutes = $yapsLastHour" . "<br>";
 print "Yaps in last 24 hours = $yapsLast24Hour" . "<br>";
 print "Yaps in last 30 days = $yapsLastMonth" . "<br>";
-
+*/
 ?>
 
 </table>
