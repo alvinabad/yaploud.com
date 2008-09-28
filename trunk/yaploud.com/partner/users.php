@@ -61,6 +61,9 @@ require_once 'chat/ChatMessages.inc';
 $cm = new ChatMessages();
 $numGuestUsers = $cm->getPartnerNumGuestUsers($user);
 $numYaps = $cm->getPartnerNumMessages($user);
+$yapsLastHour = $cm->getMessagesStatistics("Interval 60 minute");
+$yapsLast24Hour = $cm->getMessagesStatistics("Interval 1 day");
+$yapsLastMonth = $cm->getMessagesStatistics("Interval 1 Month");
 $total_users = 0;
 while($row = mysql_fetch_assoc($result)) {
    $date_registered = strtotime($row['update_timestamp']);
@@ -80,8 +83,13 @@ HTML;
 }
 
 print "Total users = $total_users". "<br>";
-print "Total guest users = $numGuestUsers" . "<br>";
-print "Total number of yaps = $numYaps" . "<br>";
+print "Total guest users = $numGuestUsers" . "<br/>";
+print "Total number of yaps = $numYaps" . "<br/> <br/>";
+	
+print "Other Statistics...." . "<br/>";
+print "Yaps in last 60 minutes = $yapsLastHour" . "<br>";
+print "Yaps in last 24 hours = $yapsLast24Hour" . "<br>";
+print "Yaps in last 30 days = $yapsLastMonth" . "<br>";
 
 ?>
 
