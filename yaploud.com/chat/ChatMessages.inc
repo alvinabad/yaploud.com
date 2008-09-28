@@ -17,7 +17,7 @@ class ChatMessages {
         return $count;
     }
     function getPartnerNumMessages($partner) {
-    	$sql = "SELECT count(*) as count FROM chat where topic_url like 'www.dogtimemedia.com';";
+    	$sql = "SELECT count(*) as count FROM chat where topic_url like '%www.dogtimemedia.com%';";
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
