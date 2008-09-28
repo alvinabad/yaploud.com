@@ -24,7 +24,7 @@ function addslashes(str) {
 }
 
 var ext_url;
-function openChatWindow(site_url, title, yaploud_client) {
+function openChatWindow(site_url, title, yaploud_client, yaploud_css) {
 	if (site_url == null) {
 		site_url = ext_url;
 	}
@@ -44,6 +44,10 @@ function openChatWindow(site_url, title, yaploud_client) {
 		yaploud_client = "&c=" + yaploud_client;
 	}
 	
+	if (typeof(yaploud_css) == "undefined") {
+		yaploud_css = '';
+	}
+	
 	var yaploud_domain = '';
 	if (location.hostname.indexOf('localhost') == 0) {
 	}
@@ -57,8 +61,8 @@ function openChatWindow(site_url, title, yaploud_client) {
     site_url = encodeURIComponent_recursive(site_url);
     title = encodeURIComponent_recursive(title);
     var url = yaploud_domain + "/chat/chat_window.php?url=" + site_url + 
-              "&title=" + title + yaploud_client;
-    
+			"&title=" + title + yaploud_client + "&yaploud_css=" + yaploud_css;
+			
     var features = "width=340, height=" + yaplet_height + ", status=yes, " +
                    "scrollbars=no, menubar=no, toolbar=no, " +
                    "location=no, resizable=yes";

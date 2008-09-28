@@ -21,9 +21,10 @@
     <script type="text/javascript">
         var yaplink_name = "PetChat";
         var yaploud_client = "dogtimemedia";
+		var yaploud_css = "http://test.yaploud.com/tmp/test.css";
     </script>
-    <script type="text/javascript" src="http://www.yaploud.com/chat/generate_yaplet_link.js"></script>
-    <!-- END EMBEDDED YAPLINK CODE -->
+    <script type="text/javascript" src="/chat/generate_yaplet_link.js"></script>
+	<!-- END EMBEDDED YAPLINK CODE -->
 
 
 </body>

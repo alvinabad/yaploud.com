@@ -9,7 +9,14 @@ function includeJavascript(src) {
     }
 }
 
-includeJavascript('http://www.yaploud.com/js/util.js');
+var script_domain = '';
+if (location.hostname.indexOf('localhost') == 0) {
+}
+else if (location.hostname.indexOf('yaploud') == -1) {
+	script_domain = "http://www.yaploud.com";
+}
+includeJavascript(script_domain + '/js/util.js');
+
 
 var yaploud_yaplink_el = document.getElementById('yaploud_yaplink');
 yaploud_yaplink_el.setAttribute('id', '');
@@ -31,7 +38,8 @@ if (yaploud_yaplink_el && document.location) {
                'openChatWindow(' +
                "'" + yaplink_url + "', " +
                "'" + yaplink_url + "', " + 
-               "'" + yaploud_client + "')" +
+               "'" + yaploud_client + "', " +
+			   "'" + yaploud_css + "')" +
                '; void 0;' + '"' +
                '>' + yaplink_name + '</a>'; 
     yaploud_yaplink_el.innerHTML = code;

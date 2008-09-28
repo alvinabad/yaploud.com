@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+
+
+body {
+    margin: 0;
+    padding:0;
+    background: lightblue;
+}
+
+/*on_row and off_row define background to alternate row colors */
+/*for the row class below.  used with multiple classes in a row */
+.on_row{
+   background-color:red;
+}
+.off_row{
+   background-color:blue;
+}
