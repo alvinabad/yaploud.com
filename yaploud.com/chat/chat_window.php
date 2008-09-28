@@ -8,7 +8,7 @@ require("./chat_window_c.inc");
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>YapLoud</title>
 <link rel="stylesheet" type="text/css" href="/chat/chat_window.css"></link>
-<?php 
+<?php
 if (isset($_REQUEST['yaploud_css']) && $_REQUEST['yaploud_css'] != "") {
 	print <<<HTML
 	<link rel="stylesheet" type="text/css" href="{$_REQUEST['yaploud_css']}"></link>
@@ -124,14 +124,14 @@ HTML;
         <a href="javascript: SendMessage.text();"><img border="0" src="/images/go.gif" /></a>
         <div id="logout_info">
          <strong><span id="username_info1"></span></strong>
-         | <a href="javascript: void 0;" id="login"><font color="#C36419">Login</font></a>
-         | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup"><font color="#C36419">SignUp</font></a>
+         | <a href="javascript: void 0;" id="login">Login</a>
+         | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
         </div>
         <div id="login_info">
          Hi <strong><span id="username_info2"></span>!</strong>
-	     | <a href="javascript: logout(); void 0;"><font color="#C36419">Logout</font></a>
-         | <a href="javascript: void 0;" id="add_tags"><font color="#C36419">Add tags</font></a>
-         | <a href="javascript: void 0;" id="invite_friend"><font color="#C36419">Invite a friend</font></a>
+	     | <a href="javascript: logout(); void 0;">Logout</a>
+         | <a href="javascript: void 0;" id="add_tags">Add tags</a>
+         | <a href="javascript: void 0;" id="invite_friend">Invite a friend</a>
         </div>
          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <!-- <br> -->
@@ -154,7 +154,7 @@ HTML;
      }
      ?>
      <span id="star_rating" onmouseout="StarRating.render();" >
-     <span id="votes">0 votes</span> | <font color="#C36419">Rating:</font>
+     <span id="votes">0 votes</span> | Rating:
      <img alt="starRating" src="/images/ratings/stars-0-0.gif" usemap="#mapStarRating"
           border="0" id="stars" />
      <map name="mapStarRating" id="mapStarRating" >
@@ -177,11 +177,11 @@ HTML;
      </span>
      <div style="font-size: 10px;">
      <span id="chat_mode"></span>
-     | <a href="/" onclick="promptChatUrl(); return false;"><font color="#C36419">Yap on another site</font></a>
+     | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
      | <a href="/user/Terms_of_Use.pdf"
-       onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;"><font color="#C36419">Terms</font></a>
+       onclick="openExternalWindow('/user/Terms_of_Use.pdf'); return false;">Terms</a>
      | <a href="/user/_Policy.pdf"
-       onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;"><font color="#C36419">Privacy</font></a>
+       onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
      </div>
 <?php
