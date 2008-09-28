@@ -109,8 +109,8 @@ body {
 /*on_row and off_row define background to alternate row colors */
 /*for the row class below.  used with multiple classes in a row */
 .on_row{
-      /*background-color:#E3E4FA;*/
-   background-color:#A0C544
+      /*background-color:#E3E4FA;  A0C544*/
+      background-color:#E3E4FA;
 }
 .off_row{
    background-color:white;
