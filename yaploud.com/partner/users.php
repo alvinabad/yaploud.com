@@ -56,7 +56,10 @@ $result = $u->getPartnerUsers();
 </tr>
 
 <?php
+require_once 'chat/ChatMessages.inc';
 
+$cm = new ChatMessages();
+$numGuestUsers = $u->getPartnerNumGuestUsers($user);
 $total_users = 0;
 while($row = mysql_fetch_assoc($result)) {
    $date_registered = strtotime($row['update_timestamp']);
@@ -75,7 +78,8 @@ HTML;
     $total_users++;
 }
 
-print "Total Users = $total_users";
+print "Total users = $total_users";
+print "Total guest users = $numGuestUsers";
 
 ?>
 
