@@ -32,7 +32,11 @@ if (yaploud_yaplink_el && document.location) {
 	if (typeof(yaploud_client) == "undefined") {
 		yaploud_client = '';
 	}
-	
+        
+	if (typeof(yaploud_css) == "undefined") {
+		yaploud_css = '';
+	}
+
     var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
                'href="javascript: ' +
                'openChatWindow(' +
