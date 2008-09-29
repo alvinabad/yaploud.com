@@ -1034,6 +1034,7 @@ function quit() {
 }
 
 function resizeDivs() {
+    if (yaploud_client=="dogtimemedia") return;
     var newHeight = 150 + YAHOO.util.Dom.getViewportHeight() - 375;
     if (newHeight > 85) {
         YAHOO.util.Dom.setStyle($("msg"), 'height', newHeight + "px");
