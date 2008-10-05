@@ -273,9 +273,6 @@ HTML;
 <script type="text/javascript" src="/chat/chat_window.js" ></script>
 <script type="text/javascript" src="/rating/Rating.js" ></script>
 <script type="text/javascript" src="/js/util.js" ></script>
-//<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/yahoo/yahoo-min.js"></script>
-//<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/event/event-min.js"></script>
-//<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/connection/connection-min.js"></script>
 
 
 <script>
