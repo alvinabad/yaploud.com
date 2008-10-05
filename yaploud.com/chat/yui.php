@@ -21,7 +21,7 @@
 <script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/animation/animation-min.js"></script> 
 
 <!-- Source file for the Resize Utility -->
-<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/resize/resize-beta.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/resize/resize-beta-min.js"></script>
 
 <!-- Source file for TabView -->
 <script type="text/javascript" src="http://yui.yahooapis.com/2.5.2/build/tabview/tabview-min.js"></script>
