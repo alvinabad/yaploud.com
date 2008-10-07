@@ -37,14 +37,22 @@ if (yaploud_yaplink_el && document.location) {
 		yaploud_css = '';
 	}
 
-    var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
-               'href="javascript: ' +
-               'openChatWindow(' +
-               "'" + yaplink_url + "', " +
-               "'" + yaplink_url + "', " + 
-               "'" + yaploud_client + "', " +
-			   "'" + yaploud_css + "')" +
-               '; void 0;' + '"' +
-               '>' + yaplink_name + '</a>'; 
+    if (yaploud_embedded) {
+        var code = '<iframe id="chatFrame" ' +
+                    'src=http://www.yaploud.com/chat/chat_window.php?url=' + yaplink_url +  
+                    '&c=' + yaploud_client +
+                    '&yaploud_css=' + yaploud_css +
+                    '" frameborder="0"></iframe>';
+    } else {
+        var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
+                   'href="javascript: ' +
+                   'openChatWindow(' +
+                   "'" + yaplink_url + "', " +
+                   "'" + yaplink_url + "', " + 
+                   "'" + yaploud_client + "', " +
+    			   "'" + yaploud_css + "')" +
+                   '; void 0;' + '"' +
+                   '>' + yaplink_name + '</a>';         
+    }
     yaploud_yaplink_el.innerHTML = code;
 }
