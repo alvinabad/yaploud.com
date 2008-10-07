@@ -19,6 +19,7 @@
         }
     </style>
     <script type="text/javascript">
+        var yaploud_embedded = true;
         var yaplink_name = "PetChat";
         var yaploud_client = "dogtimemedia";
 		var yaploud_css = "http://test.yaploud.com/tmp/test.css";
