@@ -21,6 +21,11 @@
          font-size: 22px;
          color: brown;
      }
+     #chatFrame {
+         scrolling:no;
+         width:325px; 
+         height:320px;
+     }
  </style>
  <script type="text/javascript">
      var yaploud_embedded = true;
