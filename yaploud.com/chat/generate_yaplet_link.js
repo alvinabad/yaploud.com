@@ -37,7 +37,7 @@ if (yaploud_yaplink_el && document.location) {
 		yaploud_css = '';
 	}
 
-    if (yaploud_embedded) {
+    if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
                     'src=http://www.yaploud.com/chat/chat_window.php?url=' + yaplink_url +  
                     '&c=' + yaploud_client +
