@@ -81,7 +81,9 @@ class ChatMessages {
 		$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 1 Week) and creation_date < date(now()) group by day,hour order by creation_date asc;";
 		$result = $this->db->mysql_query($sql);
 		if ($result) 
-			print True;
+			print true;
+		else
+			print false;
 		return $result;
 	}
 	function getReportStartDay() {
