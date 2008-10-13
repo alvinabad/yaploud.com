@@ -207,7 +207,6 @@ $result1 = $cm->getWeeklyStatistics();
 				$seventhArray[$row['hour']] = $row['sum'];
 			
 	}
- mysql_free_result($result1);
 printRow($daysArray[0],$firstArray);
 printRow($daysArray[1],$secondArray);
 printRow($daysArray[2],$thirdArray);
