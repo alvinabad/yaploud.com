@@ -189,7 +189,7 @@ $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
 $result1 = $cm->getWeeklyStatistics();
-	if ($result1) {
+	//if ($result1) {
 	while($row = mysql_fetch_assoc($result1)) {
 			if($row['day']==$daysArray[0])
 				$firstArray[$row['hour']] = $row['sum'];
@@ -207,7 +207,7 @@ $result1 = $cm->getWeeklyStatistics();
 				$seventhArray[$row['hour']] = $row['sum'];
 			
 	}
-	}
+	//}
 printRow($daysArray[0],$firstArray);
 printRow($daysArray[1],$secondArray);
 printRow($daysArray[2],$thirdArray);
