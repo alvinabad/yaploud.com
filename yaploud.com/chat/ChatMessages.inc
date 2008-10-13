@@ -77,6 +77,19 @@ class ChatMessages {
         mysql_free_result($result);
         return $count;
 	}
+	function getWeeklyStatistics() {
+		$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 1 Week) and creation_date < date(now()) group by day,hour order by creation_date asc;";
+		$result = $this->db->mysql_query($sql);
+		return $result;
+	}
+	function getReportStartDay() {
+		$sql = "select dayofweek(now()) as day;";
+		$result = $this->db->mysql_query($sql);
+		if ($row = mysql_fetch_assoc($result))
+			$value = $row['day'];
+	
+		return $value;
+	}
 
 	/**
 	 * Helper functions
