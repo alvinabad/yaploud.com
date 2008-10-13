@@ -184,19 +184,12 @@ function printRow($day, $arrayInput) {
 ?>
 </tr>
 <?php
-//$cm = new ChatMessages();
-//$db= new DB();
-//$sql = "SELECT creation_date, dayofweek(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 7 day) and creation_date < date(now()) group by day,hour order by creation_date asc;";
-//$result1 = $db->mysql_query($sql);
-//if (mysql_errno()) {
-//echo 'Error: ' . mysql_error();
-//} 
 	
 $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
 $result1 = $cm->getWeeklyStatistics();
-	//if ($result1) {
+	
 	while($row = mysql_fetch_assoc($result1)) {
 			if($row['day']==$daysArray[0])
 				$firstArray[$row['hour']] = $row['sum'];
@@ -214,7 +207,7 @@ $result1 = $cm->getWeeklyStatistics();
 				$seventhArray[$row['hour']] = $row['sum'];
 			
 	}
-	//}
+
 printRow($daysArray[0],$firstArray);
 printRow($daysArray[1],$secondArray);
 printRow($daysArray[2],$thirdArray);
