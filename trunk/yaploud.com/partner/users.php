@@ -184,7 +184,7 @@ function printRow($day, $arrayInput) {
 ?>
 </tr>
 <?php
-$cm = new ChatMessages();
+//$cm = new ChatMessages();
 $db= new DB();
 $sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 1 Week) and creation_date < date(now()) group by day,hour order by creation_date asc;";
 $result1 = $db->mysql_query($sql);
