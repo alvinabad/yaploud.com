@@ -124,9 +124,21 @@ HTML;
         <a href="javascript: SendMessage.text();"><img border="0" src="/images/go.gif" /></a>
         <div id="logout_info">
          <strong><span id="username_info1"></span></strong>
-         | <a href="javascript: void 0;" id="login">Login</a>
+         <?php
+if (isset($_REQUEST['c']) && $_REQUEST['c'] == "sify") {
+	print <<<HTML
+	| Login Coming Soon
+     |
+HTML;
+}
+else {
+	print <<<HTML
+	| <a href="javascript: void 0;" id="login">Login</a>
          | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
-        </div>
+HTML;
+}
+     ?>
+         </div>
         <div id="login_info">
          Hi <strong><span id="username_info2"></span>!</strong>
 	     | <a href="javascript: logout(); void 0;">Logout</a>
