@@ -81,7 +81,9 @@ HTML;
 
     $total_users++;
 }
-
+?>
+</table>
+<?php
 print "Total users = $total_users". "<br>";
 print "Total guest users = $numGuestUsers" . "<br/>";
 print "Total number of yaps = $numYaps" . "<br/> <br/>";
@@ -90,11 +92,131 @@ print "Other Statistics...." . "<br/>";
 print "Yaps in last 60 minutes = $yapsLastHour" . "<br>";
 print "Yaps in last 24 hours = $yapsLast24Hour" . "<br>";
 print "Yaps in last 30 days = $yapsLastMonth" . "<br>";
+?>
+<h3>Next table shows number of yaps during each hour for past week.</h3>
+<table border="1" >
+	<tr> <th> Day of week </th>
+<?php
+function getDayOfWeek($number) {
+	
+	if ($number == 1)
+		return Sunday;
+	
+	if ($number == 2)
+		return Monday;
+	
+	if ($number == 3)
+		return Tuesday;
+	
+	if ($number == 4)
+		return Wednesday;
+	
+	if ($number == 5)
+		return Thursday;
+	
+	if ($number == 6)
+		return Friday;
+	
+	if ($number == 7)
+		return Saturday;
+	}
+	
+function initArray() {
+	$newArray = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+	return $newArray;
+}
+	
+function populateDaysArray($currentDay) {
+	$newArray= array(8);
+	for ($j=0 ; $j < 8; $j++ ) {
+		$newArray[$j] =$currentDay;
+	 	if ($currentDay == 7)
+			$currentDay = 0;
+		$currentDay++;
+	
+	}
+	return $newArray;
+}
+	
+$firstArray = initArray();
+$secondArray = initArray();
+$thirdArray = initArray();
+$fourthArray = initArray();
+$fifthArray = initArray();
+$sixthArray = initArray();
+$seventhArray = initArray();
+$todayArray = initArray();
+	
+function printRow($day, $arrayInput) {
+	$dayofweek = getDayOfWeek($day);
+	print "<tr>";
+	print "<td>" . "$dayofweek" . "</td>";
+	for ($i = 0; $i <24; $i++) {
+		$cellData = $arrayInput[$i];
+		if ($cellData != 0) 
+			print "<td align=center>" . "$cellData" ."</td>";
+		else
+			print "<td align=center>"."&nbsp" ."</td>";
+	}
+	print "</tr>";
+	}	
+
+	
+	
+
+	for ($inc = 1; $inc < 25 ; $inc++ ) {
+		
+	    $start = $inc -1;
+	    $before = $start . ":00";
+		$end = $inc;
+		$after = $end . ":00";
+		if ($inc  == 1)
+			$before = Midnight;
+		if ($inc == 24)
+			$after = Midnight;
+	
+	
+	print 	"<th class=" . "center".">$before to $after</th>";
+
+		
+	}
 
 ?>
+</tr>
+<?php
+$currentDay = $cm->getReportStartDay();
+$daysArray = populateDaysArray($currentDay);
 
+$result = $cm->getWeeklyStatistics();
+	
+	while($row = mysql_fetch_assoc($result)) {
+			if($row['day']==$daysArray[0])
+				$firstArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[1])
+				$secondArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[2])
+				$thirdArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[3])
+				$fourthArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[4])
+				$fifthArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[5])
+				$sixthArray[$row['hour']] = $row['sum'];
+			if($row['day']==$daysArray[6])
+				$seventhArray[$row['hour']] = $row['sum'];
+			
+	}
+
+printRow($daysArray[0],$firstArray);
+printRow($daysArray[1],$secondArray);
+printRow($daysArray[2],$thirdArray);
+printRow($daysArray[3],$fourthArray);
+printRow($daysArray[4],$fifthArray);
+printRow($daysArray[5],$sixthArray);
+printRow($daysArray[6],$seventhArray);
+	
+?>	
 </table>
-
 
 </body>
 </html>
