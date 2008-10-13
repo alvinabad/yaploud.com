@@ -87,7 +87,7 @@ class ChatMessages {
 		$result = $this->db->mysql_query($sql);
 		if ($row = mysql_fetch_assoc($result))
 			$value = $row['day'];
-	
+		mysql_free_result($result);
 		return $value;
 	}
 
