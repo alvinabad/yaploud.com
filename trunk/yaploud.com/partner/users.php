@@ -185,10 +185,14 @@ function printRow($day, $arrayInput) {
 </tr>
 <?php
 $cm = new ChatMessages();
+$db= new DB();
+$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 1 Week) and creation_date < date(now()) group by day,hour order by creation_date asc;";
+$result1 = $db->mysql_query($sql);
+	
 $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
-$result1 = $cm->getWeeklyStatistics();
+//$result1 = $cm->getWeeklyStatistics();
 	//if ($result1) {
 	while($row = mysql_fetch_assoc($result1)) {
 			if($row['day']==$daysArray[0])
