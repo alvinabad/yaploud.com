@@ -184,6 +184,7 @@ function printRow($day, $arrayInput) {
 ?>
 </tr>
 <?php
+$cm = new ChatMessages();
 $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
