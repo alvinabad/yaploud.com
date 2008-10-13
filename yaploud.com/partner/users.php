@@ -187,9 +187,9 @@ function printRow($day, $arrayInput) {
 $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
-$result = $cm->getWeeklyStatistics();
+$result1 = $cm->getWeeklyStatistics();
 	
-	while($row = mysql_fetch_assoc($result)) {
+	while($row = mysql_fetch_assoc($result1)) {
 			if($row['day']==$daysArray[0])
 				$firstArray[$row['hour']] = $row['sum'];
 			if($row['day']==$daysArray[1])
