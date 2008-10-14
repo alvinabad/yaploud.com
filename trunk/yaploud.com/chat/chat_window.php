@@ -187,7 +187,20 @@ HTML;
             onmouseover="StarRating.show('5starRating');" />
      </map>
      </span>
-     <div style="font-size: 10px;">
+
+
+     <?php
+if (isset($_REQUEST['c']) && $_REQUEST['c'] == "sify") {
+	print <<<HTML
+	<div style="font-size: 10px;">
+	 <span id="chat_mode"></span>
+     </div>
+
+HTML;
+}
+else {
+	print <<<HTML
+	<div style="font-size: 10px;">
      <span id="chat_mode"></span>
      | <a href="/" onclick="promptChatUrl(); return false;">Yap on another site</a>
      | <a href="/user/Terms_of_Use.pdf"
@@ -196,6 +209,10 @@ HTML;
        onclick="openExternalWindow('/user/Privacy_Policy.pdf'); return false;">Privacy</a>
      | <span id="moderate_link"></span>
      </div>
+HTML;
+}
+     ?>
+
 <?php
 //if (isset($_REQUEST['c'])) {
 //    print <<<HTML
