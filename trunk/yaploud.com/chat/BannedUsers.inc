@@ -41,15 +41,43 @@ class BannedUsers{
         $result = $this->db->mysql_query($sql);
         return $result;
 	}
-    
-    function isIpBanned($ip, $domainname, $votes=1) {
+    function candidateForBan($ip) {
+    	$sql = "select ip FROM banned_users WHERE ip = '$ip' ";
+    	$result = $this->db->mysql_query($sql);
+    	
+    	if ($result)
+    		true;
+    	else
+    		false;
+    	
+     
+               
+    }
+    function isIpBannedByModerator($ip) {
+    	$md = new Moderators();
+    	$ModArray = $md->getModerators();
+    	foreach ($ModArray as $moderator) {
+    		$sql = "select ip FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
+    		$result = $this->db->mysql_query($sql);
+    		if ($result)
+    			true;
+    	}
+    	return false;
+    	
+    }
+    function isIpBanned($ip, $domainname, $votes=4) {
     	$num_entries = $this->getNumIps($ip, $domainname);
+    	if (!candidateForBan($ip))
+    		return false;
+    		
+    	if(isIpBannedByModerator($ip))
+    		return true;
     	
     	if ($this->getNumIps($ip, $domainname) >= $votes) {
     		return true;
     	}
-    	
-    	$md = new Moderators();
+    	return false;
+    	/*$md = new Moderators();
     	$result = $this->getIp($ip, $domainname);
         while($row = mysql_fetch_assoc($result)){
         	// test only:
@@ -61,7 +89,7 @@ class BannedUsers{
         	    return true;
         	}
         }
-        return false;
+        return false;*/
     }
 
 	function isIpFlaggedByMe($ip, $domainname, $voter) {
