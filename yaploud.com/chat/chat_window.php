@@ -307,14 +307,14 @@ HTML;
 <script>
 	//var sUrl = "../community/moderate.php?user=" + ;
 	function community(elementId) {
-//		var element = document.getElementById(elementId);
-//		if (element.src.search("redFlag.jpg")==-1)
-//			ban ="1";
-//		else
-//			ban="0";
-//		var sUrl = "../community/moderate.php?user=" + elementId +"&url=" + escape(site_url) + "&ban=" + ban;
+		var element = document.getElementById(elementId);
+		if (element.src.search("redFlag.jpg")==-1)
+			ban ="1";
+		else
+			ban="0";
+		var sUrl = "../community/moderate.php?user=" + elementId +"&url=" + escape(site_url) + "&ban=" + ban;
 	
-//		applicationBan(sUrl);
+		applicationBan(sUrl);
 	}
 
 
