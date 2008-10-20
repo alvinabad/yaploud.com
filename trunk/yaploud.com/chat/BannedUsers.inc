@@ -45,11 +45,12 @@ class BannedUsers{
     	$sql = "select count(*) FROM banned_users WHERE ip = '$ip' ";
     	$result = $this->db->mysql_query($sql);
     	$res_obj = mysql_fetch_object($result);
-    	if ($res_obj->count > 0)
+    	$res_obj->count;
+    	/*if ($res_obj->count > 0)
     		return true;
     	else
     		return false;
-    	
+    	*/
      
                
     }
