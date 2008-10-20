@@ -44,8 +44,8 @@ class BannedUsers{
     function candidateForBan($ip) {
     	$sql = "select count(*) FROM banned_users WHERE ip = '$ip' ";
     	$result = $this->db->mysql_query($sql);
-    	$res_obj = mysql_fetch_object($result);
-    	return $res_obj['count'];
+    	return ($res_obj = mysql_fetch_object($result));
+    	//return $res_obj->count;
     	/*if ($res_obj->count > 0)
     		return true;
     	else
