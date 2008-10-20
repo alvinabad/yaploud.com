@@ -46,9 +46,9 @@ class BannedUsers{
     	$result = $this->db->mysql_query($sql);
     	
     	if ($result)
-    		true;
+    		return true;
     	else
-    		false;
+    		return false;
     	
      
                
@@ -60,7 +60,7 @@ class BannedUsers{
     		$sql = "select ip FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
     		if ($result)
-    			true;
+    			return true;
     	}
     	return false;
     	
