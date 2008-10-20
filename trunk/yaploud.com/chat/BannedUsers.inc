@@ -70,7 +70,7 @@ class BannedUsers{
     	if (!$this->candidateForBan($ip))
     		return false;
     		
-    	if(isIpBannedByModerator($ip))
+    	if($this->isIpBannedByModerator($ip))
     		return true;
     	
     	if ($this->getNumIps($ip, $domainname) >= $votes) {
