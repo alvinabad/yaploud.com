@@ -55,7 +55,8 @@ class BannedUsers{
     }
     function isIpBannedByModerator($ip) {
     	$md = new Moderators();
-    	$ModArray = $md->getModerators();
+    	$domains = 'All';
+    	$ModArray = $md->getModerators($domains);
     	foreach ($ModArray as $moderator) {
     		$sql = "select ip FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
