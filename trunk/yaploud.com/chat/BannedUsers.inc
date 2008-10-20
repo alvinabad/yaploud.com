@@ -42,7 +42,7 @@ class BannedUsers{
         return $result;
 	}
     function candidateForBan($ip) {
-    	$sql = "select ip FROM banned_users WHERE ip = '$ip' ";
+    	$sql = "select count(*) FROM banned_users WHERE ip = '$ip' ";
     	$result = $this->db->mysql_query($sql);
     	
     	if ($result)
@@ -68,12 +68,12 @@ class BannedUsers{
     }
     function isIpBanned($ip, $domainname, $votes=1) {
     	$num_entries = $this->getNumIps($ip, $domainname);
-    /*	if (!$this->candidateForBan($ip))
+    	if (!$this->candidateForBan($ip))
     		return false;
     		
     	if($this->isIpBannedByModerator($ip))
     		return true;
-    	*/
+    	
     	if ($this->getNumIps($ip, $domainname) >= $votes) {
     		return true;
     	}
