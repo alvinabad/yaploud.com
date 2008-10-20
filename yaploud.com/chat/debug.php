@@ -15,6 +15,8 @@ $bu = new BannedUsers();
 
 if ($bu->candidateForBan('123'))
 	print true;
+else
+	print false;
 
 	
 	
