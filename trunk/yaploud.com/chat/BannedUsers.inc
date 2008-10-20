@@ -62,6 +62,7 @@ class BannedUsers{
     		$sql = "select count(*) FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
     		$res_obj = mysql_fetch_object($result);
+    		print $res_obj->count;
     		if ($res_obj->count > 0)
     			return true;
     	}
