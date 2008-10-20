@@ -12,7 +12,9 @@ require_once('chat/BannedUsers.inc');
 $md = new Moderators();
 $bu = new BannedUsers();
 	
-print $bu->candidateForBan('123');	
+
+if ($bu->candidateForBan('123'))
+	print true;
 
 	
 	
