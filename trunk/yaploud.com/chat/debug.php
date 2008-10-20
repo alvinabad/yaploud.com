@@ -13,7 +13,7 @@ $md = new Moderators();
 $bu = new BannedUsers();
 	
 
-print $bu->candidateForBan('24.4.39.63')
+print $bu->candidateForBan('24.4.39.63');
 	
 
 	
