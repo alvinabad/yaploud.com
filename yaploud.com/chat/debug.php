@@ -13,10 +13,8 @@ $md = new Moderators();
 $bu = new BannedUsers();
 	
 
-if ($bu->candidateForBan('24.4.39.63'))
-	print 'true';
-else
-	print 'false';
+print $bu->candidateForBan('24.4.39.63')
+	
 
 	
 	
