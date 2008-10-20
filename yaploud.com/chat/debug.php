@@ -14,7 +14,7 @@ $bu = new BannedUsers();
 	
 
 $value = $bu->candidateForBan('24.4.39.63');
-$value = 0;
+//$value = 0;
 print $value;
 	
 
