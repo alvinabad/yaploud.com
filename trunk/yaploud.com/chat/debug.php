@@ -12,8 +12,8 @@ require_once('chat/BannedUsers.inc');
 $md = new Moderators();
 $bu = new BannedUsers();
 	
-
-$value = $bu->candidateForBan('24.4.39.64');
+$value = 0;
+$value = $bu->candidateForBan('24.4.39.63');
 print $value;
 /*print $bu->candidateForBan('24.4.39.63');
 if ($bu->candidateForBan('24.4.39.63'))
