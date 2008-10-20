@@ -60,7 +60,7 @@ class BannedUsers{
     	foreach ($ModArray as $moderator) {
     		$sql = "select count(*) FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
-    		if ($result)
+    		if ($result > 0)
     			return true;
     	}
     	return false;
