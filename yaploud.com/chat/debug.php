@@ -5,7 +5,8 @@
  * To change the template for this generated file go to
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
-require_once 'db.inc';
+set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
+require_once('db.inc');
 require_once('moderators/Moderators.inc');
 require_once('chat/BannedUsers.inc');
 $md = new Moderators();
