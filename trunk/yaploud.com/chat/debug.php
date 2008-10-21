@@ -16,7 +16,7 @@ $bu = new BannedUsers();
 //$value = $bu->candidateForBan('24.4.39.64');
 //print $value;
 //print $bu->candidateForBan('24.4.39.63');
-if ($bu->isIpBannedByModerator('24.4.39.64'))
+if ($bu->isIpBannedByModerator('24.4.39.63'))
 	print 'true';
 else
 	print 'false';
