@@ -56,6 +56,7 @@ class BannedUsers{
     	$ModArray = $md->getModerators($domains);
     	foreach ($ModArray as $row) {
     		$moderator=$row['username'];
+    		print $moderator;
     		$sql = "select count(*) as count FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
     		$res_obj = mysql_fetch_object($result);
