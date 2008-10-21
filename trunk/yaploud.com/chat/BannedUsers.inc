@@ -56,6 +56,7 @@ class BannedUsers{
     function isIpBannedByModerator($ip) {
     	$md = new Moderators();
     	$domains = 'All';
+    	$retValue = false;
     	$ModArray = $md->getModerators($domains);
     	foreach ($ModArray as $row) {
     		$moderator=$row['username'];
@@ -64,19 +65,24 @@ class BannedUsers{
     		$result = $this->db->mysql_query($sql);
     		$res_obj = mysql_fetch_object($result);
     		print $res_obj->count;
-    		if ($res_obj->count > 0)
-    			return true;
+    		if ($res_obj->count > 0) { 
+    			$retValue = true;
+    			break;
+    			
+    		}
     	}
-    	return false;
+    	return $retValue;
     	
     }
     function isIpBanned($ip, $domainname, $votes=1) {
     	$num_entries = $this->getNumIps($ip, $domainname);
-    	if (!$this->candidateForBan($ip))
+    	if (!$this->candidateForBan($ip)) { 
     		return false;
+    	}
     		
-    	/*if($this->isIpBannedByModerator($ip))
-    		return true;*/
+    	if($this->isIpBannedByModerator($ip)) { 
+    		return true;
+    	}
     	
     	if ($num_entries >= $votes) {
     		return true;
