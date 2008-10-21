@@ -60,11 +60,9 @@ class BannedUsers{
     	$ModArray = $md->getModerators($domains);
     	foreach ($ModArray as $row) {
     		$moderator=$row['username'];
-    		//print $moderator;
     		$sql = "select count(*) as count FROM banned_users WHERE ip = '$ip' and voter = '$moderator' ";
     		$result = $this->db->mysql_query($sql);
     		$res_obj = mysql_fetch_object($result);
-    		//print $res_obj->count;
     		if ($res_obj->count > 0) { 
     			$retValue = true;
     			break;
@@ -74,7 +72,7 @@ class BannedUsers{
     	return $retValue;
     	
     }
-    function isIpBanned($ip, $domainname, $votes=2) {
+    function isIpBanned($ip, $domainname, $votes=4) {
     	$num_entries = $this->getNumIps($ip, $domainname);
     	if (!$this->candidateForBan($ip)) { 
     		return false;
