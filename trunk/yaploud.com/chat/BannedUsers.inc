@@ -67,7 +67,7 @@ class BannedUsers{
     	return false;
     	
     }
-    function isIpBanned($ip, $domainname, $votes=1) {
+    function isIpBanned($ip, $domainname, $votes=2) {
     	$num_entries = $this->getNumIps($ip, $domainname);
     	if (!$this->candidateForBan($ip))
     		return false;
