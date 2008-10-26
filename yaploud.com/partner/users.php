@@ -15,7 +15,7 @@ require_once 'db.inc';
 	$sql = "SELECT * FROM user WHERE userid = '$user' AND password = '$password';";
 	$result = $db->mysql_query($sql);
 	$errMessage = "<html><body><h2> Invalid login try again</h2> <a href =index.php >Login Page</a></body></html>";
-		if ($user != "dogtimemedia") {
+		if ( ($user != "dogtimemedia") && ($user != "web18")) {
 			print $errMessage;
 			return true;
 		}
@@ -61,9 +61,9 @@ require_once 'chat/ChatMessages.inc';
 $cm = new ChatMessages();
 $numGuestUsers = $cm->getPartnerNumGuestUsers($user);
 $numYaps = $cm->getPartnerNumMessages($user);
-$yapsLastHour = $cm->getMessagesStatistics("Interval 60 minute");
-$yapsLast24Hour = $cm->getMessagesStatistics("Interval 1 day");
-$yapsLastMonth = $cm->getMessagesStatistics("Interval 1 Month");
+$yapsLastHour = $cm->getMessagesStatistics($user,"Interval 60 minute");
+$yapsLast24Hour = $cm->getMessagesStatistics($user,"Interval 1 day");
+$yapsLastMonth = $cm->getMessagesStatistics($user,"Interval 1 Month");
 $total_users = 0;
 while($row = mysql_fetch_assoc($result)) {
    $date_registered = strtotime($row['update_timestamp']);
@@ -75,7 +75,7 @@ while($row = mysql_fetch_assoc($result)) {
     <td>{$row['first_name']}</td>
     <td>{$row['last_name']}</td>
     <td class="date_registered">{$date_registered}</td>
-	<td>{$row['partner']}</td>
+	<td>{$user}</td>
   </tr>
 HTML;
 
@@ -188,7 +188,7 @@ function printRow($day, $arrayInput) {
 $currentDay = $cm->getReportStartDay();
 $daysArray = populateDaysArray($currentDay);
 
-$result1 = $cm->getWeeklyStatistics();
+$result1 = $cm->getWeeklyStatistics($user);
 	
 	while($row = mysql_fetch_assoc($result1)) {
 			if($row['day']==$daysArray[0])
