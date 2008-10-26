@@ -17,7 +17,14 @@ class ChatMessages {
         return $count;
     }
     function getPartnerNumMessages($partner) {
-    	$sql = "SELECT count(*) as count FROM chat where topic_url like '%dogtimemedia%';";
+    	if ($partner != "dogtimemedia") { 
+    		$sql = "SELECT count(*) as count FROM chat;";
+    		
+    	}
+    	else {
+    		$sql = "SELECT count(*) as count FROM chat where topic_url like '%dogtimemedia%';";
+    	}
+    	
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
@@ -37,9 +44,16 @@ class ChatMessages {
     }
     
     function getPartnerNumGuestUsers($partner) {
-    	$sql = "SELECT count(*) as count " .
+    	if ($partner != "dogtimemedia") { 
+    		$sql = "SELECT count(*) as count " .
+    	       "FROM (select distinct submitter from chat " .
+    	       "      where submitter like 'guest%') c";
+    	}
+    	else {
+    		$sql = "SELECT count(*) as count " .
     	       "FROM (select distinct submitter, topic_url from chat " .
     	       "      where submitter like 'guest%' and topic_url like '%dogtime%') c ";
+    	}
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
@@ -69,16 +83,28 @@ class ChatMessages {
 
 		return $msgs;
 	}
-	function getMessagesStatistics($interval) {
-		$sql = "SELECT count(*) as count FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), $interval);";
+	function getMessagesStatistics($partner,$interval) {
+		if ($partner != "dogtimemedia") { 
+			$sql = "SELECT count(*) as count FROM chat where creation_date >= date_sub(now(), $interval);";
+		}
+		else {
+			$sql = "SELECT count(*) as count FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), $interval);";
+		}
+		
         $result = $this->db->mysql_query($sql);
         $res_obj = mysql_fetch_object($result);
         $count = $res_obj->count;
         mysql_free_result($result);
         return $count;
 	}
-	function getWeeklyStatistics() {
-		$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 7 Day) and creation_date < date(now()) group by day,hour order by creation_date asc;";
+	function getWeeklyStatistics($partner) {
+		if ($partner != "dogtimemedia") { 
+			$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where creation_date >= date_sub(now(), Interval 7 Day) and creation_date < date(now()) group by day,hour order by creation_date asc;";
+		}
+		else {
+			$sql = "SELECT creation_date, DAYOFWEEK(creation_date) as day,HOUR(creation_date) as hour, count(*) as sum FROM chat where topic_url like '%dogtime%' and creation_date >= date_sub(now(), Interval 7 Day) and creation_date < date(now()) group by day,hour order by creation_date asc;";
+		}
+		
 		$result = $this->db->mysql_query($sql);
 		return $result;
 	}
