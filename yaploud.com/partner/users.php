@@ -28,7 +28,7 @@ require_once 'db.inc';
 require_once 'user/User.inc';
 
 $u = new User();
-$result = $u->getPartnerUsers();
+$result = $u->getPartnerUsers($user);
 
 ?>
 
