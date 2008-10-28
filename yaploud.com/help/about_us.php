@@ -11,45 +11,32 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link type="text/css" rel="stylesheet" href="/css/style.css" />
     </head>
-    
+
     <body class="yui-skin-sam">
         <div id="container">
             <?php include("common/header1.php"); ?>
             <?php include("rightNav.php"); ?>
-            
+
             <div id="content">
                 <h3>About YapLoud</h3>
-                YapLoud is a FREE service that allows web users to connect with like-minded people on the fly.
-                Today, as users are surfing through the web, they are unable to interact about the web content. 
-                There is no way for people to talk about its content either with the website owner or with other surfers.
-                YapLoud enables this. Users can no longer be passive readers of the content. Instead, they can identify
-                what other Yappers are talking about and participate in the Yapper Community. They can also participate
-                with the website owners directly.
-                
-                YapLoud empowers surfers to influence the content on any website.
+                YapLoud builds and strengthens online communities by allowing for live interaction among visitors to any website.  At the intersection of Chats, Forums, and Blogs, real-time connections among all online users is now easy. Imagine reading a news article then immediately connecting with all readers with a simple button click, on any web site. Those chatting on related articles can be bought into the chat.  The community is limited to a dialogue by article or by website. You can therefore have a more dynamic environment where the community can be broadened or tightened to give the best experience to users. All of this without the hassles of IM or the limitations of blogs or traditional Forums.
                 <br/><hr/>
-                
-                <h3>History of YapLoud</h3>
-                YapLoud idea started off with the notion of getting new parents to be able to easily connect with each other.
-                The idea took incubation in Carnegie Mellon West, Mountain View, and is still its headquarters.
-                Our team includes CMU West Students and Faculty.
+
+                <h3>Who should use this software</h3>
+                Online communities, portals, content sites, blogs and any other place where users want to interact should use our software. We build and strengthen online communities around your content. Users from different pages or participating web sites can easily be connected to the same chat group
                 <br/><hr/>
-                
-                <h3>What people are saying about YapLoud</h3>
-                
-                <i>"The thing that is great about this idea is that it simply 
-                 overlays the entire web rather than creating a walled garden." </i>
-                    - Dean of top university
-                <p>
-                <i>"Where can I download this application?"</i> - Sr Product manager, WebEx
-                <p>
-                <i>"Can you do this? This will be great for us."</i> - Director of a Fortune 1000 company
-                
+
+                <h3>What are the benefits to users and our partners</h3>
+
+                <li>Your users stay engaged on your site for longer time periods</li>
+                <li>Users from different parts of your web site and other participating web sites can get connected with each other instantly</li>
+                <li> Monetization opportunities, like advertisements or sponsorships for engaged community</li>
+
             </div> <!-- content -->
-            
+
             <?php include("common/footer1.php"); ?>
         </div> <!-- container -->
-        
+
         <?php require("common/yui.php"); ?>
         <script type="text/javascript" src="/css/niftycube.js" ></script>
         <script type="text/javascript" src="/js/home.js" ></script>
