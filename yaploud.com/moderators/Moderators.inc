@@ -92,7 +92,19 @@ class Moderators {
 		}
 		return $moderators;
     }
-    
+    function getAllModeratorsNames() {
+    	$moderators = array();
+    	
+        $sql = "SELECT * FROM moderators order by username asc";
+        $result = $this->db->mysql_query($sql);
+        if($result) {
+            while($row = mysql_fetch_assoc($result)) {
+                array_push($moderators, $row['username']);
+            }
+            mysql_free_result($result);
+		}
+		return $moderators;
+    }
     function getDomainname($url) {
     	$domain = preg_replace('/^https?:\/\//', '', $url);
     	$domain = preg_replace('/\/.*$/', '', $domain);

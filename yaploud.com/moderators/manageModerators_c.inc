@@ -29,10 +29,13 @@ $domainname = '';
 
 if ( isset($_SESSION['username'])) {
     // temporarily hardcoded here for testing
-    $admins = array('dogtimemedia','alvin', 'aman', 'josh', 'mv');
-
-    foreach($admins as $admin) {
+    //$admins = array('dogtimemedia','alvin', 'aman','josh', 'mv');
+    $moderatorsArray = $md->getAllModeratorsNames();
+  
+    foreach($moderatorsArray as $admin) {
+    	
     	if ($admin == $_SESSION['username']) {
+    		//print $admin;
     		$isAuthenticated = true;
     		break;
     	}
