@@ -465,8 +465,8 @@ function processModerators(obj) {
     var href_link = '/moderators/moderateYaplet.php?url=' + site_url;
     var link = '<a href="' + href_link + '" onclick="openExternalWindow(' + "'" +
                href_link + "'" + '); return false;">Moderate</a> |';
-               
-    for(var i = 0; i < moderators.length; i++){
+	moderator_el.innerHTML="";
+    for(var i = 1; i < moderators.length; i++){
         if (moderators[i].username == username) {
             moderator_el.innerHTML = link;
             return;
