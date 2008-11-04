@@ -535,7 +535,7 @@ function updateChatTimes() {
 	var localTime = currentTime.getTime();
 	var localOffset = currentTime.getTimezoneOffset() * 60000;
 	var utc = localTime + localOffset;
-	var offset = -7.0;
+	var offset = -8.0;
 	var pacific = utc + (3600000*offset);
 	var newCurrentTime = new Date(pacific);
 	//alert("Pacific time is :" + currentTime + "      " + "Local time is : " + newCurrentTime);
