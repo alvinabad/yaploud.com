@@ -42,7 +42,8 @@ class ChatRoom {
 		
 
 		if ($num_rows > 0) {
-			$sql = "UPDATE room_users SET creation_date=SYSDATE() " .
+			$sql = "UPDATE room_users SET creation_date=SYSDATE(), " .
+			       " SET session = '$ip' " .
                    "where topic_url = '$url' and username = '$username' "; 
 			$result = $this->db->mysql_query($sql);
 		}
