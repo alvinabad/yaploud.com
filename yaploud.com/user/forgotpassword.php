@@ -1,16 +1,13 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<?php
-include("./forgotpassword_c.inc");
-
+<?php include("./forgotpassword_c.inc");
 /*
  * This is the view (MVC pattern) of the forgotpassword page
  * The controller is located in forgotpassword_c.inc
- * 
- * PHP code in this view is only used for rendering logic and is kept 
+ *
+ * PHP code in this view is only used for rendering logic and is kept
  * to the minimum. Please put all logic in the controller.
  */
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
 <head>
@@ -18,7 +15,7 @@ include("./forgotpassword_c.inc");
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link type="text/css" rel="stylesheet" href="/css/style.css" />
   <?php require("common/yui.php"); ?>
-    
+
   <script type="text/javascript" src="/css/niftycube.js" ></script>
   <script type="text/javascript" src="/user/forgotpassword.js" ></script>
   <script type="text/javascript">
@@ -39,7 +36,7 @@ include("./forgotpassword_c.inc");
     <ul style="margin-left: 0;">
     <li style="margin-left: 0;">Enter the email address associated with your YapLoud account
     <li>Enter the verification code you see in the box
-    <li>We'll send you an email with instructions on how to reset your password 
+    <li>We'll send you an email with instructions on how to reset your password
     </ul>
 
     <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
@@ -60,11 +57,11 @@ include("./forgotpassword_c.inc");
               print "Your email is not found in our system. " .
                     "Please try another email. <p>";
           }
-      }       
+      }
     ?>
   </div>
 
-  <div id="content_2">    
+  <div id="content_2">
     <div id="error_message" style="color: red; font-weight: normal;">
     <?php
       if (isset($post_processed) && $post_processed &&
@@ -73,11 +70,11 @@ include("./forgotpassword_c.inc");
       }
     ?>
     </div>
-    
+
     <form action="/user/forgotpassword.php" method="post"
           name="forgotpassword_form" id="forgotpassword_form"
           onSubmit="return ForgotPassword.validate();">
-          
+
     <table style="text-align: left;">
     <tr>
       <td>
@@ -103,9 +100,9 @@ include("./forgotpassword_c.inc");
       </td>
     </tr>
     </table>
-    
+
     <input type=hidden name=action value=login />
-    
+
     </form>
     </div>
   </div>
