@@ -685,6 +685,12 @@ var SendMessage = {
     text: function() {
         textMsg = document.chat_form.chat_textarea.value;
         textMsg = trim(textMsg);
+    	
+        if (username.substr(0,5) == 'guest' && site_url.indexOf("dogtimemedia.com") != -1) {
+            document.chat_form.chat_textarea.value = "Please login to send " +
+                 "messages. Thank you.";
+        }
+        
         if (textMsg != "") {
             SendMessage.sendRequest(textMsg);
         }
