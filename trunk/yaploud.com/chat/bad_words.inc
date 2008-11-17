@@ -5,7 +5,6 @@ $bad_words = array(
 'ash0le',
 'ash0les',
 'asholes',
-'ass',
 'Ass Monkey',
 'Assface',
 'assh0le',
@@ -32,8 +31,6 @@ $bad_words = array(
 'c0cks',
 'c0k',
 'Carpet Muncher',
-'cawk',
-'cawks',
 'Clit',
 'cnts',
 'cntz',
@@ -43,8 +40,6 @@ $bad_words = array(
 'cocks',
 'CockSucker',
 'cock-sucker',
-'crap',
-'cum',
 'cunt',
 'cunts',
 'cuntz',
@@ -273,7 +268,6 @@ $bad_words = array(
 'chink',
 'clits',
 'cock',
-'cum',
 'cunt',
 'dildo',
 'dirsa',
@@ -453,8 +447,6 @@ $bad_words = array(
 'wank*',
 'wetback*',
 'wichser',
-'wop*',
-'yed',
 'zabourah'
 );
 ?>
