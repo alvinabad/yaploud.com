@@ -170,6 +170,7 @@ function login() {
 }
 
 function updateLoginInfo(username) {
+    document.chat_form.chat_textarea.value = '';
 	if (username.substr(0,5) == 'guest') {
 	    logged_in = false;
 	}
@@ -553,6 +554,24 @@ function updateChatTimes() {
 	
 }
 
+/**
+ * Check if user can send message
+ * Put filters like guest user and the site URL
+ */
+function canUserSendMessage() {
+	var msg = '';
+	
+	// prohibit sending of messages for guest users and URL is dogtimemedia
+    if (username.substr(0,5) == 'guest' && 
+        site_url.indexOf("dogtimemedia.com") != -1) {
+    
+        msg = "Please log in to send messages. Thank you.";
+        document.chat_form.chat_textarea.value = msg;
+        return false;
+    }
+    
+    return true;
+}
 
 /*****************************************************************************
  * Get Messages Object
@@ -686,11 +705,10 @@ var SendMessage = {
         textMsg = document.chat_form.chat_textarea.value;
         textMsg = trim(textMsg);
     	
-        if (username.substr(0,5) == 'guest' && site_url.indexOf("dogtimemedia.com") != -1) {
-            document.chat_form.chat_textarea.value = "Please login to send " +
-                 "messages. Thank you.";
-        }
-        
+    	if (! canUserSendMessage()) {
+    		return;
+    	}
+    	
         if (textMsg != "") {
             SendMessage.sendRequest(textMsg);
         }
