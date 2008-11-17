@@ -54,11 +54,13 @@ else {
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
     $ips = array();  // ip => ban or unban
+    $ipUser = array();
     $users = $_POST['users'];
     
     foreach($users as $u) {
         $arr = split(',', $u);
         $ips[$arr[1]] = 'unban';
+        $ipUser[$arr[1]] = $arr[0];
     }
     
     if (isset($_POST['banned_users'])) {
@@ -72,6 +74,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
     foreach($ips as $ip => $value) {
         if ($value == 'ban') {
             $bu->addIp($ip, $voter, $domainname);
+            if (isset($_REQUEST['delete_yaps'])) {
+            	
+            	$cm->deleteLastMessages($ipUser[$ip],"Interval 60 minute");
+            }
         }
         else {
             $bu->removeIp($ip, $domainname);
