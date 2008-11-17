@@ -7,6 +7,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
 require_once 'db.inc'; 
 require("util/Url.inc"); 
 require('BannedUsers.inc');
+require('bad_words.inc');
 
 $ip = $_SERVER['REMOTE_ADDR'];
 $bu = new BannedUsers();
@@ -21,6 +22,8 @@ $allow_tags = array( 'b', 'strong', 'i', 'em', 'u', 'a', 'p', 'sup', 'sub', 'div
 $user = strip_tags(clean($_GET['user'], 64, $db->getConnection()));
 $msg = $_GET['msg'];
 $msg = strip_tags(clean($msg, 1024, $db->getConnection()), '<'.implode('><', $allow_tags).'>');
+$msg = str_ireplace($bad_words, '@!$@#', $msg);
+
 $url = $_GET['url'];
 $url = normalizeURL($url);
 $url = addslashes($url);
