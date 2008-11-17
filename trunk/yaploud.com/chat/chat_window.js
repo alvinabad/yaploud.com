@@ -565,7 +565,7 @@ function isUserAllowedToSendMessage() {
     if (username.substr(0,5) == 'guest' && 
         site_url.indexOf("dogtimemedia.com") != -1) {
     
-        msg = "Please log in to send messages. Thank you.";
+        msg = "You must be logged in to send a message.";
         document.chat_form.chat_textarea.value = msg;
         return false;
     }
