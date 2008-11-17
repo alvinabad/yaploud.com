@@ -25,6 +25,19 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 <h3>Who should use this software</h3>
                 Online communities, portals, content sites, blogs and any other place where users want to interact should use our software. We build and strengthen online communities around your content. Users from different pages or participating web sites can easily be connected to the same chat group
                 <br/><hr/>
+<<<<<<< .mine
+
+                <h3>What are the benefits to users and our partners</h3>
+
+                <li>Your users stay engaged on your site for longer time periods</li>
+                <li>Users from different parts of your web site and other participating web sites can get connected with each other instantly</li>
+                <li> Monetization opportunities, like advertisements or sponsorships for engaged community</li>
+                <br/><hr/>
+                <h3>Contact Us</h3>
+                <li>Partnership : partnerships@yaploud.com </li>
+                <li>Contact : contact@yaploud.com </li>
+
+=======
 
                 <h3>What are the benefits to users and our partners</h3>
 
@@ -32,6 +45,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']
                 <li>Users from different parts of your web site and other participating web sites can get connected with each other instantly</li>
                 <li> Monetization opportunities, like advertisements or sponsorships for engaged community</li>
 
+>>>>>>> .r1480
             </div> <!-- content -->
 
             <?php include("common/footer1.php"); ?>
