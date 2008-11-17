@@ -30,12 +30,11 @@ $domainname = '';
 if ( isset($_SESSION['username'])) {
     // temporarily hardcoded here for testing
     //$admins = array('dogtimemedia','alvin', 'aman','josh', 'mv');
-    $moderatorsArray = $md->getAllModeratorsNames();
+    $admins = $md->getAllModeratorsNames();
   
-    foreach($moderatorsArray as $admin) {
+    foreach($admins as $admin) {
     	
     	if ($admin == $_SESSION['username']) {
-    		//print $admin;
     		$isAuthenticated = true;
     		break;
     	}
@@ -70,7 +69,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['add']) &&
 		$domainname='ALL';
 		//return;
 	}
-	$md->add($moderator, $domainname); //
+	$md->add($moderator, $domainname); 
 
 	if ($domainname == 'ALL') {
         foreach($admins as $admin) {
