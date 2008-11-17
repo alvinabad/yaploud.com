@@ -127,12 +127,16 @@ HTML;
     are shown with a check mark. Please select from above the users who 
     should be prohibited from any conversations on this YapURL.
     <p>
+
 <!--     
+
     Would you like to have the selected users' conversations to be deleted 
     from the Yaplet? 
         <input type="checkbox" name="delete_yaps" value="{$user},{$ip}">
     <p>
+
     -->
+
     Click here to submit your request: 
     <input type="submit" value="Submit">
   </div>

@@ -16,6 +16,15 @@ class ChatMessages {
         mysql_free_result($result);
         return $count;
     }
+    function deleteLastMessages($user, $interval) {
+    	$sql = "delete from dev.chat where submitter = '$user' and creation_date >= date_sub(now(), $interval);";
+        $result = $this->db->mysql_query($sql);
+        //$res_obj = mysql_fetch_object($result);
+        //$count = $res_obj->count;
+        //mysql_free_result($result);
+     
+    	
+    }
     function getPartnerNumMessages($partner) {
     	if ($partner != "dogtimemedia") { 
     		$sql = "SELECT count(*) as count FROM chat;";
