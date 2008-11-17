@@ -375,7 +375,6 @@ $bad_words = array(
 'guiena',
 'h0r',
 'h4x0r',
-'hell',
 'helvete',
 'hoer*',
 'honkey',
