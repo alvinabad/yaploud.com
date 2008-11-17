@@ -17,7 +17,7 @@ class ChatMessages {
         return $count;
     }
     function deleteLastMessages($user, $interval) {
-    	$sql = "delete from dev.chat where submitter = '$user' and creation_date >= date_sub(now(), $interval);";
+    	$sql = "delete from chat where submitter = '$user' and creation_date >= date_sub(now(), $interval);";
         $result = $this->db->mysql_query($sql);
         //$res_obj = mysql_fetch_object($result);
         //$count = $res_obj->count;
