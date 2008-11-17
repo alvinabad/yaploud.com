@@ -271,7 +271,6 @@ $bad_words = array(
 'c0ck',
 'cawk',
 'chink',
-'cipa',
 'clits',
 'cock',
 'cum',
