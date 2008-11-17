@@ -558,7 +558,7 @@ function updateChatTimes() {
  * Check if user can send message
  * Put filters like guest user and the site URL
  */
-function canUserSendMessage() {
+function isUserAllowedToSendMessage() {
 	var msg = '';
 	
 	// prohibit sending of messages for guest users and URL is dogtimemedia
@@ -705,7 +705,7 @@ var SendMessage = {
         textMsg = document.chat_form.chat_textarea.value;
         textMsg = trim(textMsg);
     	
-    	if (! canUserSendMessage()) {
+    	if (! isUserAllowedToSendMessage()) {
     		return;
     	}
     	
