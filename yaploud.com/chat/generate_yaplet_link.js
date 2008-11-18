@@ -24,35 +24,36 @@ if (yaploud_yaplink_el && document.location) {
 	if (!yaplink_url) {
         var yaplink_url = document.location;
 	}
-	
+
 	if (!yaplink_name) {
         var yaplink_name = 'Discuss on YapLoud';
 	}
-	
+
 	if (typeof(yaploud_client) == "undefined") {
 		yaploud_client = '';
 	}
-        
+
 	if (typeof(yaploud_css) == "undefined") {
 		yaploud_css = '';
 	}
 
     if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
-                    'src=http://www.yaploud.com/chat/chat_window.php?url=' + yaplink_url +  
+                    'src=http://www.yaploud.com/chat/chat_window.php?url=' + yaplink_url +
                     '&c=' + yaploud_client +
                     '&yaploud_css=' + yaploud_css +
-                    '" frameborder="0"></iframe>';
+                    // '" frameborder="0"></iframe>';
+                    ' frameborder="0"></iframe>';
     } else {
         var code = '<a id="yaplink_href_id" class="yaplink_href_class" ' +
                    'href="javascript: ' +
                    'openChatWindow(' +
                    "'" + yaplink_url + "', " +
-                   "'" + yaplink_url + "', " + 
+                   "'" + yaplink_url + "', " +
                    "'" + yaploud_client + "', " +
     			   "'" + yaploud_css + "')" +
-                   '; void 0;' + '"' +
-                   '>' + yaplink_name + '</a>';         
+                  // '; void 0;' + '"' +
+                   '; void 0;' + '>' + yaplink_name + '</a>';
     }
     yaploud_yaplink_el.innerHTML = code;
 }
