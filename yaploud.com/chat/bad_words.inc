@@ -361,7 +361,6 @@ $bad_words = array(
 '/\bFlikker\b/i',
 '/\bforeskin\b/i',
 '/\bFotze\b/i',
-'/\bFu(*\b/i',
 '/\bfuk*\b/i',
 '/\bfutkretzn\b/i',
 '/\bgay\b/i',
