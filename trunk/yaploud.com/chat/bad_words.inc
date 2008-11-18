@@ -448,4 +448,5 @@ $bad_words = array(
 '/\bwichser\b/i',
 '/\bzabourah\b/i'
 );
+// to add a word, the patern is '/\bXXX\b/i' where XXX is the word
 ?>
