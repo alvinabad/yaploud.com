@@ -22,7 +22,7 @@ $allow_tags = array( 'b', 'strong', 'i', 'em', 'u', 'a', 'p', 'sup', 'sub', 'div
 $user = strip_tags(clean($_GET['user'], 64, $db->getConnection()));
 $msg = $_GET['msg'];
 $msg = strip_tags(clean($msg, 1024, $db->getConnection()), '<'.implode('><', $allow_tags).'>');
-$msg = str_ireplace($bad_words, '@!$@#', $msg);
+$msg = preg_replace($bad_words, '@!$@#', $msg);
 
 $url = $_GET['url'];
 $url = normalizeURL($url);
