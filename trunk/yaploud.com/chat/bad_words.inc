@@ -1,5 +1,5 @@
 <?
-\$bad_words = array(
+$bad_words = array(
 '/\bahole\b/i',
 '/\banus\b/i',
 '/\bash0le\b/i',
@@ -143,12 +143,12 @@
 '/\bMutha Fukker\b/i',
 '/\bn1gr\b/i',
 '/\bnastt\b/i',
-'/\bnigger;\b/i',
-'/\bnigur;\b/i',
-'/\bniiger;\b/i',
-'/\bniigr;\b/i',
+'/\bnigger\b/i',
+'/\bnigur\b/i',
+'/\bniiger\b/i',
+'/\bniigr\b/i',
 '/\borafis\b/i',
-'/\borgasim;\b/i',
+'/\borgasim\b/i',
 '/\borgasm\b/i',
 '/\borgasum\b/i',
 '/\boriface\b/i',
