@@ -37,14 +37,12 @@ if (yaploud_yaplink_el && document.location) {
 		yaploud_css = '';
 	}
 	if (typeof(yaplet_with_ad) != "undefined" && yaplet_with_ad) {
-	    var code = '<a href="javascript:window.open(\'monkey\')">adsf</a>'; // +
-//	    script_domain + '/test/ad_template_test.php' + 
-//        '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
-//        '&yaploud_client=' + yaploud_client +
-//        '&yaploud_css=' + yaploud_css + 
-	    //',\'\',\'width=340,height=450,status=yes,scrollbars=no, menubar=no, toolbar=no,location=no,resizable=yes\'); return false;">' + 
-//	    ')">' +
-//	    yaplink_name + '</a>';
+	    var code = '<a href="javascript:window.open(\'' +
+	    script_domain + '/test/ad_template_test.php' + 
+        '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
+        '&yaploud_client=' + yaploud_client +
+        '&yaploud_css=' + yaploud_css + 
+	    '\')">' + yaplink_name + '</a>';
 	}
     else if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
