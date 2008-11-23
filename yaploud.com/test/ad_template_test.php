@@ -40,7 +40,7 @@
  </style>
 
 <script type="text/javascript">
-     var yaploud_embedded = <?php print $yaploud_embedded; ?>; //true;
+     var yaploud_embedded = true;
      var yaplink_name = "<?php print $yaplink_name; ?>"; //"PetChat";
      var yaploud_client = "<?php print $yaploud_client; ?>"; //"dogtimemedia";
      var yaploud_css = "<?php print $yaploud_css; ?>"; //"http://partners.dogtime.com/service_providers/yaploud/chat/chat_window.css";
