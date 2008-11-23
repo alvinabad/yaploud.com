@@ -37,11 +37,12 @@ if (yaploud_yaplink_el && document.location) {
 		yaploud_css = '';
 	}
 	if (typeof(yaplet_with_ad) != "undefined" && yaplet_with_ad) {
-	    var code = '<a target="_blank" href="' + script_domain + '/test/ad_template_test.php' + 
-	                        '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
-	                        '&yaploud_client=' + yaploud_client +
-	                        '&yaploud_css=' + yaploud_css + 
-	                        '">' + yaplink_name + '</a>'
+	    var code = '<a target="_blank" href="javascript:window.open('
+	        "'" + script_domain + '/test/ad_template_test.php' + 
+	            '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
+	            '&yaploud_client=' + yaploud_client +
+	            '&yaploud_css=' + yaploud_css +
+	        "'" + ')">' + yaplink_name + '</a>'
 	}
     else if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
