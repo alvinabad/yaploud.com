@@ -40,21 +40,20 @@ if(!$iframe) {
 
   <div class="hd" id="hd">
   <?php
-//  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
-//   	print <<<HTML
- //     <div class="eptchat">
- //       <img src=/images/dogtime/eptchat.jpg border="0"></img>
- //     </div>
- //     <div class="purina_dogtime">
- //         <div class="purina"></div>
- //         <div></div>
- //     </div>
- //     <div class="wut_c"></div>
+  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
+   	print <<<HTML
+      <div class="eptchat">
+        <img src=/images/dogtime/eptchat.jpg border="0"></img>
+      </div>
+      <div class="purina_dogtime">
+          <div class="purina"></div>
+          <div></div>
+      </div>
+      <div class="wut_c"></div>
 
-//HTML;
- // }
-//  else 
-    if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+HTML;
+ }
+  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
   	print <<<HTML
     <div class="eptchat">
       <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
