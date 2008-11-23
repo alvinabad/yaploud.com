@@ -40,7 +40,7 @@ if(!$iframe) {
 
   <div class="hd" id="hd">
   <?php
-  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
+//  if (isset($_REQUEST['c']) && $_REQUEST['c'] == "dogtimemedia") {
 //   	print <<<HTML
  //     <div class="eptchat">
  //       <img src=/images/dogtime/eptchat.jpg border="0"></img>
@@ -52,7 +52,7 @@ if(!$iframe) {
  //     <div class="wut_c"></div>
 
 //HTML;
-  }
+ // }
   else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
   	print <<<HTML
     <div class="eptchat">
