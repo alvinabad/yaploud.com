@@ -41,8 +41,7 @@ if (yaploud_yaplink_el && document.location) {
 	    script_domain + '/test/ad_template_test.php' + 
         '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
         '&yaploud_client=' + yaploud_client +
-        '&yaploud_css=' + yaploud_css +
-        
+        '&yaploud_css=' + yaploud_css    
 	    + ',\'\',\'width=340,height=450,status=yes,scrollbars=no, menubar=no, toolbar=no,location=no,resizable=yes\'); return false;">' + yaplink_name + '</a>';
 	}
     else if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
