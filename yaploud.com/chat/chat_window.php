@@ -53,7 +53,8 @@ if(!$iframe) {
 
 //HTML;
  // }
-  else if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
+//  else 
+    if (isset($_REQUEST['c']) && $_REQUEST['c'] == "ad") {
   	print <<<HTML
     <div class="eptchat">
       <a href="/home.php" onclick="openExternalWindow('/home.php'); return false;">
