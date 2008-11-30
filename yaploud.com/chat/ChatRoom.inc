@@ -107,7 +107,24 @@ class ChatRoom {
 						$row['flagged_by_me'] = $bu->isIpFlaggedByMe($row['ip'], $domainname, $_SESSION['username']);
 					}
                     $user = $row;
-                    array_push($users, $user);
+                    
+                    // add all users to RHS if site URL is not dogtimemedia.com
+                    // TODO: replace this with a query list for multiple sites
+                    //       hardcoded for now for dogtimemedia.com
+                    if (substr_count($url, "dogtimemedia.com") == 0) {
+                        array_push($users, $user);
+                    }
+                    
+                    // add all non-guest users to RHS
+                    else if (substr_count($user['name'], "guest") == 0) {
+                        array_push($users, $user);
+                    }
+                    
+                    // add only myself; I won't see other guest users on the RHS
+                    else if (strcmp($_SESSION['username'], $user['name']) == 0) { 
+                        array_push($users, $user);
+                    }
+                    
                 }
             }
             mysql_free_result($result);
