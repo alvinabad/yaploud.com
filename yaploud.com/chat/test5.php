@@ -897,7 +897,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$MainWhole
                             
                             
                     <td>
-                        <span id="yaploud_yaplink"></span>
+                        <span id="yaploud_yaplink">test</span>
 
                       
                         <script language="javascript" type="text/javascript">
