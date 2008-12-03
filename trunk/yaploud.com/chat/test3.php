@@ -23,8 +23,6 @@
  </style>
  <script type="text/javascript">
      var yaplink_name = "PetChat";
-     var yaploud_client = "dogtimemedia";
-		var yaploud_css = "http://partners.dogtime.com/service_providers/yaploud/chat/chat_window.css";
  </script>
  <script type="text/javascript" src="/chat/generate_yaplet_link.js"></script>
  <div id="logoBar">
