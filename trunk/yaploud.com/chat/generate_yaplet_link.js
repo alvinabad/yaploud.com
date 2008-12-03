@@ -42,7 +42,7 @@ if (yaploud_yaplink_el && document.location) {
         '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
         '&yaploud_client=' + yaploud_client +
         '&yaploud_css=' + yaploud_css + 
-	    '\')">' + yaplink_name + '</a>';
+	    '\',\'\')">' + yaplink_name + '</a>';
 	}
     else if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
