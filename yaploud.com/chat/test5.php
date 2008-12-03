@@ -881,7 +881,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$MainWhole
         </td>
         <td style="width: 1px; height: 1px;" class="dropshadowbottom">
         </td>
-    </tr>
+    </tr> 
     <tr>
         <td style="width: 1px; height: 1px" class="dropshadowright">
         </td>
