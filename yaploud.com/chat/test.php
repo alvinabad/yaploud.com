@@ -22,8 +22,8 @@
      }
  </style>
  <script type="text/javascript">
-     var yaplet_with_ad = false;//true;
-     var yaploud_embedded = false; //true;
+     var yaplet_with_ad = true;
+     var yaploud_embedded = true;
      var yaplink_name = "PetChat";
      var yaploud_client = "dogtimemedia";
 		var yaploud_css = "http://partners.dogtime.com/service_providers/yaploud/chat/chat_window.css";
