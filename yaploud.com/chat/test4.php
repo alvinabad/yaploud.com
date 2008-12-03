@@ -53,7 +53,7 @@
   YAHOO.util.Event.onDOMReady(function () {
    // Initialize the iframe through JS so crawlers don't instantiate it.
    var chatFrame = YAHOO.util.Dom.get("chatFrame");
-   chatFrame.src = "http://www.yaploud.com/chat/chat_window.php?url=http://dogtimemedia.com&title=Live+chat+with+pet+lovers&c=dogtimemedia&yaploud_css=http://partners.dogtime.com/service_providers/yaploud/chat/chat_window.css";
+   chatFrame.src = "http://test.yaploud.com/chat/chat_window.php?url=http://dogtimemedia.com&title=Live+chat+with+pet+lovers&c=dogtimemedia&yaploud_css=http://partners.dogtime.com/service_providers/yaploud/chat/chat_window.css";
    DTM.utility.AdRotator.rotateAd("adFrame");
   });
  </script>
@@ -90,19 +90,5 @@
   YAHOO.util.Event.onDOMReady(function () {setTimeout("rotateConversationStarters(1)", csDelay)});
  </script>
  <!-- /Conversation starters rotation -->
- 
- <!--
-  GA code that is customized for PetChat since it is a widget that will be
- launched from multiple domains and it is a popup without a real url.
-  We are also specifying the non-SSL version so we can avoid a doc.write
--->
-
-<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-2208727-1");
-pageTracker._setDomainName("none");
-pageTracker._setAllowLinker(true);
-pageTracker._trackPageview("/dtm-widget/petchat/100/dogtime.com");
-</script>
 </body>
 </html>
