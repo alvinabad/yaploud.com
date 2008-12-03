@@ -897,7 +897,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$MainWhole
                             
                             
                     <td>
-                        <span id="yaploud_yaplink">test</span>
+                        <span id="yaploud_yaplink"></span>
 
                       
                         <script language="javascript" type="text/javascript">
@@ -905,7 +905,7 @@ Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$MainWhole
         
        var yaplink_url = window.location.href;
       
-        var yaplink_name = "<img src='../storypage/images/yaploud.JPG' border='0'/>";
+        var yaplink_name = "test yaplet<img src='../storypage/images/yaploud.JPG' border='0'/>";
         
                         </script>
 
