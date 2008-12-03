@@ -42,7 +42,8 @@ if (yaploud_yaplink_el && document.location) {
         '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
         '&yaploud_client=' + yaploud_client +
         '&yaploud_css=' + yaploud_css + 
-	    '\',\'\')">' + yaplink_name + '</a>';
+	    '\',\'\',\'width=340,height=500,status=yes,scrollbars=no,menubar=no,toolbar=no,location=no,resizable=yes\')">' + 
+	    yaplink_name + '</a>';
 	}
     else if (typeof(yaploud_embedded) != "undefined" && yaploud_embedded) {
         var code = '<iframe id="chatFrame" ' +
