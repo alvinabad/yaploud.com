@@ -35,7 +35,7 @@ google_ad_height = 250;
      }
      #chatFrame {
          overflow:hidden;
-         width:330px; 
+         width:380px; 
          height:325px;
      }
  </style>
