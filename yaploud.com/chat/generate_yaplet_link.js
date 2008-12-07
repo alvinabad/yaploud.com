@@ -38,7 +38,7 @@ if (yaploud_yaplink_el && document.location) {
 	}
 	if (typeof(yaplet_with_ad) != "undefined" && yaplet_with_ad) {
 	    var code = '<a href="#" onclick="window.open(\'' +
-	    script_domain + '/test/ad_template_test.php' + 
+	    script_domain + '/chat/chat_window_with_ad.php' + 
         '?yaploud_embedded=true&yaplink_name=' + yaplink_name + 
         '&yaploud_client=' + yaploud_client +
         '&yaploud_css=' + yaploud_css + 
