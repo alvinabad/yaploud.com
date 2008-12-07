@@ -10,15 +10,16 @@
 </td>
 <td valign="top">
 <div id="advertisement">
- <script type="text/javascript">
-  <!-- 
-  google_ad_client = "pub-8718455105980393"; /* in.com ad code */
-  google_ad_slot = "6932164767"; 
-  google_ad_width = 120; 
-  google_ad_height = 240; 
-  //--> 
- </script> 
- <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<script type="text/javascript">
+<!-- 
+google_ad_client = "pub-8718455105980393"; 
+/* in 300x250, created 12/4/08 */ 
+google_ad_slot = "5577882474"; 
+google_ad_width = 300; 
+google_ad_height = 250; 
+//--> 
+</script> 
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"> </script>
 </div>	  
 </td>
 </tr>
