@@ -10,9 +10,9 @@
 <script type="text/javascript">
 function isSearchValid() {
     var txt = document.search_form.query.value;
-    txt = txt.replace(/^\s\s*/, '').replace(/\s\s*$/, '');  
+    txt = txt.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     document.search_form.query.value = txt;
-            
+
     if (txt == "" ) {
         return false;
     }
@@ -20,7 +20,7 @@ function isSearchValid() {
         return true;
     }
 }
-        
+
 function submitSearch() {
     if (isSearchValid()) {
         document.search_form.submit();
@@ -31,6 +31,20 @@ function submitSearch() {
 }
 </script>
 
+<div id="topad">
+<script type="text/javascript"><!--
+google_ad_client = "pub-8718455105980393";
+/* 728x90, home page top */
+google_ad_slot = "2619470221";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<BR>
 
 <div id="header">
     <div class="header-top">
@@ -63,8 +77,8 @@ HTML;
 HTML;
             }
         ?>
-                
-        
+
+
             <form name="search_form" method="get" action="/search/find.php" onsubmit="return isSearchValid();">
                 <span style="margin-top:5px; margin-left: 0px;">Search:</span>
                 <input name="query" id="search_box" type="text" class="Text2_b"
