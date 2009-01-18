@@ -8,6 +8,7 @@ require_once 'db.inc';
 require("util/Url.inc"); 
 require('BannedUsers.inc');
 require('bad_words.inc');
+require("./ChatRoom.inc");
 
 $ip = $_SERVER['REMOTE_ADDR'];
 $bu = new BannedUsers();
@@ -27,6 +28,11 @@ $msg = preg_replace($bad_words, '@!$@#', $msg);
 $url = $_GET['url'];
 $url = normalizeURL($url);
 $url = addslashes($url);
+
+// add user to chatroom
+$cr = new ChatRoom();
+$ip = $_SERVER['REMOTE_ADDR'];
+$cr->updateUser($url, $user, $ip);
 
 $query = "INSERT INTO chat values (NULL, '$url', '$user', SYSDATE(), '$msg')"; 
 //print "$query <br/>";

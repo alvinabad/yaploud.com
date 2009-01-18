@@ -438,10 +438,10 @@ function renderYappers(obj) {
     }
     
     // if current user is not in chat room, change login info
-    if (!found) {
-    	username = obj.user_session;
-    	updateLoginInfo(username);
-    }
+    //if (!found && obj.user_session) {
+    //	username = obj.user_session;
+    //	updateLoginInfo(username);
+    //}
     
     var community = document.getElementById('community');
     //alert(community);
