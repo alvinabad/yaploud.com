@@ -37,9 +37,10 @@ if (isset($_SESSION['username']) && isset($_REQUEST['heartbeat'])) {
     $username = $_SESSION['username'];
     $ip = $_SERVER['REMOTE_ADDR'];
     // check if heartbeat of a user is sent
-    $cr->updateUser($url, $username, $ip);
+    if (substr_compare($username, "guest", 0, 5) != 0) {
+        $cr->updateUser($url, $username, $ip);
+    }
 }
-
 
 $rs = array();
 $rs['msgs'] = $cm->getMessages($url, $last_msg_id);
