@@ -23,7 +23,6 @@
   <h1>Moderate Yaplet of a website</h1>
   <p>
 <?php
-    /**************
 	print <<<HTML
     <form action="{$_SERVER['PHP_SELF']}" method="get" >
     Enter url of the website you wish to moderate: 
@@ -34,7 +33,6 @@
        window and click on the moderate link.)</font>
   <hr>
 HTML;
-    **************/
 ?>
 
 <?php
@@ -128,17 +126,18 @@ HTML;
     should be prohibited from any conversations on this YapURL.
     <p>
 
-    
-
-    Would you like to have the selected users' conversations to be deleted 
-    from the Yaplet? 
-        <input type="checkbox" name="delete_yaps" value="{$user},{$ip}">
-    <p>
-
-    
 
     Click here to submit your request: 
     <input type="submit" value="Submit">
+    
+    <hr>
+    
+    Delete all messages sent by this user: 
+        <input type="text" name="delete_yaps_of_this_user" value="">
+        <input type="submit" value="Submit">
+    <p>
+
+    
   </div>
   </form>
   
