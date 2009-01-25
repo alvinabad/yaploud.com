@@ -25,6 +25,18 @@ class ChatMessages {
      
     	
     }
+    function deleteMessagesOfUser($user, $url) {
+		$url = $this->removeHttp($url);
+		$url = addslashes($url);
+		
+		$user = trim($user);
+		$user = addslashes($user);
+		
+		$sql = "DELETE FROM chat " .
+               "WHERE topic_url = '$url' and submitter = '$user' "; 
+
+		$result = $this->db->mysql_query($sql);
+    }
     function getPartnerNumMessages($partner) {
     	if ($partner != "dogtimemedia") { 
     		$sql = "SELECT count(*) as count FROM chat;";

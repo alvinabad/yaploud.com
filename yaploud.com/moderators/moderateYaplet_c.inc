@@ -52,7 +52,10 @@ else {
 	return;
 }
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
+if ( isset($_REQUEST['delete_yaps_of_this_user']) && $_REQUEST['delete_yaps_of_this_user'] != "") {
+    $cm->deleteMessagesOfUser($_REQUEST['delete_yaps_of_this_user'], $_REQUEST['url']);
+}
+else if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
     $ips = array();  // ip => ban or unban
     $ipUser = array();
     $users = $_POST['users'];
@@ -84,7 +87,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['ban_users']) ) {
         }
     }
 }
-
     
 $yap_messages = array_reverse($cm->getMessages($yap_url, -1));
 $yappers = $cr->getUsers($yap_url);
