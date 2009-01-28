@@ -51,19 +51,20 @@ include("./register_c.inc");
 <div id="content">
 
   <div id="content_0">
-  <h1>Register at YapLoud</h1>
+
+  <h1>Register for <img src="/images/dogtime/petchat_logo_trans.gif" /></h1>
   <div id="content_1">
-    <h4>What is YapLoud?</h4>
-    YapLoud is the home for yapping about everything:
+    <h4>What is PetChat?</h4>
+    PetChat is a live chat forum for talking to other pet lovers. <br>Sign up to:
     <ul style="margin-left: 0;">
-    <li style="margin-left: 0;">Chat about any topic of your interest
-    <li>Share favorite Yaps
-    <li>Connect with other yappers
+    <li style="margin-left: 0;">Chat about your dogs and cats
+    <li>Share stories and advice
+    <li>Talk to pet experts at weekly events
     </ul>
 
-    <a href="/user/register.php">Sign up</a> now to join the YapLoud Community
-    <br>
-    <a href="/extension/yaploud.xpi" onclick="installxpi(this); return false;">Install</a> Firefox add-on
+        <input style="width:20px;" type="checkbox" name="dtm" checked>
+        Subscribe to the free Dogtimes Weekly newsletter and get expert advice
+on nutrition, training, health, plus the latest pet news. Sign-Up today!
 
   </div>
 
@@ -164,13 +165,13 @@ HTML;
     </tr>
     <tr>
       <td>
-        <input style="width:20px;" type="checkbox" name="mailinglist" checked>
+        <input style="width:20px;" type="checkbox" name="ylml" checked>
         Add me to your mailing list
       </td>
     </tr>
     <tr>
       <td>
-        <input style="width:20px;" type="checkbox" name="mailinglist" checked>
+        <input style="width:20px;" type="checkbox" name="petalert" checked>
         I would like to receive email alerts about upcoming PetChat events- talk to experts, win prizes, and more!
       </td>
     </tr>
