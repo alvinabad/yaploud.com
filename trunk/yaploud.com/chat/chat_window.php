@@ -134,8 +134,17 @@ HTML;
 else {
 	print <<<HTML
 	| <a href="javascript: void 0;" id="login">Login</a>
-         | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
 HTML;
+    if ( yaploud_client == 'dogtimemedia') {
+	    print <<<HTML
+        | <a href="javascript: openExternalWindow('/user/register_dtm.php); void 0;" id="signup">SignUp</a>
+HTML;
+    }
+    else {
+	    print <<<HTML
+        | <a href="javascript: openExternalWindow('/user/register.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
+HTML;
+    }
 }
      ?>
          </div>
