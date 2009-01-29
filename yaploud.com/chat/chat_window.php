@@ -135,7 +135,7 @@ else {
 	print <<<HTML
 	| <a href="javascript: void 0;" id="login">Login</a>
 HTML;
-    if ( yaploud_client == 'dogtimemedia') {
+    if ( $site_url == 'http://dogtimemedia.com') {
 	    print <<<HTML
         | <a href="javascript: openExternalWindow('/user/register_dtm.php); void 0;" id="signup">SignUp</a>
 HTML;
