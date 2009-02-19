@@ -137,7 +137,7 @@ else {
 HTML;
     if ( $site_url == 'http://dogtimemedia.com') {
 	    print <<<HTML
-        | <a href="javascript: openExternalWindow('/user/register_dtm.php'); void 0;" id="signup">SignUp</a>
+        | <a href="javascript: openExternalWindow('/user/register_dtm.php?yaploud_client=' + yaploud_client); void 0;" id="signup">SignUp</a>
 HTML;
     }
     else {
