@@ -18,6 +18,31 @@
 <?php include("rightNav.php"); ?>
 
 <div id="content">
+   <h1>Coming soon: YapLoud on Videos!</h1>
+   <p style="padding-left: 30px;">
+   Visit our beta site here: 
+   <a target="_blank" style="font-family: arial;" 
+        href="http://yapple.yaploud.com/">http://yapple.yaploud.com/</a>
+   </p>
+   
+   <hr />
+
+   <h1>YapLoud has gone opensocial!</h1>
+   <p style="padding-left: 30px;">
+   We've developed a chat application for Ning.com. Installation is as simple
+   as loading this gadget xml file:
+   <br />
+   <span style="font-family: arial; padding-left: 20px;">
+   <a target="_blank" href="http://opensocial.yaploud.com/static/yaploud_gadget.xml">
+         http://opensocial.yaploud.com/static/yaploud_gadget.xml</a></span>
+   <br />
+   <br />
+   Check out our sample installation here: 
+   <a target="_blank" style="font-family: arial;" href="http://yaploud1.ning.com/">http://yaploud1.ning.com/</a>
+   </p>
+   
+   <hr />
+   
    <div class="yap_url title">
     <a href="/help/tour.php"><b>What is YapLoud?</b></a>
    </div>
