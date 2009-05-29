@@ -18,14 +18,6 @@
 <?php include("rightNav.php"); ?>
 
 <div id="content">
-   <h1>Coming soon: YapLoud on Videos!</h1>
-   <p style="padding-left: 30px;">
-   Visit our beta site here: 
-   <a target="_blank" style="font-family: arial;" 
-        href="http://yapple.yaploud.com/">http://yapple.yaploud.com/</a>
-   </p>
-   
-   <hr />
 
    <h1>YapLoud has gone opensocial!</h1>
    <p style="padding-left: 30px;">
